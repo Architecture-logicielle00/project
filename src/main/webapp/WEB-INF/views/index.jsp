@@ -7,8 +7,7 @@
 	<title>Titre de la page</title>
 </head>
 <body>
-
 	<h1>Cette page sert simplement d'exemple, vous pouvez l'enlever.</h1>
-
+	<p>Test de commit</p>
 </body>
 </html>
