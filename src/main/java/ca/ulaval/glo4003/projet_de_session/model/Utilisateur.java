@@ -54,10 +54,10 @@ public abstract class Utilisateur extends Observable implements Serializable {
 		this.cout = cost;
 		changed();
 	}
-	public float getPay() {
+	public float getSalaire() {
 		return salaire;
 	}
-	public void setPay(float pay) {
+	public void setSalaire(float pay) {
 		this.salaire = pay;
 		changed();
 	}

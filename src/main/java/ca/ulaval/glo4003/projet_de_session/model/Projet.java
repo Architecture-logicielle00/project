@@ -9,6 +9,7 @@ public class Projet extends Observable implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	private Integer	idProjet;
+	private Integer idUtilisateur;
 	private String	nomProjet;
 	private float	coutProjet;
 	private Date	dateEcheance;
@@ -19,6 +20,7 @@ public class Projet extends Observable implements Serializable {
 	public Projet(Integer idProjet){
 		
 		this.idProjet 		= idProjet;
+		this.idUtilisateur	= new Integer(idUtilisateur);
 		this.nomProjet		= new String(nomProjet);
 		this.dateEcheance	= new Date();
 		this.coutProjet		= new Float(coutProjet);
@@ -29,6 +31,16 @@ public class Projet extends Observable implements Serializable {
 	}
 	
 	
+	public Integer getIdUtilisateur() {
+		return idUtilisateur;
+	}
+
+
+	public void setIdUtilisateur(Integer idUtilisateur) {
+		this.idUtilisateur = idUtilisateur;
+	}
+
+
 	public float getCoutProjet() {
 		return coutProjet;
 	}
