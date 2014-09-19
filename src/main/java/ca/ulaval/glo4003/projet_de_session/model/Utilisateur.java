@@ -11,6 +11,8 @@ public abstract class Utilisateur extends Observable implements Serializable {
 	
 	private Integer	id;
 	private String	nomProjet;
+	private	String	idul;
+	private	String	motdepasse;
 	private String	prenom;
 	private String	nom;
 	private String	tache;	
@@ -26,6 +28,8 @@ public abstract class Utilisateur extends Observable implements Serializable {
 		
 		this.id			= new Integer(id);
 		this.nomProjet	= new String(nomProjet);
+		this.idul		= new String(idul);
+		this.motdepasse	= new String(motdepasse);
 		this.prenom		= new String(prenom);
 		this.nom		= new String(nom);
 		this.tache		= new String(tache);
@@ -40,6 +44,30 @@ public abstract class Utilisateur extends Observable implements Serializable {
 	
 	
 	
+	public String getIdul() {
+		return idul;
+	}
+
+
+
+	public void setIdul(String idul) {
+		this.idul = idul;
+	}
+
+
+
+	public String getMotdepasse() {
+		return motdepasse;
+	}
+
+
+
+	public void setMotdepasse(String motdepasse) {
+		this.motdepasse = motdepasse;
+	}
+
+
+
 	public float getMillage() {
 		return millage;
 	}

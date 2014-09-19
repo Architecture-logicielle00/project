@@ -103,6 +103,14 @@ public class XmlCreator {
 		IdElement.appendChild(document.createTextNode((u.getId()).toString()));  
 		utilisateurElement.appendChild(IdElement);
 		
+		Element IdulElement = document.createElement("idul");
+		IdulElement.appendChild(document.createTextNode((u.getIdul()).toString()));  
+		utilisateurElement.appendChild(IdulElement);
+		
+		Element MotDePasseElement = document.createElement("motdepasse");
+		MotDePasseElement.appendChild(document.createTextNode((u.getMotdepasse()).toString()));  
+		utilisateurElement.appendChild(MotDePasseElement);
+		
 		Element prenomElement = document.createElement("prenom");  
 		prenomElement.appendChild(document.createTextNode(u.getFirtname()));  
 		utilisateurElement.appendChild(prenomElement); 
