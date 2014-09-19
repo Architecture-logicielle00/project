@@ -7,6 +7,6 @@
 	<title>Erreur</title>
 </head>
 <body>
-	<h1>Erreur dude</h1>
+	<h1>Erreur dude ${nomUtilisateur} n'existe pas dans le système</h1>
 </body>
 </html>

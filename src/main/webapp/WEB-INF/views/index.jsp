@@ -7,6 +7,6 @@
 	<title>Accueil</title>
 </head>
 <body>
-	<h1>Bienvenue sur notre super site web</h1>
+	<h1>Bienvenue sur notre super site web monsieur ${nomUtilisateur}</h1>
 </body>
 </html>
