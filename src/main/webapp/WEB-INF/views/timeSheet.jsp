@@ -153,8 +153,6 @@
                 <td><input type="text" readonly="true"/></td>
                 <td><input type="text" readonly="true"/></td>
             </tr>
-
-
         </table>
     </div>
 
