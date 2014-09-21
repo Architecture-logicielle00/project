@@ -1,9 +1,9 @@
 package ca.ulaval.glo4003.projet_de_session.mock;
 
 import ca.ulaval.glo4003.projet_de_session.dao.RepositoryUtilisateur;
+import ca.ulaval.glo4003.projet_de_session.imodel.IIdentificateur;
+import ca.ulaval.glo4003.projet_de_session.imodel.IRepositoryUtilisateur;
 import ca.ulaval.glo4003.projet_de_session.model.SimpleUtilisateur;
-import ca.ulval.glo4003.projet_de_session.imodel.IIdentificateur;
-import ca.ulval.glo4003.projet_de_session.imodel.IRepositoryUtilisateur;
 
 public class FakeIdentificateur implements IIdentificateur 
 {
