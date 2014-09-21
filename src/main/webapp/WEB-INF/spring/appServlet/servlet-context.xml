@@ -20,7 +20,7 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 	
-	<!--<bean:bean id="fooBean" class="ca.ulaval.glo4003.projet_de_session.web.controllers.HelloWorldController">
+	<!--<bean:bean id="fooBean" class="ca.ulaval.glo4003.projet_de_session.web.controllers.ControllerPrincipal">
 		<constructor-arg>
 			<constructor-arg ref="identificateurBean" />
 		</constructor-arg>

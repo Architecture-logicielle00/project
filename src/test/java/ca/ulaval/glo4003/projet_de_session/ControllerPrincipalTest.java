@@ -6,14 +6,13 @@ import org.junit.Test;
 import org.springframework.ui.ExtendedModelMap;
 
 import ca.ulaval.glo4003.projet_de_session.mock.FakeIdentificateur;
-import ca.ulaval.glo4003.projet_de_session.web.controllers.HelloWorldController;
-import ca.ulval.glo4003.projet_de_session.imodel.IIdentificateur;
+import ca.ulaval.glo4003.projet_de_session.web.controllers.ControllerPrincipal;
 
-public class HelloWorldControllerTest {
+public class ControllerPrincipalTest {
 	
-	private HelloWorldController ObtenirControlleurTest()
+	private ControllerPrincipal ObtenirControlleurTest()
 	{
-		return new HelloWorldController(new FakeIdentificateur());
+		return new ControllerPrincipal(new FakeIdentificateur());
 	}
 	
 	@Test

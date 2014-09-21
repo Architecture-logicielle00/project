@@ -13,16 +13,16 @@ import ca.ulval.glo4003.projet_de_session.imodel.IIdentificateur;
 import ca.ulval.glo4003.projet_de_session.imodel.IRepositoryUtilisateur;
 
 @Controller
-public class HelloWorldController 
+public class ControllerPrincipal 
 {
 	private IIdentificateur identificateur;
 	private IRepositoryUtilisateur repoUtilisateur;
 	
-	public HelloWorldController() {
+	public ControllerPrincipal() {
 		this(new FakeIdentificateur());
 	}
 	
-	public HelloWorldController(IIdentificateur _identificateur) {
+	public ControllerPrincipal(IIdentificateur _identificateur) {
 		identificateur = _identificateur;
 		repoUtilisateur = new RepositoryUtilisateur();
 	}
