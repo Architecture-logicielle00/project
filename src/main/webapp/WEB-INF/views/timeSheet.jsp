@@ -5,12 +5,12 @@
     <meta charset="UTF-8">
     <title></title>
 
-    <link type="text/css" rel="stylesheet" href="./css/lib/bootstrap.min.css"/>
-    <link type="text/css" rel="stylesheet" href="./css/lib/bootstrap.css.map"/>
-    <link type="text/css" rel="stylesheet" href="./css/lib/bootstrap-theme.min.css"/>
-    <link type="text/css" rel="stylesheet" href="./css/lib/bootstrap-theme.css.map"/>
-    <link type="text/css" rel="stylesheet" href="./css/lib/font-awesome.min.css"/>
-    <link type="text/css" rel="stylesheet" href="./css/style.css"/>
+    <link type="text/css" rel="stylesheet" href="/resources/css/lib/bootstrap.min.css"/>
+    <link type="text/css" rel="stylesheet" href="/resources/css/lib/bootstrap.css.map"/>
+    <link type="text/css" rel="stylesheet" href="/resources/css/lib/bootstrap-theme.min.css"/>
+    <link type="text/css" rel="stylesheet" href="/resources/css/lib/bootstrap-theme.css.map"/>
+    <link type="text/css" rel="stylesheet" href="/resources/css/lib/font-awesome.min.css"/>
+    <link type="text/css" rel="stylesheet" href="/resources/css/style.css"/>
 </head>
 <body>
 
