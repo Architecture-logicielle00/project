@@ -4,13 +4,21 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 import org.springframework.ui.ExtendedModelMap;
+
+import ca.ulaval.glo4003.projet_de_session.mock.FakeIdentificateur;
 import ca.ulaval.glo4003.projet_de_session.web.controllers.HelloWorldController;
+import ca.ulval.glo4003.projet_de_session.imodel.IIdentificateur;
 
 public class HelloWorldControllerTest {
 	
+	private HelloWorldController ObtenirControlleurTest()
+	{
+		return new HelloWorldController(new FakeIdentificateur());
+	}
+	
 	@Test
 	public void rendersLogin() {
-		assertEquals("login", new HelloWorldController().login());
+		assertEquals("login", ObtenirControlleurTest().login());
 	}
 	
 	@Test
@@ -19,7 +27,7 @@ public class HelloWorldControllerTest {
 		req.setAttribute("nomUtilisateur", "Jeff");
 		req.setAttribute("mdp", "12345");
 		
-		assertEquals("index", new HelloWorldController().connection(req,new ExtendedModelMap()));
+		assertEquals("index", ObtenirControlleurTest().connection(req,new ExtendedModelMap()));
 	}
 	
 	@Test
@@ -28,6 +36,6 @@ public class HelloWorldControllerTest {
 		req.setAttribute("nomUtilisateur", "MauvaisUser");
 		req.setAttribute("mdp", "98765");
 		
-		assertEquals("erreur", new HelloWorldController().connection(req,new ExtendedModelMap()));
+		assertEquals("erreur", ObtenirControlleurTest().connection(req,new ExtendedModelMap()));
 	}
 }
