@@ -19,14 +19,17 @@
 		<beans:property name="prefix" value="/WEB-INF/views/" />
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
-	
-	<!--<bean:bean id="fooBean" class="ca.ulaval.glo4003.projet_de_session.web.controllers.ControllerPrincipal">
+		
+<!--	
+	<bean:bean id="controlleurPrincipal" class="ca.ulaval.glo4003.projet_de_session.web.controllers.ControllerPrincipal">
 		<constructor-arg>
 			<constructor-arg ref="identificateurBean" />
 		</constructor-arg>
 	</beans:beans>
 	
 	<bean:bean id="identificateurBean" class="ca.ulaval.glo4003.projet_de_session.mock.FakeIdentificateur">
-    </bean:bean>-->
-	
+    </bean:bean>
+-->
+
+    	
 </beans:beans>
