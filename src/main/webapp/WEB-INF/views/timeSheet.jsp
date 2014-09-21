@@ -160,10 +160,10 @@
 
 </div>
 
-<script src="./js/lib/jquery.js"></script>
-<script src="./js/lib/jquery-ui.js"></script>
-<script src="./js/lib/bootstrap.min.js"></script>
-<script src="js/script.js"></script>
+<script src="/resources/js/lib/jquery.js"></script>
+<script src="/resources/js/lib/jquery-ui.js"></script>
+<script src="/resources/js/lib/bootstrap.min.js"></script>
+<script src="/resources/js/script.js"></script>
 </body>
 
 </html>
