@@ -1,37 +1,34 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-<head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<link rel="stylesheet" href="/resources/css/main.css" media="all" />
-	<title>RÉULTAT - Logiciel Comptable</title>
+<head lang="en">
+    <meta charset="UTF-8">
+    <link type="text/css" rel="stylesheet" href="/ressources/css/lib/bootstrap.min.css"/>
+    <link type="text/css" rel="stylesheet" href="/ressources/css/lib/bootstrap.css.map"/>
+    <link type="text/css" rel="stylesheet" href="/ressources/css/lib/bootstrap-theme.min.css"/>
+    <link type="text/css" rel="stylesheet" href="/ressources/css/lib/bootstrap-theme.css.map"/>
+    <link type="text/css" rel="stylesheet" href="/ressources/css/lib/font-awesome.min.css"/>
+    <link type="text/css" rel="stylesheet" href="/ressources/css/index.css"/>
+    <title></title>
 </head>
 <body>
-	<h1>RÉSULTAT</h1>
-	<form method="post" action="/">
-		<table>
-			<tr>
-				<td>
-					Nom d'utilisateur :
-				</td>
-				<td>
-					<input type="text" name="nomUtilisateur">
-				</td>
-			</tr>
-			<tr>
-				<td>
-					Mot de passe :
-				</td>
-				<td>
-					<input type="password" name="mdp">
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<input type="submit" name="connecter">
-				</td>
-			</tr>
-		</table>
-	</form>
+<header>
+    <img src="" alt=""/>
+</header>
+
+<div id="main">
+    <div id="form-wrapper" class="jumbotron">
+        <form class="form-signin" role="form">
+            <h2 class="form-signin-heading">Sign In to your Account</h2>
+            <input type="username" name="nomUtilisateur" class="form-control" placeholder="User name" required autofocus>
+            <input type="password" name="mdp" class="form-control" placeholder="Password" required>
+            <label class="checkbox">
+                <input type="checkbox" value="remember-me"> Remember me
+            </label>
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+        </form>
+    </div>
+</div>
+<footer></footer>
 </body>
 </html>
