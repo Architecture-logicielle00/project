@@ -3,8 +3,8 @@ package ca.ulaval.glo4003.projet_de_session.dao;
 import java.util.ArrayList;
 import java.util.List;
 
+import ca.ulaval.glo4003.projet_de_session.imodel.IRepositoryUtilisateur;
 import ca.ulaval.glo4003.projet_de_session.model.SimpleUtilisateur;
-import ca.ulval.glo4003.projet_de_session.imodel.IRepositoryUtilisateur;
 
 public class RepositoryUtilisateur implements IRepositoryUtilisateur {
 	
