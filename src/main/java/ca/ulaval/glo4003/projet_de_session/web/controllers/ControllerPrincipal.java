@@ -67,4 +67,9 @@ public class ControllerPrincipal
 	    
 		return "index";
 	}
+	
+	@RequestMapping("/FeuilleDeTemps")
+	public String accederFeuilleDeTemps() {
+		return "timeSheet";
+	}
 }

@@ -17,6 +17,11 @@
 		<h2>Le compte utilisateur ${nouveauCompte} à bien été crée</h2>
 	</c:if>
 	
-	<a href="/CreeUtilisateur">CreeUtilisateur</a>
+	<p>
+		<a href="/CreeUtilisateur">Crée un utilisateur</a>
+	</p>
+	<p>
+		<a href="/FeuilleDeTemps">Acceder à la feuille de temps</a>
+	</p>
 </body>
 </html>
