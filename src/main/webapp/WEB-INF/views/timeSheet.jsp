@@ -168,6 +168,8 @@
 <script src="/resources/js/lib/jquery.js"></script>
 <script src="/resources/js/lib/jquery-ui.js"></script>
 <script src="/resources/js/lib/bootstrap.min.js"></script>
+<script src="/resources/js/feuilleDeTemps/timeSheetAnimation.js"></script>	
+<script src="/resources/js/feuilleDeTemps/timeSheetServerCommunication.js"></script>	
 </body>
 </html>  
   
