@@ -9,14 +9,14 @@
 #table-wrapper{
     width: 534px;
     overflow-x:scroll;
-    margin-left:45em;
+    margin-left:586px;
     overflow-y:visible;
     padding-bottom:1px;
     white-space: nowrap;
 }
 
 #header-time-sheet{
-    width: 1161px;
+    width: 100%;
     height: 95px;
 }
 
@@ -58,16 +58,16 @@
     position : absolute;
     max-width: 15em;
     min-width: 15em;
-    left : 1px;
+    left : 248px;
 
 
 }
 
 .fixcol2{
     position : absolute;
-    max-width: 30em;
-    min-width: 30em;
-    left : 211px;
+    max-width: 26em;
+    min-width: 26em;
+    left : 458px;
 }
 
 .input-not-empty{
