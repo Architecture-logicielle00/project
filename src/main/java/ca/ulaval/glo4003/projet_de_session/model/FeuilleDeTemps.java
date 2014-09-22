@@ -6,7 +6,6 @@ import java.util.List;
 
 public class FeuilleDeTemps {
 	private List<BlocDeTemps> BlocsDeTemps = new ArrayList<BlocDeTemps>();
-	private Date date;
 	private Date dateDebut;
 	private Date dateFin;
 }
