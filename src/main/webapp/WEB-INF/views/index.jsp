@@ -30,7 +30,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="">RÉSULTATS</a>
+            <a class="navbar-brand" href="#">RÉSULTATS</a>
         </div>
 
         <ul class="nav navbar-right top-nav">
@@ -58,13 +58,13 @@
                         <a href="/FeuilleDeTemps"><i class="fa fa-fw fa fa-clock-o"></i> Feuille de Temps</a>
                     </li>
                     <li>
-                        <a href=""><i class="fa fa-fw fa-money"></i> Dépenses</a>
+                        <a href="#"><i class="fa fa-fw fa-money"></i> Dépenses</a>
                     </li>
                     <li>
-                        <a href=""><i class="fa fa-fw fa-car"></i> Déplacements</a>
+                        <a href="#"><i class="fa fa-fw fa-car"></i> Déplacements</a>
                     </li>
                     <li>
-                        <a href=""><i class="fa fa-fw fa-tasks"></i> Projets/Tâches</a>
+                        <a href="#"><i class="fa fa-fw fa-tasks"></i> Projets/Tâches</a>
                     </li>
                     <li>
                         <a href="/CreeUtilisateur""><i class="fa fa-fw fa fa-users"></i> Gestion des Employés</a>
