@@ -6,5 +6,5 @@ public class BlocDeTemps {
 	private Integer projet;
 	private Integer tache;
 	private Date jour;
-	private float nbHeureTravaillees;
+	private float nbHeureTravaille;
 }
