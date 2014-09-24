@@ -20,7 +20,7 @@
     <div id="form-wrapper" class="jumbotron">
         <form class="form-signin" role="form" method="post" action="/">
             <h2 class="form-signin-heading">Sign In to your Account</h2>
-            <input type="username" name="nomUtilisateur" class="form-control" placeholder="User name" required autofocus>
+            <input type="text" name="nomUtilisateur" class="form-control" placeholder="User name" required autofocus>
             <input type="password" name="mdp" class="form-control" placeholder="Password" required>
             <label class="checkbox">
                 <input type="checkbox" value="remember-me"> Remember me

@@ -8,7 +8,7 @@ public class Employe extends SimpleUtilisateur {
 		// TODO Auto-generated constructor stub
 	}
 
-	List<Feuille> feuilles;
+	List<FeuilleDeTemps> feuilles;
 	List<SimpleProjet> projets;
 	boolean estGestionnaire = false;
 	Employe gestionnaire;

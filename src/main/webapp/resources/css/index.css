@@ -4,7 +4,7 @@ header, footer{
 
 #main{
     height : 80vh;
-    background-image: url("mainbg.jpg");
+    background-image: url("../img/mainbg.jpg");
     background-size: 100% 100%;
 }
 

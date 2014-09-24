@@ -5,6 +5,6 @@ import java.util.Date;
 public class BlocDeTemps {
 	private Integer projet;
 	private Integer tache;
-	private Date dateDebut;
-	private Date dateFin;
+	private Date jour;
+	private float nbHeureTravaille;
 }
