@@ -68,7 +68,7 @@ public class ControllerPrincipal
 		
 	    model.addAttribute("nomUtilisateur", "");
 	    
-		return "index";
+		return "employeeManagement";
 	}
 	
 	@RequestMapping("/FeuilleDeTemps")
@@ -86,5 +86,10 @@ public class ControllerPrincipal
 		boolean sauvegardeEffectueAvecSucces = true;
 		
 		return sauvegardeEffectueAvecSucces;
+	}
+	
+	@RequestMapping("/EmployeeManagement")
+	public String getEmployeeManagement() {
+		return "employeeManagement";
 	}
 }
