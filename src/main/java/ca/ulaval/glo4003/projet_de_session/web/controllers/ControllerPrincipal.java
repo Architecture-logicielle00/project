@@ -65,11 +65,16 @@ public class ControllerPrincipal
 		
 	    model.addAttribute("nomUtilisateur", "");
 	    
-		return "index";
+		return "employeeManagement";
 	}
 	
 	@RequestMapping("/FeuilleDeTemps")
 	public String accederFeuilleDeTemps() {
 		return "timeSheet";
+	}
+	
+	@RequestMapping("/EmployeeManagement")
+	public String getEmployeeManagement() {
+		return "employeeManagement";
 	}
 }
