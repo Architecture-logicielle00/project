@@ -10,45 +10,42 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import ca.ulaval.glo4003.projet_de_session.dao.RepositoryUtilisateur;
+import ca.ulaval.glo4003.projet_de_session.imodel.IGestionSession;
 import ca.ulaval.glo4003.projet_de_session.imodel.IIdentificateur;
 import ca.ulaval.glo4003.projet_de_session.imodel.IRepositoryUtilisateur;
 import ca.ulaval.glo4003.projet_de_session.mock.FakeIdentificateur;
 import ca.ulaval.glo4003.projet_de_session.model.FeuilleDeTemps;
+import ca.ulaval.glo4003.projet_de_session.web.viewmodels.UserViewModel;
 
 @Controller
 public class ControllerPrincipal 
 {
 	private IIdentificateur identificateur;
 	private IRepositoryUtilisateur repoUtilisateur;
+	private IGestionSession manageSession;
 	
 	public ControllerPrincipal() {
-		this(new FakeIdentificateur());
+		this(new FakeIdentificateur(),new RepositoryUtilisateur(),new GestionSessionController());
 	}
 	
-	public ControllerPrincipal(IIdentificateur _identificateur) {
+	public ControllerPrincipal(IIdentificateur _identificateur,IRepositoryUtilisateur _repoUtilisateur, IGestionSession _manageSession) {
 		identificateur = _identificateur;
-		repoUtilisateur = new RepositoryUtilisateur();
+		repoUtilisateur = _repoUtilisateur;
+		manageSession = _manageSession;
 	}
 	
 	@RequestMapping("/")
-	public String login(HttpServletRequest request, Model model) {
-		
-		String nomUtilisateur = (String)request.getSession().getAttribute("nomUtilisateur");
-		
-		if (nomUtilisateur == null)
-			return "login";
-		else
-		{
-			model.addAttribute("nomUtilisateur", nomUtilisateur);
+	public String login(HttpServletRequest request, Model model) 
+	{
+		if (manageSession.ChargerUtilisateurInformation(request, model))
 			return "index";
-		}
+		else
+			return "login";
 	}
 	
 	@RequestMapping("/Deconnection")
 	public String logout(HttpServletRequest request, Model model) {
-		
-		request.getSession().invalidate();
-		
+		manageSession.Logoff(request);
 		return "login";
 	}
 	
@@ -59,25 +56,34 @@ public class ControllerPrincipal
 	    String mdp = request.getParameter("mdp");
 		
 		boolean connectionValide = identificateur.ConnectionValide(nomUtilisateur, mdp);
-		
-		request.getSession().setAttribute("nomUtilisateur",nomUtilisateur);
-		
-		model.addAttribute("nomUtilisateur", nomUtilisateur);
-		
+
 		if (connectionValide)
+		{
+			manageSession.SetUtilisateur(request,nomUtilisateur);
+			manageSession.ChargerUtilisateurInformation(request, model);
 			return "index";
+		}
 		else
 			return "erreur";
 	}
 	
+	@RequestMapping(value = "/obtenirUserSession", method = RequestMethod.GET)
+	public @ResponseBody UserViewModel obtenirUserSession(HttpServletRequest res) {
+			UserViewModel user = new UserViewModel("NomUtilisateurTest");
+			return user;
+	  }
+	
 	@RequestMapping("/CreeUtilisateur")
-	public String creeUtilisateur() {
+	public String creeUtilisateur(HttpServletRequest request, Model model) {
+		LoadSession(request,model);
 		return "creeUtilisateur";
 	}
 	
 	@RequestMapping(value = "/CreeUtilisateur", method = RequestMethod.POST)
 	public String creeUtilisateurConfirmation(HttpServletRequest request, Model model) 
 	{
+		LoadSession(request,model);
+		
 		String nomUtilisateurNouveauCompte = request.getParameter("nomUtilisateurNouveauCompte");
 	    String mdp = request.getParameter("mdp");
 	    
@@ -91,8 +97,15 @@ public class ControllerPrincipal
 	}
 	
 	@RequestMapping("/FeuilleDeTemps")
-	public String accederFeuilleDeTemps() {
+	public String accederFeuilleDeTemps(HttpServletRequest request, Model model) {
+		LoadSession(request,model);
 		return "timeSheet";
+	}
+	
+	@RequestMapping("/EmployeeManagement")
+	public String getEmployeeManagement(HttpServletRequest request, Model model) {
+		LoadSession(request,model);
+		return "employeeManagement";
 	}
 	
 	@RequestMapping(value="FeuilleDeTemps", method = RequestMethod.POST)
@@ -107,8 +120,8 @@ public class ControllerPrincipal
 		return sauvegardeEffectueAvecSucces;
 	}
 	
-	@RequestMapping("/EmployeeManagement")
-	public String getEmployeeManagement() {
-		return "employeeManagement";
+	private void LoadSession(HttpServletRequest request, Model model)
+	{
+		manageSession.ChargerUtilisateurInformation(request, model);
 	}
 }
