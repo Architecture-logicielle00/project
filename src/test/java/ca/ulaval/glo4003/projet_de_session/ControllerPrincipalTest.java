@@ -5,8 +5,7 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 import org.springframework.ui.ExtendedModelMap;
 
-import ca.ulaval.glo4003.projet_de_session.dao.RepositoryUtilisateur;
-import ca.ulaval.glo4003.projet_de_session.mock.FakeIdentificateur;
+import ca.ulaval.glo4003.projet_de_session.web.controllers.AccesModel;
 import ca.ulaval.glo4003.projet_de_session.web.controllers.ControllerPrincipal;
 import ca.ulaval.glo4003.projet_de_session.web.controllers.GestionSessionController;
 
@@ -14,7 +13,7 @@ public class ControllerPrincipalTest {
 	
 	private ControllerPrincipal ObtenirControlleurTest()
 	{
-		return new ControllerPrincipal(new FakeIdentificateur(),new RepositoryUtilisateur(),new GestionSessionController());
+		return new ControllerPrincipal(new AccesModel(),new GestionSessionController());
 	}
 	
 	@Test
