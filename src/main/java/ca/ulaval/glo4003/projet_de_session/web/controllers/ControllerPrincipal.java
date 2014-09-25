@@ -49,7 +49,7 @@ public class ControllerPrincipal
 		
 		request.getSession().invalidate();
 		
-		return "index";
+		return "login";
 	}
 	
 	@RequestMapping(value = "/", method = RequestMethod.POST)

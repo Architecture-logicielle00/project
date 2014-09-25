@@ -24,7 +24,7 @@
                     </li>
                     <li class="divider"></li>
                     <li>
-                        <a href="#"><i class="fa fa-fw fa-power-off"></i> Deconnexion</a>
+                        <a href="/Deconnection"><i class="fa fa-fw fa-power-off"></i> Deconnexion</a>
                     </li>
                 </ul>
             </li>
