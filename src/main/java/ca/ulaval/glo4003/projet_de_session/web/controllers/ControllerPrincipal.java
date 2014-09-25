@@ -31,8 +31,25 @@ public class ControllerPrincipal
 	}
 	
 	@RequestMapping("/")
-	public String login() {
-		return "login";
+	public String login(HttpServletRequest request, Model model) {
+		
+		String nomUtilisateur = (String)request.getSession().getAttribute("nomUtilisateur");
+		
+		if (nomUtilisateur == null)
+			return "login";
+		else
+		{
+			model.addAttribute("nomUtilisateur", nomUtilisateur);
+			return "index";
+		}
+	}
+	
+	@RequestMapping("/Deconnection")
+	public String logout(HttpServletRequest request, Model model) {
+		
+		request.getSession().invalidate();
+		
+		return "index";
 	}
 	
 	@RequestMapping(value = "/", method = RequestMethod.POST)
@@ -42,6 +59,8 @@ public class ControllerPrincipal
 	    String mdp = request.getParameter("mdp");
 		
 		boolean connectionValide = identificateur.ConnectionValide(nomUtilisateur, mdp);
+		
+		request.getSession().setAttribute("nomUtilisateur",nomUtilisateur);
 		
 		model.addAttribute("nomUtilisateur", nomUtilisateur);
 		
