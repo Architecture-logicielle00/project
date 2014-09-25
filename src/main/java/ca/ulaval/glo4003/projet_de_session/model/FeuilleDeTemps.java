@@ -8,4 +8,8 @@ public class FeuilleDeTemps {
 	private List<BlocDeTemps> BlocsDeTemps = new ArrayList<BlocDeTemps>();
 	private Date dateDebut;
 	private Date dateFin;
+	
+	public Date obtDebut(){ return dateDebut; }
+	public Date obtFin(){ return dateFin; }
+	
 }
