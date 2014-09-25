@@ -9,29 +9,25 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import ca.ulaval.glo4003.projet_de_session.dao.RepositoryUtilisateur;
+import ca.ulaval.glo4003.projet_de_session.imodel.IAccesModel;
 import ca.ulaval.glo4003.projet_de_session.imodel.IGestionSession;
-import ca.ulaval.glo4003.projet_de_session.imodel.IIdentificateur;
-import ca.ulaval.glo4003.projet_de_session.imodel.IRepositoryUtilisateur;
-import ca.ulaval.glo4003.projet_de_session.mock.FakeIdentificateur;
 import ca.ulaval.glo4003.projet_de_session.model.FeuilleDeTemps;
+import ca.ulaval.glo4003.projet_de_session.web.viewmodels.FeuilleDeTempsViewModel;
 import ca.ulaval.glo4003.projet_de_session.web.viewmodels.UserViewModel;
 
 @Controller
 public class ControllerPrincipal 
 {
-	private IIdentificateur identificateur;
-	private IRepositoryUtilisateur repoUtilisateur;
+	private IAccesModel accesModel;
 	private IGestionSession manageSession;
 	
 	public ControllerPrincipal() {
-		this(new FakeIdentificateur(),new RepositoryUtilisateur(),new GestionSessionController());
+		this(new AccesModel(),new GestionSessionController());
 	}
 	
-	public ControllerPrincipal(IIdentificateur _identificateur,IRepositoryUtilisateur _repoUtilisateur, IGestionSession _manageSession) {
-		identificateur = _identificateur;
-		repoUtilisateur = _repoUtilisateur;
-		manageSession = _manageSession;
+	public ControllerPrincipal(IAccesModel _accesModel, IGestionSession _manageSession) {
+		accesModel = _accesModel;
+		manageSession = _manageSession; 
 	}
 	
 	@RequestMapping("/")
@@ -55,7 +51,7 @@ public class ControllerPrincipal
 		String nomUtilisateur = request.getParameter("nomUtilisateur");
 	    String mdp = request.getParameter("mdp");
 		
-		boolean connectionValide = identificateur.ConnectionValide(nomUtilisateur, mdp);
+		boolean connectionValide = accesModel.IdentificationValide(nomUtilisateur, mdp);
 
 		if (connectionValide)
 		{
@@ -89,7 +85,7 @@ public class ControllerPrincipal
 	    
 	    model.addAttribute("nouveauCompte", nomUtilisateurNouveauCompte);
 	    
-	    repoUtilisateur.AjouterUtilisateur(nomUtilisateurNouveauCompte, mdp);
+	    accesModel.CreerUtilisateur(nomUtilisateurNouveauCompte, mdp);
 		
 	    model.addAttribute("nomUtilisateur", "");
 	    
@@ -109,7 +105,7 @@ public class ControllerPrincipal
 	}
 	
 	@RequestMapping(value="FeuilleDeTemps", method = RequestMethod.POST)
-	public @ResponseBody Boolean sauvegarderFeuilleDeTemps( @RequestBody final  FeuilleDeTemps feuilleDeTemps)
+	public @ResponseBody Boolean sauvegarderFeuilleDeTemps( @RequestBody final  FeuilleDeTempsViewModel feuilleDeTemps)
 	{
 		// Valider la feuilleDeTemps / Sa validité
 		
@@ -118,6 +114,16 @@ public class ControllerPrincipal
 		boolean sauvegardeEffectueAvecSucces = true;
 		
 		return sauvegardeEffectueAvecSucces;
+	}
+	
+	@RequestMapping(value="obtenirFeuilleDeTemps", method = RequestMethod.GET)
+	public @ResponseBody FeuilleDeTemps obtenirFeuilleDeTemps(HttpServletRequest request, Model model)
+	{
+		// Récupèré la feuille de temps de l'employé en cours
+		FeuilleDeTemps feuilleDeTemps = new FeuilleDeTemps();
+		
+		// Retournier la feuille de temps
+		return feuilleDeTemps;
 	}
 	
 	private void LoadSession(HttpServletRequest request, Model model)
