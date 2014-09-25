@@ -18,6 +18,17 @@ import ca.ulaval.glo4003.projet_de_session.web.viewmodels.UserViewModel;
 @Controller
 public class ControllerPrincipal 
 {
+	private static class Page
+	{
+		public static final String INDEX = "index";
+		public static final String ERREUR = "erreur";
+		public static final String LOGIN = "login";
+		public static final String CREEUTILISATEUR = "creeUtilisateur";
+		public static final String EMPLOYEEMANAGEMENT = "employeeManagement";
+		public static final String TIMESHEET = "timeSheet";
+		
+	} 
+	
 	private IAccesModel accesModel;
 	private IGestionSession manageSession;
 	
@@ -28,21 +39,6 @@ public class ControllerPrincipal
 	public ControllerPrincipal(IAccesModel _accesModel, IGestionSession _manageSession) {
 		accesModel = _accesModel;
 		manageSession = _manageSession; 
-	}
-	
-	@RequestMapping("/")
-	public String login(HttpServletRequest request, Model model) 
-	{
-		if (manageSession.ChargerUtilisateurInformation(request, model))
-			return "index";
-		else
-			return "login";
-	}
-	
-	@RequestMapping("/Deconnection")
-	public String logout(HttpServletRequest request, Model model) {
-		manageSession.Logoff(request);
-		return "login";
 	}
 	
 	@RequestMapping(value = "/", method = RequestMethod.POST)
@@ -56,30 +52,39 @@ public class ControllerPrincipal
 		if (connectionValide)
 		{
 			manageSession.SetUtilisateur(request,nomUtilisateur);
-			manageSession.ChargerUtilisateurInformation(request, model);
-			return "index";
+			return ChargerPageOuLogin(Page.INDEX,request,model);
 		}
 		else
-			return "erreur";
+			return Page.ERREUR;
 	}
+	
+	@RequestMapping("/")
+	public String login(HttpServletRequest request, Model model) 
+	{
+		return ChargerPageOuLogin(Page.INDEX,request,model);
+	}
+	
+	@RequestMapping("/Deconnection")
+	public String logout(HttpServletRequest request, Model model) {
+		manageSession.Logoff(request);
+		return ChargerPageOuLogin(Page.LOGIN,request,model);
+	}
+	
 	
 	@RequestMapping(value = "/obtenirUserSession", method = RequestMethod.GET)
 	public @ResponseBody UserViewModel obtenirUserSession(HttpServletRequest res) {
-			UserViewModel user = new UserViewModel("NomUtilisateurTest");
+			UserViewModel user = new UserViewModel("NomUtilisateurTestRetourner");
 			return user;
 	  }
 	
 	@RequestMapping("/CreeUtilisateur")
 	public String creeUtilisateur(HttpServletRequest request, Model model) {
-		LoadSession(request,model);
-		return "creeUtilisateur";
+		return ChargerPageOuLogin(Page.CREEUTILISATEUR,request,model);
 	}
 	
 	@RequestMapping(value = "/CreeUtilisateur", method = RequestMethod.POST)
 	public String creeUtilisateurConfirmation(HttpServletRequest request, Model model) 
 	{
-		LoadSession(request,model);
-		
 		String nomUtilisateurNouveauCompte = request.getParameter("nomUtilisateurNouveauCompte");
 	    String mdp = request.getParameter("mdp");
 	    
@@ -89,19 +94,17 @@ public class ControllerPrincipal
 		
 	    model.addAttribute("nomUtilisateur", "");
 	    
-		return "employeeManagement";
+		return ChargerPageOuLogin(Page.EMPLOYEEMANAGEMENT,request,model);
 	}
 	
 	@RequestMapping("/FeuilleDeTemps")
 	public String accederFeuilleDeTemps(HttpServletRequest request, Model model) {
-		LoadSession(request,model);
-		return "timeSheet";
+		return ChargerPageOuLogin(Page.TIMESHEET,request,model);
 	}
 	
 	@RequestMapping("/EmployeeManagement")
 	public String getEmployeeManagement(HttpServletRequest request, Model model) {
-		LoadSession(request,model);
-		return "employeeManagement";
+		return ChargerPageOuLogin(Page.EMPLOYEEMANAGEMENT,request,model);
 	}
 	
 	@RequestMapping(value="FeuilleDeTemps", method = RequestMethod.POST)
@@ -126,8 +129,11 @@ public class ControllerPrincipal
 		return feuilleDeTemps;
 	}
 	
-	private void LoadSession(HttpServletRequest request, Model model)
+	private String ChargerPageOuLogin(String _page, HttpServletRequest request, Model model)
 	{
-		manageSession.ChargerUtilisateurInformation(request, model);
+		if (manageSession.ChargerUtilisateurInformation(request, model))
+			return _page;
+		else
+			return Page.LOGIN;
 	}
 }
