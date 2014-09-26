@@ -33,10 +33,10 @@ public class HttpServletRequestTest implements HttpServletRequest {
 	@Override
 	public void setAttribute(String arg0, Object arg1) {
 		// TODO Auto-generated method stub
-		if (!dicParameter.containsKey(arg0))
-			dicParameter.put(arg0, arg1);
-		else
-			dicParameter.replace(arg0, arg1);
+		if (dicParameter.containsKey(arg0))
+			dicParameter.remove(arg1);
+		
+		dicParameter.put(arg0, arg1);
 	}
 
 	

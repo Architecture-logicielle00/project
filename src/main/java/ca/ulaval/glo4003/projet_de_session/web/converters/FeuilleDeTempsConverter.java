@@ -7,6 +7,6 @@ public class FeuilleDeTempsConverter {
 	public static FeuilleDeTemps Convert(FeuilleDeTempsViewModel feuilleDeTemps)
 	{
 		// Faire la vrai convertion
-		return new FeuilleDeTemps();
+		return new FeuilleDeTemps(null,null,null);
 	}
 }

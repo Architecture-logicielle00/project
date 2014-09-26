@@ -124,7 +124,7 @@ public class ControllerPrincipal
 	public @ResponseBody FeuilleDeTemps obtenirFeuilleDeTemps(HttpServletRequest request, Model model)
 	{
 		// Récupèré la feuille de temps de l'employé en cours
-		FeuilleDeTemps feuilleDeTemps = new FeuilleDeTemps();
+		FeuilleDeTemps feuilleDeTemps = new FeuilleDeTemps(null, null, null);
 		
 		// Retournier la feuille de temps
 		return feuilleDeTemps;
