@@ -45,9 +45,11 @@
                     <li>
                         <a href=""><i class="fa fa-fw fa-tasks"></i> Projets/Tâches</a>
                     </li>
-                    <li>
-                        <a href="/EmployeeManagement"><i class="fa fa-fw fa fa-users"></i> Gestion des Employés</a>
-                    </li>
+ 					<c:if test="${utilisateur.EstGestionnaire()}">  
+	                    <li>
+	                        <a href="/EmployeeManagement"><i class="fa fa-fw fa fa-users"></i> Gestion des Employés</a>
+	                    </li>
+					</c:if>  
                 </ul>
         </div>
         <!-- /.navbar-collapse -->

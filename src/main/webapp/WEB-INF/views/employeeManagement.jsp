@@ -37,7 +37,7 @@
             	<li class="list-group-item">Lorem, Ipsum</li>
             	<li class="list-group-item">Lorem, Ipsum</li>
         	</ul>
-        	<button id="add-new-employee-btn" class="btn btn-primary">Add New Employee</button>
+        	<button id="add-new-employee-btn" class="btn btn-primary"><a href="/CreeUtilisateur">Add New Employee</a></button>
     	</div>
     </div>
     <!-- /#page-wrapper -->
@@ -49,7 +49,7 @@
 <script src="/resources/js/lib/jquery.js"></script>
 <script src="/resources/js/lib/jquery-ui.js"></script>
 <script src="/resources/js/lib/bootstrap.min.js"></script>
-<script src="/resources/js/employeeManagement/employeeManagement.js"></script>	
+<script src="/resources/js/employeeManagement.js"></script>	
 </body>
 </html>  
   
