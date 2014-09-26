@@ -11,12 +11,12 @@ import java.util.Observer;
 
 public class Enregistreur extends Observable implements Observer{
 
-	private List<Utilisateur> 	utilisateurs;
-	private List<Projet>		projets;
+	private List<WEM_Utilisateur> 	utilisateurs;
+	private List<WEM_Projet>		projets;
 	
 	public Enregistreur(){
-		this.utilisateurs	= new ArrayList<Utilisateur>();
-		this.projets		= new ArrayList<Projet>();
+		this.utilisateurs	= new ArrayList<WEM_Utilisateur>();
+		this.projets		= new ArrayList<WEM_Projet>();
 	}
 	
 	/**
@@ -24,13 +24,13 @@ public class Enregistreur extends Observable implements Observer{
 	 * @param utilisateur The object to be added
 	 * @return add utilisateur to the list of utilisateur
 	 */
-	public void addUtilisateur(Utilisateur utilisateurs){
+	public void addUtilisateur(WEM_Utilisateur utilisateurs){
 		
 		this.utilisateurs.add(this.utilisateurs.size(), utilisateurs);
 		changed();
 	}
 	
-	public void addProjet(Projet projets){
+	public void addProjet(WEM_Projet projets){
 		this.projets.add(this.projets.size(), projets);
 		changed();
 	}
@@ -41,7 +41,7 @@ public class Enregistreur extends Observable implements Observer{
 	 * @param utilisateur The user has to remove to the networks user
 	 * @return Returns false if user doesn't exist
 	 */
-	public boolean supprimerUtilisateur(Utilisateur utilisateur)
+	public boolean supprimerUtilisateur(WEM_Utilisateur utilisateur)
 	{	
 		if (this.utilisateurs.contains(utilisateur) == false){
 			return (false);
@@ -56,7 +56,7 @@ public class Enregistreur extends Observable implements Observer{
 	 * @param project The project has to remove to the networks project
 	 * @return Returns false if project doesn't exist
 	 */
-	public boolean supprimerProjet(Projet projet)
+	public boolean supprimerProjet(WEM_Projet projet)
 	{	
 		if (this.projets.contains(projet) == false){
 			return (false);
@@ -71,7 +71,7 @@ public class Enregistreur extends Observable implements Observer{
 	 * @return Returns a list of user
 	 */
 
-	public List<Utilisateur> getUtilisateur()
+	public List<WEM_Utilisateur> getUtilisateur()
 	{
 		return (this.utilisateurs);
 	}
@@ -82,7 +82,7 @@ public class Enregistreur extends Observable implements Observer{
 	 * @return Returns a list of project
 	 */
 
-	public List<Projet> getProjet()
+	public List<WEM_Projet> getProjet()
 	{
 		return (this.projets);
 	}
@@ -108,8 +108,8 @@ public class Enregistreur extends Observable implements Observer{
 		changed();
 		
 	}
-	public Utilisateur getUtilisateur(int uid) {
-		for(Utilisateur n : this.utilisateurs){
+	public WEM_Utilisateur getUtilisateur(int uid) {
+		for(WEM_Utilisateur n : this.utilisateurs){
 			int uidTmp = n.getUid();
 			if(uidTmp == uid){
 				return n;
@@ -117,8 +117,8 @@ public class Enregistreur extends Observable implements Observer{
 		}
 		return null;
 	}
-	public Projet getProjet(int uidP) {
-		for(Projet n : this.projets){
+	public WEM_Projet getProjet(int uidP) {
+		for(WEM_Projet n : this.projets){
 			int uidTmp = n.getUidP();
 			if(uidTmp == uidP){
 				return n;

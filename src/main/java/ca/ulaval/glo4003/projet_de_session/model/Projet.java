@@ -1,116 +1,38 @@
 package ca.ulaval.glo4003.projet_de_session.model;
 
-import java.io.Serializable;
-import java.util.Date;
-import java.util.Observable;
+import java.util.ArrayList;
 
-public class Projet extends Observable implements Serializable {
-
-	private static final long serialVersionUID = 1L;
+public class Projet {
 	
-	private Integer	idProjet;
-	private Integer idUtilisateur;
-	private String	nomProjet;
-	private float	coutProjet;
-	private Date	dateEcheance;
-	
-	private Integer uidP;
-	private static Integer uidPCmpt = 0;
-	
-	public Projet(Integer idProjet){
-		
-		this.idProjet 		= idProjet;
-		this.idUtilisateur	= new Integer(idUtilisateur);
-		this.nomProjet		= new String(nomProjet);
-		this.dateEcheance	= new Date();
-		this.coutProjet		= new Float(coutProjet);
-		
-		this.uidP	 		= uidPCmpt;
-		
-		uidPCmpt++;
-	}
-	
-	
-	public Integer getIdUtilisateur() {
-		return idUtilisateur;
-	}
-
-
-	public void setIdUtilisateur(Integer idUtilisateur) {
-		this.idUtilisateur = idUtilisateur;
-	}
-
-
-	public float getCoutProjet() {
-		return coutProjet;
-	}
-
-
-	public void setCoutProjet(float coutProjet) {
-		this.coutProjet = coutProjet;
-	}
-
-
-	public Integer getIdProjet() {
-		return idProjet;
-	}
-
-	public void setIdProjet(Integer idProjet) {
-		this.idProjet = idProjet;
-		changed();
-	}
-
-	public String getNomProjet() {
-		return nomProjet;
-	}
-
-	public void setNomProjet(String nomProjet) {
-		this.nomProjet = nomProjet;
-		changed();
-	}
-
-	public Date getDateEcheance() {
-		return dateEcheance;
-	}
-
-	public void setDateEcheance(Date dateEcheance) {
-		this.dateEcheance = dateEcheance;
-		changed();
-	}
-	
-	public Integer getUidP() {
-		return uidP;
-	}
-
-
-	public void setUidP(Integer uidP) {
-		this.uidP = uidP;
-	}
-	
-	/**
-	 * Override equals
-	 * @param obj The object to be compared
-	 * @return Returns true if the two objects are identical
-	 */
-	@Override
-	public boolean equals(Object obj)
+	public Projet(String _nom, String _description, String _entreprise)
 	{
-		if (obj == null)
-			return (false);
-		Projet other = (Projet) obj;
-		return (this.uidP == other.uidP);
+		nom = _nom;
+		description = _description;
+		entreprise = _entreprise;
+		taches = new ArrayList<String>();
 	}
-
-	public static Integer getUidPCmpt() {
-		return uidPCmpt;
-	}
-
-	public static void setUidPCmpt(Integer uidPCmpt) {
-		Projet.uidPCmpt = uidPCmpt;
-	}
-	private void changed(){
-		setChanged();
-		notifyObservers();		
-	}
-
+	
+	public String obtNom(){ return nom;	}
+	
+	public String obtDescription(){ return description;	}
+	
+	public String obtEntreprise(){ return entreprise;	}
+	
+	public ArrayList<String> obtTache(){ return taches;	}
+	
+	public void changerNom(String _nom){ nom = _nom; }
+	
+	public void changerDescription(String _description){ description = _description; }
+	
+	public void changerEntreprise(String _entreprise){ entreprise = _entreprise; }
+	
+	public void ajouterTache(String tache){ taches.add(tache); }
+	
+	public void enleverTache(String tache){ taches.remove(tache); }
+	
+	private String nom; 
+	private String description;
+	private String entreprise;
+	private ArrayList<String> taches;
+	
 }
