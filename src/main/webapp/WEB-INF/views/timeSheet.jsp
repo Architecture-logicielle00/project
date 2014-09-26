@@ -24,6 +24,18 @@
     <div id="page-wrapper">
     <div id="header-time-sheet">
         <h1>Timesheet</h1>
+        
+        <div class="date-periode-grp">
+        	<div id="debut-periode" class="date-periode">
+        		<label for="debut-periode-input">Debut de la période</label>
+        		<input id="debut-periode-input" type="date" name="debut-periode" value="$()" readonly="true">
+        	</div>
+        	<div id="fin-periode" class="date-periode">
+        		<label for="fin-periode-input">Fin de la période</label>
+        		<input id="fin-periode-input" type="date" name="fin-periode" value="$()" readonly="true">
+        	</div>
+        </div>
+        
         <div class="btn-group">
             <button type="button" class="btn btn-default"><i class="fa fa-chevron-left"></i></button>
             <button type="button" class="btn btn-default"><i class="fa fa-chevron-right"></i></button>
@@ -47,19 +59,7 @@
                 <td class="fixcol1"><span>#145</span> Projet xyz</td>
                 <td class="fixcol2"><span>#145-12</span> Lorem ipsum dolor sit amet
                 </td>
-                <td><input type="text" pattern="\d*"/></td>
                 <td><input type="text"/></td>
-                <td><input type="text"/></td>
-                <td><input type="text"/></td>
-                <td><input type="text"/></td>
-                <td><input type="text"/></td>
-                <td><input type="text"/></td>
-            </tr>
-            <tr>
-                <td class="fixcol1"><span>#145</span> Projet xyz</td>
-                <td class="fixcol2"><span>#145-12</span> Lorem ipsum dolor sit amet
-                </td>
-                <td><input type="text" pattern="\d*"/></td>
                 <td><input type="text"/></td>
                 <td><input type="text"/></td>
                 <td><input type="text"/></td>
@@ -71,7 +71,7 @@
                 <td class="fixcol1"><span>#145</span> Projet xyz</td>
                 <td class="fixcol2"><span>#145-12</span> Lorem ipsum dolor sit amet
                 </td>
-                <td><input type="text" pattern="\d*"/></td>
+                <td><input type="text"/></td>
                 <td><input type="text"/></td>
                 <td><input type="text"/></td>
                 <td><input type="text"/></td>
@@ -83,7 +83,19 @@
                 <td class="fixcol1"><span>#145</span> Projet xyz</td>
                 <td class="fixcol2"><span>#145-12</span> Lorem ipsum dolor sit amet
                 </td>
-                <td><input type="text" pattern="\d*"/></td>
+                <td><input type="text"/></td>
+                <td><input type="text"/></td>
+                <td><input type="text"/></td>
+                <td><input type="text"/></td>
+                <td><input type="text"/></td>
+                <td><input type="text"/></td>
+                <td><input type="text"/></td>
+            </tr>
+            <tr>
+                <td class="fixcol1"><span>#145</span> Projet xyz</td>
+                <td class="fixcol2"><span>#145-12</span> Lorem ipsum dolor sit amet
+                </td>
+                <td><input type="text"/></td>
                 <td><input type="text"/></td>
                 <td><input type="text"/></td>
                 <td><input type="text"/></td>
