@@ -13,6 +13,10 @@ public class Employe extends Utilisateur
 		prenom = _prenom;
 	}
 	
+	public Employe()
+	{
+	}
+	
 	public String obtNom(){ return nom;	}
 	
 	public void changerNom(String _nom){ nom = _nom; }

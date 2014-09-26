@@ -3,12 +3,16 @@ package ca.ulaval.glo4003.projet_de_session.model;
 public class Utilisateur 
 {
 	protected String nomUtilisateur;
-	protected final String mdp;
+	protected String mdp;
 	
 	public Utilisateur(String _nomUtilisateur,String _mdp)
 	{
 		nomUtilisateur = _nomUtilisateur;
 		mdp = _mdp;
+	}
+	
+	public Utilisateur()
+	{
 	}
 	
 	public String ObtenirNomUtilisateur()
