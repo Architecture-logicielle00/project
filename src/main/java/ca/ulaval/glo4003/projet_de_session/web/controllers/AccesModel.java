@@ -7,7 +7,7 @@ import ca.ulaval.glo4003.projet_de_session.imodel.IIdentificateur;
 import ca.ulaval.glo4003.projet_de_session.imodel.IRepositoryFeuilleDeTemps;
 import ca.ulaval.glo4003.projet_de_session.imodel.IRepositoryUtilisateur;
 import ca.ulaval.glo4003.projet_de_session.mock.FakeIdentificateur;
-import ca.ulaval.glo4003.projet_de_session.model.SimpleUtilisateur;
+import ca.ulaval.glo4003.projet_de_session.model.Utilisateur;
 import ca.ulaval.glo4003.projet_de_session.web.converters.Converter;
 import ca.ulaval.glo4003.projet_de_session.web.converters.FeuilleDeTempsConverter;
 import ca.ulaval.glo4003.projet_de_session.web.viewmodels.FeuilleDeTempsViewModel;
@@ -40,7 +40,7 @@ public class AccesModel implements IAccesModel {
 		repoFeuilleDeTemps.AjouterFeuilleDeTemps(_nomUtilisateur, FeuilleDeTempsConverter.Convert(feuilleDeTemps));
 	}
 	
-	public UserViewModel Convert(SimpleUtilisateur utilisateur)
+	public UserViewModel Convert(Utilisateur utilisateur)
 	{
 		return converter.Convert(utilisateur);
 	}

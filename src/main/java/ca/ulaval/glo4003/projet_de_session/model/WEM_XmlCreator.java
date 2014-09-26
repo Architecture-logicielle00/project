@@ -19,13 +19,13 @@ import org.w3c.dom.Attr;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
-public class XmlCreator {
+public class WEM_XmlCreator {
 
 	public Enregistreur	enregistreur = null;
 	
 	
 	
-	protected XmlCreator(){
+	protected WEM_XmlCreator(){
 		this.enregistreur = new Enregistreur();
 	}
 	
@@ -54,14 +54,14 @@ public class XmlCreator {
 			Element enregistreurElement = document.createElement("utilisateur");  
 			rootElement.appendChild(enregistreurElement); 
 			
-			List<Utilisateur> utilisateur = this.enregistreur.getUtilisateur();
-			for(Utilisateur u : utilisateur){
+			List<WEM_Utilisateur> utilisateur = this.enregistreur.getUtilisateur();
+			for(WEM_Utilisateur u : utilisateur){
 				Element utilisateurElement = createUtilisateurElement(document, u);
 				enregistreurElement.appendChild(utilisateurElement);
 			}
 			
-			List<Projet> projet = this.enregistreur.getProjet();
-			for(Projet p : projet){
+			List<WEM_Projet> projet = this.enregistreur.getProjet();
+			for(WEM_Projet p : projet){
 				Element projetElement = createProjetElement(document, p);
 				enregistreurElement.appendChild(projetElement);
 			}
@@ -88,7 +88,7 @@ public class XmlCreator {
 		} 		
 	}
 	
-	private Element createUtilisateurElement(Document document, Utilisateur u) {
+	private Element createUtilisateurElement(Document document, WEM_Utilisateur u) {
 		Element utilisateurElement = document.createElement("utilisateur");
 		
 		Attr attribute = document.createAttribute("utilisateurType");  
@@ -137,7 +137,7 @@ public class XmlCreator {
 		
 		return utilisateurElement; 
 	}
-	private Element createProjetElement(Document document, Projet p) {
+	private Element createProjetElement(Document document, WEM_Projet p) {
 		Element projetElement = document.createElement("projet");
 		
 		Attr attribute = document.createAttribute("projetType");  

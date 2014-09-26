@@ -33,7 +33,8 @@ public class ControllerPrincipal
 	private IGestionSession manageSession;
 	
 	public ControllerPrincipal() {
-		this(new AccesModel(),new GestionSessionController());
+		accesModel = new AccesModel();
+		manageSession = new GestionSessionController();
 	}
 	
 	public ControllerPrincipal(IAccesModel _accesModel, IGestionSession _manageSession) {

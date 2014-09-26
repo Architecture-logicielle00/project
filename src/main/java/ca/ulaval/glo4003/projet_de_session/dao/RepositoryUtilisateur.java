@@ -4,19 +4,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 import ca.ulaval.glo4003.projet_de_session.imodel.IRepositoryUtilisateur;
-import ca.ulaval.glo4003.projet_de_session.model.SimpleUtilisateur;
+import ca.ulaval.glo4003.projet_de_session.model.Utilisateur;
 
 public class RepositoryUtilisateur implements IRepositoryUtilisateur {
 	
 	// TODO accédé au fichier de manière reel au lieu d'utiliser cette liste hardcoder, représente la base de donnée doit donc etre remplacer par ce qui fonctionne
 	// Le static est une très MAUVAISE PRATIQUE mais ceci permet de simuler la persistence des données. À réglé.
-	static List<SimpleUtilisateur> utilisateurs;
+	static List<Utilisateur> utilisateurs;
 	
 	public RepositoryUtilisateur()
 	{
 		if (utilisateurs == null)
 		{
-			utilisateurs = new ArrayList<SimpleUtilisateur>();
+			utilisateurs = new ArrayList<Utilisateur>();
 			InitialiserRepoTest();
 		}
 	}
@@ -38,15 +38,15 @@ public class RepositoryUtilisateur implements IRepositoryUtilisateur {
 	@Override
 	public void AjouterUtilisateur(String nomUtilisateur, String mdp)
 	{
-		utilisateurs.add(new SimpleUtilisateur(nomUtilisateur,mdp));
+		utilisateurs.add(new Utilisateur(nomUtilisateur,mdp));
 	}
 
 	@Override
-	public SimpleUtilisateur ObtenirUnUtilisateur(String nomUtilisateur) 
+	public Utilisateur ObtenirUnUtilisateur(String nomUtilisateur) 
 	{
-		SimpleUtilisateur utilisateurRechercher = null;
+		Utilisateur utilisateurRechercher = null;
 		
-		for (SimpleUtilisateur simpleUtilisateur : utilisateurs)
+		for (Utilisateur simpleUtilisateur : utilisateurs)
 		{
 			if (nomUtilisateur.equals(simpleUtilisateur.ObtenirNomUtilisateur()))
 			{
