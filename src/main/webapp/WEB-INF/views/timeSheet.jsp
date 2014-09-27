@@ -28,11 +28,11 @@
         <div class="date-periode-grp">
         	<div id="debut-periode" class="date-periode">
         		<label for="debut-periode-input">Debut de la période</label>
-        		<input id="debut-periode-input" type="date" name="debut-periode" value="$()" readonly="true">
+        		<input id="debut-periode-input" type="date" name="debut-periode" value="$(obtDateDebut())" readonly="true">
         	</div>
         	<div id="fin-periode" class="date-periode">
         		<label for="fin-periode-input">Fin de la période</label>
-        		<input id="fin-periode-input" type="date" name="fin-periode" value="$()" readonly="true">
+        		<input id="fin-periode-input" type="date" name="fin-periode" value="$(obtDateFin())" readonly="true">
         	</div>
         </div>
         
@@ -43,78 +43,28 @@
     </div>
 
     <div id="table-wrapper">
+    	
+    	
+    
+    
         <table class="table time-sheet-table">
-            <tr>
-                <th class="fixcol1">Project</th>
-                <th class="fixcol2"> Task</th>
-                <th>Mon</th>
-                <th>Tue</th>
-                <th>Wed</th>
-                <th>Thu</th>
-                <th>Fri</th>
-                <th>Sat</th>
-                <th>Sun</th>
+        	<tr>
+            	<th class="fixcol1">Projets</th>
+                <th class="fixcol2">Taches</th>
+				<c:forEach var="jourPeriode" items="${obtListeJourPeriode()}">
+					<td id="${jourPeriode.getString()}">${jourPeriode.getString()}</td>
+				</c:forEach>
             </tr>
-            <tr>
-                <td class="fixcol1"><span>#145</span> Projet xyz</td>
-                <td class="fixcol2"><span>#145-12</span> Lorem ipsum dolor sit amet
-                </td>
-                <td><input type="text"/></td>
-                <td><input type="text"/></td>
-                <td><input type="text"/></td>
-                <td><input type="text"/></td>
-                <td><input type="text"/></td>
-                <td><input type="text"/></td>
-                <td><input type="text"/></td>
-            </tr>
-            <tr>
-                <td class="fixcol1"><span>#145</span> Projet xyz</td>
-                <td class="fixcol2"><span>#145-12</span> Lorem ipsum dolor sit amet
-                </td>
-                <td><input type="text"/></td>
-                <td><input type="text"/></td>
-                <td><input type="text"/></td>
-                <td><input type="text"/></td>
-                <td><input type="text"/></td>
-                <td><input type="text"/></td>
-                <td><input type="text"/></td>
-            </tr>
-            <tr>
-                <td class="fixcol1"><span>#145</span> Projet xyz</td>
-                <td class="fixcol2"><span>#145-12</span> Lorem ipsum dolor sit amet
-                </td>
-                <td><input type="text"/></td>
-                <td><input type="text"/></td>
-                <td><input type="text"/></td>
-                <td><input type="text"/></td>
-                <td><input type="text"/></td>
-                <td><input type="text"/></td>
-                <td><input type="text"/></td>
-            </tr>
-            <tr>
-                <td class="fixcol1"><span>#145</span> Projet xyz</td>
-                <td class="fixcol2"><span>#145-12</span> Lorem ipsum dolor sit amet
-                </td>
-                <td><input type="text"/></td>
-                <td><input type="text"/></td>
-                <td><input type="text"/></td>
-                <td><input type="text"/></td>
-                <td><input type="text"/></td>
-                <td><input type="text"/></td>
-                <td><input type="text"/></td>
-            </tr>
-            <tr id="total-time-row">
-                <td class="fixcol1"></td>
-                <td class="fixcol2"></td>
-                <td><input type="text" readonly="true"/></td>
-                <td><input type="text" readonly="true"/></td>
-                <td><input type="text" readonly="true"/></td>
-                <td><input type="text" readonly="true"/></td>
-                <td><input type="text" readonly="true"/></td>
-                <td><input type="text" readonly="true"/></td>
-                <td><input type="text" readonly="true"/></td>
-            </tr>
-        </table>
+        
+        	<c:forEach var="projectTask" items="${obtBlocsDeTemps()}">
+					<tr>
+						<td class="fixcol1"><span>${projectTask.obtProjet().obtID()}</span>${projectTask.obtProjet().obtNom()}</td>
+                		<td class="fixcol2"><span>${projectTask.obtTache().obtID()}</span>${projectTask.obtTache().obtNom()}</td>
+					<c:forEach var="jourPeriode" items="${obtListeJourPeriode()}">
+						<td id="${jourPeriode.getString()}-${projectTask.obtProjet().obtID()}-${projectTask.obtTache().obtID()}"><input type="text"/></td>
+					</c:forEach>
+				</c:forEach>
+           </table>
     </div>
     </div>
     <!-- /#page-wrapper -->

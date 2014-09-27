@@ -32,5 +32,8 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/David/Downloads/joda-time-2.4-dist/joda-time-2.4/joda-time-2.4.jar"/>
+	<classpathentry kind="lib" path="C:/Users/David/Downloads/joda-time-2.4-dist/joda-time-2.4/joda-time-2.4-javadoc.jar"/>
+	<classpathentry kind="lib" path="C:/Users/David/Downloads/joda-time-2.4-dist/joda-time-2.4/joda-time-2.4-sources.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

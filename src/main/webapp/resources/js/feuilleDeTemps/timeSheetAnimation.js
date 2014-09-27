@@ -14,20 +14,6 @@ initializeTimeSheet(){
 
 }
 
-
-function FeuilleDeTemps(_dateDebut, _dateFin, _projetCollection) {
-    this.dateDebut = _dateDebut;
-    this.dateFin = _dateFin;
-    this.projetCollection = _projetCollection;
-
-}
-
-FeuilleDeTemps.prototype.miseAJourTempsTacheJournee(_jour, _noTache, _nbHeures)
-{
-    this.projetCollection[_noTache][_jour] = _nbHeures;
-}
-
-
 function saveTimeSheet(){
     var timeSheetJSON = parseTimeSheetIntoJSON();
 
@@ -47,28 +33,24 @@ function saveTimeSheet(){
 }
 
 function parseTimeSheetIntoJSON(){
-    var JSONTimeSheet =  $('table.time-sheet-table tr').map(function() {
-            var project =  $(this).find('td').map(function() {
-                if($(this).find('input').length != 0)
-                    return parseInt($(this).find('input').val());
-                else
-                    return $(this).find('span').text();
-            }).get(),
-
-            noProject = project[0],
-            noTache = project[1],
-            heuretravaille = project.slice(2);
-
-        return {
-            "noProjet" : noProject,
-            "noTache" : noTache,
-            "heureTravaille" : heuretravaille
-        };
-
-
-        }).get();
-
-    return JSONTimeSheet = ;
+	var tableauDonneesJSON = new Array();
+	
+    $('table.time-sheet-table').find('tr').find('td').find('input').each(function(){
+    	var inputId = $(this).attr("id"),
+    		nbHeures = parseFloat($(this).val());
+    		date = inputId.split("-")[0];
+    		noProjet = inputId.split("-")[1];
+    		noTache = inputId.split("-")[2];
+    		
+    		tableauDonneesJSON.push({
+    			"noProjet" : noProjet,
+    			"noTache" : noTache,
+    			"date" : date,
+    			"nbHeures" : nbHeures
+    		});
+    });
+    
+    return tableauDonneesJSON;
 }
 
 function initializeEvents(){
