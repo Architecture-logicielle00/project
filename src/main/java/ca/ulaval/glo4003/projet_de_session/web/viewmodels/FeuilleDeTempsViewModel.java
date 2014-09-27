@@ -6,7 +6,6 @@ import java.util.Date;
 import org.joda.time.DateTime;
 import org.joda.time.Days;
 import org.joda.time.DurationFieldType;
-import org.joda.time.LocalDate;
 
 import ca.ulaval.glo4003.projet_de_session.model.BlocDeTemps;
 

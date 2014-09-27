@@ -10,6 +10,7 @@ import ca.ulaval.glo4003.projet_de_session.mock.FakeIdentificateur;
 import ca.ulaval.glo4003.projet_de_session.model.Utilisateur;
 import ca.ulaval.glo4003.projet_de_session.web.converters.Converter;
 import ca.ulaval.glo4003.projet_de_session.web.converters.FeuilleDeTempsConverter;
+import ca.ulaval.glo4003.projet_de_session.web.viewmodels.EmployeViewModel;
 import ca.ulaval.glo4003.projet_de_session.web.viewmodels.FeuilleDeTempsViewModel;
 import ca.ulaval.glo4003.projet_de_session.web.viewmodels.UserViewModel;
 
@@ -33,6 +34,11 @@ public class AccesModel implements IAccesModel {
 	public void CreerUtilisateur(String _nomUtilisateurNouveauCompte, String _mdp)
 	{
 		repoUtilisateur.AjouterUtilisateur(_nomUtilisateurNouveauCompte, _mdp);
+	}
+	
+	public void CreerUtilisateur(EmployeViewModel _nouveauUtilisateur)
+	{
+		//repoUtilisateur.AjouterUtilisateur(_nomUtilisateurNouveauCompte, _mdp);
 	}
 	
 	public void SauvegarderFeuilleDeTemps(String _nomUtilisateur, FeuilleDeTempsViewModel feuilleDeTemps)

@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import ca.ulaval.glo4003.projet_de_session.imodel.IAccesModel;
 import ca.ulaval.glo4003.projet_de_session.imodel.IGestionSession;
 import ca.ulaval.glo4003.projet_de_session.model.FeuilleDeTemps;
+import ca.ulaval.glo4003.projet_de_session.web.viewmodels.EmployeViewModel;
 import ca.ulaval.glo4003.projet_de_session.web.viewmodels.FeuilleDeTempsViewModel;
 import ca.ulaval.glo4003.projet_de_session.web.viewmodels.UserViewModel;
 
@@ -83,7 +84,7 @@ public class ControllerPrincipal
 		return ChargerPageOuLogin(Page.CREEUTILISATEUR,request,model);
 	}
 	
-	@RequestMapping(value = "/CreeUtilisateur", method = RequestMethod.POST)
+	/*@RequestMapping(value = "/CreeUtilisateur", method = RequestMethod.POST)
 	public String creeUtilisateurConfirmation(HttpServletRequest request, Model model) 
 	{
 		String nomUtilisateurNouveauCompte = request.getParameter("nomUtilisateurNouveauCompte");
@@ -96,7 +97,36 @@ public class ControllerPrincipal
 	    model.addAttribute("nomUtilisateur", "");
 	    
 		return ChargerPageOuLogin(Page.EMPLOYEEMANAGEMENT,request,model);
-	}
+	}*/
+	
+	/*@RequestMapping(value = "/CreeUtilisateur", method = RequestMethod.POST)
+	public String creeUtilisateurConfirmation(HttpServletRequest request, Model model, @RequestBody final EmployeViewModel nouvelleUtilisateur) 
+	{
+		String nomUtilisateurNouveauCompte = request.getParameter("nomUtilisateurNouveauCompte");
+	    String mdp = request.getParameter("mdp");
+	    
+	    model.addAttribute("nouveauCompte", nomUtilisateurNouveauCompte);
+	    
+	    accesModel.CreerUtilisateur(nomUtilisateurNouveauCompte, mdp);
+		
+	    model.addAttribute("nomUtilisateur", "");
+	    
+		return ChargerPageOuLogin(Page.EMPLOYEEMANAGEMENT,request,model);
+	}*/
+	
+	@RequestMapping(value="/ajax/CreeUtilisateur",method=RequestMethod.POST)
+	public  @ResponseBody String  getSearchUserProfiles(@RequestBody EmployeViewModel nouvelleUtilisateur, HttpServletRequest request, Model model) {
+	       String nomUtilisateurNouveauCompte = nouvelleUtilisateur.nomUsager;
+	       String mdp = nouvelleUtilisateur.mdp;
+
+	       model.addAttribute("nouveauCompte", nomUtilisateurNouveauCompte);
+		    
+		   accesModel.CreerUtilisateur(nomUtilisateurNouveauCompte, mdp);
+			
+		   model.addAttribute("nomUtilisateur", "");
+		    
+		   return ChargerPageOuLogin(Page.EMPLOYEEMANAGEMENT,request,model);
+	   }
 	
 	@RequestMapping("/FeuilleDeTemps")
 	public String accederFeuilleDeTemps(HttpServletRequest request, Model model) {
@@ -109,7 +139,7 @@ public class ControllerPrincipal
 	}
 	
 	@RequestMapping(value="FeuilleDeTemps", method = RequestMethod.POST)
-	public @ResponseBody Boolean sauvegarderFeuilleDeTemps( @RequestBody final  FeuilleDeTempsViewModel feuilleDeTemps)
+	public @ResponseBody Boolean sauvegarderFeuilleDeTemps(@RequestBody final  FeuilleDeTempsViewModel feuilleDeTemps)
 	{
 		// Valider la feuilleDeTemps / Sa validité
 		
