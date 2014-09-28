@@ -16,14 +16,14 @@ public class Serialisation {
 	 * @param CollectionUtilisateur The object to be save in the XML file
 	 * @param path Determine the path to save the user
 	 */
-	public static void enregistrerUtilisateurXML(List<Employe> CollectionUtilisateur, String path){
+	public static void enregistrerUtilisateurXML(List<Employee> CollectionUtilisateur, String path){
 		
 		try {
 		    XStream xstream = new XStream(new DomDriver());
 		    File file = new File(path+".xml");
 		    FileOutputStream fos = new FileOutputStream(file);
 		    try {
-				xstream.alias("Employe", Employe.class);
+				xstream.alias("Employe", Employee.class);
 			   	xstream.toXML(CollectionUtilisateur, fos);
 		    } finally {
 			fos.close();

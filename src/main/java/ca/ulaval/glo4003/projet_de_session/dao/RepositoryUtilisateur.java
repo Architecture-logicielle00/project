@@ -4,13 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import ca.ulaval.glo4003.projet_de_session.imodel.IRepositoryUtilisateur;
+import ca.ulaval.glo4003.projet_de_session.model.Employee;
 import ca.ulaval.glo4003.projet_de_session.model.Utilisateur;
 
 public class RepositoryUtilisateur implements IRepositoryUtilisateur {
 	
-	// TODO acc�d� au fichier de mani�re reel au lieu d'utiliser cette liste hardcoder, repr�sente la base de donn�e doit donc etre remplacer par ce qui fonctionne
-	// Le static est une tr�s MAUVAISE PRATIQUE mais ceci permet de simuler la persistence des donn�es. � r�gl�.
-	static List<Utilisateur> utilisateurs;
+	protected List<Utilisateur> utilisateurs;
 	
 	public RepositoryUtilisateur()
 	{
@@ -26,29 +25,34 @@ public class RepositoryUtilisateur implements IRepositoryUtilisateur {
 	{
 		String mdp = "12345";
 		
-		ajouterUtilisateur("Jeff",mdp);
-		ajouterUtilisateur("Alexandra",mdp);
-		ajouterUtilisateur("Walid",mdp);
-		ajouterUtilisateur("Mounir",mdp);
-		ajouterUtilisateur("David",mdp);
-		ajouterUtilisateur("Lauriane",mdp);
-		ajouterUtilisateur("JP",mdp);
+		ajouter(new Employee("JFGRA", mdp,  "Gravel", "Jean-François", "", "", "", "", "", "", "", "", "", ""));
+		ajouter(new Employee("ALSAM", mdp, "Samson","Alexandra",  "", "", "", "", "", "", "", "", "", ""));
+		ajouter(new Employee("DASAU", mdp, "Sauvé", "David", "", "", "", "", "", "", "", "", "", ""));
+		ajouter(new Employee("JPDEL", mdp, "Delisle","Jean-Phillipe", "", "", "", "", "", "", "", "", "", ""));
+		ajouter(new Employee("MOMEC", mdp, "Mechqrane","Mounir", "", "", "", "", "", "", "", "", "", ""));
+		ajouter(new Employee("WAHJK", mdp, "inconnue","Walid", "", "", "", "", "", "", "", "", "", ""));
+		ajouter(new Employee("LAHOL", mdp, "Holy", "Laurianne", "", "", "", "", "", "", "", "", "", ""));
+		
+		Employee gestionnaire = new Employee("OLDU", mdp, "Dugas", "Olivier", "", "", "", "", "", "", "", "", "", "");
+		gestionnaire.changerStatutGestionnaire(true);
+		
+		ajouter(gestionnaire);
 	}
 	
 	@Override
-	public void ajouterUtilisateur(String nomUtilisateur, String mdp)
+	public void ajouter(Utilisateur utilisateur)
 	{
-		utilisateurs.add(new Utilisateur(nomUtilisateur,mdp));
+		utilisateurs.add(utilisateur);
 	}
 
 	@Override
-	public Utilisateur obtenirUnUtilisateur(String nomUtilisateur) 
+	public Utilisateur obtenirParNom(String nomUtilisateur) 
 	{
 		Utilisateur utilisateurRechercher = null;
 		
 		for (Utilisateur simpleUtilisateur : utilisateurs)
 		{
-			if (nomUtilisateur.equals(simpleUtilisateur.obtenirNomUtilisateur()))
+			if (nomUtilisateur.equals(simpleUtilisateur.obtNomUtilisateur()))
 			{
 				utilisateurRechercher = simpleUtilisateur;
 				break;
@@ -58,4 +62,7 @@ public class RepositoryUtilisateur implements IRepositoryUtilisateur {
 		return utilisateurRechercher;
 	}
 
+	public List<Utilisateur> obtenirTout(){
+		return utilisateurs;
+	}
 }

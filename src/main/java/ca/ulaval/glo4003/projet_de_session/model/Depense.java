@@ -8,7 +8,7 @@ public class Depense {
 		refuser
 	}
 	
-	public Depense(Employe _employe, float _montant, String _description, Projet _projet)
+	public Depense(Employee _employe, float _montant, String _description, Projet _projet)
 	{
 		employe = _employe;
 		montant = _montant;
@@ -28,7 +28,7 @@ public class Depense {
 	
 	float montant;
 	String description;
-	Employe employe;
+	Employee employe;
 	Projet projet;
 	Etat etat = Etat.enAttente;
 }

@@ -14,7 +14,7 @@
 
         <ul class="nav navbar-right top-nav">
             <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> ${utilisateur.ObtenirNomUtilisateur()} <b class="caret"></b></a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> ${utilisateur.obtNomUtilisateur()} <b class="caret"></b></a>
                 <ul class="dropdown-menu">
                     <li>
                         <a href="#"><i class="fa fa-fw fa-user"></i> Profile</a>
@@ -45,7 +45,7 @@
                     <li>
                         <a href=""><i class="fa fa-fw fa-tasks"></i> Projets/Tâches</a>
                     </li>
- 				<c:if test="${utilisateur.EstGestionnaire()}">  
+ 				<c:if test="${utilisateur.estGestionnaire()}">  
 	                 <li>
 	                     <a href="/gestionEmployee"><i class="fa fa-fw fa fa-users"></i> Gestion des Employés</a>
 	                 </li>

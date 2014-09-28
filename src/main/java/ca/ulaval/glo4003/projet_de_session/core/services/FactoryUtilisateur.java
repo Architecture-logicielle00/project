@@ -1,6 +1,6 @@
 package ca.ulaval.glo4003.projet_de_session.core.services;
 
-import ca.ulaval.glo4003.projet_de_session.model.Employe;
+import ca.ulaval.glo4003.projet_de_session.model.Employee;
 import ca.ulaval.glo4003.projet_de_session.model.Utilisateur;
 
 public class FactoryUtilisateur
@@ -12,12 +12,12 @@ public class FactoryUtilisateur
 	
 	public Utilisateur creerEmploye(String login, String nom, String prenom, String mdp)
 	{
-		return new Employe(login, mdp, nom, prenom);
+		return new Employee(login, mdp, nom, prenom, "", "", "", "", "", "", "", "", "", "");
 	}
 	
 	public Utilisateur creerGestionnaire(String login, String nom, String prenom, String mdp)
 	{
-		Employe e = new Employe(login, mdp, nom, prenom);
+		Employee e = new Employee(login, mdp, nom, prenom, "", "", "", "", "", "", "", "", "", "");
 		e.changerStatutGestionnaire(true);
 		return e;
 	}

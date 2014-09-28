@@ -27,7 +27,7 @@
 		<div id="page-wrapper">
 			<h1>Création d'un utilisateur</h1>
 
-			<form id="posttoolbar" class="comment">
+			<form id="posttoolbar" class="comment" action="/creationEmployee" method="post">
 				<p class="contact">
 					<label for="name">Nom:</label>
 				</p>
@@ -92,8 +92,8 @@
 							<option value="11">November</option>
 							<option value="12">December</option></label> </select> <label>jour <input
 						class="birthday" maxlength="2" id="BirthDay" name="BirthDay" placeholder="Day"
-						required=""></label> Année<label> <input class="birthyear"
-						maxlength="4" id="BirthYear" name="BirthYear" placeholder="Year" required=""
+						required="required"></label> Année<label> <input class="birthyear"
+						maxlength="4" id="BirthYear" name="BirthYear" placeholder="Year" required="required"
 						style="width: 154px"></label> <br> <br>
 
 				</fieldset>
@@ -110,8 +110,7 @@
 					required="" type="text" style="width: 300px"> <br> <br>
 					
 				<input class="buttom" name="Entrer" id="submit" tabindex="10"
-					value="Valider" type="submit" style="width: 119px; height: 50px"
-					onclick="sauvegarderEmployee()">					
+					value="Valider" type="submit" style="width: 119px; height: 50px">					
 			</form>
 
 		</div>

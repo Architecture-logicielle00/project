@@ -16,15 +16,15 @@ public class Deserialisation {
 	 * Get the list of employees from a XML file 
 	 * @return Returns a list of employees
 	 */
-	public static List<Employe> chargerEmployeXML(String path){
-		List<Employe> UtilisateursToDeserialize  = new ArrayList<Employe>();
+	public static List<Employee> chargerEmployeXML(String path){
+		List<Employee> UtilisateursToDeserialize  = new ArrayList<Employee>();
 		 try {
 	         XStream xstream = new XStream(new DomDriver());
 	         FileInputStream fis = new FileInputStream(new File(path+".xml"));
 	         try {
 	        	 
-	        	 xstream.alias("Employe", Employe.class);
-	        	 UtilisateursToDeserialize =  (List<Employe>) xstream.fromXML(fis);
+	        	 xstream.alias("Employe", Employee.class);
+	        	 UtilisateursToDeserialize =  (List<Employee>) xstream.fromXML(fis);
 	         } finally {
 	             fis.close();
 	         }

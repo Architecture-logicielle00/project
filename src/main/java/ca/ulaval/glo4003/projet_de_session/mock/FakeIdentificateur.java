@@ -18,7 +18,7 @@ public class FakeIdentificateur implements IIdentificateur
 	@Override
 	public boolean connectionValide(String nomUtilisateur, String mdp) 
 	{
-		Utilisateur utilisateur = repoUtilisateur.obtenirUnUtilisateur(nomUtilisateur);
+		Utilisateur utilisateur = repoUtilisateur.obtenirParNom(nomUtilisateur);
 		
 		return utilisateur != null ? utilisateur.motDePasseValide(mdp) : false;
 	}

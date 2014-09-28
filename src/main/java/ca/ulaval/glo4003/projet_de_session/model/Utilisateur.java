@@ -15,7 +15,7 @@ public class Utilisateur
 	{
 	}
 	
-	public String obtenirNomUtilisateur()
+	public String obtNomUtilisateur()
 	{
 		return nomUtilisateur;
 	}

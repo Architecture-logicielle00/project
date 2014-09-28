@@ -28,16 +28,12 @@
     	</div>
     	<div id="employee-list">
         	<ul>
-            	<li class="list-group-item">Lorem, Ipsum</li>
-            	<li class="list-group-item">Lorem, Ipsum</li>
-            	<li class="list-group-item">Lorem, Ipsum</li>
-            	<li class="list-group-item">Lorem, Ipsum</li>
-            	<li class="list-group-item">Lorem, Ipsum</li>
-            	<li class="list-group-item">Lorem, Ipsum</li>
-            	<li class="list-group-item">Lorem, Ipsum</li>
-            	<li class="list-group-item">Lorem, Ipsum</li>
+        		<c:forEach var="employee" items="${employees}">
+            		<li class="list-group-item">${employee.prenom}, ${employee.nom} (${employee.nomUsager})</li>
+            	</c:forEach>
+
         	</ul>
-        	<button id="add-new-employee-btn" class="btn btn-primary"><a href="/CreeUtilisateur">Add New Employee</a></button>
+        	<button id="add-new-employee-btn" class="btn btn-primary"><a href="/creeUtilisateur">Add New Employee</a></button>
     	</div>
     </div>
     <!-- /#page-wrapper -->
@@ -49,7 +45,6 @@
 <script src="/resources/js/lib/jquery.js"></script>
 <script src="/resources/js/lib/jquery-ui.js"></script>
 <script src="/resources/js/lib/bootstrap.min.js"></script>
-<script src="/resources/js/employeeManagement.js"></script>	
 </body>
 </html>  
   

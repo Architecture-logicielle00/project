@@ -8,9 +8,9 @@ import ca.ulaval.glo4003.projet_de_session.imodel.IRepositoryFeuilleDeTemps;
 import ca.ulaval.glo4003.projet_de_session.imodel.IRepositoryUtilisateur;
 import ca.ulaval.glo4003.projet_de_session.mock.FakeIdentificateur;
 import ca.ulaval.glo4003.projet_de_session.model.Utilisateur;
-import ca.ulaval.glo4003.projet_de_session.web.converters.Converter;
 import ca.ulaval.glo4003.projet_de_session.web.converters.FeuilleDeTempsConverter;
-import ca.ulaval.glo4003.projet_de_session.web.viewmodels.EmployeViewModel;
+import ca.ulaval.glo4003.projet_de_session.web.converters.UtilisateurConverter;
+import ca.ulaval.glo4003.projet_de_session.web.viewmodels.EmployeeViewModel;
 import ca.ulaval.glo4003.projet_de_session.web.viewmodels.FeuilleDeTempsViewModel;
 import ca.ulaval.glo4003.projet_de_session.web.viewmodels.UtilisateurViewModel;
 
@@ -23,7 +23,7 @@ public class AccesModel implements IAccesModel {
 	public AccesModel() {
 		identificateur = new FakeIdentificateur();
 		repoUtilisateur = new RepositoryUtilisateur();
-		converter = new Converter();
+		converter = new UtilisateurConverter();
 	}
 	
 	public Boolean identificationValide(String _nomUtilisateur, String _mdp)
@@ -31,12 +31,12 @@ public class AccesModel implements IAccesModel {
 		return identificateur.connectionValide(_nomUtilisateur, _mdp);
 	}
 	
-	public void creerUtilisateur(String _nomUtilisateurNouveauCompte, String _mdp)
+	public void creerUtilisateur(Utilisateur utilisateur)
 	{
-		repoUtilisateur.ajouterUtilisateur(_nomUtilisateurNouveauCompte, _mdp);
+		repoUtilisateur.ajouter(utilisateur);
 	}
 	
-	public void creerUtilisateur(EmployeViewModel _nouveauUtilisateur)
+	public void creerUtilisateur(EmployeeViewModel _nouveauUtilisateur)
 	{
 		//repoUtilisateur.AjouterUtilisateur(_nomUtilisateurNouveauCompte, _mdp);
 	}
