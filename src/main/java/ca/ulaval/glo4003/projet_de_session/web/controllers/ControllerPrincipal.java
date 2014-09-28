@@ -152,15 +152,15 @@ public class ControllerPrincipal
 	public String accederFeuilleDeTemps(HttpServletRequest request, Model model) {
 		
 		UtilisateurViewModel utilisateurCourant = manageSession.ObtenirUtilisateurSession(request);
-		
+/*		
 		FeuilleDeTempsViewModel feuilleDeTempsBidon = new FeuilleDeTempsViewModel();
-		feuilleDeTempsBidon.debutPeriode = new Date("2014-04-08");
-		feuilleDeTempsBidon.finPeriode = new Date("2014-04-30");
+		feuilleDeTempsBidon.debutPeriode = new Date("2014-04-01");
+		feuilleDeTempsBidon.finPeriode = new Date("2014-04-8");
 		feuilleDeTempsBidon.employe = "David";
-		feuilleDeTempsBidon.blocsDeTemps = new 
+		feuilleDeTempsBidon.blocsDeTemps = new */
 		
 		
-		FeuilleDeTempsViewModel viewModel = feuilleDeTempsBidon;//feuilleDeTempsConverter.convert(repositoryFeuilleDeTemps.obtenirParUtilisateur(utilisateurCourant.nomUsager));
+		FeuilleDeTempsViewModel viewModel = feuilleDeTempsConverter.convert(repositoryFeuilleDeTemps.obtenirParUtilisateur(utilisateurCourant.nomUsager));
 		model.addAttribute("feuilleDeTemps", viewModel);
 		return ChargerPageOuLogin(Page.TIMESHEET,request,model);
 	}
