@@ -121,19 +121,3 @@ function updateTotalRowSection(){
 
     })
 }
-
-
-
-//TODO : a supprimer pour le sprint
-function addDailyColumn(){
-    var $tableRows = $("table.table.time-sheet-table > tbody > tr");
-
-    $tableRows.each(function(index, value){
-       if(index == 0)
-           $(value).append("<th>New</th>");
-       else
-           $(value).append("<td><input type=\"text\"/></td>");
-    });
-
-
-}

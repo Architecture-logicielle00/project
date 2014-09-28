@@ -6,8 +6,8 @@ import ca.ulaval.glo4003.projet_de_session.web.viewmodels.UtilisateurViewModel;
 
 public class Converter implements IConverter {
 	
-	public UtilisateurViewModel Convert(Utilisateur utilisateur)
+	public UtilisateurViewModel convert(Utilisateur utilisateur)
 	{
-		return UtilisateurConverter.Convert(utilisateur);
+		return UtilisateurConverter.convert(utilisateur);
 	}
 }

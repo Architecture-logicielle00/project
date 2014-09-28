@@ -7,11 +7,11 @@ import ca.ulaval.glo4003.projet_de_session.web.viewmodels.UtilisateurViewModel;
 
 
 public interface IGestionSession {
-	public Boolean ChargerUtilisateurInformation(HttpServletRequest request, Model model);
+	public Boolean chargerUtilisateurInformation(HttpServletRequest request, Model model);
 	
-	public UtilisateurViewModel ObtenirUtilisateurSession(HttpServletRequest request);
+	public UtilisateurViewModel obtenirUtilisateurSession(HttpServletRequest request);
 	
-	public void SetUtilisateur(HttpServletRequest request, String _userName);
+	public void definirUtilisateur(HttpServletRequest request, String _userName);
 	
-	public void Logoff(HttpServletRequest request);
+	public void logoff(HttpServletRequest request);
 }

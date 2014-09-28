@@ -15,18 +15,18 @@ public class Utilisateur
 	{
 	}
 	
-	public String ObtenirNomUtilisateur()
+	public String obtenirNomUtilisateur()
 	{
 		return nomUtilisateur;
 	}
 	
-	public boolean MotDePasseValide(String _mdp)
+	public boolean motDePasseValide(String _mdp)
 	{
 		return mdp.equals(_mdp);
 	}
 	
 	//Avoir une vrai logique pour sa
-	public boolean CreationPower()
+	public boolean creationPower()
 	{
 		return true;
 	}

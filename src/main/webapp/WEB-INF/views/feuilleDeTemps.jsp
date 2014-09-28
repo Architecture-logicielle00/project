@@ -32,12 +32,12 @@
 					<div id="debut-periode" class="date-periode">
 						<label for="debut-periode-input">Debut de la période</label> <input
 							id="debut-periode-input" type="date" name="debut-periode"
-							value="${feuilleDeTemps.debut}" readonly="true">
+							value="${feuilleDeTemps.obtStringDebutPeriode()}" readonly="true">
 					</div>
 					<div id="fin-periode" class="date-periode">
 						<label for="fin-periode-input">Fin de la période</label> <input
 							id="fin-periode-input" type="date" name="fin-periode"
-							value="${feuilleDeTemps.debut}" readonly="true">
+							value="${feuilleDeTemps.obtStringFinPeriode()}" readonly="true">
 					</div>
 				</div>
 
@@ -62,14 +62,14 @@
 						</c:forEach>
 					</tr>
 
-					<c:forEach var="blocDeTemps" items="${obtBlocsDeTemps()}">
+					<c:forEach var="blocDeTemps" items="${feuilleDeTemps.obtBlocsDeTemps()}">
 						<tr>
-							<td class="fixcol1"><span>${blocDeTemps.numProjet}</span>${blocDeTemps.nomProjet}</td>
-							<td class="fixcol2"><span>${blocDeTemps.numTache}</span>${blocDeTemps.nomTache}</td>
+							<td class="fixcol1"><span></span></td>
+							<td class="fixcol2"><span></span></td>
 							<c:forEach var="jourPeriode"
 								items="${feuilleDeTemps.obtListeJoursPeriode()}">
 								<td
-									id="${jourPeriode}-${blocDeTemps.numProjet}-${blocDeTemps.numTache}">
+									id="${jourPeriode}">
 									<input type="text" />
 								</td>
 							</c:forEach>

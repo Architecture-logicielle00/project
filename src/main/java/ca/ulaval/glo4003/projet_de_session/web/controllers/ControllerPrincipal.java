@@ -1,6 +1,9 @@
 package ca.ulaval.glo4003.projet_de_session.web.controllers;
 
+import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -16,6 +19,7 @@ import ca.ulaval.glo4003.projet_de_session.dao.RepositoryUtilisateur;
 import ca.ulaval.glo4003.projet_de_session.imodel.IAccesModel;
 import ca.ulaval.glo4003.projet_de_session.imodel.IGestionSession;
 import ca.ulaval.glo4003.projet_de_session.web.converters.FeuilleDeTempsConverter;
+import ca.ulaval.glo4003.projet_de_session.web.viewmodels.BlocDeTempsViewModel;
 import ca.ulaval.glo4003.projet_de_session.web.viewmodels.EmployeViewModel;
 import ca.ulaval.glo4003.projet_de_session.web.viewmodels.FeuilleDeTempsViewModel;
 import ca.ulaval.glo4003.projet_de_session.web.viewmodels.UtilisateurViewModel;
@@ -30,7 +34,7 @@ public class ControllerPrincipal
 		public static final String LOGIN = "login";
 		public static final String CREEUTILISATEUR = "creeUtilisateur";
 		public static final String EMPLOYEEMANAGEMENT = "employeeManagement";
-		public static final String TIMESHEET = "timeSheet";
+		public static final String TIMESHEET = "feuilleDeTemps";
 		
 	} 
 	
@@ -41,7 +45,6 @@ public class ControllerPrincipal
 	
 	private RepositoryUtilisateur repositoryUtilisateur;
 	private RepositoryFeuilleDeTemps repositoryFeuilleDeTemps;
-	
 	private FeuilleDeTempsConverter feuilleDeTempsConverter;
 	
 	public ControllerPrincipal() {
@@ -64,12 +67,12 @@ public class ControllerPrincipal
 		String nomUtilisateur = request.getParameter("nomUtilisateur");
 	    String mdp = request.getParameter("mdp");
 		
-		boolean connectionValide = accesModel.IdentificationValide(nomUtilisateur, mdp);
+		boolean connectionValide = accesModel.identificationValide(nomUtilisateur, mdp);
 
 		if (connectionValide)
 		{
-			manageSession.SetUtilisateur(request,nomUtilisateur);
-			return ChargerPageOuLogin(Page.INDEX,request,model);
+			manageSession.definirUtilisateur(request,nomUtilisateur);
+			return chargerPageOuLogin(Page.INDEX,request,model);
 		}
 		else
 			return Page.ERREUR;
@@ -78,13 +81,13 @@ public class ControllerPrincipal
 	@RequestMapping("/")
 	public String login(HttpServletRequest request, Model model) 
 	{
-		return ChargerPageOuLogin(Page.INDEX,request,model);
+		return chargerPageOuLogin(Page.INDEX,request,model);
 	}
 	
 	@RequestMapping("/Deconnection")
 	public String logout(HttpServletRequest request, Model model) {
-		manageSession.Logoff(request);
-		return ChargerPageOuLogin(Page.LOGIN,request,model);
+		manageSession.logoff(request);
+		return chargerPageOuLogin(Page.LOGIN,request,model);
 	}
 	
 	
@@ -96,7 +99,7 @@ public class ControllerPrincipal
 	
 	@RequestMapping("/CreeUtilisateur")
 	public String creeUtilisateur(HttpServletRequest request, Model model) {
-		return ChargerPageOuLogin(Page.CREEUTILISATEUR,request,model);
+		return chargerPageOuLogin(Page.CREEUTILISATEUR,request,model);
 	}
 	
 	/*@RequestMapping(value = "/CreeUtilisateur", method = RequestMethod.POST)
@@ -136,33 +139,58 @@ public class ControllerPrincipal
 
 	       model.addAttribute("nouveauCompte", nomUtilisateurNouveauCompte);
 		    
-		   accesModel.CreerUtilisateur(nomUtilisateurNouveauCompte, mdp);
+		   accesModel.creerUtilisateur(nomUtilisateurNouveauCompte, mdp);
 			
 		   model.addAttribute("nomUtilisateur", "");
 		    
-		   return ChargerPageOuLogin(Page.EMPLOYEEMANAGEMENT,request,model);
+		   return chargerPageOuLogin(Page.EMPLOYEEMANAGEMENT,request,model);
 	   }
 	
 	@RequestMapping("/EmployeeManagement")
 	public String getEmployeeManagement(HttpServletRequest request, Model model) {
-		return ChargerPageOuLogin(Page.EMPLOYEEMANAGEMENT,request,model);
+		return chargerPageOuLogin(Page.EMPLOYEEMANAGEMENT,request,model);
 	}
 	
 	@RequestMapping("/FeuilleDeTemps")
 	public String accederFeuilleDeTemps(HttpServletRequest request, Model model) {
 		
-		UtilisateurViewModel utilisateurCourant = manageSession.ObtenirUtilisateurSession(request);
-/*		
+		UtilisateurViewModel utilisateurCourant = manageSession.obtenirUtilisateurSession(request);
+		
 		FeuilleDeTempsViewModel feuilleDeTempsBidon = new FeuilleDeTempsViewModel();
-		feuilleDeTempsBidon.debutPeriode = new Date("2014-04-01");
-		feuilleDeTempsBidon.finPeriode = new Date("2014-04-8");
+		
+		Calendar cal = GregorianCalendar.getInstance();
+		cal.set(2014, 04, 01);
+		
+		feuilleDeTempsBidon.debutPeriode = cal.getTime();
+		
+		cal.set(2014, 04, 02);
+		feuilleDeTempsBidon.finPeriode = cal.getTime();
 		feuilleDeTempsBidon.employe = "David";
-		feuilleDeTempsBidon.blocsDeTemps = new */
+		feuilleDeTempsBidon.blocsDeTemps = new ArrayList<BlocDeTempsViewModel>();
+		
+		BlocDeTempsViewModel test = new BlocDeTempsViewModel();
+		test.dateDuJour = "2014-04-01";
+		test.nbHeures = 5;
+		test.nomProjet = "KJHkjjhkjk";
+		test.nomTache = "jhghjhgk";
+		test.numProjet = "1234";
+		test.numTache= "#1234-12";
+		
+		BlocDeTempsViewModel test1 = new BlocDeTempsViewModel();
+		test1.dateDuJour = "2014-04-02";
+		test1.nbHeures = 6;
+		test1.nomProjet = "KJHkfsdfdsjhkjk";
+		test1.nomTache = "jhgdsfsdgk";
+		test1.numProjet = "1234";
+		test1.numTache= "#1234-12";
+		
+		feuilleDeTempsBidon.blocsDeTemps.add(test);
+		feuilleDeTempsBidon.blocsDeTemps.add(test1);
 		
 		
-		FeuilleDeTempsViewModel viewModel = feuilleDeTempsConverter.convert(repositoryFeuilleDeTemps.obtenirParUtilisateur(utilisateurCourant.nomUsager));
+		FeuilleDeTempsViewModel viewModel = feuilleDeTempsBidon;//feuilleDeTempsConverter.convert(repositoryFeuilleDeTemps.obtenirParUtilisateur(utilisateurCourant.nomUsager));
 		model.addAttribute("feuilleDeTemps", viewModel);
-		return ChargerPageOuLogin(Page.TIMESHEET,request,model);
+		return chargerPageOuLogin(Page.TIMESHEET,request,model);
 	}
 	
 	@RequestMapping(value="FeuilleDeTemps", method = RequestMethod.POST)
@@ -178,9 +206,9 @@ public class ControllerPrincipal
 	}
 
 	
-	private String ChargerPageOuLogin(String _page, HttpServletRequest request, Model model)
+	private String chargerPageOuLogin(String _page, HttpServletRequest request, Model model)
 	{
-		if (manageSession.ChargerUtilisateurInformation(request, model))
+		if (manageSession.chargerUtilisateurInformation(request, model))
 			return _page;
 		else
 			return Page.LOGIN;

@@ -26,28 +26,28 @@ public class AccesModel implements IAccesModel {
 		converter = new Converter();
 	}
 	
-	public Boolean IdentificationValide(String _nomUtilisateur, String _mdp)
+	public Boolean identificationValide(String _nomUtilisateur, String _mdp)
 	{
-		return identificateur.ConnectionValide(_nomUtilisateur, _mdp);
+		return identificateur.connectionValide(_nomUtilisateur, _mdp);
 	}
 	
-	public void CreerUtilisateur(String _nomUtilisateurNouveauCompte, String _mdp)
+	public void creerUtilisateur(String _nomUtilisateurNouveauCompte, String _mdp)
 	{
-		repoUtilisateur.AjouterUtilisateur(_nomUtilisateurNouveauCompte, _mdp);
+		repoUtilisateur.ajouterUtilisateur(_nomUtilisateurNouveauCompte, _mdp);
 	}
 	
-	public void CreerUtilisateur(EmployeViewModel _nouveauUtilisateur)
+	public void creerUtilisateur(EmployeViewModel _nouveauUtilisateur)
 	{
 		//repoUtilisateur.AjouterUtilisateur(_nomUtilisateurNouveauCompte, _mdp);
 	}
 	
-	public void SauvegarderFeuilleDeTemps(String _nomUtilisateur, FeuilleDeTempsViewModel feuilleDeTemps)
+	public void sauvegarderFeuilleDeTemps(String _nomUtilisateur, FeuilleDeTempsViewModel feuilleDeTemps)
 	{
 		//repoFeuilleDeTemps.AjouterFeuilleDeTemps(_nomUtilisateur, FeuilleDeTempsConverter.Convert(feuilleDeTemps));
 	}
 	
-	public UtilisateurViewModel Convert(Utilisateur utilisateur)
+	public UtilisateurViewModel convert(Utilisateur utilisateur)
 	{
-		return converter.Convert(utilisateur);
+		return converter.convert(utilisateur);
 	}
 }

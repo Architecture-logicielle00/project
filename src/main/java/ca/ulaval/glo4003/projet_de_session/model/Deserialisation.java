@@ -16,7 +16,7 @@ public class Deserialisation {
 	 * Get the list of employees from a XML file 
 	 * @return Returns a list of employees
 	 */
-	public static List<Employe> ChargerEmployeXML(String path){
+	public static List<Employe> chargerEmployeXML(String path){
 		List<Employe> UtilisateursToDeserialize  = new ArrayList<Employe>();
 		 try {
 	         XStream xstream = new XStream(new DomDriver());
@@ -42,7 +42,7 @@ public class Deserialisation {
 	 * Get the list of projects from a XML file
 	 * @return Returns a list of projects
 	 */
-	public static List<Projet> ChargerProjetsXML(String path){
+	public static List<Projet> chargerProjetsXML(String path){
 		List<Projet> ProjetsToDeserialize  = new ArrayList<Projet>();
 		 try {
 	         XStream xstream = new XStream(new DomDriver());

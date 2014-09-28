@@ -10,7 +10,7 @@ import ca.ulaval.glo4003.projet_de_session.web.viewmodels.UtilisateurViewModel;
 
 public class GestionSessionController implements IGestionSession 
 {
-	public Boolean ChargerUtilisateurInformation(HttpServletRequest request, Model model)
+	public Boolean chargerUtilisateurInformation(HttpServletRequest request, Model model)
 	{
 		UtilisateurViewModel user = (UtilisateurViewModel)request.getSession().getAttribute("UtilisateurSession");
 		
@@ -22,24 +22,24 @@ public class GestionSessionController implements IGestionSession
 		return utilisateurConnecter;
 	}
 	
-	public UtilisateurViewModel ObtenirUtilisateurSession(HttpServletRequest request){
-		return (UtilisateurViewModel)ObtenirSessionUtilisateur(request).getAttribute("UtilisateurSession");
+	public UtilisateurViewModel obtenirUtilisateurSession(HttpServletRequest request){
+		return (UtilisateurViewModel)obtenirSessionUtilisateur(request).getAttribute("UtilisateurSession");
 	}
 	
-	public void SetUtilisateur(HttpServletRequest request, String _userName)
+	public void definirUtilisateur(HttpServletRequest request, String _userName)
 	{
-		HttpSession session = ObtenirSessionUtilisateur(request);
+		HttpSession session = obtenirSessionUtilisateur(request);
 		UtilisateurViewModel user = new UtilisateurViewModel(_userName);
 		session.setAttribute("UtilisateurSession",user);
 	}
 	
-	public void Logoff(HttpServletRequest request)
+	public void logoff(HttpServletRequest request)
 	{
-		ObtenirSessionUtilisateur(request).invalidate();
+		obtenirSessionUtilisateur(request).invalidate();
 	}
 
 	
-	private HttpSession ObtenirSessionUtilisateur(HttpServletRequest request)
+	private HttpSession obtenirSessionUtilisateur(HttpServletRequest request)
 	{
 		return request.getSession();
 	}

@@ -26,29 +26,29 @@ public class RepositoryUtilisateur implements IRepositoryUtilisateur {
 	{
 		String mdp = "12345";
 		
-		AjouterUtilisateur("Jeff",mdp);
-		AjouterUtilisateur("Alexandra",mdp);
-		AjouterUtilisateur("Walid",mdp);
-		AjouterUtilisateur("Mounir",mdp);
-		AjouterUtilisateur("David",mdp);
-		AjouterUtilisateur("Lauriane",mdp);
-		AjouterUtilisateur("JP",mdp);
+		ajouterUtilisateur("Jeff",mdp);
+		ajouterUtilisateur("Alexandra",mdp);
+		ajouterUtilisateur("Walid",mdp);
+		ajouterUtilisateur("Mounir",mdp);
+		ajouterUtilisateur("David",mdp);
+		ajouterUtilisateur("Lauriane",mdp);
+		ajouterUtilisateur("JP",mdp);
 	}
 	
 	@Override
-	public void AjouterUtilisateur(String nomUtilisateur, String mdp)
+	public void ajouterUtilisateur(String nomUtilisateur, String mdp)
 	{
 		utilisateurs.add(new Utilisateur(nomUtilisateur,mdp));
 	}
 
 	@Override
-	public Utilisateur ObtenirUnUtilisateur(String nomUtilisateur) 
+	public Utilisateur obtenirUnUtilisateur(String nomUtilisateur) 
 	{
 		Utilisateur utilisateurRechercher = null;
 		
 		for (Utilisateur simpleUtilisateur : utilisateurs)
 		{
-			if (nomUtilisateur.equals(simpleUtilisateur.ObtenirNomUtilisateur()))
+			if (nomUtilisateur.equals(simpleUtilisateur.obtenirNomUtilisateur()))
 			{
 				utilisateurRechercher = simpleUtilisateur;
 				break;

@@ -13,12 +13,12 @@ public class UtilisateurViewModel {
 		statutGestionnaire = true;
 	}
 	
-	public String ObtenirNomUtilisateur()
+	public String obtNomUtilisateur()
 	{
 		return nomUtilisateur;
 	}
 	
-	public boolean EstGestionnaire()
+	public boolean estGestionnaire()
 	{
 		return statutGestionnaire;
 	}

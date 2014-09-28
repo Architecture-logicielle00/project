@@ -16,10 +16,10 @@ public class FakeIdentificateur implements IIdentificateur
 	}
 	
 	@Override
-	public boolean ConnectionValide(String nomUtilisateur, String mdp) 
+	public boolean connectionValide(String nomUtilisateur, String mdp) 
 	{
-		Utilisateur utilisateur = repoUtilisateur.ObtenirUnUtilisateur(nomUtilisateur);
+		Utilisateur utilisateur = repoUtilisateur.obtenirUnUtilisateur(nomUtilisateur);
 		
-		return utilisateur != null ? utilisateur.MotDePasseValide(mdp) : false;
+		return utilisateur != null ? utilisateur.motDePasseValide(mdp) : false;
 	}
 }

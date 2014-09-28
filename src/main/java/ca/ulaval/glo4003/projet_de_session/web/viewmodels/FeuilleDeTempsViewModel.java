@@ -10,12 +10,12 @@ public class FeuilleDeTempsViewModel {
 		 blocsDeTemps = new ArrayList<BlocDeTempsViewModel>();
 	}
 	
-	public Date obtDateDebutPeriode(){
-		return debutPeriode;
+	public String obtStringDebutPeriode(){
+		return debutPeriode.toString();
 	}
 	
-	public Date obtDateFinPeriode(){
-		return finPeriode;
+	public String obtStringFinPeriode(){
+		return finPeriode.toString();
 	}
 	
 	public ArrayList<BlocDeTempsViewModel> obtBlocsDeTemps(){
