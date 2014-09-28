@@ -30,7 +30,7 @@
     	<div id="employee-list">
         	<ul>
         		<c:forEach var="employee" items="${employees}">
-            		<li class="list-group-item">${employee.prenom}, ${employee.nom} (${employee.nomUsager})</li>
+            		<li class="list-group-item">${employee.prenom} ${employee.nom} (${employee.obtNomUtilisateur()})</li>
             	</c:forEach>
 
         	</ul>
