@@ -27,72 +27,6 @@
 		<div id="page-wrapper">
 			<h1>Création d'un utilisateur</h1>
 
-			<!-- 		<form method="POST" action="/CreeUtilisateur">
-			<table>
-				<tr>
-					<td>
-						Nom du nouvel utilisateur :
-					</td>
-					<td>
-						<input type="text" name="nomUtilisateurNouveauCompte">
-					</td>
-				</tr>
-				<tr>
-					<td>
-						Mot de passe du nouvel utilisateur :
-					</td>
-					<td>
-						<input type="password" name="mdp">
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<input type="submit" name="connecter">
-					</td>
-				</tr>
-			</table>
-		</form> -->
-
-		<script src="/resources/js/lib/jquery.js"></script>
-
-			<script>
-			
-				function sauvegarderEmployer() {
-					
-					alert("Début de la sauvegarde");
-					
-					   var utilisateur = {
-					    	"nom" : document.getElementById("name").innerHTML,
-							"prenom" : document.getElementById("prenom").innerHTML,
-							"email" : document.getElementById("email").innerHTML,
-							"nomUsager" : document.getElementById("username").innerHTML,
-							"pays" : document.getElementById("pays").innerHTML,
-							"province" : document.getElementById("province").innerHTML,
-							"ville" : document.getElementById("ville").innerHTML,
-							"codePostal" : document.getElementById("codepos").innerHTML,
-							"mdp" : document.getElementById("password").innerHTML,
-						
-							"mois" : document.getElementById("BirthMonth").innerHTML,
-							"jour" : document.getElementById("BirthDay").innerHTML,
-							"annee" : document.getElementById("BirthYear").innerHTML,
-						
-							"sexe" : document.getElementById("gender").innerHTML,
-							"telephone" : document.getElementById("phone").innerHTML
-					   }
-					   
-					   $.ajax({
-					      type: "POST",
-					      contentType : 'application/json; charset=utf-8',
-					      dataType : 'json',
-					      url: "/ajax/CreeUtilisateur",
-					      data: JSON.stringify(utilisateur), // Note it is important
-					      success :function(result) {
-					    	  alert("Employer sauvegardé");
-					     }
-					  });
-				
-			</script>
-
 			<form id="posttoolbar" class="comment">
 				<p class="contact">
 					<label for="name">Nom:</label>
@@ -177,11 +111,14 @@
 					
 				<input class="buttom" name="Entrer" id="submit" tabindex="10"
 					value="Valider" type="submit" style="width: 119px; height: 50px"
-					onclick="sauvegarderEmployer()">					
+					onclick="sauvegarderEmployee()">					
 			</form>
 
 		</div>
 	</div>
 	<!-- /#wrapper -->
+	
+		<script src="/resources/js/lib/jquery.js"></script>
+		<script src="/resources/js/creationEmployee/creationEmployee.js"></script>
 </body>
 </html>

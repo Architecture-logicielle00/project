@@ -24,7 +24,7 @@
                     </li>
                     <li class="divider"></li>
                     <li>
-                        <a href="/Deconnection"><i class="fa fa-fw fa-power-off"></i> Deconnexion</a>
+                        <a href="/deconnection"><i class="fa fa-fw fa-power-off"></i> Deconnexion</a>
                     </li>
                 </ul>
             </li>
@@ -34,7 +34,7 @@
 
                 <ul class="nav navbar-nav side-nav">
                     <li>
-                        <a href="/FeuilleDeTemps"><i class="fa fa-fw fa fa-clock-o"></i> Feuille de Temps</a>
+                        <a href="/feuilleDeTemps"><i class="fa fa-fw fa fa-clock-o"></i> Feuille de Temps</a>
                     </li>
                     <li>
                         <a href=""><i class="fa fa-fw fa-money"></i> Dépenses</a>
@@ -47,7 +47,7 @@
                     </li>
  				<c:if test="${utilisateur.EstGestionnaire()}">  
 	                 <li>
-	                     <a href="/EmployeeManagement"><i class="fa fa-fw fa fa-users"></i> Gestion des Employés</a>
+	                     <a href="/gestionEmployee"><i class="fa fa-fw fa fa-users"></i> Gestion des Employés</a>
 	                 </li>
 				</c:if>  
                 </ul>
