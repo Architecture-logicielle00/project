@@ -8,6 +8,10 @@ public class UtilisateurConverter implements IConverter {
 
 	public UtilisateurViewModel convert(Utilisateur utilisateur)
 	{
-		return new UtilisateurViewModel(utilisateur.obtNomUtilisateur());
+		UtilisateurViewModel viewModel = new UtilisateurViewModel();
+		viewModel.nomUtilisateur = utilisateur.obtNomUtilisateur();
+		
+		return viewModel;
+		
 	}
 }

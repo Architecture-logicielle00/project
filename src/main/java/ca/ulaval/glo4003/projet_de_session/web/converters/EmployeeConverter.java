@@ -1,6 +1,5 @@
 package ca.ulaval.glo4003.projet_de_session.web.converters;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.LinkedList;
 import java.util.List;
@@ -24,7 +23,7 @@ public class EmployeeConverter {
 	
 	public EmployeeViewModel convert(Employee entry) {
 		EmployeeViewModel viewModel = new EmployeeViewModel();
-		viewModel.nomUsager = entry.obtNomUtilisateur();
+		viewModel.nomUtilisateur = entry.obtNomUtilisateur();
 		viewModel.nom = entry.obtNom();
 		viewModel.prenom = entry.obtPrenom();
 		viewModel.email = entry.obtEmail();
@@ -37,6 +36,7 @@ public class EmployeeConverter {
 		viewModel.mois = entry.obtMoisDeNaissance();
 		viewModel.annee = entry.obtAnneeDeNaissance();
 		viewModel.sexe= entry.obtGenre();
+		viewModel.statutGestionnaire = entry.estGestionnaire();
 
 		return viewModel;
 	}

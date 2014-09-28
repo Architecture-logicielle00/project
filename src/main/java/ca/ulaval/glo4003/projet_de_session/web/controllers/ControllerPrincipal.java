@@ -20,6 +20,7 @@ import ca.ulaval.glo4003.projet_de_session.dao.RepositoryUtilisateur;
 import ca.ulaval.glo4003.projet_de_session.imodel.IAccesModel;
 import ca.ulaval.glo4003.projet_de_session.imodel.IGestionSession;
 import ca.ulaval.glo4003.projet_de_session.model.Employee;
+import ca.ulaval.glo4003.projet_de_session.model.Utilisateur;
 import ca.ulaval.glo4003.projet_de_session.web.converters.EmployeeConverter;
 import ca.ulaval.glo4003.projet_de_session.web.converters.FeuilleDeTempsConverter;
 import ca.ulaval.glo4003.projet_de_session.web.viewmodels.BlocDeTempsViewModel;
@@ -41,18 +42,15 @@ public class ControllerPrincipal
 		
 	} 
 	
-	private IAccesModel accesModel;
 	private IGestionSession manageSession;
-	
-	
 	
 	private RepositoryEmployee repositoryEmployee;
 	private RepositoryFeuilleDeTemps repositoryFeuilleDeTemps;
+	
 	private FeuilleDeTempsConverter feuilleDeTempsConverter;
 	private EmployeeConverter employeeConverter;
 	
 	public ControllerPrincipal() {
-		accesModel = new AccesModel();
 		manageSession = new GestionSessionController();
 		
 		repositoryEmployee = new RepositoryEmployee();
@@ -62,7 +60,6 @@ public class ControllerPrincipal
 	}
 	
 	public ControllerPrincipal(IAccesModel _accesModel, IGestionSession _manageSession) {
-		accesModel = _accesModel;
 		manageSession = _manageSession; 
 	}
 
@@ -78,11 +75,14 @@ public class ControllerPrincipal
 		String nomUtilisateur = request.getParameter("nomUtilisateur");
 	    String mdp = request.getParameter("mdp");
 		
-		boolean connectionValide = repositoryEmployee.obtenirParNom(nomUtilisateur).motDePasseValide(mdp);
+	    
+	    Utilisateur utilisateur = repositoryEmployee.obtenirParNom(nomUtilisateur);
+		boolean connectionValide = utilisateur.motDePasseValide(mdp);
 
 		if (connectionValide)
 		{
-			manageSession.definirUtilisateur(request,nomUtilisateur);
+			EmployeeViewModel utilisateurSession = employeeConverter.convert((Employee)utilisateur);
+			manageSession.definirUtilisateur(request,utilisateurSession);
 			return chargerPageOuLogin(Page.INDEX,request,model);
 		}
 		else
@@ -94,13 +94,6 @@ public class ControllerPrincipal
 		manageSession.logoff(request);
 		return chargerPageOuLogin(Page.LOGIN,request,model);
 	}
-	
-	
-	@RequestMapping(value = "/obtenirSessionUtilisateur", method = RequestMethod.GET)
-	public @ResponseBody UtilisateurViewModel obtenirSessionUtilisateur(HttpServletRequest res) {
-			UtilisateurViewModel user = new UtilisateurViewModel("NomUtilisateurTestRetourner");
-			return user;
-	  }
 	
 	
 	@RequestMapping(value = "/creationEmployee", method = RequestMethod.POST)
@@ -115,7 +108,6 @@ public class ControllerPrincipal
 	    String ville = request.getParameter("ville");
 	    String codePostal = request.getParameter("codepos");
 	    String motDePasse = request.getParameter("password");
-	    String confirmationMotDePasse = request.getParameter("repassword");
 	    String moisDenaissance = request.getParameter("BirthMonth");
 	    String jourDeNaissance = request.getParameter("BirthDay");
 	    String anneeDeNaissance = request.getParameter("BirthYear");

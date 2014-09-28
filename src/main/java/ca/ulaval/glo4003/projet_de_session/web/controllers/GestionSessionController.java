@@ -6,6 +6,8 @@ import javax.servlet.http.HttpSession;
 import org.springframework.ui.Model;
 
 import ca.ulaval.glo4003.projet_de_session.imodel.IGestionSession;
+import ca.ulaval.glo4003.projet_de_session.model.Utilisateur;
+import ca.ulaval.glo4003.projet_de_session.web.converters.UtilisateurConverter;
 import ca.ulaval.glo4003.projet_de_session.web.viewmodels.UtilisateurViewModel;
 
 public class GestionSessionController implements IGestionSession 
@@ -26,11 +28,10 @@ public class GestionSessionController implements IGestionSession
 		return (UtilisateurViewModel)obtenirSessionUtilisateur(request).getAttribute("UtilisateurSession");
 	}
 	
-	public void definirUtilisateur(HttpServletRequest request, String _userName)
+	public void definirUtilisateur(HttpServletRequest request, UtilisateurViewModel _utilisateurSession)
 	{
 		HttpSession session = obtenirSessionUtilisateur(request);
-		UtilisateurViewModel user = new UtilisateurViewModel(_userName);
-		session.setAttribute("UtilisateurSession",user);
+		session.setAttribute("UtilisateurSession", _utilisateurSession);
 	}
 	
 	public void logoff(HttpServletRequest request)

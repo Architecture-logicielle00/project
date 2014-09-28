@@ -45,11 +45,11 @@
                     <li>
                         <a href=""><i class="fa fa-fw fa-tasks"></i> Projets/Tâches</a>
                     </li>
- 				<c:if test="${utilisateur.estGestionnaire()}">  
-	                 <li>
-	                     <a href="/gestionEmployee"><i class="fa fa-fw fa fa-users"></i> Gestion des Employés</a>
-	                 </li>
-				</c:if>  
+ 					<c:if test="${utilisateur.estGestionnaire()}">  
+	                	<li>
+	                    	<a href="/gestionEmployee"><i class="fa fa-fw fa fa-users"></i> Gestion des Employés</a>
+	                 	</li>
+					</c:if>  
                 </ul>
         </div>
         <!-- /.navbar-collapse -->
