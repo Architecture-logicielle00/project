@@ -30,10 +30,10 @@ public class ControllerPrincipal
 	private static class Page
 	{
 		public static final String INDEX = "index";
-		public static final String ERREUR = "erreur";
+		public static final String ERREUR = "erreurLogin";
 		public static final String LOGIN = "login";
-		public static final String CREEUTILISATEUR = "creeUtilisateur";
-		public static final String EMPLOYEEMANAGEMENT = "employeeManagement";
+		public static final String CREEUTILISATEUR = "creationUtilisateurForm";
+		public static final String EMPLOYEEMANAGEMENT = "GestionEmployee";
 		public static final String TIMESHEET = "feuilleDeTemps";
 		
 	} 
