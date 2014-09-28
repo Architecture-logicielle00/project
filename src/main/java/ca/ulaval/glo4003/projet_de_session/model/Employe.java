@@ -11,6 +11,8 @@ public class Employe extends Utilisateur
 		
 		nom = _nom;
 		prenom = _prenom;
+		projets = new ArrayList<String>();
+		feuillesDeTemps = new ArrayList<FeuilleDeTemps>();
 	}
 	
 	public Employe()
@@ -18,39 +20,31 @@ public class Employe extends Utilisateur
 	}
 	
 	public String obtNom(){ return nom;	}
-	
 	public void changerNom(String _nom){ nom = _nom; }
 	
-	public String obtPrenom()
-	{
-		return prenom;
-	}
+	public String obtPrenom(){ return prenom; }
+	public void changerPrenom(String _prenom){ prenom = _prenom;}
 	
-	public void changerPrenom(String _prenom)
-	{
-		prenom = _prenom;
-	}
-	
-	public boolean estGestionnaire()
-	{
-		return statutGestionnaire;
-	}
-	
-	public void changerStatutGestionnaire(boolean s)
-	{
-		statutGestionnaire = s;
-	}
+	public boolean estGestionnaire(){ return statutGestionnaire; }
+	public void changerStatutGestionnaire(boolean s){ statutGestionnaire = s;}
 	
 	public void ajouterProjet(String projet)
 	{
 		projets.add(projet);
 	}
 	
+	public void supprimerProjet(String projet)
+	{
+		//TODO
+	}
+	
 	String nom;
 	String prenom;
-	String entreprise;
+	
 	ArrayList<String> projets;
+	ArrayList<FeuilleDeTemps> feuillesDeTemps;
+	
+	
 	boolean statutGestionnaire = false;
-	String superieur;
 }
 

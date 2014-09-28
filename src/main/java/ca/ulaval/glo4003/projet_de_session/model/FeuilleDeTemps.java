@@ -3,18 +3,23 @@ package ca.ulaval.glo4003.projet_de_session.model;
 import java.util.ArrayList;
 import java.util.Date;
 
+
 public class FeuilleDeTemps {
 	
-	public FeuilleDeTemps(String _employe, Date _debut, Date _fin)
+	public FeuilleDeTemps(String _nomEmploye, Date _debut, Date _fin)
 	{
-		employe = _employe;
+		nomEmploye = _nomEmploye;
 		debut = _debut;
 		fin = _fin;
+		
+		blocsDeTemps = new ArrayList<BlocDeTemps>();
 	}
 	
 	public Date obtDebut(){ return debut; }
 	
 	public Date obtFin(){ return fin; }
+	
+	public String obtNomEmploye(){ return nomEmploye; }
 	
 	public ArrayList<BlocDeTemps> obtBlocsDeTemps() { return blocsDeTemps; }
 	
@@ -26,8 +31,8 @@ public class FeuilleDeTemps {
 		}
 	}
 	
-	private ArrayList<BlocDeTemps> blocsDeTemps = new ArrayList<BlocDeTemps>();
+	private ArrayList<BlocDeTemps> blocsDeTemps;
 	private Date debut;
 	private Date fin;
-	private String employe;
+	private String nomEmploye;
 }

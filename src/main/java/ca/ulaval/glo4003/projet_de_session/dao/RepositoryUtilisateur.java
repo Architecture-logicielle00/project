@@ -8,8 +8,8 @@ import ca.ulaval.glo4003.projet_de_session.model.Utilisateur;
 
 public class RepositoryUtilisateur implements IRepositoryUtilisateur {
 	
-	// TODO accédé au fichier de manière reel au lieu d'utiliser cette liste hardcoder, représente la base de donnée doit donc etre remplacer par ce qui fonctionne
-	// Le static est une très MAUVAISE PRATIQUE mais ceci permet de simuler la persistence des données. À réglé.
+	// TODO accï¿½dï¿½ au fichier de maniï¿½re reel au lieu d'utiliser cette liste hardcoder, reprï¿½sente la base de donnï¿½e doit donc etre remplacer par ce qui fonctionne
+	// Le static est une trï¿½s MAUVAISE PRATIQUE mais ceci permet de simuler la persistence des donnï¿½es. ï¿½ rï¿½glï¿½.
 	static List<Utilisateur> utilisateurs;
 	
 	public RepositoryUtilisateur()
@@ -21,7 +21,7 @@ public class RepositoryUtilisateur implements IRepositoryUtilisateur {
 		}
 	}
 	
-	// TODO temporaire le temps d'avoir un vrai accès au xml
+	// TODO temporaire le temps d'avoir un vrai accï¿½s au xml
 	public void InitialiserRepoTest()
 	{
 		String mdp = "12345";

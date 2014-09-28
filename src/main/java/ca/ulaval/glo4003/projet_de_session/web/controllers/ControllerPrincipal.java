@@ -1,5 +1,7 @@
 package ca.ulaval.glo4003.projet_de_session.web.controllers;
 
+import java.util.Date;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
@@ -9,12 +11,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import ca.ulaval.glo4003.projet_de_session.dao.RepositoryFeuilleDeTemps;
+import ca.ulaval.glo4003.projet_de_session.dao.RepositoryUtilisateur;
 import ca.ulaval.glo4003.projet_de_session.imodel.IAccesModel;
 import ca.ulaval.glo4003.projet_de_session.imodel.IGestionSession;
-import ca.ulaval.glo4003.projet_de_session.model.FeuilleDeTemps;
+import ca.ulaval.glo4003.projet_de_session.web.converters.FeuilleDeTempsConverter;
 import ca.ulaval.glo4003.projet_de_session.web.viewmodels.EmployeViewModel;
 import ca.ulaval.glo4003.projet_de_session.web.viewmodels.FeuilleDeTempsViewModel;
-import ca.ulaval.glo4003.projet_de_session.web.viewmodels.UserViewModel;
+import ca.ulaval.glo4003.projet_de_session.web.viewmodels.UtilisateurViewModel;
 
 @Controller
 public class ControllerPrincipal 
@@ -33,9 +37,20 @@ public class ControllerPrincipal
 	private IAccesModel accesModel;
 	private IGestionSession manageSession;
 	
+	
+	
+	private RepositoryUtilisateur repositoryUtilisateur;
+	private RepositoryFeuilleDeTemps repositoryFeuilleDeTemps;
+	
+	private FeuilleDeTempsConverter feuilleDeTempsConverter;
+	
 	public ControllerPrincipal() {
 		accesModel = new AccesModel();
 		manageSession = new GestionSessionController();
+		
+		repositoryUtilisateur = new RepositoryUtilisateur();
+		repositoryFeuilleDeTemps = new RepositoryFeuilleDeTemps();
+		feuilleDeTempsConverter = new FeuilleDeTempsConverter();
 	}
 	
 	public ControllerPrincipal(IAccesModel _accesModel, IGestionSession _manageSession) {
@@ -74,8 +89,8 @@ public class ControllerPrincipal
 	
 	
 	@RequestMapping(value = "/obtenirUserSession", method = RequestMethod.GET)
-	public @ResponseBody UserViewModel obtenirUserSession(HttpServletRequest res) {
-			UserViewModel user = new UserViewModel("NomUtilisateurTestRetourner");
+	public @ResponseBody UtilisateurViewModel obtenirUserSession(HttpServletRequest res) {
+			UtilisateurViewModel user = new UtilisateurViewModel("NomUtilisateurTestRetourner");
 			return user;
 	  }
 	
@@ -128,20 +143,32 @@ public class ControllerPrincipal
 		   return ChargerPageOuLogin(Page.EMPLOYEEMANAGEMENT,request,model);
 	   }
 	
-	@RequestMapping("/FeuilleDeTemps")
-	public String accederFeuilleDeTemps(HttpServletRequest request, Model model) {
-		return ChargerPageOuLogin(Page.TIMESHEET,request,model);
-	}
-	
 	@RequestMapping("/EmployeeManagement")
 	public String getEmployeeManagement(HttpServletRequest request, Model model) {
 		return ChargerPageOuLogin(Page.EMPLOYEEMANAGEMENT,request,model);
 	}
 	
+	@RequestMapping("/FeuilleDeTemps")
+	public String accederFeuilleDeTemps(HttpServletRequest request, Model model) {
+		
+		UtilisateurViewModel utilisateurCourant = manageSession.ObtenirUtilisateurSession(request);
+		
+		FeuilleDeTempsViewModel feuilleDeTempsBidon = new FeuilleDeTempsViewModel();
+		feuilleDeTempsBidon.debutPeriode = new Date("2014-04-08");
+		feuilleDeTempsBidon.finPeriode = new Date("2014-04-30");
+		feuilleDeTempsBidon.employe = "David";
+		feuilleDeTempsBidon.blocsDeTemps = new 
+		
+		
+		FeuilleDeTempsViewModel viewModel = feuilleDeTempsBidon;//feuilleDeTempsConverter.convert(repositoryFeuilleDeTemps.obtenirParUtilisateur(utilisateurCourant.nomUsager));
+		model.addAttribute("feuilleDeTemps", viewModel);
+		return ChargerPageOuLogin(Page.TIMESHEET,request,model);
+	}
+	
 	@RequestMapping(value="FeuilleDeTemps", method = RequestMethod.POST)
 	public @ResponseBody Boolean sauvegarderFeuilleDeTemps(@RequestBody final  FeuilleDeTempsViewModel feuilleDeTemps)
 	{
-		// Valider la feuilleDeTemps / Sa validité
+		// Valider la feuilleDeTemps / Sa validitï¿½
 		
 		// Sauvegarder la feuille de temps
 		
@@ -149,16 +176,7 @@ public class ControllerPrincipal
 		
 		return sauvegardeEffectueAvecSucces;
 	}
-	
-	@RequestMapping(value="obtenirFeuilleDeTemps", method = RequestMethod.GET)
-	public @ResponseBody FeuilleDeTemps obtenirFeuilleDeTemps(HttpServletRequest request, Model model)
-	{
-		// Récupèré la feuille de temps de l'employé en cours
-		FeuilleDeTemps feuilleDeTemps = new FeuilleDeTemps(null, null, null);
-		
-		// Retournier la feuille de temps
-		return feuilleDeTemps;
-	}
+
 	
 	private String ChargerPageOuLogin(String _page, HttpServletRequest request, Model model)
 	{

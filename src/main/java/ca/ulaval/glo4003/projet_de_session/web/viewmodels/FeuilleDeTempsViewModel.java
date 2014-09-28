@@ -1,84 +1,56 @@
 package ca.ulaval.glo4003.projet_de_session.web.viewmodels;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
-
-import org.joda.time.DateTime;
-import org.joda.time.Days;
-import org.joda.time.DurationFieldType;
-
-import ca.ulaval.glo4003.projet_de_session.model.BlocDeTemps;
 
 public class FeuilleDeTempsViewModel {
 	
-	public Date obtDateDebut(){
-		return debut;
+	public FeuilleDeTempsViewModel(){
+		 blocsDeTemps = new ArrayList<BlocDeTempsViewModel>();
 	}
 	
-	public Date obtDateFin(){
-		return fin;
+	public Date obtDateDebutPeriode(){
+		return debutPeriode;
 	}
 	
-	public String obtNomUtilisateur(){
-		return nom_utilisateur;
+	public Date obtDateFinPeriode(){
+		return finPeriode;
 	}
 	
-	public ArrayList<BlocDeTemps> obtBlocsDeTemps(){
+	public ArrayList<BlocDeTempsViewModel> obtBlocsDeTemps(){
 		return blocsDeTemps;
 	}
 	
-	public ArrayList<BlocDeTemps> obtBlocsDeTempsParDate(Date _jour){
-		ArrayList<BlocDeTemps> blocsSpecifique = new ArrayList<BlocDeTemps>();
+	public ArrayList<String> obtListeJoursPeriode(){
+		Calendar c = Calendar.getInstance();
+		ArrayList<String> joursPeriode = new ArrayList<String>();
+		Date dateTrotteur = debutPeriode;
 		
-		for (BlocDeTemps blocDeTemps : blocsDeTemps) {
-			if(blocDeTemps.obtJour().compareTo(_jour) == 0)
-				blocsSpecifique.add(blocDeTemps);
+		
+		while(dateTrotteur.compareTo(finPeriode) != 0)
+		{
+			joursPeriode.add(dateTrotteur.toString());
+
+			c.setTime(dateTrotteur);
+			c.add(Calendar.DATE, 1);
+			dateTrotteur = c.getTime();
 		}
 		
-		return blocsSpecifique;
+		return joursPeriode;
 	}
 	
-	public ArrayList<BlocDeTemps> obtBlocsDeTempsParTache(String _tache){
-		ArrayList<BlocDeTemps> blocsSpecifique = new ArrayList<BlocDeTemps>();
-		
-		for (BlocDeTemps blocDeTemps : blocsDeTemps) {
-			if(blocDeTemps.obtTache() == _tache)
-				blocsSpecifique.add(blocDeTemps);
-		}
-		
-		return blocsSpecifique;
-	}
+	public ArrayList<BlocDeTempsViewModel> blocsDeTemps;
 	
-	public void changerNbHeureBlocDeTemps(Date jour, String tache, float _nbHeure){
-		
-		for (BlocDeTemps blocDeTemps : blocsDeTemps) {
-			if(blocDeTemps.obtJour().compareTo(jour) == 0 && blocDeTemps.obtTache() == tache)
-				blocDeTemps.changerNbHeure(_nbHeure);
-		}
-	}
-		
-	public ArrayList<DateTime> obtListeJourPeriode(){
-		DateTime dtDebut = new DateTime(debut);
-		DateTime dtFin = new DateTime(fin);
-		ArrayList<DateTime> dates = new ArrayList<DateTime>();
+	public Date debutPeriode;
 	
-		int nbJours = Days.daysBetween(dtDebut, dtFin).getDays()+1;
-		for (int i=0; i < nbJours; i++) {
-		    DateTime d = dtDebut.withFieldAdded(DurationFieldType.days(), i);
-		    dates.add(d);
-		}
-		
-		return dates;
-	}
+	public Date finPeriode;
+	
+	public String employe;
+	
+	public int id;
 	
 	
-	private ArrayList<BlocDeTemps> blocsDeTemps = new ArrayList<BlocDeTemps>();
-	
-	private Date debut;
-	
-	private Date fin;
-	
-	private String nom_utilisateur;
 	
 	
 	

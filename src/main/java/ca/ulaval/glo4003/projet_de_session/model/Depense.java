@@ -16,7 +16,7 @@ public class Depense {
 		projet = _projet;
 	}
 	
-	public void confirmation(Etat _etat)
+	public void changerEtat(Etat _etat)
 	{
 		etat = _etat;
 	}
