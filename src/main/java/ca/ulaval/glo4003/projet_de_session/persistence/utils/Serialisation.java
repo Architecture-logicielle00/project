@@ -16,10 +16,10 @@ public class Serialisation {
 
 	/**
 	 * Serialize a list of user
-	 * @param CollectionUtilisateur The object to be save in the XML file
+	 * @param employes The object to be save in the XML file
 	 * @param path Determine the path to save the user
 	 */
-	public static void enregistrerUtilisateurXML(List<Employe> CollectionUtilisateur, String path){
+	public static void enregistrerEmployes(List<Employe> employes, String path){
 		
 		try {
 		    XStream xstream = new XStream(new DomDriver());
@@ -27,7 +27,7 @@ public class Serialisation {
 		    FileOutputStream fos = new FileOutputStream(file);
 		    try {
 				xstream.alias("Employe", Employe.class);
-			   	xstream.toXML(CollectionUtilisateur, fos);
+			   	xstream.toXML(employes, fos);
 		    } finally {
 			fos.close();
 		    }
