@@ -2,9 +2,7 @@ package ca.ulaval.glo4003.projet_de_session.web.controllers;
 
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.GregorianCalendar;
-import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -15,19 +13,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import ca.ulaval.glo4003.projet_de_session.core.domain.Employe;
-import ca.ulaval.glo4003.projet_de_session.core.domain.Utilisateur;
 import ca.ulaval.glo4003.projet_de_session.core.services.ServiceEmploye;
-import ca.ulaval.glo4003.projet_de_session.core.utils.converter.EmployeeConverter;
 import ca.ulaval.glo4003.projet_de_session.core.utils.converter.FeuilleDeTempsConverter;
-import ca.ulaval.glo4003.projet_de_session.old.IAccesModel;
-import ca.ulaval.glo4003.projet_de_session.old.RepositoryEmployee;
 import ca.ulaval.glo4003.projet_de_session.old.RepositoryFeuilleDeTemps;
-import ca.ulaval.glo4003.projet_de_session.old.RepositoryUtilisateur;
 import ca.ulaval.glo4003.projet_de_session.web.services.IServiceSession;
 import ca.ulaval.glo4003.projet_de_session.web.services.ServiceSession;
 import ca.ulaval.glo4003.projet_de_session.web.viewmodels.BlocDeTempsViewModel;
-import ca.ulaval.glo4003.projet_de_session.web.viewmodels.EmployeeViewModel;
 import ca.ulaval.glo4003.projet_de_session.web.viewmodels.FeuilleDeTempsViewModel;
 import ca.ulaval.glo4003.projet_de_session.web.viewmodels.UtilisateurViewModel;
 
@@ -90,8 +81,7 @@ public class ControllerPrincipal
 		manageSession.logoff(request);
 		return chargerPageOuLogin(Page.LOGIN,request,model);
 	}
-	
-	//Done
+
 	@RequestMapping(value = "/creationEmployee", method = RequestMethod.POST)
 	public String creerEmployee(HttpServletRequest request, Model model) 
 	{  
