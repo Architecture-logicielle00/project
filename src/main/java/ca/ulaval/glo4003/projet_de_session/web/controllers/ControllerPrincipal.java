@@ -81,6 +81,11 @@ public class ControllerPrincipal
 		manageSession.logoff(request);
 		return chargerPageOuLogin(Page.LOGIN,request,model);
 	}
+	
+	@RequestMapping("/creationEmployee")
+	public String obtenirPageCreationEmployee(HttpServletRequest request, Model model){  
+		return chargerPageOuLogin(Page.CREEUTILISATEUR,request,model);
+	}
 
 	@RequestMapping(value = "/creationEmployee", method = RequestMethod.POST)
 	public String creerEmployee(HttpServletRequest request, Model model) 
