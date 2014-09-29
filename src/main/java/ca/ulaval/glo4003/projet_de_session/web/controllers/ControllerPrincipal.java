@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -14,15 +15,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import ca.ulaval.glo4003.projet_de_session.dao.RepositoryEmployee;
-import ca.ulaval.glo4003.projet_de_session.dao.RepositoryFeuilleDeTemps;
-import ca.ulaval.glo4003.projet_de_session.dao.RepositoryUtilisateur;
-import ca.ulaval.glo4003.projet_de_session.imodel.IAccesModel;
-import ca.ulaval.glo4003.projet_de_session.imodel.IGestionSession;
-import ca.ulaval.glo4003.projet_de_session.model.Employee;
-import ca.ulaval.glo4003.projet_de_session.model.Utilisateur;
-import ca.ulaval.glo4003.projet_de_session.web.converters.EmployeeConverter;
-import ca.ulaval.glo4003.projet_de_session.web.converters.FeuilleDeTempsConverter;
+import ca.ulaval.glo4003.projet_de_session.core.domain.Employe;
+import ca.ulaval.glo4003.projet_de_session.core.domain.Utilisateur;
+import ca.ulaval.glo4003.projet_de_session.core.services.ServiceEmploye;
+import ca.ulaval.glo4003.projet_de_session.core.utils.converter.EmployeeConverter;
+import ca.ulaval.glo4003.projet_de_session.core.utils.converter.FeuilleDeTempsConverter;
+import ca.ulaval.glo4003.projet_de_session.old.IAccesModel;
+import ca.ulaval.glo4003.projet_de_session.old.RepositoryEmployee;
+import ca.ulaval.glo4003.projet_de_session.old.RepositoryFeuilleDeTemps;
+import ca.ulaval.glo4003.projet_de_session.old.RepositoryUtilisateur;
+import ca.ulaval.glo4003.projet_de_session.web.services.IServiceSession;
+import ca.ulaval.glo4003.projet_de_session.web.services.ServiceSession;
 import ca.ulaval.glo4003.projet_de_session.web.viewmodels.BlocDeTempsViewModel;
 import ca.ulaval.glo4003.projet_de_session.web.viewmodels.EmployeeViewModel;
 import ca.ulaval.glo4003.projet_de_session.web.viewmodels.FeuilleDeTempsViewModel;
@@ -42,24 +45,21 @@ public class ControllerPrincipal
 		
 	} 
 	
-	private IGestionSession manageSession;
+	ServiceEmploye serviceEmploye;
 	
-	private RepositoryEmployee repositoryEmployee;
+	private IServiceSession manageSession;
 	private RepositoryFeuilleDeTemps repositoryFeuilleDeTemps;
 	
 	private FeuilleDeTempsConverter feuilleDeTempsConverter;
-	private EmployeeConverter employeeConverter;
 	
 	public ControllerPrincipal() {
-		manageSession = new GestionSessionController();
-		
-		repositoryEmployee = new RepositoryEmployee();
+		manageSession = new ServiceSession();
 		repositoryFeuilleDeTemps = new RepositoryFeuilleDeTemps();
-		feuilleDeTempsConverter = new FeuilleDeTempsConverter();
-		employeeConverter = new EmployeeConverter() ;
+		feuilleDeTempsConverter = new FeuilleDeTempsConverter();		
+		serviceEmploye = new ServiceEmploye();
 	}
 	
-	public ControllerPrincipal(IAccesModel _accesModel, IGestionSession _manageSession) {
+	public ControllerPrincipal(IServiceSession _manageSession) {
 		manageSession = _manageSession; 
 	}
 
@@ -69,23 +69,19 @@ public class ControllerPrincipal
 		return chargerPageOuLogin(Page.INDEX,request,model);
 	}
 	
+	//Changer pour method dans ServiceEmploye
 	@RequestMapping(value = "/", method = RequestMethod.POST)
 	public String connection(HttpServletRequest request, Model model) 
 	{
 		String nomUtilisateur = request.getParameter("nomUtilisateur");
 	    String mdp = request.getParameter("mdp");
-		
 	    
-	    Utilisateur utilisateur = repositoryEmployee.obtenirParNom(nomUtilisateur);
-		boolean connectionValide = utilisateur.motDePasseValide(mdp);
-
-		if (connectionValide)
-		{
-			EmployeeViewModel utilisateurSession = employeeConverter.convert((Employee)utilisateur);
-			manageSession.definirUtilisateur(request,utilisateurSession);
+	    if(serviceEmploye.verifierMotDePasse(nomUtilisateur, mdp))
+	    {
+	    	manageSession.definirUtilisateur(request, serviceEmploye.obtEmployeViewModel(nomUtilisateur));
 			return chargerPageOuLogin(Page.INDEX,request,model);
-		}
-		else
+	    }
+	    else
 			return Page.ERREUR;
 	}
 	
@@ -95,49 +91,32 @@ public class ControllerPrincipal
 		return chargerPageOuLogin(Page.LOGIN,request,model);
 	}
 	
-	
+	//Done
 	@RequestMapping(value = "/creationEmployee", method = RequestMethod.POST)
 	public String creerEmployee(HttpServletRequest request, Model model) 
 	{  
-	    String name = request.getParameter("name");
-	    String prenom= request.getParameter("prenom");
-	    String email = request.getParameter("email");
-	    String username = request.getParameter("username");
-	    String pays = request.getParameter("pays");
-	    String province = request.getParameter("province");
-	    String ville = request.getParameter("ville");
-	    String codePostal = request.getParameter("codepos");
-	    String motDePasse = request.getParameter("password");
-	    String moisDenaissance = request.getParameter("BirthMonth");
-	    String jourDeNaissance = request.getParameter("BirthDay");
-	    String anneeDeNaissance = request.getParameter("BirthYear");
-	    String genre = request.getParameter("gender");
-	    String numTelephone = request.getParameter("phone");
-	    
-	    Employee nouvelEmployee = new Employee(username,
-	    		motDePasse,
-	    		name,
-	    		prenom,
-	    		email,
-	    		pays,
-	    		province,
-	    		ville,
-	    		codePostal,
-	    		moisDenaissance,
-	    		jourDeNaissance,
-	    		anneeDeNaissance,
-	    		genre,
-	    		numTelephone);
-	    repositoryEmployee.ajouter(nouvelEmployee);
-	    
+		serviceEmploye.creerEmploye(request.getParameter("username"),
+	    		request.getParameter("password"),
+	    		request.getParameter("name"),
+	    		request.getParameter("prenom"),
+	    		"defaultEntreprise",
+	    		request.getParameter("email"),
+	    		request.getParameter("pays"),
+	    		request.getParameter("province"),
+	    		request.getParameter("ville"),
+	    		request.getParameter("codepos"),
+	    		Integer.valueOf( request.getParameter("BirthDay") ),
+	    		Integer.valueOf( request.getParameter("BirthMonth") ),
+	    		Integer.valueOf ( request.getParameter("BirthYear") ),
+	    		request.getParameter("gender"),
+	    		request.getParameter("phone"));
+		
 		return chargerPageOuLogin(Page.EMPLOYEEMANAGEMENT,request,model);
 	}
 	
-	
 	@RequestMapping("/gestionEmployee")
 	public String accederGestionEmployee(HttpServletRequest request, Model model) {
-		
-		model.addAttribute("employees", employeeConverter.convert(repositoryEmployee.obtenirTout()));
+		model.addAttribute( "employees", serviceEmploye.obtEmployesViewModel() );
 		return chargerPageOuLogin(Page.EMPLOYEEMANAGEMENT,request,model);
 	}
 	
@@ -195,7 +174,7 @@ public class ControllerPrincipal
 		return sauvegardeEffectueAvecSucces;
 	}
 
-	
+	//Done
 	private String chargerPageOuLogin(String _page, HttpServletRequest request, Model model)
 	{
 		if (manageSession.chargerUtilisateurInformation(request, model))

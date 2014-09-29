@@ -5,15 +5,14 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 import org.springframework.ui.ExtendedModelMap;
 
-import ca.ulaval.glo4003.projet_de_session.web.controllers.AccesModel;
 import ca.ulaval.glo4003.projet_de_session.web.controllers.ControllerPrincipal;
-import ca.ulaval.glo4003.projet_de_session.web.controllers.GestionSessionController;
+import ca.ulaval.glo4003.projet_de_session.web.services.ServiceSession;
 
 public class ControllerPrincipalTest {
 	
 	private ControllerPrincipal ObtenirControlleurTest()
 	{
-		return new ControllerPrincipal(new AccesModel(),new GestionSessionController());
+		return new ControllerPrincipal(new ServiceSession());
 	}
 	
 	@Test
