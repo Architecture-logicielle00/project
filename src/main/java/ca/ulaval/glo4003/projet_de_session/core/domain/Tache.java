@@ -10,7 +10,9 @@ public class Tache {
 		description = _description;
 	}
 	
-	public String obtNumero(){ return numero;	}
+	
+	
+	public String obtNumero(){ return numero;}
 	
 	public String obtNom(){ return nom;	}
 	
@@ -22,8 +24,11 @@ public class Tache {
 	
 	public void changerDescription(String _description){ description = _description; }
 	
+
+	
 	private String numero;
 	private String nom; 
 	private String description;
+
 	
 }

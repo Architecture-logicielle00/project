@@ -14,13 +14,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import ca.ulaval.glo4003.projet_de_session.core.services.ServiceEmploye;
-import ca.ulaval.glo4003.projet_de_session.core.utils.converter.FeuilleDeTempsConverter;
-import ca.ulaval.glo4003.projet_de_session.old.RepositoryFeuilleDeTemps;
-import ca.ulaval.glo4003.projet_de_session.web.services.IServiceSession;
 import ca.ulaval.glo4003.projet_de_session.web.services.ServiceSession;
-import ca.ulaval.glo4003.projet_de_session.web.viewmodels.BlocDeTempsViewModel;
-import ca.ulaval.glo4003.projet_de_session.web.viewmodels.FeuilleDeTempsViewModel;
-import ca.ulaval.glo4003.projet_de_session.web.viewmodels.UtilisateurViewModel;
+
 
 @Controller
 public class ControllerPrincipal
@@ -39,13 +34,11 @@ public class ControllerPrincipal
 	ServiceEmploye serviceEmploye;
 	
 	private IServiceSession manageSession;
-	private RepositoryFeuilleDeTemps repositoryFeuilleDeTemps;
 	
 	private FeuilleDeTempsConverter feuilleDeTempsConverter;
 	
 	public ControllerPrincipal() {
 		manageSession = new ServiceSession();
-		repositoryFeuilleDeTemps = new RepositoryFeuilleDeTemps();
 		feuilleDeTempsConverter = new FeuilleDeTempsConverter();		
 		serviceEmploye = new ServiceEmploye();
 	}

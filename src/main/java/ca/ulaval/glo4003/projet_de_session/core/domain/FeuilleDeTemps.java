@@ -2,37 +2,34 @@ package ca.ulaval.glo4003.projet_de_session.core.domain;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Dictionary;
 
 
 public class FeuilleDeTemps {
 	
-	public FeuilleDeTemps(String _nomEmploye, Date _debut, Date _fin)
+	public FeuilleDeTemps(String _identifiant, Date _debut, Date _fin)
 	{
-		nomEmploye = _nomEmploye;
+		identifiant = _identifiant;
 		debut = _debut;
 		fin = _fin;
 		
-		blocsDeTemps = new ArrayList<BlocDeTemps>();
+		//TODO : ajouter les taches par rapport à l'employe
+	}
+	
+	public void ajouterUneTache(String _tache){
+		
 	}
 	
 	public Date obtDebut(){ return debut; }
 	
 	public Date obtFin(){ return fin; }
 	
-	public String obtNomEmploye(){ return nomEmploye; }
+	public String obtNomEmploye(){ return identifiant; }
 	
-	public ArrayList<BlocDeTemps> obtBlocsDeTemps() { return blocsDeTemps; }
 	
-	public void ajouterBlocDeTemps(String projet, String tache, Date jour, float nbHeure)
-	{
-		if( (jour.compareTo(debut) >= 0) && (jour.compareTo(fin) <= 0))
-		{
-			blocsDeTemps.add( new BlocDeTemps(projet, tache, jour, nbHeure) );
-		}
-	}
+	private Dictionary<String, ArrayList<Float>> taches;
 	
-	private ArrayList<BlocDeTemps> blocsDeTemps;
 	private Date debut;
 	private Date fin;
-	private String nomEmploye;
+	private String identifiant;
 }

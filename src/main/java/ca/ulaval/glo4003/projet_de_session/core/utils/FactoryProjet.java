@@ -7,9 +7,4 @@ public class FactoryProjet {
 	{
 		return new Projet(nom, entreprise, description);
 	}
-	
-	Projet creerProjet(Projet p)
-	{
-		return new Projet(p.obtNom(), p.obtEntreprise(), p.obtDescription());
-	}
 }

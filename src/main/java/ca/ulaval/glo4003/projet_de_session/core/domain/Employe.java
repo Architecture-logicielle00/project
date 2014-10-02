@@ -39,7 +39,7 @@ public class Employe extends Utilisateur
 		
 		
 		statutGestionnaire = false;
-		projets = new ArrayList<String>();
+		taches = new ArrayList<String>();
 		feuillesDeTemps = new ArrayList<FeuilleDeTemps>();
 	}
 	
@@ -89,12 +89,12 @@ public class Employe extends Utilisateur
 	public boolean estGestionnaire(){ return statutGestionnaire; }
 	public void changerStatutGestionnaire(boolean s){ statutGestionnaire = s;}
 	
-	public void ajouterProjet(String projet)
+	public void ajouterTache(String tache)
 	{
-		projets.add(projet);
+		taches.add(tache);
 	}
 	
-	public void supprimerProjet(String projet)
+	public void supprimerTache(String tache)
 	{
 		//TODO
 	}
@@ -113,7 +113,7 @@ public class Employe extends Utilisateur
 	String genre;
 	String numTelephone;
 	
-	ArrayList<String> projets;
+	ArrayList<String> taches;
 	ArrayList<FeuilleDeTemps> feuillesDeTemps;
 	
 	

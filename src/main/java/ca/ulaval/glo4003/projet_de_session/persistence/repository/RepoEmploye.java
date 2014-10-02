@@ -9,9 +9,8 @@ import ca.ulaval.glo4003.projet_de_session.persistence.utils.Xml;
 
 public class RepoEmploye {
 	
-	public RepoEmploye(FactoryEmploye _factory)
+	public RepoEmploye()
 	{
-		factory = _factory;
 		employes = new ArrayList<Employe>();
 		xml = new Xml();
 	}
@@ -22,7 +21,7 @@ public class RepoEmploye {
 		{
 			employes.add(e);
 		}
-		// Ajouter un lancé d'exception si présent
+		// Ajouter un lancï¿½ d'exception si prï¿½sent
 		
 	}
 	
@@ -67,7 +66,6 @@ public class RepoEmploye {
 		xml.enregistrerEmployes(employes, "xmlfiles/employes");
 	}
 	
-	FactoryEmploye factory;
 	ArrayList<Employe> employes;
 	Xml xml;
 }

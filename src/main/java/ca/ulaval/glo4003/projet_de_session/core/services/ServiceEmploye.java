@@ -15,7 +15,7 @@ public class ServiceEmploye
 	public ServiceEmploye()
 	{
 		factory = new FactoryEmploye();
-		repo = new RepoEmploye(factory);
+		repo = new RepoEmploye();
 		ec = new EmployeeConverter();
 		
 		init();
@@ -26,24 +26,9 @@ public class ServiceEmploye
 		return repo.obtenir(nomUtilisateur);
 	}
 	
-	public void creerEmploye(String nomUtilisateur,
-			String mdp,
-			String nom,
-			String prenom,
-			String entreprise,
-			String email,
-			String pays,
-			String province,
-			String ville,
-			String codePostal,
-			Integer jour,
-			Integer mois,
-			Integer annee,
-    		String genre,
-    		String telephone)
+	public void creerEmploye(EmployeeViewModel employe)
 	{
-		Employe e = factory.creerEmploye(nomUtilisateur,mdp, nom, prenom, entreprise, email, pays, province,
-				ville, codePostal, jour, mois, annee, genre, telephone);
+		Employe e = factory.creerEmploye(employe);
 		repo.ajouter(e);
 	}
 	
@@ -54,6 +39,8 @@ public class ServiceEmploye
 	
 	public List<Employe> obtEmployesParEntreprise(String entreprise)
 	{
+		
+		//TODO creer méthode obtEmployesParEntreprise dans le repo
 		List<Employe> repoList =  repo.obtEmployes();
 		List<Employe> entrepriseList = new ArrayList<Employe>();
 		

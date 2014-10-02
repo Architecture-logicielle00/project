@@ -24,10 +24,4 @@ public class Utilisateur
 	{
 		return mdp.equals(_mdp);
 	}
-	
-	//Avoir une vrai logique pour sa
-	public boolean creationPower()
-	{
-		return true;
-	}
 }
