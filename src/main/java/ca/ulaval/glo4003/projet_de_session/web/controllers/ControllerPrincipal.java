@@ -14,7 +14,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import ca.ulaval.glo4003.projet_de_session.core.services.ServiceEmploye;
+import ca.ulaval.glo4003.projet_de_session.web.services.IServiceSession;
 import ca.ulaval.glo4003.projet_de_session.web.services.ServiceSession;
+import ca.ulaval.glo4003.projet_de_session.web.viewmodels.FeuilleDeTempsViewModel;
 
 
 @Controller
@@ -35,11 +37,9 @@ public class ControllerPrincipal
 	
 	private IServiceSession manageSession;
 	
-	private FeuilleDeTempsConverter feuilleDeTempsConverter;
 	
 	public ControllerPrincipal() {
-		manageSession = new ServiceSession();
-		feuilleDeTempsConverter = new FeuilleDeTempsConverter();		
+		manageSession = new ServiceSession();	
 		serviceEmploye = new ServiceEmploye();
 	}
 	
@@ -82,23 +82,7 @@ public class ControllerPrincipal
 
 	@RequestMapping(value = "/creationEmployee", method = RequestMethod.POST)
 	public String creerEmployee(HttpServletRequest request, Model model) 
-	{  
-		serviceEmploye.creerEmploye(request.getParameter("username"),
-	    		request.getParameter("password"),
-	    		request.getParameter("name"),
-	    		request.getParameter("prenom"),
-	    		"defaultEntreprise",
-	    		request.getParameter("email"),
-	    		request.getParameter("pays"),
-	    		request.getParameter("province"),
-	    		request.getParameter("ville"),
-	    		request.getParameter("codepos"),
-	    		Integer.valueOf( request.getParameter("BirthDay") ),
-	    		Integer.valueOf( request.getParameter("BirthMonth") ),
-	    		Integer.valueOf ( request.getParameter("BirthYear") ),
-	    		request.getParameter("gender"),
-	    		request.getParameter("phone"));
-		
+	{ 		
 		return chargerPageOuLogin(Page.EMPLOYEEMANAGEMENT,request,model);
 	}
 	
@@ -111,42 +95,6 @@ public class ControllerPrincipal
 	@RequestMapping("/feuilleDeTemps")
 	public String accederFeuilleDeTemps(HttpServletRequest request, Model model) {
 		
-		UtilisateurViewModel utilisateurCourant = manageSession.obtenirUtilisateurSession(request);
-		
-		FeuilleDeTempsViewModel feuilleDeTempsBidon = new FeuilleDeTempsViewModel();
-		
-		Calendar cal = GregorianCalendar.getInstance();
-		cal.set(2014, 04, 01);
-		
-		feuilleDeTempsBidon.debutPeriode = cal.getTime();
-		
-		cal.set(2014, 04, 02);
-		feuilleDeTempsBidon.finPeriode = cal.getTime();
-		feuilleDeTempsBidon.employe = "David";
-		feuilleDeTempsBidon.blocsDeTemps = new ArrayList<BlocDeTempsViewModel>();
-		
-		BlocDeTempsViewModel test = new BlocDeTempsViewModel();
-		test.dateDuJour = "2014-04-01";
-		test.nbHeures = 5;
-		test.nomProjet = "KJHkjjhkjk";
-		test.nomTache = "jhghjhgk";
-		test.numProjet = "1234";
-		test.numTache= "#1234-12";
-		
-		BlocDeTempsViewModel test1 = new BlocDeTempsViewModel();
-		test1.dateDuJour = "2014-04-02";
-		test1.nbHeures = 6;
-		test1.nomProjet = "KJHkfsdfdsjhkjk";
-		test1.nomTache = "jhgdsfsdgk";
-		test1.numProjet = "1234";
-		test1.numTache= "#1234-12";
-		
-		feuilleDeTempsBidon.blocsDeTemps.add(test);
-		feuilleDeTempsBidon.blocsDeTemps.add(test1);
-		
-		
-		FeuilleDeTempsViewModel viewModel = feuilleDeTempsBidon;//feuilleDeTempsConverter.convert(repositoryFeuilleDeTemps.obtenirParUtilisateur(utilisateurCourant.nomUsager));
-		model.addAttribute("feuilleDeTemps", viewModel);
 		return chargerPageOuLogin(Page.TIMESHEET,request,model);
 	}
 	
