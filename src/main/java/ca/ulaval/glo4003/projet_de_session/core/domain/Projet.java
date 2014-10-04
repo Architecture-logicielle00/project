@@ -9,6 +9,8 @@ public class Projet {
 		description = _description;
 		taches = new ArrayList<Tache>();
 	}
+	
+	public Projet() {}
 
 	public String obtNom() {
 		return nom;
