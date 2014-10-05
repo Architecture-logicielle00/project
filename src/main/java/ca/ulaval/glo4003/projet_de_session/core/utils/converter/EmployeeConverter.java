@@ -31,9 +31,7 @@ public class EmployeeConverter {
 		viewModel.ville = entry.obtVille();
 		viewModel.codePostal = entry.obtCodePostal();
 		viewModel.telephone = entry.obtNumTelephone();
-		viewModel.jour = String.valueOf( entry.obtJourDeNaissance() );
-		viewModel.mois = String.valueOf( entry.obtMoisDeNaissance() );
-		viewModel.annee = String.valueOf( entry.obtAnneeDeNaissance() );
+		viewModel.dateDeNaissance = String.valueOf( entry.obtDateDeNaissance() );
 		viewModel.sexe= entry.obtGenre();
 		viewModel.statutGestionnaire = entry.estGestionnaire();
 

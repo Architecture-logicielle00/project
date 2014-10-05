@@ -13,10 +13,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import ca.ulaval.glo4003.projet_de_session.core.domain.Employe;
 import ca.ulaval.glo4003.projet_de_session.core.services.ServiceEmploye;
 import ca.ulaval.glo4003.projet_de_session.web.services.IServiceSession;
 import ca.ulaval.glo4003.projet_de_session.web.services.ServiceSession;
 import ca.ulaval.glo4003.projet_de_session.web.viewmodels.FeuilleDeTempsViewModel;
+import ca.ulaval.glo4003.projet_de_session.web.viewmodels.UtilisateurViewModel;
 
 
 @Controller
@@ -95,15 +97,24 @@ public class ControllerPrincipal
 	@RequestMapping("/feuilleDeTemps")
 	public String accederFeuilleDeTemps(HttpServletRequest request, Model model) {
 		
+		String nomUtilisateurSession = manageSession.obtenirUtilisateurSession(request).obtNomUtilisateur();
+		
+		Employe employe = serviceEmploye.obtEmploye(nomUtilisateurSession);
+		
+		//FeuilleDeTempsViewModel feuilleDeTempsCourante = serviceFeuilleDeTemps.obtFeuilleDeTempsViewModelParId(employe.obtFeuilleDeTempsCourante());
+		//model.addAttribute("feuileDeTemps", feuilleDeTempsCourante); 
+		
 		return chargerPageOuLogin(Page.TIMESHEET,request,model);
 	}
 	
-	@RequestMapping(value="feuilleDeTemps", method = RequestMethod.POST)
-	public @ResponseBody Boolean sauvegarderFeuilleDeTemps(@RequestBody final  FeuilleDeTempsViewModel feuilleDeTemps)
+	@RequestMapping(value="/feuilleDeTemps", method = RequestMethod.POST)
+	public @ResponseBody Boolean sauvegarderFeuilleDeTemps(@RequestBody FeuilleDeTempsViewModel feuilleDeTempsViewModel,HttpServletRequest request, Model model)
 	{
-		// Valider la feuilleDeTemps / Sa validit�
+		String nomUtilisateurSession = manageSession.obtenirUtilisateurSession(request).obtNomUtilisateur();
 		
-		// Sauvegarder la feuille de temps
+		Employe employe = serviceEmploye.obtEmploye(nomUtilisateurSession);
+		
+		//serviceFeuilleDeTemps.miseAJourFeuilleDeTemps(feuilleDeTempsViewModel);
 		
 		boolean sauvegardeEffectueAvecSucces = true;
 		

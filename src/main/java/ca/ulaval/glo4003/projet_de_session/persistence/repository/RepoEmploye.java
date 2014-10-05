@@ -14,6 +14,7 @@ public class RepoEmploye {
 		employes = new ArrayList<Employe>();
 		xml = new Xml();
 	}
+
 	
 	public void ajouter(Employe e)
 	{

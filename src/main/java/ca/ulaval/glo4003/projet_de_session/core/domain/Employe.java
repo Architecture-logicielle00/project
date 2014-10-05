@@ -1,6 +1,8 @@
 package ca.ulaval.glo4003.projet_de_session.core.domain;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Date;
 
 
 public class Employe extends Utilisateur
@@ -15,9 +17,7 @@ public class Employe extends Utilisateur
 			String _province,
 			String _ville,
 			String _codePostal,
-			Integer _moisDeNaissance,
-			Integer _jourDeNaissance,
-			Integer _anneeDeNaissance,
+			Date _dateDeNaissance,
     		String _genre,
     		String _numTelephone)
 	{
@@ -31,16 +31,13 @@ public class Employe extends Utilisateur
 		province = _province;
 		ville= _ville;
 		codePostal = _codePostal;
-		moisDeNaissance = _moisDeNaissance;
-		jourDeNaissance = _jourDeNaissance;
-		anneeDeNaissance = _anneeDeNaissance;
+		dateDeNaissance = _dateDeNaissance;
 		genre = _genre;
 		numTelephone = _numTelephone;
 		
 		
 		statutGestionnaire = false;
 		taches = new ArrayList<String>();
-		feuillesDeTemps = new ArrayList<FeuilleDeTemps>();
 	}
 	
 	public Employe()
@@ -71,14 +68,8 @@ public class Employe extends Utilisateur
 	public String obtCodePostal(){ return codePostal; }
 	public void changerCodePostal(String _codePostal){ codePostal = _codePostal;}
 	
-	public Integer obtJourDeNaissance(){ return jourDeNaissance; }
-	public void changerJourDeNaissance(Integer _jourDeNaissance){ jourDeNaissance = _jourDeNaissance;}
-
-	public Integer obtMoisDeNaissance(){ return moisDeNaissance; }
-	public void changerMoisDeNaissance(Integer _moisDeNaissance){ moisDeNaissance = _moisDeNaissance;}
-
-	public Integer obtAnneeDeNaissance(){ return anneeDeNaissance; }
-	public void changerAnneeDeNaissance(Integer _anneeDeNaissance){ anneeDeNaissance = _anneeDeNaissance;}
+	public Date obtDateDeNaissance(){ return dateDeNaissance; }
+	public void changerDateDeNaissance(Date _dateDeNaissance){ dateDeNaissance = _dateDeNaissance;}
 
 	public String obtNumTelephone(){ return numTelephone; }
 	public void changerNumTelephone(String _numTelephone){ numTelephone = _numTelephone;}
@@ -107,15 +98,12 @@ public class Employe extends Utilisateur
 	String province;
 	String ville;
 	String codePostal;
-	Integer moisDeNaissance;
-	Integer jourDeNaissance;
-	Integer anneeDeNaissance;
+	Date dateDeNaissance;
 	String genre;
 	String numTelephone;
 	
+	Array feuillesDeTemps;
 	ArrayList<String> taches;
-	ArrayList<FeuilleDeTemps> feuillesDeTemps;
-	
 	
 	boolean statutGestionnaire;
 }
