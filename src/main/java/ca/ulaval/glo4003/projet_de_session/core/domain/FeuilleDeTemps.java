@@ -16,6 +16,8 @@ public class FeuilleDeTemps {
 		//TODO : ajouter les taches par rapport à l'employe
 	}
 	
+	public FeuilleDeTemps(){}
+	
 	public void ajouterUneTache(String _tache){
 		
 	}

@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import ca.ulaval.glo4003.projet_de_session.core.domain.Employe;
+import ca.ulaval.glo4003.projet_de_session.core.domain.FeuilleDeTemps;
 import ca.ulaval.glo4003.projet_de_session.core.domain.Projet;
 
 import com.thoughtworks.xstream.XStream;
@@ -52,6 +53,29 @@ public class Xml {
 		    FileOutputStream fos = new FileOutputStream(file,true);
 		    try {
 			   	xstream.toXML(projets, fos);
+		    } finally {
+			fos.close();
+		    }
+		} catch (FileNotFoundException e) {
+		    e.printStackTrace();
+		} catch (IOException ioe) {
+		    ioe.printStackTrace();
+		}
+	}
+	
+	/**
+	 * Serialize a list of time sheet
+	 * @param feuillesDeTemps The list of time sheet to be save in the XML file
+	 * @param path Determine the path to save the time sheet
+	 */
+	public void enregistrerFeuilleDeTemps(List<FeuilleDeTemps> feuillesDeTemps, String path){
+		
+		try {
+		    XStream xstream = new XStream(new DomDriver());
+		    File file = new File(path+".xml");
+		    FileOutputStream fos = new FileOutputStream(file,true);
+		    try {
+			   	xstream.toXML(feuillesDeTemps, fos);
 		    } finally {
 			fos.close();
 		    }
@@ -112,6 +136,31 @@ public class Xml {
 	     }
 	 
 	return ProjetsToDeserialize;
+	}
+	
+	/**
+	 * Get the list of projects from a XML file
+	 * @return Returns a list of projects
+	 */
+	@SuppressWarnings("unchecked")
+	public List<FeuilleDeTemps> chargerFeuilleDeTemps(String path){
+		List<FeuilleDeTemps> feuillesDeTemps  = new ArrayList<FeuilleDeTemps>();
+		 try {
+	         XStream xstream = new XStream(new DomDriver());
+	         FileInputStream fis = new FileInputStream(new File(path+".xml"));
+	
+	         try {
+	        	 feuillesDeTemps = (List<FeuilleDeTemps>) xstream.fromXML(fis);
+	         } finally {
+	             fis.close();
+	         }
+	     } catch (FileNotFoundException e) {
+	         e.printStackTrace();
+	     } catch (IOException ioe) {
+	         ioe.printStackTrace();
+	     }
+	 
+	return feuillesDeTemps;
 	}
 }
 
