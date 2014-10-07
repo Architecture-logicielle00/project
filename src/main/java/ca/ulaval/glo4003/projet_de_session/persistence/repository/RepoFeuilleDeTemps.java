@@ -2,7 +2,6 @@ package ca.ulaval.glo4003.projet_de_session.persistence.repository;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import ca.ulaval.glo4003.projet_de_session.core.domain.FeuilleDeTemps;
 import ca.ulaval.glo4003.projet_de_session.persistence.utils.Xml;
 
@@ -57,6 +56,20 @@ public class RepoFeuilleDeTemps {
 				break;
 			}
 		}
+	}
+	
+	
+	 public void modifier(FeuilleDeTemps c1) {
+		for(FeuilleDeTemps c:feuilleDeTemps){
+			if(c.obtIndex().equals(c1.obtIndex())){
+				c.defNomEmploye(c1.obtNomEmploye());
+				c.defDebut(c1.obtDebut());
+				c.defFin(c1.obtFin());
+				c.defTaches(c1.obtTaches());
+				break;
+			}	
+		}
+		
 	}
 	
 	public void charger()

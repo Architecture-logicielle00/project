@@ -27,21 +27,31 @@ public class ServiceFeuilleDeTemps
 		return repo.obtenir(id);
 	}
 	
+	public void suppFeuilleDeTemps(Long id)
+	{
+		repo.supprimer(id);
+	}
+	
 	public void creerFeuilleDeTemps()
 	{
 		FeuilleDeTemps e = factory.creerFeuilleDeTemps();
 		repo.ajouter(e);
 	}
 	
+	public void modifierFeuilleDeTemps(FeuilleDeTemps e)
+	{
+		repo.modifier(e);
+	}
+	
 	public List<FeuilleDeTemps> obtFeuillesDeTemps()
 	{
-		return null; //TODO
+		return repo.obtTout();
 	}
 	
 	
 	public Collection<FeuilleDeTempsViewModel> obtFeuilleDeTempsViewModel()
 	{
-		return null;  //TODO
+		return ec.convert(obtFeuillesDeTemps());  //convertion dans un seul sens des models aux viewsModels
 	}
 	
 	

@@ -6,8 +6,48 @@ import java.util.Dictionary;
 
 public class FeuilleDeTempsViewModel {
 	
-	public int id;
+	public Long id;
 		
+	public Long obtId() {
+		return id;
+	}
+
+	public void defId(Long id) {
+		this.id = id;
+	}
+
+	public Date obtDebutPeriode() {
+		return debutPeriode;
+	}
+
+	public void defDebutPeriode(Date debutPeriode) {
+		this.debutPeriode = debutPeriode;
+	}
+
+	public Date obtFinPeriode() {
+		return finPeriode;
+	}
+
+	public void defFinPeriode(Date finPeriode) {
+		this.finPeriode = finPeriode;
+	}
+
+	public String obtEmploye() {
+		return employe;
+	}
+
+	public void defEmploye(String employe) {
+		this.employe = employe;
+	}
+
+	public Dictionary<String, ArrayList<Float>> obtTaches() {
+		return taches;
+	}
+
+	public void defTaches(Dictionary<String, ArrayList<Float>> taches) {
+		this.taches = taches;
+	}
+
 	public Date debutPeriode;
 	
 	public Date finPeriode;

@@ -61,7 +61,7 @@ public class FeuilleDeTemps {
 	
 	
 	
-	private Long index;
+	private Long index;//id appelé dans le repo pour les meths ajouter, supp, modifiable 
 	private Dictionary<String, ArrayList<Float>> taches; //en effet, je ne savais pas à quoi sert vraiment le ArrayList<Float>
 	private Date debut;
 	private Date fin;
