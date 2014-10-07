@@ -8,7 +8,7 @@ public class EmployeeViewModel extends UtilisateurViewModel{
 	public String province;
 	public String ville;
 	public String codePostal;
-	public String dateDeNaissance;
+	//public String dateDeNaissance;
 	public String sexe;
 	public String telephone;
 	public boolean statutGestionnaire;

@@ -1,8 +1,5 @@
 package ca.ulaval.glo4003.projet_de_session.web.controllers;
 
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.GregorianCalendar;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -18,7 +15,6 @@ import ca.ulaval.glo4003.projet_de_session.core.services.ServiceEmploye;
 import ca.ulaval.glo4003.projet_de_session.web.services.IServiceSession;
 import ca.ulaval.glo4003.projet_de_session.web.services.ServiceSession;
 import ca.ulaval.glo4003.projet_de_session.web.viewmodels.FeuilleDeTempsViewModel;
-import ca.ulaval.glo4003.projet_de_session.web.viewmodels.UtilisateurViewModel;
 
 
 @Controller

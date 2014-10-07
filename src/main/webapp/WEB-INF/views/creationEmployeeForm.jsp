@@ -74,29 +74,6 @@
 				<input type="password" id="repassword" name="repassword" required=""
 					style="width: 300px">
 
-				<p class="contact">Date de naissance:</p>
-				<fieldset class="ModalContent" style="width: 722px; height: 59px;">
-					<br>Mois<label class="month"> <select
-						class="select-style" id="BirthMonth" name="BirthMonth">
-							<option value=""></option>
-							<option value="01">January</option>
-							<option value="02">February</option>
-							<option value="03">March</option>
-							<option value="04">April</option>
-							<option value="05">May</option>
-							<option value="06">June</option>
-							<option value="07">July</option>
-							<option value="08">August</option>
-							<option value="09">September</option>
-							<option value="10">October</option>
-							<option value="11">November</option>
-							<option value="12">December</option></label> </select> <label>jour <input
-						class="birthday" maxlength="2" id="BirthDay" name="BirthDay" placeholder="Day"
-						required="required"></label> Année<label> <input class="birthyear"
-						maxlength="4" id="BirthYear" name="BirthYear" placeholder="Year" required="required"
-						style="width: 154px"></label> <br> <br>
-
-				</fieldset>
 				<br>Sexe <select class="select-style gender" id="gender" name="gender">
 					<option value="select"></option>
 					<option value="m">Male</option>
