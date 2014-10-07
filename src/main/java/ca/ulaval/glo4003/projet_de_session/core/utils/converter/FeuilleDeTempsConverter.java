@@ -29,4 +29,14 @@ public class FeuilleDeTempsConverter {
 
 		return viewModel;
 	}
+	
+	public FeuilleDeTemps convert(FeuilleDeTempsViewModel entry) {
+		FeuilleDeTemps feuilleDeTemps = new FeuilleDeTemps();
+		feuilleDeTemps.defDebut(entry.debutPeriode);
+		feuilleDeTemps.defFin(entry.finPeriode);
+		feuilleDeTemps.defNomEmploye(entry.employe);
+		feuilleDeTemps.defTaches(entry.taches);
+		
+		return feuilleDeTemps;
+	}
 }

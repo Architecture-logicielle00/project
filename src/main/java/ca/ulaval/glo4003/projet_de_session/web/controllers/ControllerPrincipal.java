@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import ca.ulaval.glo4003.projet_de_session.core.domain.Employe;
 import ca.ulaval.glo4003.projet_de_session.core.services.ServiceEmploye;
+import ca.ulaval.glo4003.projet_de_session.core.services.ServiceFeuilleDeTemps;
 import ca.ulaval.glo4003.projet_de_session.web.services.IServiceSession;
 import ca.ulaval.glo4003.projet_de_session.web.services.ServiceSession;
 import ca.ulaval.glo4003.projet_de_session.web.viewmodels.FeuilleDeTempsViewModel;
@@ -32,6 +33,7 @@ public class ControllerPrincipal
 	} 
 	
 	ServiceEmploye serviceEmploye;
+	ServiceFeuilleDeTemps serviceFeuilleDeTemps;
 	
 	private IServiceSession manageSession;
 	
@@ -39,6 +41,7 @@ public class ControllerPrincipal
 	public ControllerPrincipal() {
 		manageSession = new ServiceSession();	
 		serviceEmploye = new ServiceEmploye();
+		serviceFeuilleDeTemps = new ServiceFeuilleDeTemps();
 	}
 	
 	public ControllerPrincipal(IServiceSession _manageSession) {
@@ -97,8 +100,8 @@ public class ControllerPrincipal
 		
 		Employe employe = serviceEmploye.obtEmploye(nomUtilisateurSession);
 		
-		//FeuilleDeTempsViewModel feuilleDeTempsCourante = serviceFeuilleDeTemps.obtFeuilleDeTempsViewModelParId(employe.obtFeuilleDeTempsCourante());
-		//model.addAttribute("feuileDeTemps", feuilleDeTempsCourante); 
+		FeuilleDeTempsViewModel feuilleDeTempsCourante = serviceFeuilleDeTemps.obtFeuilleDeTempsViewModel(employe.obtFeuilleDeTempsCourante());
+		model.addAttribute("feuileDeTemps", feuilleDeTempsCourante); 
 		
 		return chargerPageOuLogin(Page.TIMESHEET,request,model);
 	}
@@ -110,7 +113,7 @@ public class ControllerPrincipal
 		
 		Employe employe = serviceEmploye.obtEmploye(nomUtilisateurSession);
 		
-		//serviceFeuilleDeTemps.miseAJourFeuilleDeTemps(feuilleDeTempsViewModel);
+		serviceFeuilleDeTemps.modifierFeuilleDeTemps(feuilleDeTempsViewModel);
 		
 		boolean sauvegardeEffectueAvecSucces = true;
 		

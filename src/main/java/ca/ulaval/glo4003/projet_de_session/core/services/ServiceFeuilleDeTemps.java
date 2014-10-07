@@ -43,15 +43,26 @@ public class ServiceFeuilleDeTemps
 		repo.modifier(e);
 	}
 	
+	public void modifierFeuilleDeTemps(FeuilleDeTempsViewModel evm)
+	{
+		FeuilleDeTemps e= ec.convert(evm);
+		repo.modifier(e);
+	}
+	
 	public List<FeuilleDeTemps> obtFeuillesDeTemps()
 	{
 		return repo.obtTout();
 	}
 	
 	
-	public Collection<FeuilleDeTempsViewModel> obtFeuilleDeTempsViewModel()
+	public Collection<FeuilleDeTempsViewModel> obtFeuillesDeTempsViewModel()
 	{
 		return ec.convert(obtFeuillesDeTemps());  //convertion dans un seul sens des models aux viewsModels
+	}
+	
+	public FeuilleDeTempsViewModel obtFeuilleDeTempsViewModel(Long id)
+	{
+		return ec.convert(obtFeuilleDeTemps(id));  //convertion dans un seul sens des models aux viewsModels
 	}
 	
 	

@@ -3,6 +3,7 @@ package ca.ulaval.glo4003.projet_de_session.core.domain;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 
 public class Employe extends Utilisateur
@@ -34,10 +35,9 @@ public class Employe extends Utilisateur
 		dateDeNaissance = _dateDeNaissance;
 		genre = _genre;
 		numTelephone = _numTelephone;
-		
-		
 		statutGestionnaire = false;
 		taches = new ArrayList<String>();
+		feuillesDeTemps= new ArrayList<Long>();
 	}
 	
 	public Employe()
@@ -90,6 +90,10 @@ public class Employe extends Utilisateur
 		//TODO
 	}
 	
+	public Long obtFeuilleDeTempsCourante(){
+		return feuillesDeTemps.get(feuillesDeTemps.size());
+	}
+	
 	String nom;
 	String prenom;
 	String entreprise;
@@ -102,7 +106,7 @@ public class Employe extends Utilisateur
 	String genre;
 	String numTelephone;
 	
-	Array feuillesDeTemps;
+	ArrayList<Long> feuillesDeTemps;
 	ArrayList<String> taches;
 	
 	boolean statutGestionnaire;
