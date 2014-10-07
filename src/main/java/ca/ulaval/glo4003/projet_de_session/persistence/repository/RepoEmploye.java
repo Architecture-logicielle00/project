@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import ca.ulaval.glo4003.projet_de_session.core.domain.Employe;
-import ca.ulaval.glo4003.projet_de_session.core.utils.FactoryEmploye;
 import ca.ulaval.glo4003.projet_de_session.persistence.utils.Xml;
 
 public class RepoEmploye {

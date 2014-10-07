@@ -22,7 +22,7 @@ public class ServiceFeuilleDeTemps
 		init();
 	}
 	
-	public FeuilleDeTemps obtFeuilleDeTemps(int id)
+	public FeuilleDeTemps obtFeuilleDeTemps(Long id)
 	{
 		return repo.obtenir(id);
 	}

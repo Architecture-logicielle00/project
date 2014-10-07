@@ -17,13 +17,30 @@ public class RepoFeuilleDeTemps {
 	
 	public void ajouter(FeuilleDeTemps e)
 	{
-		//TODO
 		
+		 if(feuilleDeTemps.size()==0){
+		e.defIndex(new Long(feuilleDeTemps.size()+1));
+		}
+		else
+		{
+			FeuilleDeTemps c1=feuilleDeTemps.get(feuilleDeTemps.size()-1);
+			e.defIndex(new Long(c1.obtIndex()+1));
+		}
+		feuilleDeTemps.add(e);
 	}
 	
-	public FeuilleDeTemps obtenir(int id)
+	public FeuilleDeTemps obtenir(Long id)
 	{
-		return new FeuilleDeTemps(); //TODO
+		
+		FeuilleDeTemps fDeTemps=null;
+		for(FeuilleDeTemps c:feuilleDeTemps){
+			if(c.obtIndex().equals(id)){
+				fDeTemps=c;
+			}	
+		}
+	
+	
+		return  fDeTemps; 
 	}
 	
 	public List<FeuilleDeTemps> obtTout()
@@ -32,9 +49,14 @@ public class RepoFeuilleDeTemps {
 	}
 	
 
-	public void supprimer(int id)
+	public void supprimer(Long id)//vue l'utilisation de l'arg id j'ai cree un index dans le model feuille pour entamer les diff meths
 	{
-		//TODO
+		for(FeuilleDeTemps c:feuilleDeTemps){
+			if(c.obtIndex().equals(id)){
+				feuilleDeTemps.remove(c);
+				break;
+			}
+		}
 	}
 	
 	public void charger()
