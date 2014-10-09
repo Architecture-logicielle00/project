@@ -75,12 +75,12 @@ public class RepoFeuilleDeTemps {
 	public void charger()
 	{
 		feuilleDeTemps.clear();
-		feuilleDeTemps = (ArrayList<FeuilleDeTemps>) xml.chargerFeuilleDeTemps("xmlfiles/employes");
+		feuilleDeTemps = (ArrayList<FeuilleDeTemps>) xml.chargerFeuilleDeTemps("xmlfiles/feuillesDeTemps");
 	}
 	
 	public void sauvegarder()
 	{
-		xml.enregistrerFeuilleDeTemps(feuilleDeTemps, "xmlfiles/employes");
+		xml.enregistrerFeuilleDeTemps(feuilleDeTemps, "xmlfiles/feuillesDeTemps");
 	}
 	
 	ArrayList<FeuilleDeTemps> feuilleDeTemps;
