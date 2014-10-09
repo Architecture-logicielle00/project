@@ -1,8 +1,10 @@
 package ca.ulaval.glo4003.projet_de_session.core.services;
 
 import java.util.Collection;
+import java.util.Date;
 import java.util.List;
 
+import ca.ulaval.glo4003.projet_de_session.core.domain.Employe;
 import ca.ulaval.glo4003.projet_de_session.core.domain.FeuilleDeTemps;
 import ca.ulaval.glo4003.projet_de_session.core.utils.FactoryFeuilleDeTemps;
 import ca.ulaval.glo4003.projet_de_session.core.utils.converter.FeuilleDeTempsConverter;
@@ -32,9 +34,9 @@ public class ServiceFeuilleDeTemps
 		repo.supprimer(id);
 	}
 	
-	public void creerFeuilleDeTemps()
+	public void creerFeuilleDeTemps(Employe _employe, Date _debut, Date _fin)
 	{
-		FeuilleDeTemps e = factory.creerFeuilleDeTemps();
+		FeuilleDeTemps e = factory.creerFeuilleDeTemps(_employe, _debut, _fin);
 		repo.ajouter(e);
 	}
 	

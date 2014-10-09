@@ -4,17 +4,30 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Dictionary;
 
+import org.joda.time.DateTime;
+import org.joda.time.Days;
+
 
 
 public class FeuilleDeTemps {
 	
-	public FeuilleDeTemps(String _identifiant, Date _debut, Date _fin)
+	public FeuilleDeTemps(String _identifiant, Date _debut, Date _fin, ArrayList<String> _listeTaches)
 	{
 		identifiant = _identifiant;
 		debut = _debut;
 		fin = _fin;
 		
-		//TODO : ajouter les taches par rapport Ã  l'employe
+		for (int i = 0; i < _listeTaches.size(); i++) {
+			
+			ArrayList<Float> nbHeuresParJour = new ArrayList<Float>();
+			
+			for (int j = 0; j < obtNombreJourPeriode(); j++) {
+				nbHeuresParJour.add((float) 0.0);
+			}
+			
+			taches.put(_listeTaches.get(i), nbHeuresParJour);
+		}
+		
 	}
 	
 	public FeuilleDeTemps(){super();}
@@ -59,10 +72,14 @@ public class FeuilleDeTemps {
 	
 	public void defIndex(Long idx){ index=idx; }
 	
+	private int obtNombreJourPeriode(){
+		return Days.daysBetween((new DateTime(debut)).toLocalDate(), (new DateTime(fin)).toLocalDate()).getDays();
+	}
 	
 	
-	private Long index;//id appelé dans le repo pour les meths ajouter, supp, modifiable 
-	private Dictionary<String, ArrayList<Float>> taches; //en effet, je ne savais pas à quoi sert vraiment le ArrayList<Float>
+	
+	private Long index;//id appelï¿½ dans le repo pour les meths ajouter, supp, modifiable 
+	private Dictionary<String, ArrayList<Float>> taches; //en effet, je ne savais pas ï¿½ quoi sert vraiment le ArrayList<Float>
 	private Date debut;
 	private Date fin;
 	private String identifiant;

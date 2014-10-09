@@ -1,9 +1,7 @@
 package ca.ulaval.glo4003.projet_de_session.core.domain;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 
 public class Employe extends Utilisateur
@@ -79,6 +77,11 @@ public class Employe extends Utilisateur
 	
 	public boolean estGestionnaire(){ return statutGestionnaire; }
 	public void changerStatutGestionnaire(boolean s){ statutGestionnaire = s;}
+	
+	
+	public ArrayList<String> obtTaches(){
+		return taches;
+	}
 	
 	public void ajouterTache(String tache)
 	{
