@@ -1,6 +1,8 @@
 package ca.ulaval.glo4003.projet_de_session.web.controllers;
 
 
+import java.sql.Date;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
@@ -55,6 +57,7 @@ public class ControllerPrincipal
 	}
 	
 	//Changer pour method dans ServiceEmploye
+	@SuppressWarnings("deprecation")
 	@RequestMapping(value = "/", method = RequestMethod.POST)
 	public String connection(HttpServletRequest request, Model model) 
 	{
@@ -64,6 +67,7 @@ public class ControllerPrincipal
 	    if(serviceEmploye.verifierMotDePasse(nomUtilisateur, mdp))
 	    {
 	    	manageSession.definirUtilisateur(request, serviceEmploye.obtEmployeViewModel(nomUtilisateur));
+
 			return chargerPageOuLogin(Page.INDEX,request,model);
 	    }
 	    else

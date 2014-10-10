@@ -44,7 +44,9 @@
     <codePostal></codePostal>
     <genre></genre>
     <numTelephone></numTelephone>
-    <feuillesDeTemps/>
+    <feuillesDeTemps>
+    	<list>
+    		<string>2</string></list></feuillesDeTemps>
     <statutGestionnaire>false</statutGestionnaire>
   </Employe>
   <Employe>

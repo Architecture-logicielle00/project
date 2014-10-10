@@ -40,6 +40,7 @@ public class Employe extends Utilisateur
 	
 	public Employe()
 	{
+		this("", "", "", "", "", "", "", "","","",new Date(),"","");
 	}
 	
 	public String obtNom(){ return nom;	}
@@ -83,18 +84,18 @@ public class Employe extends Utilisateur
 		return taches;
 	}
 	
-	public void ajouterTache(String tache)
+	public boolean ajouterTache(String tache)
 	{
-		taches.add(tache);
+		return taches.add(tache);
 	}
 	
 	public void supprimerTache(String tache)
 	{
-		//TODO
+		taches.remove(tache);
 	}
 	
 	public Long obtFeuilleDeTempsCourante(){
-		return feuillesDeTemps.get(feuillesDeTemps.size());
+		return feuillesDeTemps.get(feuillesDeTemps.size() - 1);
 	}
 	
 	String nom;

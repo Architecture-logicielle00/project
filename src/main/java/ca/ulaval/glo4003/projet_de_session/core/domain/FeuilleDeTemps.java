@@ -3,6 +3,8 @@ package ca.ulaval.glo4003.projet_de_session.core.domain;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Dictionary;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.joda.time.DateTime;
 import org.joda.time.Days;
@@ -11,11 +13,15 @@ import org.joda.time.Days;
 
 public class FeuilleDeTemps {
 	
+	public FeuilleDeTemps(){}
+	
 	public FeuilleDeTemps(String _identifiant, Date _debut, Date _fin, ArrayList<String> _listeTaches)
 	{
 		identifiant = _identifiant;
 		debut = _debut;
 		fin = _fin;
+		
+		taches = new HashMap<String, ArrayList<Float>>();
 		
 		for (int i = 0; i < _listeTaches.size(); i++) {
 			
@@ -28,14 +34,11 @@ public class FeuilleDeTemps {
 			taches.put(_listeTaches.get(i), nbHeuresParJour);
 		}
 		
-	}
+	}	
 	
-	public FeuilleDeTemps(){super();}
-	
-	
-	public 	Dictionary<String, ArrayList<Float>> obtTaches(){return taches;}
+	public 	Map<String, ArrayList<Float>> obtTaches(){return taches;}
 
-	public void defTaches(Dictionary<String, ArrayList<Float>> lesTaches) {
+	public void defTaches(Map<String, ArrayList<Float>> lesTaches) {
 		taches = lesTaches;
 	}
 	
@@ -79,7 +82,7 @@ public class FeuilleDeTemps {
 	
 	
 	private Long index;//id appel� dans le repo pour les meths ajouter, supp, modifiable 
-	private Dictionary<String, ArrayList<Float>> taches; //en effet, je ne savais pas � quoi sert vraiment le ArrayList<Float>
+	private Map<String, ArrayList<Float>> taches; //en effet, je ne savais pas � quoi sert vraiment le ArrayList<Float>
 	private Date debut;
 	private Date fin;
 	private String identifiant;

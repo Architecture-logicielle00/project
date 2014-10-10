@@ -75,6 +75,7 @@ public class Xml {
 		    File file = new File(path+".xml");
 		    FileOutputStream fos = new FileOutputStream(file,true);
 		    try {
+				xstream.alias("FeuilleDeTemps", FeuilleDeTemps.class);
 			   	xstream.toXML(feuillesDeTemps, fos);
 		    } finally {
 			fos.close();
@@ -150,6 +151,7 @@ public class Xml {
 	         FileInputStream fis = new FileInputStream(new File(path+".xml"));
 	
 	         try {
+	        	 xstream.alias("FeuilleDeTemps", FeuilleDeTemps.class);
 	        	 feuillesDeTemps = (List<FeuilleDeTemps>) xstream.fromXML(fis);
 	         } finally {
 	             fis.close();

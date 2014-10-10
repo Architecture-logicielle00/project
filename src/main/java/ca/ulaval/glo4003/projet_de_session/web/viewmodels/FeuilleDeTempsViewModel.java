@@ -3,6 +3,7 @@ package ca.ulaval.glo4003.projet_de_session.web.viewmodels;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Dictionary;
+import java.util.Map;
 
 public class FeuilleDeTempsViewModel {
 	
@@ -40,11 +41,11 @@ public class FeuilleDeTempsViewModel {
 		this.employe = employe;
 	}
 
-	public Dictionary<String, ArrayList<Float>> obtTaches() {
+	public Map<String, ArrayList<Float>> obtTaches() {
 		return taches;
 	}
 
-	public void defTaches(Dictionary<String, ArrayList<Float>> taches) {
+	public void defTaches(Map<String, ArrayList<Float>> taches) {
 		this.taches = taches;
 	}
 
@@ -54,6 +55,6 @@ public class FeuilleDeTempsViewModel {
 	
 	public String employe;
 	
-	public Dictionary<String, ArrayList<Float>> taches;
+	public Map<String, ArrayList<Float>> taches;
 
 }

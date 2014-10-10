@@ -23,6 +23,7 @@ public class EmployeeConverter {
 	
 	public EmployeeViewModel convert(Employe entry) {
 		EmployeeViewModel viewModel = new EmployeeViewModel();
+		viewModel.nomUtilisateur = entry.obtNomUtilisateur();
 		viewModel.nom = entry.obtNom();
 		viewModel.prenom = entry.obtPrenom();
 		viewModel.email = entry.obtEmail();

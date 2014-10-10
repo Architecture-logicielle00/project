@@ -1,0 +1,71 @@
+<list>
+  <FeuilleDeTemps>
+    <index>1</index>
+    <identifiant>DASAU</identifiant>
+  </FeuilleDeTemps>
+  <FeuilleDeTemps>
+    <index>2</index>
+    <taches>
+      <entry>
+        <string>Faire les courses</string>
+        <list>
+          <float>0.0</float>
+          <float>0.0</float>
+          <float>0.0</float>
+          <float>0.0</float>
+          <float>0.0</float>
+          <float>0.0</float>
+          <float>0.0</float>
+          <float>0.0</float>
+          <float>0.0</float>
+          <float>0.0</float>
+          <float>0.0</float>
+          <float>0.0</float>
+          <float>0.0</float>
+          <float>0.0</float>
+        </list>
+      </entry>
+      <entry>
+        <string>Faire la vaisselle</string>
+        <list>
+          <float>0.0</float>
+          <float>0.0</float>
+          <float>0.0</float>
+          <float>0.0</float>
+          <float>0.0</float>
+          <float>0.0</float>
+          <float>0.0</float>
+          <float>0.0</float>
+          <float>0.0</float>
+          <float>0.0</float>
+          <float>0.0</float>
+          <float>0.0</float>
+          <float>0.0</float>
+          <float>0.0</float>
+        </list>
+      </entry>
+      <entry>
+        <string>Sortir le chien</string>
+        <list>
+          <float>0.0</float>
+          <float>0.0</float>
+          <float>0.0</float>
+          <float>0.0</float>
+          <float>0.0</float>
+          <float>0.0</float>
+          <float>0.0</float>
+          <float>0.0</float>
+          <float>0.0</float>
+          <float>0.0</float>
+          <float>0.0</float>
+          <float>0.0</float>
+          <float>0.0</float>
+          <float>0.0</float>
+        </list>
+      </entry>
+    </taches>
+    <debut class="sql-date">3914-11-13</debut>
+    <fin class="sql-date">3914-11-27</fin>
+    <identifiant>DASAU</identifiant>
+  </FeuilleDeTemps>
+</list>
