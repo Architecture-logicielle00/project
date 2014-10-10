@@ -2,14 +2,11 @@ package ca.ulaval.glo4003.projet_de_session.core.domain;
 
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.Dictionary;
 import java.util.HashMap;
 import java.util.Map;
 
 import org.joda.time.DateTime;
 import org.joda.time.Days;
-
-
 
 public class FeuilleDeTemps {
 	

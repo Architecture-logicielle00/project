@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import ca.ulaval.glo4003.projet_de_session.core.domain.DepenseDeplacement;
+import ca.ulaval.glo4003.projet_de_session.core.domain.DepenseDiverse;
 import ca.ulaval.glo4003.projet_de_session.core.domain.Employe;
 import ca.ulaval.glo4003.projet_de_session.core.services.ServiceEmploye;
 import ca.ulaval.glo4003.projet_de_session.core.services.ServiceFeuilleDeTemps;
@@ -24,11 +26,11 @@ public class ControllerPrincipal
 	{
 		public static final String INDEX = "index";
 		public static final String ERREUR = "erreurLogin";
-		public static final String LOGIN = "login";
+		public static final String CONNECTION = "login";
 		public static final String CREEUTILISATEUR = "creationEmployeeForm";
 		public static final String EMPLOYEEMANAGEMENT = "gestionEmployee";
-		public static final String TIMESHEET = "feuilleDeTemps";
-		
+		public static final String FEUILLEDETEMPS = "feuilleDeTemps";
+		public static final String DEPENSEDEPLACEMENT = "deplacementForm";
 	} 
 	
 	ServiceEmploye serviceEmploye;
@@ -52,9 +54,7 @@ public class ControllerPrincipal
 	{
 		return chargerPageOuLogin(Page.INDEX,request,model);
 	}
-	
-	//Changer pour method dans ServiceEmploye
-	@SuppressWarnings("deprecation")
+
 	@RequestMapping(value = "/", method = RequestMethod.POST)
 	public String connection(HttpServletRequest request, Model model) 
 	{
@@ -74,7 +74,7 @@ public class ControllerPrincipal
 	@RequestMapping("/deconnection")
 	public String logout(HttpServletRequest request, Model model) {
 		manageSession.logoff(request);
-		return chargerPageOuLogin(Page.LOGIN,request,model);
+		return chargerPageOuLogin(Page.CONNECTION,request,model);
 	}
 	
 	@RequestMapping("/creationEmployee")
@@ -104,29 +104,38 @@ public class ControllerPrincipal
 		FeuilleDeTempsViewModel feuilleDeTempsCourante = serviceFeuilleDeTemps.obtFeuilleDeTempsViewModel(employe.obtFeuilleDeTempsCourante());
 		model.addAttribute("feuilleDeTemps", feuilleDeTempsCourante); 
 		
-		return chargerPageOuLogin(Page.TIMESHEET,request,model);
+		return chargerPageOuLogin(Page.FEUILLEDETEMPS,request,model);
 	}
 	
 	@RequestMapping(value="/feuilleDeTemps", method = RequestMethod.POST)
 	public @ResponseBody Boolean sauvegarderFeuilleDeTemps(@RequestBody FeuilleDeTempsViewModel feuilleDeTempsViewModel,HttpServletRequest request, Model model)
 	{
-		String nomUtilisateurSession = manageSession.obtenirUtilisateurSession(request).obtNomUtilisateur();
-		
-		Employe employe = serviceEmploye.obtEmploye(nomUtilisateurSession);
-		
 		serviceFeuilleDeTemps.modifierFeuilleDeTemps(feuilleDeTempsViewModel);
 		
 		boolean sauvegardeEffectueAvecSucces = true;
 		
 		return sauvegardeEffectueAvecSucces;
 	}
+	
+	@RequestMapping("deplacementForm")
+	public String depenseDeplacement(HttpServletRequest request, Model model) 
+	{
+		return chargerPageOuLogin(Page.DEPENSEDEPLACEMENT,request,model);
+	}
+	
+	@RequestMapping(value="/deplacementForm", method = RequestMethod.POST)
+	public @ResponseBody Boolean sauvegarderDepenseDeplacement(@RequestBody DepenseDiverse depenseDiverse, @RequestBody DepenseDeplacement depenseDeplacement, HttpServletRequest request, Model model)
+	{
+		// Appel du service de dépense
+		
+		return true;
+	}
 
-	//Done
 	private String chargerPageOuLogin(String _page, HttpServletRequest request, Model model)
 	{
 		if (manageSession.chargerUtilisateurInformation(request, model))
 			return _page;
 		else
-			return Page.LOGIN;
+			return Page.CONNECTION;
 	}
 }

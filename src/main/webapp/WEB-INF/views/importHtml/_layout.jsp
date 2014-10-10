@@ -31,11 +31,16 @@
 
 		<ul class="nav navbar-nav side-nav">
 			<li><a href="/feuilleDeTemps"><i
-					class="fa fa-fw fa fa-clock-o"></i> Feuille de Temps</a></li>
-			<li><a href=""><i class="fa fa-fw fa-money"></i> Dépenses /
-					Déplacements</a></li>
-			<li><a href=""><i class="fa fa-fw fa-tasks"></i>
-					Projets/Tâches</a></li>
+					class="fa fa-fw fa fa-clock-o"></i> Feuille de Temps</a>
+			</li>
+			<li>
+				<a href="/deplacementForm"><i class="fa fa-fw fa-money"></i> Dépenses /Déplacements</a>
+			</li>
+			<c:if test="false">
+				<li>
+					<a href=""><i class="fa fa-fw fa-tasks"></i>Projets/Tâches</a>
+				</li>
+			</c:if>
 			<c:if test="${utilisateur.estGestionnaire()}">
 				<li><a href="/gestionEmployee"><i
 						class="fa fa-fw fa fa-users"></i> Gestion des Employés</a></li>

@@ -3,57 +3,62 @@ package ca.ulaval.glo4003.projet_de_session.persistence.repositoryXml;
 import java.util.ArrayList;
 import java.util.List;
 
-import ca.ulaval.glo4003.projet_de_session.core.domain.Depense;
-import ca.ulaval.glo4003.projet_de_session.core.domain.Employe;
+import ca.ulaval.glo4003.projet_de_session.core.domain.DepenseDiverse;
 import ca.ulaval.glo4003.projet_de_session.persistence.repository.RepoDepenseDiverse;
 import ca.ulaval.glo4003.projet_de_session.persistence.utils.Xml;
 
 public class RepoDepenseDiverseXml implements RepoDepenseDiverse {
-	ArrayList<Depense> depenses;
-	Xml<Depense> xml;
+	ArrayList<DepenseDiverse> depensesDiverse;
+	Xml<DepenseDiverse> xmlDepense;
+	
+	public RepoDepenseDiverseXml()
+	{
+		depensesDiverse = new ArrayList<DepenseDiverse>();
+		xmlDepense = new Xml<DepenseDiverse>(DepenseDiverse.class);
+		
+		charger();
+	}
 	
 	@Override
-	public void ajouter(Depense depense) {
-		depenses.add(depense);
+	public void ajouter(DepenseDiverse depense) {
+		depensesDiverse.add(depense);
+		sauvegarder();
 	}
 
 	@Override
-	public Depense obtenir(String numeroDepense) {
+	public DepenseDiverse obtenir(String identifiantDepense) {
+		for (DepenseDiverse depenseDiverse : depensesDiverse) {
+			if (depenseDiverse.obtIdentifant() == identifiantDepense)
+				return depenseDiverse;
+		}
 		
-		
-		// TODO Auto-generated method stub
+		// TODO Lancer une exeption
 		return null;
-		
-		
 	}
 
 	@Override
-	public List<Depense> obtTout() {
-		return depenses;
+	public List<DepenseDiverse> obtTout() {
+		return depensesDiverse;
 	}
 
 	@Override
-	public void supprimer(String numeroDepense) {
-		
-		
-		// TODO Auto-generated method stub
-
+	public void supprimer(DepenseDiverse depense) {
+		depensesDiverse.remove(depense);
+		sauvegarder();
 	}
 
 	@Override
-	public void modifier(Depense c1) {
-		// TODO Auto-generated method stub
-
+	public void modifier(DepenseDiverse depense) {
+		// TODO S'assurer que le pointeur est bien dans la mémoire, on retourne que des ponteur?
+		sauvegarder();
 	}
 
 	private void charger() {
-		// TODO Auto-generated method stub
-
+		depensesDiverse.clear();
+		depensesDiverse = (ArrayList<DepenseDiverse>) xmlDepense.charger("xmlfiles/depenses");
 	}
 
 	private void sauvegarder() {
-		// TODO Auto-generated method stub
-
+		xmlDepense.enregistrer(depensesDiverse, "xmlfiles/depenses");
 	}
-
 }

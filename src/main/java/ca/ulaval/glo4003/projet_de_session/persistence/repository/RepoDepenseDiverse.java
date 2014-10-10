@@ -2,17 +2,17 @@ package ca.ulaval.glo4003.projet_de_session.persistence.repository;
 
 import java.util.List;
 
-import ca.ulaval.glo4003.projet_de_session.core.domain.Depense;
+import ca.ulaval.glo4003.projet_de_session.core.domain.DepenseDiverse;
 
 public interface RepoDepenseDiverse {
 	
-	public abstract void ajouter(Depense depense);
+	public abstract void ajouter(DepenseDiverse depense);
 
-	public abstract Depense obtenir(String numeroDepense);
+	public abstract DepenseDiverse obtenir(String identifiantDepense);
 
-	public abstract List<Depense> obtTout();
+	public abstract List<DepenseDiverse> obtTout();
 
-	public abstract void supprimer(String numeroDepense);
+	public abstract void supprimer(DepenseDiverse depense);
 
-	public abstract void modifier(Depense c1);
+	public abstract void modifier(DepenseDiverse depense);
 }
