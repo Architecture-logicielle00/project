@@ -1,35 +1,38 @@
 package ca.ulaval.glo4003.projet_de_session.core.domain;
 
+import org.joda.time.DateTime;
 
 public class Depense {
-	public enum Etat
-	{
-		enAttente,
-		accepter,
-		refuser
+
+	private DateTime date;
+	
+	public DateTime getDate() {
+		return date;
+	}
+
+	public void setDate(DateTime date) {
+		this.date = date;
+
+	}
+
+	private String description;
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+
 	}
 	
-	public Depense(Employe _employe, float _montant, String _description, Projet _projet)
-	{
-		employe = _employe;
-		montant = _montant;
-		description = _description;
-		projet = _projet;
+	private float sousTotal;
+
+	public float getSoutTotal() {
+		return sousTotal;
 	}
-	
-	public void changerEtat(Etat _etat)
-	{
-		etat = _etat;
+
+	public void setSousTotal(float sousTotal) {
+		this.sousTotal = sousTotal;
 	}
-	
-	public void changerMontant(float _montant)
-	{
-		montant = _montant;
-	}
-	
-	float montant;
-	String description;
-	Employe employe;
-	Projet projet;
-	Etat etat = Etat.enAttente;
 }
