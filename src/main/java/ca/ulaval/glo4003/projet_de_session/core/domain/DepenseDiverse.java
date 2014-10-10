@@ -4,42 +4,42 @@ public class DepenseDiverse extends Depense {
 
 	private int nbRepas;
 
-	public int getNbRepas() {
+	public int obtNbRepas() {
 		return nbRepas;
 	}
 
-	public void setNbRepas(int nbRepas) {
+	public void defNbRepas(int nbRepas) {
 		this.nbRepas = nbRepas;
 
 	}
 
 	private float coutRepas;
 
-	public float getCoutRepas() {
+	public float obtCoutRepas() {
 		return coutRepas;
 	}
 
-	public void setValue(float coutRepas) {
+	public void defValue(float coutRepas) {
 		this.coutRepas = coutRepas;
 	}
 
 	private float divers;
 
-	public float getDivers() {
+	public float obtDivers() {
 		return divers;
 	}
 
-	public void setDivers(float divers) {
+	public void defDivers(float divers) {
 		this.divers = divers;
 	}
 
 	private float coucher;
 
-	public float getCoucher() {
+	public float obtCoucher() {
 		return coucher;
 	}
 
-	public void setCoucher(float coucher) {
+	public void defCoucher(float coucher) {
 		this.coucher = coucher;
 	}
 

@@ -4,22 +4,22 @@ public class DepenseDeplacement extends Depense {
 
 	private float distance;
 
-	public float getDistance() {
+	public float obtDistance() {
 		return distance;
 	}
 
-	public void setDistance(float distance) {
+	public void defDistance(float distance) {
 		this.distance = distance;
 
 	}
 
 	private float coutkm;
 
-	public float getCoutKm() {
+	public float obtCoutKm() {
 		return coutkm;
 	}
 
-	public void setValue(float coutkm) {
+	public void defValue(float coutkm) {
 		this.coutkm = coutkm;
 	}
 

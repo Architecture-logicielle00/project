@@ -4,35 +4,46 @@ import org.joda.time.DateTime;
 
 public class Depense {
 
+	private String indentifiant;
+
+	public String obtIdentifant() {
+		return indentifiant;
+	}
+
+	public void defIdentifiant(String indentifiant) {
+		this.indentifiant = indentifiant;
+
+	}
+
 	private DateTime date;
-	
-	public DateTime getDate() {
+
+	public DateTime obtDate() {
 		return date;
 	}
 
-	public void setDate(DateTime date) {
+	public void defDate(DateTime date) {
 		this.date = date;
 
 	}
 
 	private String description;
 
-	public String getDescription() {
+	public String obtDescription() {
 		return description;
 	}
 
-	public void setDescription(String description) {
+	public void defDescription(String description) {
 		this.description = description;
 
 	}
-	
+
 	private float sousTotal;
 
-	public float getSoutTotal() {
+	public float obtSoutTotal() {
 		return sousTotal;
 	}
 
-	public void setSousTotal(float sousTotal) {
+	public void defSousTotal(float sousTotal) {
 		this.sousTotal = sousTotal;
 	}
 }
