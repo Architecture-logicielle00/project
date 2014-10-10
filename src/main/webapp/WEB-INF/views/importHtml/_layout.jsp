@@ -37,19 +37,14 @@
                         <a href="/feuilleDeTemps"><i class="fa fa-fw fa fa-clock-o"></i> Feuille de Temps</a>
                     </li>
                     <li>
-                        <a href=""><i class="fa fa-fw fa-money"></i> Dépenses</a>
-                    </li>
-                    <li>
-                        <a href=""><i class="fa fa-fw fa-car"></i> Déplacements</a>
+                        <a href=""><i class="fa fa-fw fa-money"></i> Dépenses / Déplacements</a>
                     </li>
                     <li>
                         <a href=""><i class="fa fa-fw fa-tasks"></i> Projets/Tâches</a>
                     </li>
- 					<c:if test="${utilisateur.estGestionnaire()}">  
-	                	<li>
-	                    	<a href="/gestionEmployee"><i class="fa fa-fw fa fa-users"></i> Gestion des Employés</a>
-	                 	</li>
-					</c:if>  
+	                <li id="acces-gestionEmployee" show="${utilisateur.estGestionnaire()}">
+	                    <a href="/gestionEmployee"><i class="fa fa-fw fa fa-users"></i> Gestion des Employés</a>
+	                </li> 
                 </ul>
         </div>
         <!-- /.navbar-collapse -->
