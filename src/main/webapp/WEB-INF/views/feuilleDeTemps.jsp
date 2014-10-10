@@ -40,21 +40,11 @@
 							value="${feuilleDeTemps.obtStringFinPeriode()}" readonly="true">
 					</div>
 				</div>
-
-				<div class="btn-group">
-					<button type="button" class="btn btn-default">
-						<i class="fa fa-chevron-left"></i>
-					</button>
-					<button type="button" class="btn btn-default">
-						<i class="fa fa-chevron-right"></i>
-					</button>
-				</div>
 			</div>
 
 			<div id="table-wrapper">
 				<table class="table time-sheet-table">
 					<tr>
-						<th class="fixcol1">Projets</th>
 						<th class="fixcol2">Taches</th>
 						<c:forEach var="jourPeriode"
 							items="${feuilleDeTemps.obtListeJoursPeriode()}">
@@ -62,15 +52,14 @@
 						</c:forEach>
 					</tr>
 
-					<c:forEach var="blocDeTemps" items="${feuilleDeTemps.obtBlocsDeTemps()}">
+					<c:forEach var="tache" items="${feuilleDeTemps.obtListeTaches()}">
 						<tr>
-							<td class="fixcol1"><span></span></td>
-							<td class="fixcol2"><span></span></td>
+							<td class="fixcol2">${tache}</td>
+							
 							<c:forEach var="jourPeriode"
-								items="${feuilleDeTemps.obtListeJoursPeriode()}">
-								<td
-									id="${jourPeriode}">
-									<input type="text" />
+								items="${feuilleDeTemps.obtTempsParTache(tache)}">
+								<td>
+									<input class="time-input" type="text" value="${jourPeriode}"/>
 								</td>
 							</c:forEach>
 					</c:forEach>
@@ -86,9 +75,7 @@
 	<script src="/resources/js/lib/jquery.js"></script>
 	<script src="/resources/js/lib/jquery-ui.js"></script>
 	<script src="/resources/js/lib/bootstrap.min.js"></script>
-	<script src="/resources/js/feuilleDeTemps/feuilleDeTempsAnimation.js"></script>
-	<script
-		src="/resources/js/feuilleDeTemps/feuilleDeTempsCommunicationServeur.js"></script>
+	<script src="/resources/js/feuilleDeTemps/feuilleDeTemps.js"></script>
 </body>
 </html>
 

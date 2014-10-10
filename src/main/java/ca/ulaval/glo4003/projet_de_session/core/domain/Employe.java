@@ -95,7 +95,8 @@ public class Employe extends Utilisateur
 	}
 	
 	public Long obtFeuilleDeTempsCourante(){
-		return feuillesDeTemps.get(feuillesDeTemps.size() - 1);
+		Long fg = new Long(2);//feuillesDeTemps.get(feuillesDeTemps.size() - 1);
+		return fg;
 	}
 	
 	String nom;

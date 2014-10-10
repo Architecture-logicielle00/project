@@ -102,7 +102,7 @@ public class ControllerPrincipal
 		Employe employe = serviceEmploye.obtEmploye(nomUtilisateurSession);
 		
 		FeuilleDeTempsViewModel feuilleDeTempsCourante = serviceFeuilleDeTemps.obtFeuilleDeTempsViewModel(employe.obtFeuilleDeTempsCourante());
-		model.addAttribute("feuileDeTemps", feuilleDeTempsCourante); 
+		model.addAttribute("feuilleDeTemps", feuilleDeTempsCourante); 
 		
 		return chargerPageOuLogin(Page.TIMESHEET,request,model);
 	}

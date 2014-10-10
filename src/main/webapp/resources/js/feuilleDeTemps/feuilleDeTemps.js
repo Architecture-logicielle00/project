@@ -3,16 +3,9 @@
  */
 
 $(document).ready(function(){
-    getTimeSheetData();
-
-    initializeTimeSheet();
-
     initializeEvents();
 });
 
-initializeTimeSheet(){
-
-}
 
 function saveTimeSheet(){
     var timeSheetJSON = parseTimeSheetIntoJSON();
@@ -33,24 +26,33 @@ function saveTimeSheet(){
 }
 
 function parseTimeSheetIntoJSON(){
-	var tableauDonneesJSON = new Array();
+	var debutPeriode = $("#debut-periode-input").val();
+	var finPeriode=$("fin-periode-input").val();
+	var employee = "DASAU";//$();
 	
-    $('table.time-sheet-table').find('tr').find('td').find('input').each(function(){
-    	var inputId = $(this).attr("id"),
-    		nbHeures = parseFloat($(this).val());
-    		date = inputId.split("-")[0];
-    		noProjet = inputId.split("-")[1];
-    		noTache = inputId.split("-")[2];
-    		
-    		tableauDonneesJSON.push({
-    			"noProjet" : noProjet,
-    			"noTache" : noTache,
-    			"date" : date,
-    			"nbHeures" : nbHeures
-    		});
+	var heuresParTaches = new Array();
+	
+    $('table.time-sheet-table').find('tr:contains("td")').each(function(){
+    	var tache = $(this).first().find('input').val();
+    	var heuresParJour = new Array();
+    	
+    	$(this).find('.time-input').each(function(){
+    		var nbHeures = $(this).val() != "" ? parseFloat($(this).val()) : 0.0;
+    		heureParJour.push(nbHeures);
+    	})
+    	
+    	heuresParTaches.push({
+    		"key" : tache,
+    		"value" : heureParJour
+    	});
     });
     
-    return tableauDonneesJSON;
+    return {
+    	"debutPeriode" : debutPeriode,
+    	"finPeriode" : finPeriode,
+    	"employe" : employe,
+    	"taches" : heuresParTaches
+    };
 }
 
 function initializeEvents(){
@@ -58,7 +60,7 @@ function initializeEvents(){
     var $timeInputs = $("#table-wrapper").find("tr[id!='total-time-row']").find("input"),
         $previousDayButton = $(".fa-chevron-left"),
         $nextDayButton =  $(".fa-chevron-right"),
-        $saveButton = $("#save-button"),
+        $saveButton = $("#save-button");
 
 
     $timeInputs.blur(function(){

@@ -81,8 +81,8 @@ public class FeuilleDeTemps {
 	
 	
 	
-	private Long index;//id appel� dans le repo pour les meths ajouter, supp, modifiable 
-	private Map<String, ArrayList<Float>> taches; //en effet, je ne savais pas � quoi sert vraiment le ArrayList<Float>
+	private Long index;
+	private Map<String, ArrayList<Float>> taches; 
 	private Date debut;
 	private Date fin;
 	private String identifiant;
