@@ -7,7 +7,8 @@ import java.util.List;
 import ca.ulaval.glo4003.projet_de_session.core.domain.Employe;
 import ca.ulaval.glo4003.projet_de_session.core.utils.FactoryEmploye;
 import ca.ulaval.glo4003.projet_de_session.core.utils.converter.EmployeeConverter;
-import ca.ulaval.glo4003.projet_de_session.persistence.repository.RepoEmploye;
+import ca.ulaval.glo4003.projet_de_session.persistence.repository.RepoEmployer;
+import ca.ulaval.glo4003.projet_de_session.persistence.repositoryXml.RepoEmployeXml;
 import ca.ulaval.glo4003.projet_de_session.web.viewmodels.EmployeeViewModel;
 
 public class ServiceEmploye
@@ -15,7 +16,7 @@ public class ServiceEmploye
 	public ServiceEmploye()
 	{
 		factory = new FactoryEmploye();
-		repo = new RepoEmploye();
+		repo = new RepoEmployeXml();
 		ec = new EmployeeConverter();
 		
 		init();
@@ -95,7 +96,7 @@ public class ServiceEmploye
 	}
 
 	
-	RepoEmploye repo;
+	RepoEmployer repo;
 	FactoryEmploye factory;
 	EmployeeConverter ec;
 }

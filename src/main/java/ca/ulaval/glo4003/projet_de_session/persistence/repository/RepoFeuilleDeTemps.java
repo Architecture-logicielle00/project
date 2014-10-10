@@ -1,88 +1,23 @@
 package ca.ulaval.glo4003.projet_de_session.persistence.repository;
 
-import java.util.ArrayList;
 import java.util.List;
+
 import ca.ulaval.glo4003.projet_de_session.core.domain.FeuilleDeTemps;
-import ca.ulaval.glo4003.projet_de_session.persistence.utils.Xml;
 
-public class RepoFeuilleDeTemps {
-	
-	public RepoFeuilleDeTemps()
-	{
-		feuilleDeTemps = new ArrayList<FeuilleDeTemps>();
-		xml = new Xml();
-	}
+public interface RepoFeuilleDeTemps {
 
-	
-	public void ajouter(FeuilleDeTemps e)
-	{
-		
-		 if(feuilleDeTemps.size()==0){
-		e.defIndex(new Long(feuilleDeTemps.size()+1));
-		}
-		else
-		{
-			FeuilleDeTemps c1=feuilleDeTemps.get(feuilleDeTemps.size()-1);
-			e.defIndex(new Long(c1.obtIndex()+1));
-		}
-		feuilleDeTemps.add(e);
-	}
-	
-	public FeuilleDeTemps obtenir(Long id)
-	{
-		
-		FeuilleDeTemps fDeTemps=null;
-		for(FeuilleDeTemps c:feuilleDeTemps){
-			if(c.obtIndex().equals(id)){
-				fDeTemps=c;
-			}	
-		}
-	
-	
-		return  fDeTemps; 
-	}
-	
-	public List<FeuilleDeTemps> obtTout()
-	{
-		return feuilleDeTemps;
-	}
-	
+	public abstract void ajouter(FeuilleDeTemps e);
 
-	public void supprimer(Long id)//vue l'utilisation de l'arg id j'ai cree un index dans le model feuille pour entamer les diff meths
-	{
-		for(FeuilleDeTemps c:feuilleDeTemps){
-			if(c.obtIndex().equals(id)){
-				feuilleDeTemps.remove(c);
-				break;
-			}
-		}
-	}
-	
-	
-	 public void modifier(FeuilleDeTemps c1) {
-		for(FeuilleDeTemps c:feuilleDeTemps){
-			if(c.obtIndex().equals(c1.obtIndex())){
-				c.defNomEmploye(c1.obtNomEmploye());
-				c.defDebut(c1.obtDebut());
-				c.defFin(c1.obtFin());
-				c.defTaches(c1.obtTaches());
-				break;
-			}	
-		}
-		
-	}
-	
-	public void charger()
-	{
-		feuilleDeTemps.clear();
-		feuilleDeTemps = (ArrayList<FeuilleDeTemps>) xml.chargerFeuilleDeTemps("xmlfiles/feuillesDeTemps");
-	}
-	
-	public void sauvegarder()
-	{
-		xml.enregistrerFeuilleDeTemps(feuilleDeTemps, "xmlfiles/feuillesDeTemps");
-	}
-	
-	ArrayList<FeuilleDeTemps> feuilleDeTemps;
-	Xml xml;
+	public abstract FeuilleDeTemps obtenir(Long id);
+
+	public abstract List<FeuilleDeTemps> obtTout();
+
+	public abstract void supprimer(Long id);
+
+	public abstract void modifier(FeuilleDeTemps c1);
+
+	public abstract void charger();
+
+	public abstract void sauvegarder();
+
 }

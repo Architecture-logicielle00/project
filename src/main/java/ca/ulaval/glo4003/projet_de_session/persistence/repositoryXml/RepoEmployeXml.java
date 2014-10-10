@@ -1,20 +1,22 @@
-package ca.ulaval.glo4003.projet_de_session.persistence.repository;
+package ca.ulaval.glo4003.projet_de_session.persistence.repositoryXml;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import ca.ulaval.glo4003.projet_de_session.core.domain.Employe;
+import ca.ulaval.glo4003.projet_de_session.persistence.repository.RepoEmployer;
 import ca.ulaval.glo4003.projet_de_session.persistence.utils.Xml;
 
-public class RepoEmploye {
+public class RepoEmployeXml implements RepoEmployer {
 	
-	public RepoEmploye()
+	public RepoEmployeXml()
 	{
 		employes = new ArrayList<Employe>();
-		xml = new Xml();
+		xmlEmploye = new Xml<Employe>(Employe.class);
 	}
 
 	
+	@Override
 	public void ajouter(Employe e)
 	{
 		if (obtenir( e.obtNomUtilisateur() ) == null)
@@ -25,6 +27,7 @@ public class RepoEmploye {
 		
 	}
 	
+	@Override
 	public Employe obtenir(String nomUtilisateur)
 	{
 		for (Employe e : employes)
@@ -37,12 +40,14 @@ public class RepoEmploye {
 		return null;
 	}
 	
+	@Override
 	public List<Employe> obtEmployes()
 	{
 		return employes;
 	}
 	
 
+	@Override
 	public void supprimer(String nomUtilisateur)
 	{
 		for (Employe e : employes)
@@ -55,17 +60,19 @@ public class RepoEmploye {
 		}
 	}
 	
+	@Override
 	public void charger()
 	{
 		employes.clear();
-		employes = (ArrayList<Employe>) xml.chargerEmployes("xmlfiles/employes");
+		employes = (ArrayList<Employe>) xmlEmploye.charger("xmlfiles/employes");
 	}
 	
+	@Override
 	public void sauvegarder()
 	{
-		xml.enregistrerEmployes(employes, "xmlfiles/employes");
+		xmlEmploye.enregistrer(employes, "xmlfiles/employes");
 	}
 	
 	ArrayList<Employe> employes;
-	Xml xml;
+	Xml<Employe> xmlEmploye;
 }

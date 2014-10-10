@@ -1,8 +1,5 @@
 package ca.ulaval.glo4003.projet_de_session.web.controllers;
 
-
-import java.sql.Date;
-
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;

@@ -9,16 +9,15 @@ import ca.ulaval.glo4003.projet_de_session.core.domain.FeuilleDeTemps;
 import ca.ulaval.glo4003.projet_de_session.core.utils.FactoryFeuilleDeTemps;
 import ca.ulaval.glo4003.projet_de_session.core.utils.converter.FeuilleDeTempsConverter;
 import ca.ulaval.glo4003.projet_de_session.persistence.repository.RepoFeuilleDeTemps;
+import ca.ulaval.glo4003.projet_de_session.persistence.repositoryXml.RepoFeuilleDeTempsXml;
 import ca.ulaval.glo4003.projet_de_session.web.viewmodels.FeuilleDeTempsViewModel;
-
-
 
 public class ServiceFeuilleDeTemps
 {
 	public ServiceFeuilleDeTemps()
 	{
 		factory = new FactoryFeuilleDeTemps();
-		repo = new RepoFeuilleDeTemps();
+		repo = new RepoFeuilleDeTempsXml();
 		ec = new FeuilleDeTempsConverter();
 		
 		init();
