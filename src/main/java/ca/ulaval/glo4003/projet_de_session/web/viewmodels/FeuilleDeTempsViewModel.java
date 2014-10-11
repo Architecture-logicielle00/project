@@ -12,50 +12,56 @@ import org.joda.time.LocalDate;
 import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
 
+import ca.ulaval.glo4003.projet_de_session.core.domain.BlocDeTemps;
+
 public class FeuilleDeTempsViewModel {
 	
 	public Long id;
+	
+	public String debutPeriode;
+	
+	public String finPeriode;
+	
+	public String employe;
+	
+	public ArrayList<BlocDeTemps> taches;
 		
+	
 	public Long obtId() {
 		return id;
 	}
 
-	public void defId(Long id) {
-		this.id = id;
+	public void defId(Long _id) {
+		this.id = _id;
 	}
-
-	public Date obtDebutPeriode() {
+	
+	
+	public String obtDebutPeriode() {
 		return debutPeriode;
 	}
 	
-	public String obtStringDebutPeriode() {
-		return DateTimeFormat.forPattern("YYYY-MM-DD").print(new DateTime(debutPeriode));
+	public void defDebutPeriode(String _debutPeriode){
+		debutPeriode = _debutPeriode;
 	}
 
 
-	public void defDebutPeriode(Date debutPeriode) {
-		this.debutPeriode = debutPeriode;
-	}
-
-	public Date obtFinPeriode() {
+	public String obtFinPeriode() {
 		return finPeriode;
 	}
-
-	public void defFinPeriode(Date finPeriode) {
-		this.finPeriode = finPeriode;
-	}
 	
-	public String obtStringFinPeriode() {
-		return DateTimeFormat.forPattern("YYYY-MM-DD").print(new DateTime(finPeriode));
+	public void defFinPeriode(String _finPeriode){
+		finPeriode = _finPeriode;
 	}
 
+	
 	public String obtEmploye() {
 		return employe;
 	}
 
-	public void defEmploye(String employe) {
-		this.employe = employe;
+	public void defEmploye(String _employe) {
+		this.employe = _employe;
 	}
+	
 	
 	public ArrayList<String> obtListeJoursPeriode(){
 		ArrayList<String> dates = new ArrayList<String>();
@@ -63,7 +69,7 @@ public class FeuilleDeTempsViewModel {
 		LocalDate debutPeriodeDateTime = new LocalDate(new DateTime(debutPeriode));
 		LocalDate finPeriodeDateTime = new LocalDate(new DateTime(finPeriode));
 		
-		DateTimeFormatter formatter = DateTimeFormat.forPattern("DD-MM-YYYY");
+		DateTimeFormatter formatter = DateTimeFormat.forPattern("dd-MM-yyyy");
 		
 		int days = Days.daysBetween(debutPeriodeDateTime, finPeriodeDateTime).getDays();
 		for (int i=0; i < days; i++) {
@@ -73,25 +79,15 @@ public class FeuilleDeTempsViewModel {
 		
 		return dates;
 	}
-
-	public ArrayList<Float> obtTempsParTache(String key) {
-		return taches.get(key);
-	}
 	
-	public Set<String> obtListeTaches() {
-		return taches.keySet();
+	
+	public ArrayList<BlocDeTemps> obtTaches() {
+		return taches;
 	}
 
-	public void defTaches(Map<String, ArrayList<Float>> taches) {
-		this.taches = taches;
+	public void defTaches(ArrayList<BlocDeTemps> _taches) {
+		this.taches = _taches;
 	}
 
-	public Date debutPeriode;
-	
-	public Date finPeriode;
-	
-	public String employe;
-	
-	public Map<String, ArrayList<Float>> taches;
 
 }

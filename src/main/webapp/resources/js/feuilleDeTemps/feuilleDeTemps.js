@@ -11,9 +11,11 @@ function saveTimeSheet(){
     var timeSheetJSON = parseTimeSheetIntoJSON();
 
     $.ajax({
-        url : "AJAX_POST_URL",
+        url : "/feuilleDeTemps",
         type: "POST",
         data : timeSheetJSON,
+        dataType: "json",
+        contentType: 'application/json',
         success: function(data, textStatus, jqXHR)
         {
             //data - response from server
@@ -27,32 +29,33 @@ function saveTimeSheet(){
 
 function parseTimeSheetIntoJSON(){
 	var debutPeriode = $("#debut-periode-input").val();
-	var finPeriode=$("fin-periode-input").val();
-	var employee = "DASAU";//$();
+	var finPeriode=$("#fin-periode-input").val();
+	var employe = "DASAU";//$();
 	
 	var heuresParTaches = new Array();
 	
-    $('table.time-sheet-table').find('tr:contains("td")').each(function(){
-    	var tache = $(this).first().find('input').val();
+    $('table.time-sheet-table').find('tr:has("td")').each(function(){
+    	var tache = $(this).find('.fixcol2').html();
     	var heuresParJour = new Array();
     	
     	$(this).find('.time-input').each(function(){
     		var nbHeures = $(this).val() != "" ? parseFloat($(this).val()) : 0.0;
-    		heureParJour.push(nbHeures);
+    		heuresParJour.push(nbHeures);
     	})
     	
     	heuresParTaches.push({
-    		"key" : tache,
-    		"value" : heureParJour
+    		"tache" : tache,
+    		"nbHeuresParJours" : heuresParJour
     	});
     });
     
-    return {
+    return JSON.stringify({
+    	"id" : 2,
     	"debutPeriode" : debutPeriode,
     	"finPeriode" : finPeriode,
     	"employe" : employe,
     	"taches" : heuresParTaches
-    };
+    });
 }
 
 function initializeEvents(){

@@ -32,12 +32,12 @@
 					<div id="debut-periode" class="date-periode">
 						<label for="debut-periode-input">Debut de la période</label> <input
 							id="debut-periode-input" type="date" name="debut-periode"
-							value="${feuilleDeTemps.obtStringDebutPeriode()}" readonly="true">
+							value="${feuilleDeTemps.obtDebutPeriode()}" readonly="true">
 					</div>
 					<div id="fin-periode" class="date-periode">
 						<label for="fin-periode-input">Fin de la période</label> <input
 							id="fin-periode-input" type="date" name="fin-periode"
-							value="${feuilleDeTemps.obtStringFinPeriode()}" readonly="true">
+							value="${feuilleDeTemps.obtFinPeriode()}" readonly="true">
 					</div>
 				</div>
 			</div>
@@ -48,18 +48,18 @@
 						<th class="fixcol2">Taches</th>
 						<c:forEach var="jourPeriode"
 							items="${feuilleDeTemps.obtListeJoursPeriode()}">
-							<td id="${jourPeriode}">${jourPeriode}</td>
+							<th id="${jourPeriode}">${jourPeriode}</th>
 						</c:forEach>
 					</tr>
 
-					<c:forEach var="tache" items="${feuilleDeTemps.obtListeTaches()}">
+					<c:forEach var="tache" items="${feuilleDeTemps.obtTaches()}">
 						<tr>
-							<td class="fixcol2">${tache}</td>
+							<td class="fixcol2">${tache.obtTache()}</td>
 							
-							<c:forEach var="jourPeriode"
-								items="${feuilleDeTemps.obtTempsParTache(tache)}">
+							<c:forEach var="heure"
+								items="${tache.obtNbHeuresParJours()}">
 								<td>
-									<input class="time-input" type="text" value="${jourPeriode}"/>
+									<input class="time-input" type="text" value="${heure}"/>
 								</td>
 							</c:forEach>
 					</c:forEach>

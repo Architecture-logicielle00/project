@@ -10,6 +10,13 @@ import org.joda.time.Days;
 
 public class FeuilleDeTemps {
 	
+	
+	private Long index;
+	private ArrayList<BlocDeTemps> taches; 
+	private Date debut;
+	private Date fin;
+	private String identifiant;
+	
 	public FeuilleDeTemps(){}
 	
 	public FeuilleDeTemps(String _identifiant, Date _debut, Date _fin, ArrayList<String> _listeTaches)
@@ -18,34 +25,31 @@ public class FeuilleDeTemps {
 		debut = _debut;
 		fin = _fin;
 		
-		taches = new HashMap<String, ArrayList<Float>>();
+		taches = new ArrayList<BlocDeTemps>();
 		
 		for (int i = 0; i < _listeTaches.size(); i++) {
-			
-			ArrayList<Float> nbHeuresParJour = new ArrayList<Float>();
-			
-			for (int j = 0; j < obtNombreJourPeriode(); j++) {
-				nbHeuresParJour.add((float) 0.0);
-			}
-			
-			taches.put(_listeTaches.get(i), nbHeuresParJour);
+			taches.add(new BlocDeTemps(_listeTaches.get(i), obtNombreJourPeriode()));
 		}
 		
 	}	
 	
-	public 	Map<String, ArrayList<Float>> obtTaches(){return taches;}
+	public ArrayList<BlocDeTemps> obtTaches(){return taches;}
 
-	public void defTaches(Map<String, ArrayList<Float>> lesTaches) {
-		taches = lesTaches;
+	public void defTaches(ArrayList<BlocDeTemps> _taches) {
+		taches = _taches;
 	}
 	
-	
-	public ArrayList<Float> obtUneTache(String _tache){
-		return taches.get(_tache);
+	public BlocDeTemps obtUneTache(String _tache){		
+		for (BlocDeTemps blocDeTemps : taches) {
+			if(blocDeTemps.obtTache() == _tache)
+				return blocDeTemps;
+		}
+		
+		return null; //////////TODO :!!!!!!!!!!!!!!!!!!
 	}
 
-	public void defUneTache(String _tache, ArrayList<Float> val){
-		taches.put(_tache, val);
+	public void defUneTache(BlocDeTemps _tache){
+		taches.add(_tache);
 	}
 	
 	
@@ -77,10 +81,5 @@ public class FeuilleDeTemps {
 	}
 	
 	
-	
-	private Long index;
-	private Map<String, ArrayList<Float>> taches; 
-	private Date debut;
-	private Date fin;
-	private String identifiant;
+
 }

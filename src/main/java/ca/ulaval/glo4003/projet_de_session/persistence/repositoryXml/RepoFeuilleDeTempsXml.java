@@ -1,5 +1,6 @@
 package ca.ulaval.glo4003.projet_de_session.persistence.repositoryXml;
 
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,6 +14,14 @@ public class RepoFeuilleDeTempsXml implements RepoFeuilleDeTemps {
 	{
 		feuilleDeTemps = new ArrayList<FeuilleDeTemps>();
 		xmlFeuilleDeTemps = new Xml<FeuilleDeTemps>(FeuilleDeTemps.class);
+		
+/*		ArrayList<String> test = new ArrayList<String>();
+		test.add("promener le chien");
+		test.add("faire les devoirs");
+		test.add("sortir la poubelle");
+		
+		ajouter(new FeuilleDeTemps("DASAU", new Date(2014,10,13),new Date(2014,10,27),test));
+		sauvegarder();*/
 	}
 
 	

@@ -1,5 +1,7 @@
 package ca.ulaval.glo4003.projet_de_session.core.utils.converter;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Collection;
 import java.util.LinkedList;
 import java.util.List;
@@ -22,8 +24,8 @@ public class FeuilleDeTempsConverter {
 	
 	public FeuilleDeTempsViewModel convert(FeuilleDeTemps entry) {
 		FeuilleDeTempsViewModel viewModel = new FeuilleDeTempsViewModel();
-		viewModel.defDebutPeriode(entry.obtDebut());
-		viewModel.defFinPeriode(entry.obtFin());
+		viewModel.defDebutPeriode(entry.obtDebut().toString());
+		viewModel.defFinPeriode(entry.obtFin().toString());
 		viewModel.defEmploye(entry.obtNomEmploye());
 		viewModel.defTaches(entry.obtTaches());
 
@@ -31,9 +33,18 @@ public class FeuilleDeTempsConverter {
 	}
 	
 	public FeuilleDeTemps convert(FeuilleDeTempsViewModel entry) {
+		
+		SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
+		
 		FeuilleDeTemps feuilleDeTemps = new FeuilleDeTemps();
-		feuilleDeTemps.defDebut(entry.debutPeriode);
-		feuilleDeTemps.defFin(entry.finPeriode);
+		try {
+			feuilleDeTemps.defDebut(formatter.parse(entry.debutPeriode));
+			feuilleDeTemps.defFin(formatter.parse(entry.finPeriode));
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
 		feuilleDeTemps.defNomEmploye(entry.employe);
 		feuilleDeTemps.defTaches(entry.taches);
 		
