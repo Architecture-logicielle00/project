@@ -2,14 +2,15 @@ package ca.ulaval.glo4003.projet_de_session.core.domain;
 
 import java.util.ArrayList;
 
-public class BlocDeTemps {
+public class TempsParTache {
 	
 	
 	public String tache;
-	public ArrayList<Float> nbHeuresParJours; 
-
+	public ArrayList<Float> nbHeuresParJours;
 	
-	public BlocDeTemps(String _tache, int capacity)
+	public TempsParTache(){}
+	
+	public TempsParTache(String _tache, int capacity)
 	{
 		tache = _tache;
 		nbHeuresParJours = new ArrayList<Float>();

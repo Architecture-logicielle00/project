@@ -12,7 +12,7 @@ public class FeuilleDeTemps {
 	
 	
 	private Long index;
-	private ArrayList<BlocDeTemps> taches; 
+	private ArrayList<TempsParTache> taches; 
 	private Date debut;
 	private Date fin;
 	private String identifiant;
@@ -25,22 +25,22 @@ public class FeuilleDeTemps {
 		debut = _debut;
 		fin = _fin;
 		
-		taches = new ArrayList<BlocDeTemps>();
+		taches = new ArrayList<TempsParTache>();
 		
 		for (int i = 0; i < _listeTaches.size(); i++) {
-			taches.add(new BlocDeTemps(_listeTaches.get(i), obtNombreJourPeriode()));
+			taches.add(new TempsParTache(_listeTaches.get(i), obtNombreJourPeriode()));
 		}
 		
 	}	
 	
-	public ArrayList<BlocDeTemps> obtTaches(){return taches;}
+	public ArrayList<TempsParTache> obtTaches(){return taches;}
 
-	public void defTaches(ArrayList<BlocDeTemps> _taches) {
+	public void defTaches(ArrayList<TempsParTache> _taches) {
 		taches = _taches;
 	}
 	
-	public BlocDeTemps obtUneTache(String _tache){		
-		for (BlocDeTemps blocDeTemps : taches) {
+	public TempsParTache obtUneTache(String _tache){		
+		for (TempsParTache blocDeTemps : taches) {
 			if(blocDeTemps.obtTache() == _tache)
 				return blocDeTemps;
 		}
@@ -48,7 +48,7 @@ public class FeuilleDeTemps {
 		return null; //////////TODO :!!!!!!!!!!!!!!!!!!
 	}
 
-	public void defUneTache(BlocDeTemps _tache){
+	public void defUneTache(TempsParTache _tache){
 		taches.add(_tache);
 	}
 	

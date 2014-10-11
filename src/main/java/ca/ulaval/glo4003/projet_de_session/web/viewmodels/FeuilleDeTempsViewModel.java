@@ -12,7 +12,7 @@ import org.joda.time.LocalDate;
 import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
 
-import ca.ulaval.glo4003.projet_de_session.core.domain.BlocDeTemps;
+import ca.ulaval.glo4003.projet_de_session.core.domain.TempsParTache;
 
 public class FeuilleDeTempsViewModel {
 	
@@ -24,7 +24,7 @@ public class FeuilleDeTempsViewModel {
 	
 	public String employe;
 	
-	public ArrayList<BlocDeTemps> taches;
+	public ArrayList<TempsParTache> taches;
 		
 	
 	public Long obtId() {
@@ -81,11 +81,11 @@ public class FeuilleDeTempsViewModel {
 	}
 	
 	
-	public ArrayList<BlocDeTemps> obtTaches() {
+	public ArrayList<TempsParTache> obtTaches() {
 		return taches;
 	}
 
-	public void defTaches(ArrayList<BlocDeTemps> _taches) {
+	public void defTaches(ArrayList<TempsParTache> _taches) {
 		this.taches = _taches;
 	}
 

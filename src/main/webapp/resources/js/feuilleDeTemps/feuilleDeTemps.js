@@ -15,7 +15,7 @@ function saveTimeSheet(){
         type: "POST",
         data : timeSheetJSON,
         dataType: "json",
-        contentType: 'application/json',
+        contentType: "application/json; charset=utf-8",
         success: function(data, textStatus, jqXHR)
         {
             //data - response from server
