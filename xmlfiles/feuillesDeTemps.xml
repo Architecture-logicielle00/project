@@ -2,7 +2,7 @@
   <FeuilleDeTemps>
     <index>2</index>
     <taches>
-      <ca.ulaval.glo4003.projet__de__session.core.domain.BlocDeTemps>
+      <ca.ulaval.glo4003.projet__de__session.core.domain.TempsParTache>
         <tache>promener le chien</tache>
         <nbHeuresParJours>
           <float>0.0</float>
@@ -20,8 +20,8 @@
           <float>0.0</float>
           <float>0.0</float>
         </nbHeuresParJours>
-      </ca.ulaval.glo4003.projet__de__session.core.domain.BlocDeTemps>
-      <ca.ulaval.glo4003.projet__de__session.core.domain.BlocDeTemps>
+      </ca.ulaval.glo4003.projet__de__session.core.domain.TempsParTache>
+      <ca.ulaval.glo4003.projet__de__session.core.domain.TempsParTache>
         <tache>faire les devoirs</tache>
         <nbHeuresParJours>
           <float>0.0</float>
@@ -39,8 +39,8 @@
           <float>0.0</float>
           <float>0.0</float>
         </nbHeuresParJours>
-      </ca.ulaval.glo4003.projet__de__session.core.domain.BlocDeTemps>
-      <ca.ulaval.glo4003.projet__de__session.core.domain.BlocDeTemps>
+      </ca.ulaval.glo4003.projet__de__session.core.domain.TempsParTache>
+      <ca.ulaval.glo4003.projet__de__session.core.domain.TempsParTache>
         <tache>sortir la poubelle</tache>
         <nbHeuresParJours>
           <float>0.0</float>
@@ -58,7 +58,7 @@
           <float>0.0</float>
           <float>0.0</float>
         </nbHeuresParJours>
-      </ca.ulaval.glo4003.projet__de__session.core.domain.BlocDeTemps>
+      </ca.ulaval.glo4003.projet__de__session.core.domain.TempsParTache>
     </taches>
     <debut class="sql-date">3914-11-13</debut>
     <fin class="sql-date">3914-11-27</fin>

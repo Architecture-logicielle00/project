@@ -15,7 +15,7 @@ public class RepoFeuilleDeTempsXml implements RepoFeuilleDeTemps {
 		feuilleDeTemps = new ArrayList<FeuilleDeTemps>();
 		xmlFeuilleDeTemps = new Xml<FeuilleDeTemps>(FeuilleDeTemps.class);
 		
-/*		ArrayList<String> test = new ArrayList<String>();
+		/*ArrayList<String> test = new ArrayList<String>();
 		test.add("promener le chien");
 		test.add("faire les devoirs");
 		test.add("sortir la poubelle");
