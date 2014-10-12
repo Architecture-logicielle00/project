@@ -17,10 +17,13 @@ public class RepoFeuilleDeTempsXml implements RepoFeuilleDeTemps {
 
 	private Map<String, FeuilleDeTemps> feuilleDeTemps;
 	private Xml<FeuilleDeTemps> xmlFeuilleDeTemps;
+	
+	private SimpleDateFormat simpleDateFormat;
 
 	public RepoFeuilleDeTempsXml() {
 		feuilleDeTemps = new HashMap<String, FeuilleDeTemps>();
 		xmlFeuilleDeTemps = new Xml<FeuilleDeTemps>(FeuilleDeTemps.class);
+		simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
 		
 		charger();
 
@@ -35,7 +38,6 @@ public class RepoFeuilleDeTempsXml implements RepoFeuilleDeTemps {
 			debut = new SimpleDateFormat("yyyy-MM-dd").parse("2014-08-16");
 			fin = new SimpleDateFormat("yyyy-MM-dd").parse("2014-08-28");
 		} catch (ParseException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
@@ -44,8 +46,9 @@ public class RepoFeuilleDeTempsXml implements RepoFeuilleDeTemps {
 
 	@Override
 	public String ajouter(FeuilleDeTemps feuille) {
-		String id = "DASAU2014-08-16 04:00:00.0 UTC2014-08-28 04:00:00.0 UTC"; //feuille.obtNomEmploye() + feuille.obtDebut().toString()
-				//+ feuille.obtFin().toString();
+		String id = feuille.obtNomEmploye() + 
+				simpleDateFormat.format(feuille.obtDebut()) +
+				simpleDateFormat.format(feuille.obtFin());
 		feuilleDeTemps.put(id, feuille);
 
 		sauvegarder();
@@ -76,7 +79,7 @@ public class RepoFeuilleDeTempsXml implements RepoFeuilleDeTemps {
 
 	@Override
 	public void modifier(String id, FeuilleDeTemps feuille) {
-		feuilleDeTemps.put("DASAU2014-08-16 04:00:00.0 UTC2014-08-28 04:00:00.0 UTC", feuille);
+		feuilleDeTemps.put(id, feuille);
 		sauvegarder();
 
 	}

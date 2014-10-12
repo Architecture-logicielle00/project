@@ -1,5 +1,6 @@
 package ca.ulaval.glo4003.projet_de_session.core.services;
 
+import java.text.SimpleDateFormat;
 import java.util.Collection;
 import java.util.Date;
 import java.util.HashMap;
@@ -47,9 +48,11 @@ public class ServiceFeuilleDeTemps {
 		FeuilleDeTemps feuilleDeTemps = converter
 				.convert(feuilleDeTempsViewModel);
 		
-		String id = feuilleDeTemps.obtNomEmploye()
-				+ feuilleDeTemps.obtDebut().toString()
-				+ feuilleDeTemps.obtFin().toString();
+		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+		
+		String id = feuilleDeTemps.obtNomEmploye() +
+				simpleDateFormat.format(feuilleDeTemps.obtDebut()) +
+				simpleDateFormat.format(feuilleDeTemps.obtFin());
 
 		repository.modifier(id, feuilleDeTemps);
 	}
