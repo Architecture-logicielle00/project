@@ -156,6 +156,6 @@ public class Employe extends Utilisateur {
 	}
 
 	public String obtFeuilleDeTempsCourante() {
-		return feuillesDeTemps.get(feuillesDeTemps.size() - 1);
+		return "DASAU2014-08-16 04:00:00.0 UTC2014-08-28 04:00:00.0 UTC";//feuillesDeTemps.get(feuillesDeTemps.size() - 1);
 	}
 }

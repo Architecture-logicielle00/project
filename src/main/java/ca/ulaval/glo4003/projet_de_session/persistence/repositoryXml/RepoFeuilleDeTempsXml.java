@@ -44,8 +44,8 @@ public class RepoFeuilleDeTempsXml implements RepoFeuilleDeTemps {
 
 	@Override
 	public String ajouter(FeuilleDeTemps feuille) {
-		String id = feuille.obtNomEmploye() + feuille.obtDebut().toString()
-				+ feuille.obtFin().toString();
+		String id = "DASAU2014-08-16 04:00:00.0 UTC2014-08-28 04:00:00.0 UTC"; //feuille.obtNomEmploye() + feuille.obtDebut().toString()
+				//+ feuille.obtFin().toString();
 		feuilleDeTemps.put(id, feuille);
 
 		sauvegarder();
@@ -76,7 +76,7 @@ public class RepoFeuilleDeTempsXml implements RepoFeuilleDeTemps {
 
 	@Override
 	public void modifier(String id, FeuilleDeTemps feuille) {
-		feuilleDeTemps.put(id, feuille);
+		feuilleDeTemps.put("DASAU2014-08-16 04:00:00.0 UTC2014-08-28 04:00:00.0 UTC", feuille);
 		sauvegarder();
 
 	}
@@ -95,9 +95,8 @@ public class RepoFeuilleDeTempsXml implements RepoFeuilleDeTemps {
 	private void sauvegarder() {
 		ArrayList<FeuilleDeTemps> listXml = new ArrayList<FeuilleDeTemps>();
 
-		for (Iterator iterator = listXml.iterator(); iterator.hasNext();) {
-			FeuilleDeTemps feuilleDeTemps = (FeuilleDeTemps) iterator.next();
-			listXml.add(feuilleDeTemps);
+		for (String key : feuilleDeTemps.keySet()) {
+			listXml.add(obtenir(key));
 		}
 
 		xmlFeuilleDeTemps.enregistrer(listXml, "xmlfiles/feuillesDeTemps");

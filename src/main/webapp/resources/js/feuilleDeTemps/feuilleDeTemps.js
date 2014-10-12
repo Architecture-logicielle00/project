@@ -50,7 +50,6 @@ function parseTimeSheetIntoJSON(){
     });
     
     return JSON.stringify({
-    	"id" : 2,
     	"debutPeriode" : debutPeriode,
     	"finPeriode" : finPeriode,
     	"employe" : employe,

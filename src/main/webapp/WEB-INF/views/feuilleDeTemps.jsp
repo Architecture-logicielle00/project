@@ -65,6 +65,7 @@
 					</c:forEach>
 				</table>
 			</div>
+			<button id="save-button">Enregistrer</button>
 		</div>
 		<!-- /#page-wrapper -->
 

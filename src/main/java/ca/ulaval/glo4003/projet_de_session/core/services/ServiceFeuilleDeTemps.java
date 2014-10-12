@@ -43,10 +43,10 @@ public class ServiceFeuilleDeTemps {
 		repository.modifier(id, feuilleDeTemps);
 	}
 
-	public void modifierFeuilleDeTemps(
-			FeuilleDeTempsViewModel feuilleDeTempsViewModel) {
+	public void modifierFeuilleDeTemps(FeuilleDeTempsViewModel feuilleDeTempsViewModel) {
 		FeuilleDeTemps feuilleDeTemps = converter
 				.convert(feuilleDeTempsViewModel);
+		
 		String id = feuilleDeTemps.obtNomEmploye()
 				+ feuilleDeTemps.obtDebut().toString()
 				+ feuilleDeTemps.obtFin().toString();

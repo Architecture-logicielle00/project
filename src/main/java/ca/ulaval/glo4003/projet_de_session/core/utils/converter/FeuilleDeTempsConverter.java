@@ -28,8 +28,11 @@ public class FeuilleDeTempsConverter {
 	
 	public FeuilleDeTempsViewModel convert(FeuilleDeTemps entry) {
 		FeuilleDeTempsViewModel viewModel = new FeuilleDeTempsViewModel();
-		viewModel.defDebutPeriode(entry.obtDebut().toString());
-		viewModel.defFinPeriode(entry.obtFin().toString());
+		
+		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+		
+		viewModel.defDebutPeriode(formatter.format(entry.obtDebut()));
+		viewModel.defFinPeriode(formatter.format(entry.obtFin()));
 		viewModel.defEmploye(entry.obtNomEmploye());
 		
 		ArrayList<TempsParTache> listeTempsParTache = entry.obtTaches();
@@ -40,7 +43,7 @@ public class FeuilleDeTempsConverter {
 	
 	public FeuilleDeTemps convert(FeuilleDeTempsViewModel entry) {
 		
-		SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
+		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
 		
 		FeuilleDeTemps feuilleDeTemps = new FeuilleDeTemps();
 		try {
