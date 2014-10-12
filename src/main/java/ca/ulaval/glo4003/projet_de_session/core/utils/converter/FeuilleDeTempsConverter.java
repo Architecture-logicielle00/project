@@ -5,6 +5,8 @@ import java.text.SimpleDateFormat;
 import java.util.Collection;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
 
 import ca.ulaval.glo4003.projet_de_session.core.domain.FeuilleDeTemps;
 import ca.ulaval.glo4003.projet_de_session.web.viewmodels.FeuilleDeTempsViewModel;
@@ -12,11 +14,10 @@ import ca.ulaval.glo4003.projet_de_session.web.viewmodels.FeuilleDeTempsViewMode
 
 public class FeuilleDeTempsConverter {
 
-	public Collection<FeuilleDeTempsViewModel> convert(List<FeuilleDeTemps> entries) {
+	public Collection<FeuilleDeTempsViewModel> convert(Map<String, FeuilleDeTemps> entries) {
 		Collection<FeuilleDeTempsViewModel> viewModels = new LinkedList<FeuilleDeTempsViewModel>();
-		for (FeuilleDeTemps entry : entries) {
+		for (Entry<String, FeuilleDeTemps> entry : entries.entrySet()) {
 			FeuilleDeTempsViewModel viewModel = convert((FeuilleDeTemps)entry);
-			viewModel.id= entry.obtIndex();
 			viewModels.add(viewModel);
 		}
 		return viewModels;

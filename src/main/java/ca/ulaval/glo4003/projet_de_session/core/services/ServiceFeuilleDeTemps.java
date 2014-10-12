@@ -2,7 +2,9 @@ package ca.ulaval.glo4003.projet_de_session.core.services;
 
 import java.util.Collection;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import ca.ulaval.glo4003.projet_de_session.core.domain.Employe;
 import ca.ulaval.glo4003.projet_de_session.core.domain.FeuilleDeTemps;
@@ -17,63 +19,65 @@ public class ServiceFeuilleDeTemps
 	public ServiceFeuilleDeTemps()
 	{
 		factory = new FactoryFeuilleDeTemps();
-		repo = new RepoFeuilleDeTempsXml();
-		ec = new FeuilleDeTempsConverter();
+		repository = new RepoFeuilleDeTempsXml();
+		converter = new FeuilleDeTempsConverter();
 		
 		init();
 	}
 	
-	public FeuilleDeTemps obtFeuilleDeTemps(Long id)
+	public FeuilleDeTemps obtFeuilleDeTemps(String id)
 	{
-		return repo.obtenir(id);
+		return repository.obtenir(id);
 	}
 	
-	public void suppFeuilleDeTemps(Long id)
+	public void suppFeuilleDeTemps(String id)
 	{
-		repo.supprimer(id);
+		repository.supprimer(id);
 	}
 	
 	public void creerFeuilleDeTemps(Employe _employe, Date _debut, Date _fin)
 	{
 		FeuilleDeTemps e = factory.creerFeuilleDeTemps(_employe, _debut, _fin);
-		repo.ajouter(e);
+		repository.ajouter(e);
 	}
 	
-	public void modifierFeuilleDeTemps(FeuilleDeTemps e)
+	public void modifierFeuilleDeTemps(String id, FeuilleDeTemps feuilleDeTemps)
 	{
-		repo.modifier(e);
+		repository.modifier(id, feuilleDeTemps);
 	}
 	
-	public void modifierFeuilleDeTemps(FeuilleDeTempsViewModel evm)
+	public void modifierFeuilleDeTemps(FeuilleDeTempsViewModel feuilleDeTempsViewModel)
 	{
-		FeuilleDeTemps e= ec.convert(evm);
-		repo.modifier(e);
+		FeuilleDeTemps feuilleDeTemps= converter.convert(feuilleDeTempsViewModel);
+		String id = feuilleDeTemps.obtNomEmploye() + feuilleDeTemps.obtDebut().toString() + feuilleDeTemps.obtFin().toString();
+		
+		repository.modifier(id, feuilleDeTemps);
 	}
 	
-	public List<FeuilleDeTemps> obtFeuillesDeTemps()
+	public Map<String, FeuilleDeTemps> obtFeuillesDeTemps()
 	{
-		return repo.obtTout();
+		return repository.obtTout();
 	}
 	
 	
 	public Collection<FeuilleDeTempsViewModel> obtFeuillesDeTempsViewModel()
 	{
-		return ec.convert(obtFeuillesDeTemps());  //convertion dans un seul sens des models aux viewsModels
+		return converter.convert(obtFeuillesDeTemps());  //convertion dans un seul sens des models aux viewsModels
 	}
 	
-	public FeuilleDeTempsViewModel obtFeuilleDeTempsViewModel(Long id)
+	public FeuilleDeTempsViewModel obtFeuilleDeTempsViewModel(String id)
 	{
-		return ec.convert(obtFeuilleDeTemps(id));  //convertion dans un seul sens des models aux viewsModels
+		return converter.convert(obtFeuilleDeTemps(id));  //convertion dans un seul sens des models aux viewsModels
 	}
 	
 	
 	private void init()
 	{
-		repo.charger();
+		repository.charger();
 	}
 
 	
-	RepoFeuilleDeTemps repo;
+	RepoFeuilleDeTemps repository;
 	FactoryFeuilleDeTemps factory;
-	FeuilleDeTempsConverter ec;
+	FeuilleDeTempsConverter converter;
 }

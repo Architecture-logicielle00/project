@@ -6,6 +6,23 @@ import java.util.Date;
 
 public class Employe extends Utilisateur
 {
+	String nom;
+	String prenom;
+	String entreprise;
+	String email;
+	String pays;
+	String province;
+	String ville;
+	String codePostal;
+	Date dateDeNaissance;
+	String genre;
+	String numTelephone;
+	
+	ArrayList<String> feuillesDeTemps;
+	ArrayList<String> taches;
+	
+	boolean statutGestionnaire;
+	
 	public Employe(String _nomUtilisateur,
 			String _mdp,
 			String _nom,
@@ -35,7 +52,7 @@ public class Employe extends Utilisateur
 		numTelephone = _numTelephone;
 		statutGestionnaire = false;
 		taches = new ArrayList<String>();
-		feuillesDeTemps= new ArrayList<Long>();
+		feuillesDeTemps= new ArrayList<String>();
 	}
 	
 	public Employe()
@@ -94,25 +111,8 @@ public class Employe extends Utilisateur
 		taches.remove(tache);
 	}
 	
-	public Long obtFeuilleDeTempsCourante(){
-		return new Long(2);//(Long)(feuillesDeTemps.toArray()[feuillesDeTemps.size() -1]);
+	public String obtFeuilleDeTempsCourante(){
+		return feuillesDeTemps.get(feuillesDeTemps.size() -1);
 	}
-	
-	String nom;
-	String prenom;
-	String entreprise;
-	String email;
-	String pays;
-	String province;
-	String ville;
-	String codePostal;
-	Date dateDeNaissance;
-	String genre;
-	String numTelephone;
-	
-	ArrayList<Long> feuillesDeTemps;
-	ArrayList<String> taches;
-	
-	boolean statutGestionnaire;
 }
 

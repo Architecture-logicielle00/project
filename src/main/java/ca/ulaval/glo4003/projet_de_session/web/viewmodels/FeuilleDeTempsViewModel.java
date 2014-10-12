@@ -16,8 +16,6 @@ import ca.ulaval.glo4003.projet_de_session.core.domain.TempsParTache;
 
 public class FeuilleDeTempsViewModel {
 	
-	public Long id;
-	
 	public String debutPeriode;
 	
 	public String finPeriode;
@@ -25,43 +23,18 @@ public class FeuilleDeTempsViewModel {
 	public String employe;
 	
 	public ArrayList<TempsParTache> taches;
-		
-	
-	public Long obtId() {
-		return id;
-	}
+			
+	public String obtDebutPeriode() {return debutPeriode;}	
+	public void defDebutPeriode(String _debutPeriode){debutPeriode = _debutPeriode;}
 
-	public void defId(Long _id) {
-		this.id = _id;
-	}
-	
-	
-	public String obtDebutPeriode() {
-		return debutPeriode;
-	}
-	
-	public void defDebutPeriode(String _debutPeriode){
-		debutPeriode = _debutPeriode;
-	}
+	public String obtFinPeriode() {return finPeriode;}
+	public void defFinPeriode(String _finPeriode){finPeriode = _finPeriode;}
 
-
-	public String obtFinPeriode() {
-		return finPeriode;
-	}
+	public String obtEmploye() {return employe;}
+	public void defEmploye(String _employe) {this.employe = _employe;}
 	
-	public void defFinPeriode(String _finPeriode){
-		finPeriode = _finPeriode;
-	}
-
-	
-	public String obtEmploye() {
-		return employe;
-	}
-
-	public void defEmploye(String _employe) {
-		this.employe = _employe;
-	}
-	
+	public ArrayList<TempsParTache> obtTaches() {return taches;}
+	public void defTaches(ArrayList<TempsParTache> _taches) {this.taches = _taches;	}
 	
 	public ArrayList<String> obtListeJoursPeriode(){
 		ArrayList<String> dates = new ArrayList<String>();
@@ -81,13 +54,7 @@ public class FeuilleDeTempsViewModel {
 	}
 	
 	
-	public ArrayList<TempsParTache> obtTaches() {
-		return taches;
-	}
 
-	public void defTaches(ArrayList<TempsParTache> _taches) {
-		this.taches = _taches;
-	}
 
 
 }

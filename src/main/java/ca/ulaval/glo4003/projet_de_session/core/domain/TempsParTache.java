@@ -20,6 +20,8 @@ public class TempsParTache {
 		}
 	}	
 	
+	
+	
 	public String obtTache(){
 		return tache;
 	}
@@ -27,6 +29,8 @@ public class TempsParTache {
 	public void defTache(String _tache){
 		tache = _tache;
 	}
+	
+	
 	
 	public ArrayList<Float> obtNbHeuresParJours(){
 		return nbHeuresParJours;

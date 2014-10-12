@@ -1,106 +1,89 @@
 package ca.ulaval.glo4003.projet_de_session.persistence.repositoryXml;
 
-import java.sql.Date;
 import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.concurrent.atomic.AtomicInteger;
 
 import ca.ulaval.glo4003.projet_de_session.core.domain.FeuilleDeTemps;
+import ca.ulaval.glo4003.projet_de_session.exception.FeuilleDeTempsIntrouvaleException;
 import ca.ulaval.glo4003.projet_de_session.persistence.repository.RepoFeuilleDeTemps;
 import ca.ulaval.glo4003.projet_de_session.persistence.utils.Xml;
 
 public class RepoFeuilleDeTempsXml implements RepoFeuilleDeTemps {
+		
+	private Map<String, FeuilleDeTemps> feuilleDeTemps;
+	private Xml<FeuilleDeTemps> xmlFeuilleDeTemps;
 	
 	public RepoFeuilleDeTempsXml()
 	{
-		feuilleDeTemps = new ArrayList<FeuilleDeTemps>();
+		feuilleDeTemps = new HashMap<String, FeuilleDeTemps>();
 		xmlFeuilleDeTemps = new Xml<FeuilleDeTemps>(FeuilleDeTemps.class);
-		
-		/*ArrayList<String> test = new ArrayList<String>();
-		test.add("promener le chien");
-		test.add("faire les devoirs");
-		test.add("sortir la poubelle");
-		
-		ajouter(new FeuilleDeTemps("DASAU", new Date(2014,10,13),new Date(2014,10,27),test));
-		sauvegarder();*/
 	}
 
 	
 	@Override
-	public void ajouter(FeuilleDeTemps e)
+	public String ajouter(FeuilleDeTemps feuille)
 	{
-		
-		 if(feuilleDeTemps.size()==0){
-		e.defIndex(new Long(feuilleDeTemps.size()+1));
-		}
-		else
-		{
-			FeuilleDeTemps c1=feuilleDeTemps.get(feuilleDeTemps.size()-1);
-			e.defIndex(new Long(c1.obtIndex()+1));
-		}
-		feuilleDeTemps.add(e);
+		String id = feuille.obtNomEmploye() + feuille.obtDebut().toString() + feuille.obtFin().toString();
+		feuilleDeTemps.put(id, feuille);
+		return id;
 	}
 	
 	@Override
-	public FeuilleDeTemps obtenir(Long id)
+	public FeuilleDeTemps obtenir(String id)
 	{
-		
-		FeuilleDeTemps fDeTemps=null;
-		for(FeuilleDeTemps c:feuilleDeTemps){
-			if(c.obtIndex().equals(id)){
-				fDeTemps=c;
-			}	
+		if(feuilleDeTemps.containsKey(id)) {
+			return feuilleDeTemps.get(id);
 		}
-	
-	
-		return  fDeTemps; 
+		throw new FeuilleDeTempsIntrouvaleException();
+		
 	}
 	
 	@Override
-	public List<FeuilleDeTemps> obtTout()
+	public Map<String, FeuilleDeTemps> obtTout()
 	{
 		return feuilleDeTemps;
 	}
 	
 
 	@Override
-	public void supprimer(Long id)//vue l'utilisation de l'arg id j'ai cree un index dans le model feuille pour entamer les diff meths
+	public void supprimer(String id)
 	{
-		for(FeuilleDeTemps c:feuilleDeTemps){
-			if(c.obtIndex().equals(id)){
-				feuilleDeTemps.remove(c);
-				break;
-			}
-		}
+		feuilleDeTemps.remove(id);
 	}
 	
 	
 	 @Override
-	public void modifier(FeuilleDeTemps c1) {
-		for(FeuilleDeTemps c:feuilleDeTemps){
-			if(c.obtIndex().equals(c1.obtIndex())){
-				c.defNomEmploye(c1.obtNomEmploye());
-				c.defDebut(c1.obtDebut());
-				c.defFin(c1.obtFin());
-				c.defTaches(c1.obtTaches());
-				break;
-			}	
-		}
+	public void modifier(String id, FeuilleDeTemps feuille) {
+		 feuilleDeTemps.put(id, feuille);
 		
 	}
 	
 	@Override
 	public void charger()
 	{
+		ArrayList<FeuilleDeTemps> listXml = (ArrayList<FeuilleDeTemps>) xmlFeuilleDeTemps.charger("xmlfiles/feuillesDeTemps");
+		
 		feuilleDeTemps.clear();
-		feuilleDeTemps = (ArrayList<FeuilleDeTemps>) xmlFeuilleDeTemps.charger("xmlfiles/feuillesDeTemps");
+		
+		for (FeuilleDeTemps feuille : listXml) {
+			ajouter(feuille);
+		}
 	}
 	
 	@Override
 	public void sauvegarder()
 	{
-		xmlFeuilleDeTemps.enregistrer(feuilleDeTemps, "xmlfiles/feuillesDeTemps");
+		ArrayList<FeuilleDeTemps> listXml = new ArrayList<FeuilleDeTemps>();
+		
+		for (Iterator iterator = listXml.iterator(); iterator.hasNext();) {
+			FeuilleDeTemps feuilleDeTemps = (FeuilleDeTemps) iterator.next();
+			listXml.add(feuilleDeTemps);
+		}
+		
+		xmlFeuilleDeTemps.enregistrer(listXml, "xmlfiles/feuillesDeTemps");
 	}
-	
-	ArrayList<FeuilleDeTemps> feuilleDeTemps;
-	Xml<FeuilleDeTemps> xmlFeuilleDeTemps;
+
 }

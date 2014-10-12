@@ -1,20 +1,20 @@
 package ca.ulaval.glo4003.projet_de_session.persistence.repository;
 
-import java.util.List;
+import java.util.Map;
 
 import ca.ulaval.glo4003.projet_de_session.core.domain.FeuilleDeTemps;
 
 public interface RepoFeuilleDeTemps {
 
-	public abstract void ajouter(FeuilleDeTemps e);
+	public abstract String ajouter(FeuilleDeTemps e);
 
-	public abstract FeuilleDeTemps obtenir(Long id);
+	public abstract FeuilleDeTemps obtenir(String id);
 
-	public abstract List<FeuilleDeTemps> obtTout();
+	public abstract Map<String, FeuilleDeTemps> obtTout();
 
-	public abstract void supprimer(Long id);
+	public abstract void supprimer(String id);
 
-	public abstract void modifier(FeuilleDeTemps c1);
+	public abstract void modifier(String id, FeuilleDeTemps feuille);
 
 	public abstract void charger();
 
