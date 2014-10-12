@@ -44,9 +44,7 @@
     <codePostal></codePostal>
     <genre></genre>
     <numTelephone></numTelephone>
-    <feuillesDeTemps>
-    	<list>
-    		<string>DASAU2014-08-162014-08-28</string></list></feuillesDeTemps>
+    <feuillesDeTemps><string>DASAU2014-08-162014-08-28</string></feuillesDeTemps>
     <statutGestionnaire>false</statutGestionnaire>
   </Employe>
   <Employe>

@@ -156,6 +156,6 @@ public class Employe extends Utilisateur {
 	}
 
 	public String obtFeuilleDeTempsCourante() {
-		return (String) feuillesDeTemps.get(feuillesDeTemps.size() - 1);
+		return feuillesDeTemps.get(feuillesDeTemps.size() -1);
 	}
 }
