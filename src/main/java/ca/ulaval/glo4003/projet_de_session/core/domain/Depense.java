@@ -1,10 +1,16 @@
 package ca.ulaval.glo4003.projet_de_session.core.domain;
 
-import org.joda.time.DateTime;
+import java.util.Date;
 
 public class Depense {
 
 	private String indentifiant;
+
+	private Date date;
+
+	private String description;
+
+	private float sousTotal;
 
 	public String obtIdentifant() {
 		return indentifiant;
@@ -15,18 +21,14 @@ public class Depense {
 
 	}
 
-	private DateTime date;
-
-	public DateTime obtDate() {
+	public Date obtDate() {
 		return date;
 	}
 
-	public void defDate(DateTime date) {
+	public void defDate(Date date) {
 		this.date = date;
 
 	}
-
-	private String description;
 
 	public String obtDescription() {
 		return description;
@@ -36,8 +38,6 @@ public class Depense {
 		this.description = description;
 
 	}
-
-	private float sousTotal;
 
 	public float obtSoutTotal() {
 		return sousTotal;

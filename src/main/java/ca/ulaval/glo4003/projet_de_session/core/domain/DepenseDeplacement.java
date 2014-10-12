@@ -4,16 +4,15 @@ public class DepenseDeplacement extends Depense {
 
 	private float distance;
 
+	private float coutkm;
+
 	public float obtDistance() {
 		return distance;
 	}
 
 	public void defDistance(float distance) {
 		this.distance = distance;
-
 	}
-
-	private float coutkm;
 
 	public float obtCoutKm() {
 		return coutkm;

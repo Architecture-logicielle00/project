@@ -4,16 +4,19 @@ public class DepenseDiverse extends Depense {
 
 	private int nbRepas;
 
+	private float coutRepas;
+
+	private float divers;
+
+	private float coucher;
+
 	public int obtNbRepas() {
 		return nbRepas;
 	}
 
 	public void defNbRepas(int nbRepas) {
 		this.nbRepas = nbRepas;
-
 	}
-
-	private float coutRepas;
 
 	public float obtCoutRepas() {
 		return coutRepas;
@@ -23,8 +26,6 @@ public class DepenseDiverse extends Depense {
 		this.coutRepas = coutRepas;
 	}
 
-	private float divers;
-
 	public float obtDivers() {
 		return divers;
 	}
@@ -32,8 +33,6 @@ public class DepenseDiverse extends Depense {
 	public void defDivers(float divers) {
 		this.divers = divers;
 	}
-
-	private float coucher;
 
 	public float obtCoucher() {
 		return coucher;

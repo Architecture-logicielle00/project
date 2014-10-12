@@ -4,13 +4,18 @@ import java.util.ArrayList;
 
 public class Projet {
 
+	private String nom;
+	private String description;
+	private ArrayList<Tache> taches;
+
 	public Projet(String _numero, String _nom, String _description) {
 		nom = _nom;
 		description = _description;
 		taches = new ArrayList<Tache>();
 	}
-	
-	public Projet() {}
+
+	public Projet() {
+	}
 
 	public String obtNom() {
 		return nom;
@@ -39,9 +44,5 @@ public class Projet {
 	public void enleverTache(Tache tache) {
 		taches.remove(tache);
 	}
-
-	private String nom;
-	private String description;
-	private ArrayList<Tache> taches;
 
 }
