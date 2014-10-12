@@ -16,8 +16,4 @@ public interface RepoFeuilleDeTemps {
 
 	public abstract void modifier(String id, FeuilleDeTemps feuille);
 
-	public abstract void charger();
-
-	public abstract void sauvegarder();
-
 }

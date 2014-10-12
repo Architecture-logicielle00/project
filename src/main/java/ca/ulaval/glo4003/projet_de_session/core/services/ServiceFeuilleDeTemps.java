@@ -14,70 +14,55 @@ import ca.ulaval.glo4003.projet_de_session.persistence.repository.RepoFeuilleDeT
 import ca.ulaval.glo4003.projet_de_session.persistence.repositoryXml.RepoFeuilleDeTempsXml;
 import ca.ulaval.glo4003.projet_de_session.web.viewmodels.FeuilleDeTempsViewModel;
 
-public class ServiceFeuilleDeTemps
-{
-	public ServiceFeuilleDeTemps()
-	{
-		factory = new FactoryFeuilleDeTemps();
-		repository = new RepoFeuilleDeTempsXml();
-		converter = new FeuilleDeTempsConverter();
-		
-		init();
-	}
-	
-	public FeuilleDeTemps obtFeuilleDeTemps(String id)
-	{
-		return repository.obtenir(id);
-	}
-	
-	public void suppFeuilleDeTemps(String id)
-	{
-		repository.supprimer(id);
-	}
-	
-	public void creerFeuilleDeTemps(Employe _employe, Date _debut, Date _fin)
-	{
-		FeuilleDeTemps e = factory.creerFeuilleDeTemps(_employe, _debut, _fin);
-		repository.ajouter(e);
-	}
-	
-	public void modifierFeuilleDeTemps(String id, FeuilleDeTemps feuilleDeTemps)
-	{
-		repository.modifier(id, feuilleDeTemps);
-	}
-	
-	public void modifierFeuilleDeTemps(FeuilleDeTempsViewModel feuilleDeTempsViewModel)
-	{
-		FeuilleDeTemps feuilleDeTemps= converter.convert(feuilleDeTempsViewModel);
-		String id = feuilleDeTemps.obtNomEmploye() + feuilleDeTemps.obtDebut().toString() + feuilleDeTemps.obtFin().toString();
-		
-		repository.modifier(id, feuilleDeTemps);
-	}
-	
-	public Map<String, FeuilleDeTemps> obtFeuillesDeTemps()
-	{
-		return repository.obtTout();
-	}
-	
-	
-	public Collection<FeuilleDeTempsViewModel> obtFeuillesDeTempsViewModel()
-	{
-		return converter.convert(obtFeuillesDeTemps());  //convertion dans un seul sens des models aux viewsModels
-	}
-	
-	public FeuilleDeTempsViewModel obtFeuilleDeTempsViewModel(String id)
-	{
-		return converter.convert(obtFeuilleDeTemps(id));  //convertion dans un seul sens des models aux viewsModels
-	}
-	
-	
-	private void init()
-	{
-		repository.charger();
-	}
-
+public class ServiceFeuilleDeTemps {
 	
 	RepoFeuilleDeTemps repository;
 	FactoryFeuilleDeTemps factory;
 	FeuilleDeTempsConverter converter;
+
+	public ServiceFeuilleDeTemps() {
+		factory = new FactoryFeuilleDeTemps();
+		repository = new RepoFeuilleDeTempsXml();
+		converter = new FeuilleDeTempsConverter();
+	}
+
+	public FeuilleDeTemps obtFeuilleDeTemps(String id) {
+		return repository.obtenir(id);
+	}
+
+	public void suppFeuilleDeTemps(String id) {
+		repository.supprimer(id);
+	}
+
+	public void creerFeuilleDeTemps(Employe _employe, Date _debut, Date _fin) {
+		FeuilleDeTemps e = factory.creerFeuilleDeTemps(_employe, _debut, _fin);
+		repository.ajouter(e);
+	}
+
+	public void modifierFeuilleDeTemps(String id, FeuilleDeTemps feuilleDeTemps) {
+		repository.modifier(id, feuilleDeTemps);
+	}
+
+	public void modifierFeuilleDeTemps(
+			FeuilleDeTempsViewModel feuilleDeTempsViewModel) {
+		FeuilleDeTemps feuilleDeTemps = converter
+				.convert(feuilleDeTempsViewModel);
+		String id = feuilleDeTemps.obtNomEmploye()
+				+ feuilleDeTemps.obtDebut().toString()
+				+ feuilleDeTemps.obtFin().toString();
+
+		repository.modifier(id, feuilleDeTemps);
+	}
+
+	public Map<String, FeuilleDeTemps> obtFeuillesDeTemps() {
+		return repository.obtTout();
+	}
+
+	public Collection<FeuilleDeTempsViewModel> obtFeuillesDeTempsViewModel() {
+		return converter.convert(obtFeuillesDeTemps());
+	}
+
+	public FeuilleDeTempsViewModel obtFeuilleDeTempsViewModel(String id) {
+		return converter.convert(obtFeuilleDeTemps(id));
+	}
 }

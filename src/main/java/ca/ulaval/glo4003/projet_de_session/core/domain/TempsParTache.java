@@ -4,8 +4,8 @@ import java.util.ArrayList;
 
 public class TempsParTache {
 
-	public String tache;
-	public ArrayList<Float> nbHeuresParJours;
+	private String tache;
+	private ArrayList<Float> nbHeuresParJours;
 
 	public TempsParTache() {
 	}
