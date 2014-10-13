@@ -15,13 +15,13 @@ import ca.ulaval.glo4003.projet_de_session.persistence.utils.Xml;
 
 public class RepoFeuilleDeTempsXml implements RepoFeuilleDeTemps {
 
-	private Map<String, FeuilleDeTemps> feuilleDeTemps;
+	private Map<String, FeuilleDeTemps> feuillesDeTemps;
 	private Xml<FeuilleDeTemps> xmlFeuilleDeTemps;
 	
 	private SimpleDateFormat simpleDateFormat;
 
 	public RepoFeuilleDeTempsXml() {
-		feuilleDeTemps = new HashMap<String, FeuilleDeTemps>();
+		feuillesDeTemps = new HashMap<String, FeuilleDeTemps>();
 		xmlFeuilleDeTemps = new Xml<FeuilleDeTemps>(FeuilleDeTemps.class);
 		simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
 		
@@ -33,7 +33,7 @@ public class RepoFeuilleDeTempsXml implements RepoFeuilleDeTemps {
 		String id = feuille.obtNomEmploye() + 
 				simpleDateFormat.format(feuille.obtDebut()) +
 				simpleDateFormat.format(feuille.obtFin());
-		feuilleDeTemps.put(id, feuille);
+		feuillesDeTemps.put(id, feuille);
 
 		sauvegarder();
 
@@ -43,8 +43,8 @@ public class RepoFeuilleDeTempsXml implements RepoFeuilleDeTemps {
 
 	@Override
 	public FeuilleDeTemps obtenir(String id) {
-		if (feuilleDeTemps.containsKey(id)) {
-			return feuilleDeTemps.get(id);
+		if (feuillesDeTemps.containsKey(id)) {
+			return feuillesDeTemps.get(id);
 		}
 		throw new FeuilleDeTempsIntrouvaleException();
 
@@ -52,18 +52,18 @@ public class RepoFeuilleDeTempsXml implements RepoFeuilleDeTemps {
 
 	@Override
 	public Map<String, FeuilleDeTemps> obtTout() {
-		return feuilleDeTemps;
+		return feuillesDeTemps;
 	}
 
 	@Override
 	public void supprimer(String id) {
-		feuilleDeTemps.remove(id);
+		feuillesDeTemps.remove(id);
 		sauvegarder();
 	}
 
 	@Override
 	public void modifier(String id, FeuilleDeTemps feuille) {
-		feuilleDeTemps.put(id, feuille);
+		feuillesDeTemps.put(id, feuille);
 		sauvegarder();
 
 	}
@@ -72,7 +72,7 @@ public class RepoFeuilleDeTempsXml implements RepoFeuilleDeTemps {
 		ArrayList<FeuilleDeTemps> listXml = (ArrayList<FeuilleDeTemps>) xmlFeuilleDeTemps
 				.charger("xmlfiles/feuillesDeTemps");
 
-		feuilleDeTemps.clear();
+		feuillesDeTemps.clear();
 
 		for (FeuilleDeTemps feuille : listXml) {
 			ajouter(feuille);
@@ -82,7 +82,7 @@ public class RepoFeuilleDeTempsXml implements RepoFeuilleDeTemps {
 	private void sauvegarder() {
 		ArrayList<FeuilleDeTemps> listXml = new ArrayList<FeuilleDeTemps>();
 
-		for (String key : feuilleDeTemps.keySet()) {
+		for (String key : feuillesDeTemps.keySet()) {
 			listXml.add(obtenir(key));
 		}
 
