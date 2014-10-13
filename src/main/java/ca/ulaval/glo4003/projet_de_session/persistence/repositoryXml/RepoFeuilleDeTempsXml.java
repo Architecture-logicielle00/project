@@ -9,7 +9,7 @@ import java.util.Iterator;
 import java.util.Map;
 
 import ca.ulaval.glo4003.projet_de_session.core.domain.FeuilleDeTemps;
-import ca.ulaval.glo4003.projet_de_session.exception.FeuilleDeTempsIntrouvaleException;
+import ca.ulaval.glo4003.projet_de_session.exception.FeuilleDeTempsIntrouvableException;
 import ca.ulaval.glo4003.projet_de_session.persistence.repository.RepoFeuilleDeTemps;
 import ca.ulaval.glo4003.projet_de_session.persistence.utils.Xml;
 
@@ -46,7 +46,7 @@ public class RepoFeuilleDeTempsXml implements RepoFeuilleDeTemps {
 		if (feuillesDeTemps.containsKey(id)) {
 			return feuillesDeTemps.get(id);
 		}
-		throw new FeuilleDeTempsIntrouvaleException();
+		throw new FeuilleDeTempsIntrouvableException();
 
 	}
 
