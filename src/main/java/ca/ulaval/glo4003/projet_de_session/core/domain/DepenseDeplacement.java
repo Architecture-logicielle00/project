@@ -18,7 +18,7 @@ public class DepenseDeplacement extends Depense {
 		return coutkm;
 	}
 
-	public void defValue(float coutkm) {
+	public void defCoutKm(float coutkm) {
 		this.coutkm = coutkm;
 	}
 

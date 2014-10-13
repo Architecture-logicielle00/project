@@ -12,10 +12,13 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import ca.ulaval.glo4003.projet_de_session.core.domain.DepenseDeplacement;
 import ca.ulaval.glo4003.projet_de_session.core.domain.DepenseDiverse;
 import ca.ulaval.glo4003.projet_de_session.core.domain.Employe;
+import ca.ulaval.glo4003.projet_de_session.core.services.ServiceDepense;
 import ca.ulaval.glo4003.projet_de_session.core.services.ServiceEmploye;
 import ca.ulaval.glo4003.projet_de_session.core.services.ServiceFeuilleDeTemps;
 import ca.ulaval.glo4003.projet_de_session.web.services.IServiceSession;
 import ca.ulaval.glo4003.projet_de_session.web.services.ServiceSession;
+import ca.ulaval.glo4003.projet_de_session.web.viewmodels.DepenseDeplacementViewModel;
+import ca.ulaval.glo4003.projet_de_session.web.viewmodels.DepenseDiverseViewModel;
 import ca.ulaval.glo4003.projet_de_session.web.viewmodels.FeuilleDeTempsViewModel;
 
 
@@ -35,6 +38,7 @@ public class ControllerPrincipal
 	
 	ServiceEmploye serviceEmploye;
 	ServiceFeuilleDeTemps serviceFeuilleDeTemps;
+	ServiceDepense serviceDepense;
 	
 	private IServiceSession manageSession;
 	
@@ -43,6 +47,7 @@ public class ControllerPrincipal
 		manageSession = new ServiceSession();	
 		serviceEmploye = new ServiceEmploye();
 		serviceFeuilleDeTemps = new ServiceFeuilleDeTemps();
+		serviceDepense = new ServiceDepense();
 	}
 	
 	public ControllerPrincipal(IServiceSession _manageSession) {
@@ -131,10 +136,11 @@ public class ControllerPrincipal
 	}
 	
 	@RequestMapping(value="/deplacementForm", method = RequestMethod.POST)
-	public @ResponseBody Boolean sauvegarderDepenseDeplacement(@RequestBody DepenseDiverse depenseDiverse, @RequestBody DepenseDeplacement depenseDeplacement, HttpServletRequest request, Model model)
+	public @ResponseBody Boolean sauvegarderDepenseDeplacement(@RequestBody DepenseDiverseViewModel depenseDiverse, @RequestBody DepenseDeplacementViewModel depenseDeplacement, HttpServletRequest request, Model model)
 	{
-		// Appel du service de d�pense
-		
+		serviceDepense.creerDepenseDeplacement(depenseDeplacement);
+		serviceDepense.creerDepenseDiverse(depenseDiverse);
+		//pas complet
 		return true;
 	}
 

@@ -15,7 +15,6 @@ public class RepoDepenseDiverseXml implements RepoDepenseDiverse {
 	{
 		depensesDiverse = new ArrayList<DepenseDiverse>();
 		xmlDepense = new Xml<DepenseDiverse>(DepenseDiverse.class);
-		
 		charger();
 	}
 	
@@ -57,6 +56,7 @@ public class RepoDepenseDiverseXml implements RepoDepenseDiverse {
 		depensesDiverse.clear();
 		depensesDiverse = (ArrayList<DepenseDiverse>) xmlDepense.charger("xmlfiles/depenses");
 	}
+	
 
 	private void sauvegarder() {
 		xmlDepense.enregistrer(depensesDiverse, "xmlfiles/depenses");

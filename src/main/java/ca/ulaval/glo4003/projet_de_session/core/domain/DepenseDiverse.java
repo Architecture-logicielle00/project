@@ -22,7 +22,7 @@ public class DepenseDiverse extends Depense {
 		return coutRepas;
 	}
 
-	public void defValue(float coutRepas) {
+	public void defCoutRepas(float coutRepas) {
 		this.coutRepas = coutRepas;
 	}
 
