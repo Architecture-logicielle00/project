@@ -156,6 +156,17 @@ public class Employe extends Utilisateur {
 	}
 
 	public String obtFeuilleDeTempsCourante() {
-		return feuillesDeTemps.get(feuillesDeTemps.size() -1);
+		try{
+			return feuillesDeTemps.get(feuillesDeTemps.size() -1);
+		}
+		catch(IndexOutOfBoundsException e)
+		{
+			return "";
+		}
+	}
+	
+	public void ajouterIdFeuilleDeTemps(String id) {
+		if(!feuillesDeTemps.contains(id))
+			feuillesDeTemps.add(id);
 	}
 }

@@ -14,7 +14,8 @@
     <numTelephone></numTelephone>
     <feuillesDeTemps/>
     <statutGestionnaire>false</statutGestionnaire>
-  </Employe>
+    <taches>
+    	<string>Manger une poutine</string></taches></Employe>
   <Employe>
     <nomUtilisateur>ALSAM</nomUtilisateur>
     <mdp>12345</mdp>
@@ -30,6 +31,8 @@
     <numTelephone></numTelephone>
     <feuillesDeTemps/>
     <statutGestionnaire>false</statutGestionnaire>
+    <taches>
+    	<string>Sacrer après le JSON</string></taches>
   </Employe>
   <Employe>
     <nomUtilisateur>DASAU</nomUtilisateur>
@@ -46,6 +49,8 @@
     <numTelephone></numTelephone>
     <feuillesDeTemps><string>DASAU2014-08-162014-08-28</string></feuillesDeTemps>
     <statutGestionnaire>false</statutGestionnaire>
+    <taches>
+    	<string>Dormir</string></taches>
   </Employe>
   <Employe>
     <nomUtilisateur>JPDEL</nomUtilisateur>
@@ -62,6 +67,8 @@
     <numTelephone></numTelephone>
     <feuillesDeTemps/>
     <statutGestionnaire>false</statutGestionnaire>
+    <taches>
+    	<string>Manger une poutine</string></taches>
   </Employe>
   <Employe>
     <nomUtilisateur>MOMEC</nomUtilisateur>
@@ -78,22 +85,8 @@
     <numTelephone></numTelephone>
     <feuillesDeTemps/>
     <statutGestionnaire>false</statutGestionnaire>
-  </Employe>
-  <Employe>
-    <nomUtilisateur>WAHJK</nomUtilisateur>
-    <mdp>12345</mdp>
-    <nom>Maksoud</nom>
-    <prenom>Walid</prenom>
-    <entreprise></entreprise>
-    <email></email>
-    <pays></pays>
-    <province></province>
-    <ville></ville>
-    <codePostal></codePostal>
-    <genre></genre>
-    <numTelephone></numTelephone>
-    <feuillesDeTemps/>
-    <statutGestionnaire>false</statutGestionnaire>
+    <taches>
+    	<string>Manger une poutine</string></taches>
   </Employe>
   <Employe>
     <nomUtilisateur>LAHOL</nomUtilisateur>
@@ -110,6 +103,9 @@
     <numTelephone></numTelephone>
     <feuillesDeTemps/>
     <statutGestionnaire>false</statutGestionnaire>
+    <taches>
+    	<string>Découvrir le Québec</string>
+    </taches>
   </Employe>
   <Employe>
     <nomUtilisateur>OLDU</nomUtilisateur>
@@ -126,5 +122,7 @@
     <numTelephone></numTelephone>
     <feuillesDeTemps/>
     <statutGestionnaire>true</statutGestionnaire>
+    <taches>
+    	<string>Enseigner l'architecture logicielle </string></taches>
   </Employe>
 </list>

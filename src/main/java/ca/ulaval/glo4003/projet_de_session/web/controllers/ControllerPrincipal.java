@@ -100,8 +100,15 @@ public class ControllerPrincipal
 		String nomUtilisateurSession = manageSession.obtenirUtilisateurSession(request).obtNomUtilisateur();
 		
 		Employe employe = serviceEmploye.obtEmploye(nomUtilisateurSession);
+		String idFeuilleDeTempsCourante= employe.obtFeuilleDeTempsCourante();
 		
-		FeuilleDeTempsViewModel feuilleDeTempsCourante = serviceFeuilleDeTemps.obtFeuilleDeTempsViewModel(employe.obtFeuilleDeTempsCourante());
+		if(idFeuilleDeTempsCourante == "")
+		{
+			idFeuilleDeTempsCourante = serviceFeuilleDeTemps.creerFeuilleDeTempsCourante(employe);
+			employe.ajouterIdFeuilleDeTemps(idFeuilleDeTempsCourante);
+		}
+		
+		FeuilleDeTempsViewModel feuilleDeTempsCourante = serviceFeuilleDeTemps.obtFeuilleDeTempsViewModel(idFeuilleDeTempsCourante);
 		model.addAttribute("feuilleDeTemps", feuilleDeTempsCourante); 
 		
 		return chargerPageOuLogin(Page.FEUILLEDETEMPS,request,model);
@@ -126,7 +133,7 @@ public class ControllerPrincipal
 	@RequestMapping(value="/deplacementForm", method = RequestMethod.POST)
 	public @ResponseBody Boolean sauvegarderDepenseDeplacement(@RequestBody DepenseDiverse depenseDiverse, @RequestBody DepenseDeplacement depenseDeplacement, HttpServletRequest request, Model model)
 	{
-		// Appel du service de dépense
+		// Appel du service de dï¿½pense
 		
 		return true;
 	}

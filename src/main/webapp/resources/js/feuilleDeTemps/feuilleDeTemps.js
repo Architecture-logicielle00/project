@@ -30,7 +30,7 @@ function saveTimeSheet(){
 function parseTimeSheetIntoJSON(){
 	var debutPeriode = $("#debut-periode-input").val();
 	var finPeriode=$("#fin-periode-input").val();
-	var employe = "DASAU";//$();
+	var employe = $("#utilisateur-dropdown").text().replace(/\s/g, '');
 	
 	var heuresParTaches = new Array();
 	

@@ -1,11 +1,17 @@
 package ca.ulaval.glo4003.projet_de_session.core.services;
 
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Collection;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import org.joda.time.DateTime;
+import org.joda.time.DateTimeConstants;
+import org.springframework.cglib.core.Constants;
 
 import ca.ulaval.glo4003.projet_de_session.core.domain.Employe;
 import ca.ulaval.glo4003.projet_de_session.core.domain.FeuilleDeTemps;
@@ -17,9 +23,11 @@ import ca.ulaval.glo4003.projet_de_session.web.viewmodels.FeuilleDeTempsViewMode
 
 public class ServiceFeuilleDeTemps {
 	
-	RepoFeuilleDeTemps repository;
-	FactoryFeuilleDeTemps factory;
-	FeuilleDeTempsConverter converter;
+	private RepoFeuilleDeTemps repository;
+	private FactoryFeuilleDeTemps factory;
+	private FeuilleDeTempsConverter converter;
+	
+	private final int dureePeriodeDePaieEnSemaines = 2;
 
 	public ServiceFeuilleDeTemps() {
 		factory = new FactoryFeuilleDeTemps();
@@ -35,9 +43,20 @@ public class ServiceFeuilleDeTemps {
 		repository.supprimer(id);
 	}
 
-	public void creerFeuilleDeTemps(Employe _employe, Date _debut, Date _fin) {
+	public String creerFeuilleDeTemps(Employe _employe, Date _debut, Date _fin) {
 		FeuilleDeTemps e = factory.creerFeuilleDeTemps(_employe, _debut, _fin);
-		repository.ajouter(e);
+		return repository.ajouter(e);
+	}
+	
+	public String creerFeuilleDeTempsCourante(Employe _employe)
+	{
+		DateTime aujourdhui = DateTime.now();
+		DateTime debutDelasemaineCourante = aujourdhui.withDayOfWeek(DateTimeConstants.MONDAY);
+		DateTime finDelaSemaineCourante = aujourdhui.withDayOfWeek(DateTimeConstants.SUNDAY);
+		DateTime finDelaPeriodeCourante = finDelaSemaineCourante.plusWeeks(dureePeriodeDePaieEnSemaines - 1);
+		
+		
+		return creerFeuilleDeTemps(_employe, debutDelasemaineCourante.toDate(), finDelaPeriodeCourante.toDate());
 	}
 
 	public void modifierFeuilleDeTemps(String id, FeuilleDeTemps feuilleDeTemps) {
