@@ -23,6 +23,7 @@ public class RepoFeuilleDeTempsXml implements RepoFeuilleDeTemps {
 	public RepoFeuilleDeTempsXml() {
 		feuilleDeTemps = new HashMap<String, FeuilleDeTemps>();
 		xmlFeuilleDeTemps = new Xml<FeuilleDeTemps>(FeuilleDeTemps.class);
+		simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
 		
 		charger();
 	}
