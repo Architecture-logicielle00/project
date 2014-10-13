@@ -5,6 +5,17 @@ $(document).ready(function(){
 
 function sauvegarder(){
     alert("test");
+    
+  //TODO 
+    //pas encore complet en essai...
+	   }
+    $.ajax({
+    	  type: "POST",
+    	  url:"/deplacementForm"
+    	  data: JSON.stringify(depense),
+    	  success: success,
+    	  dataType: dataType
+    	});
 }
 
 function ajouterNouvelleLigne(){
