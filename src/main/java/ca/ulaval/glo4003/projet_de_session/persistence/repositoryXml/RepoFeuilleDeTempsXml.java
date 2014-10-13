@@ -23,25 +23,8 @@ public class RepoFeuilleDeTempsXml implements RepoFeuilleDeTemps {
 	public RepoFeuilleDeTempsXml() {
 		feuilleDeTemps = new HashMap<String, FeuilleDeTemps>();
 		xmlFeuilleDeTemps = new Xml<FeuilleDeTemps>(FeuilleDeTemps.class);
-		simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
 		
 		charger();
-
-		ArrayList<String> test = new ArrayList<String>();
-		test.add("promener le chien");
-		test.add("faire les devoirs");
-		test.add("sortir la poubelle");
-
-		Date debut = new Date();
-		Date fin = new Date();
-		try {
-			debut = new SimpleDateFormat("yyyy-MM-dd").parse("2014-08-16");
-			fin = new SimpleDateFormat("yyyy-MM-dd").parse("2014-08-28");
-		} catch (ParseException e) {
-			e.printStackTrace();
-		}
-
-		ajouter(new FeuilleDeTemps("DASAU", debut, fin, test));
 	}
 
 	@Override
