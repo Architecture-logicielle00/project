@@ -12,21 +12,18 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import ca.ulaval.glo4003.projet_de_session.core.domain.DepenseDeplacement;
 import ca.ulaval.glo4003.projet_de_session.core.domain.DepenseDiverse;
 import ca.ulaval.glo4003.projet_de_session.core.domain.Employe;
-import ca.ulaval.glo4003.projet_de_session.core.services.ServiceDepense;
+
 import ca.ulaval.glo4003.projet_de_session.core.services.ServiceEmploye;
 import ca.ulaval.glo4003.projet_de_session.core.services.ServiceFeuilleDeTemps;
 import ca.ulaval.glo4003.projet_de_session.web.services.IServiceSession;
 import ca.ulaval.glo4003.projet_de_session.web.services.ServiceSession;
-import ca.ulaval.glo4003.projet_de_session.web.viewmodels.DepenseDeplacementViewModel;
-import ca.ulaval.glo4003.projet_de_session.web.viewmodels.DepenseDiverseViewModel;
+//import ca.ulaval.glo4003.projet_de_session.web.viewmodels.DepenseDeplacementViewModel;
+//import ca.ulaval.glo4003.projet_de_session.web.viewmodels.DepenseDiverseViewModel;
 import ca.ulaval.glo4003.projet_de_session.web.viewmodels.FeuilleDeTempsViewModel;
 
-
 @Controller
-public class ControllerPrincipal
-{
-	private static class Page
-	{
+public class ControllerPrincipal {
+	private static class Page {
 		public static final String INDEX = "index";
 		public static final String ERREUR = "erreurLogin";
 		public static final String CONNECTION = "login";
@@ -34,118 +31,116 @@ public class ControllerPrincipal
 		public static final String EMPLOYEEMANAGEMENT = "gestionEmployee";
 		public static final String FEUILLEDETEMPS = "feuilleDeTemps";
 		public static final String DEPENSEDEPLACEMENT = "deplacementForm";
-	} 
-	
+	}
+
 	ServiceEmploye serviceEmploye;
 	ServiceFeuilleDeTemps serviceFeuilleDeTemps;
-	ServiceDepense serviceDepense;
-	
+
+
 	private IServiceSession manageSession;
-	
-	
+
 	public ControllerPrincipal() {
-		manageSession = new ServiceSession();	
+		manageSession = new ServiceSession();
 		serviceEmploye = new ServiceEmploye();
 		serviceFeuilleDeTemps = new ServiceFeuilleDeTemps();
-		serviceDepense = new ServiceDepense();
-	}
 	
+	}
+
 	public ControllerPrincipal(IServiceSession _manageSession) {
-		manageSession = _manageSession; 
+		manageSession = _manageSession;
 	}
 
 	@RequestMapping("/")
-	public String login(HttpServletRequest request, Model model) 
-	{
-		return chargerPageOuLogin(Page.INDEX,request,model);
+	public String login(HttpServletRequest request, Model model) {
+		return chargerPageOuLogin(Page.INDEX, request, model);
 	}
 
 	@RequestMapping(value = "/", method = RequestMethod.POST)
-	public String connection(HttpServletRequest request, Model model) 
-	{
+	public String connection(HttpServletRequest request, Model model) {
 		String nomUtilisateur = request.getParameter("nomUtilisateur");
-	    String mdp = request.getParameter("mdp");
-	    
-	    if(serviceEmploye.verifierMotDePasse(nomUtilisateur, mdp))
-	    {
-	    	manageSession.definirUtilisateur(request, serviceEmploye.obtEmployeViewModel(nomUtilisateur));
+		String mdp = request.getParameter("mdp");
 
-			return chargerPageOuLogin(Page.INDEX,request,model);
-	    }
-	    else
+		if (serviceEmploye.verifierMotDePasse(nomUtilisateur, mdp)) {
+			manageSession.definirUtilisateur(request,
+					serviceEmploye.obtEmployeViewModel(nomUtilisateur));
+
+			return chargerPageOuLogin(Page.INDEX, request, model);
+		} else
 			return Page.ERREUR;
 	}
-	
+
 	@RequestMapping("/deconnection")
 	public String logout(HttpServletRequest request, Model model) {
 		manageSession.logoff(request);
-		return chargerPageOuLogin(Page.CONNECTION,request,model);
+		return chargerPageOuLogin(Page.CONNECTION, request, model);
 	}
-	
+
 	@RequestMapping("/creationEmployee")
-	public String obtenirPageCreationEmployee(HttpServletRequest request, Model model){  
-		return chargerPageOuLogin(Page.CREEUTILISATEUR,request,model);
+	public String obtenirPageCreationEmployee(HttpServletRequest request,
+			Model model) {
+		return chargerPageOuLogin(Page.CREEUTILISATEUR, request, model);
 	}
 
 	@RequestMapping(value = "/creationEmployee", method = RequestMethod.POST)
-	public String creerEmployee(HttpServletRequest request, Model model) 
-	{ 		
-		return chargerPageOuLogin(Page.EMPLOYEEMANAGEMENT,request,model);
+	public String creerEmployee(HttpServletRequest request, Model model) {
+		return chargerPageOuLogin(Page.EMPLOYEEMANAGEMENT, request, model);
 	}
-	
+
 	@RequestMapping("/gestionEmployee")
 	public String accederGestionEmployee(HttpServletRequest request, Model model) {
-		model.addAttribute( "employees", serviceEmploye.obtEmployesViewModel() );
-		return chargerPageOuLogin(Page.EMPLOYEEMANAGEMENT,request,model);
+		model.addAttribute("employees", serviceEmploye.obtEmployesViewModel());
+		return chargerPageOuLogin(Page.EMPLOYEEMANAGEMENT, request, model);
 	}
-	
+
 	@RequestMapping("/feuilleDeTemps")
 	public String accederFeuilleDeTemps(HttpServletRequest request, Model model) {
-		
-		String nomUtilisateurSession = manageSession.obtenirUtilisateurSession(request).obtNomUtilisateur();
-		
+
+		String nomUtilisateurSession = manageSession.obtenirUtilisateurSession(
+				request).obtNomUtilisateur();
+
 		Employe employe = serviceEmploye.obtEmploye(nomUtilisateurSession);
-		String idFeuilleDeTempsCourante= employe.obtFeuilleDeTempsCourante();
-		
-		if(idFeuilleDeTempsCourante == "")
-		{
-			idFeuilleDeTempsCourante = serviceFeuilleDeTemps.creerFeuilleDeTempsCourante(employe);
+		String idFeuilleDeTempsCourante = employe.obtFeuilleDeTempsCourante();
+
+		if (idFeuilleDeTempsCourante == "") {
+			idFeuilleDeTempsCourante = serviceFeuilleDeTemps
+					.creerFeuilleDeTempsCourante(employe);
 			employe.ajouterIdFeuilleDeTemps(idFeuilleDeTempsCourante);
 		}
-		
-		FeuilleDeTempsViewModel feuilleDeTempsCourante = serviceFeuilleDeTemps.obtFeuilleDeTempsViewModel(idFeuilleDeTempsCourante);
-		model.addAttribute("feuilleDeTemps", feuilleDeTempsCourante); 
-		
-		return chargerPageOuLogin(Page.FEUILLEDETEMPS,request,model);
+
+		FeuilleDeTempsViewModel feuilleDeTempsCourante = serviceFeuilleDeTemps
+				.obtFeuilleDeTempsViewModel(idFeuilleDeTempsCourante);
+		model.addAttribute("feuilleDeTemps", feuilleDeTempsCourante);
+
+		return chargerPageOuLogin(Page.FEUILLEDETEMPS, request, model);
 	}
-	
-	@RequestMapping(value="/feuilleDeTemps", method = RequestMethod.POST)
-	public @ResponseBody Boolean sauvegarderFeuilleDeTemps(@RequestBody FeuilleDeTempsViewModel feuilleDeTempsViewModel,HttpServletRequest request, Model model)
-	{
+
+	@RequestMapping(value = "/feuilleDeTemps", method = RequestMethod.POST)
+	public @ResponseBody Boolean sauvegarderFeuilleDeTemps(
+			@RequestBody FeuilleDeTempsViewModel feuilleDeTempsViewModel,
+			HttpServletRequest request, Model model) {
 		serviceFeuilleDeTemps.modifierFeuilleDeTemps(feuilleDeTempsViewModel);
-		
+
 		boolean sauvegardeEffectueAvecSucces = true;
-		
+
 		return sauvegardeEffectueAvecSucces;
 	}
-	
+
 	@RequestMapping("deplacementForm")
-	public String depenseDeplacement(HttpServletRequest request, Model model) 
-	{
-		return chargerPageOuLogin(Page.DEPENSEDEPLACEMENT,request,model);
+	public String depenseDeplacement(HttpServletRequest request, Model model) {
+		return chargerPageOuLogin(Page.DEPENSEDEPLACEMENT, request, model);
 	}
-	
-	@RequestMapping(value="/deplacementForm", method = RequestMethod.POST)
-	public @ResponseBody Boolean sauvegarderDepenseDeplacement(@RequestBody DepenseDiverseViewModel depenseDiverse, @RequestBody DepenseDeplacementViewModel depenseDeplacement, HttpServletRequest request, Model model)
-	{
-		serviceDepense.creerDepenseDeplacement(depenseDeplacement);
-		serviceDepense.creerDepenseDiverse(depenseDiverse);
-		//pas complet
+
+	@RequestMapping(value = "/deplacementForm", method = RequestMethod.POST)
+	public @ResponseBody Boolean sauvegarderDepenseDeplacement(
+			@RequestBody DepenseDiverse depenseDiverse,
+			@RequestBody DepenseDeplacement depenseDeplacement,
+			HttpServletRequest request, Model model) {
+		//en attendant passage de depensediverse et depensedeplacement
 		return true;
 	}
 
-	private String chargerPageOuLogin(String _page, HttpServletRequest request, Model model)
-	{
+	private String chargerPageOuLogin(String _page, HttpServletRequest request,
+			Model model) {
 		if (manageSession.chargerUtilisateurInformation(request, model))
 			return _page;
 		else
