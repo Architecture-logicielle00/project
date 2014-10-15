@@ -16,6 +16,8 @@
 	href="/resources/css/lib/font-awesome.min.css" />
 <link type="text/css" rel="stylesheet" href="/resources/css/layout.css" />
 <link type="text/css" rel="stylesheet"
+	href="/resources/css/callBack.css" />
+<link type="text/css" rel="stylesheet"
 	href="/resources/css/timeSheet.css" />
 <title>Accueil</title>
 </head>
@@ -25,6 +27,19 @@
 		<jsp:include page="./importHtml/_layout.jsp" />
 
 		<div id="page-wrapper">
+			<div id="callBackModal" class="modal fade bs-example-modal-lg"
+				tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+				aria-hidden="true">
+				<div class="modal-dialog modal-lg">
+					<div class="modal-content">
+						<i class="fa fa-spinner fa-spin fa-3x"></i>
+					</div>
+				</div>
+			</div>
+
+
+
+
 			<div id="header-time-sheet">
 				<h1>Timesheet</h1>
 
@@ -55,12 +70,9 @@
 					<c:forEach var="tache" items="${feuilleDeTemps.obtTaches()}">
 						<tr>
 							<td class="fixcol2">${tache.obtTache()}</td>
-							
-							<c:forEach var="heure"
-								items="${tache.obtNbHeuresParJours()}">
-								<td>
-									<input class="time-input" type="text" value="${heure}"/>
-								</td>
+
+							<c:forEach var="heure" items="${tache.obtNbHeuresParJours()}">
+								<td><input class="time-input" type="text" value="${heure}" /></td>
 							</c:forEach>
 					</c:forEach>
 				</table>
@@ -76,6 +88,7 @@
 	<script src="/resources/js/lib/jquery.js"></script>
 	<script src="/resources/js/lib/jquery-ui.js"></script>
 	<script src="/resources/js/lib/bootstrap.min.js"></script>
+	<script src="/resources/js/callback.js"></script>
 	<script src="/resources/js/feuilleDeTemps/feuilleDeTemps.js"></script>
 </body>
 </html>

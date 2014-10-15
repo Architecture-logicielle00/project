@@ -16,13 +16,18 @@ function saveTimeSheet(){
         data : timeSheetJSON,
         dataType: "json",
         contentType: "application/json; charset=utf-8",
+        beforeSend: function(){
+        	showCallBack();
+        },
         success: function(data, textStatus, jqXHR)
         {
-            //data - response from server
+            hideCallBack();
+            alert("Enregistrement reussi");
         },
         error: function (jqXHR, textStatus, errorThrown)
         {
-
+            hideCallBack();
+            alert("Une erreur s'est produite. Veuillez réessayer");
         }
     });
 }
