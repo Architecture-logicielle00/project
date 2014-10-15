@@ -12,7 +12,7 @@ import org.joda.time.LocalDate;
 import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
 
-import ca.ulaval.glo4003.projet_de_session.core.domain.TempsParTache;
+import ca.ulaval.glo4003.projet_de_session.core.domain.TempsParTacheTest;
 
 public class FeuilleDeTempsViewModel {
 	

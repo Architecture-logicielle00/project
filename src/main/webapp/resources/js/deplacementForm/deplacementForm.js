@@ -1,11 +1,32 @@
 $(document).ready(function() {
-	ajouterNouvelleLigne();
 	initialiserEvenements();
 })
 
 function sauvegarder() {
 	alert("test");
 	//TODO
+	
+    var formJSON = parseFormIntoJSON();
+
+    $.ajax({
+        url : "/deplacementForm",
+        type: "POST",
+        data : formJSON,
+        dataType: "json",
+        contentType: "application/json; charset=utf-8",
+        success: function(data, textStatus, jqXHR)
+        {
+            //data - response from server
+        },
+        error: function (jqXHR, textStatus, errorThrown)
+        {
+
+        }
+    });
+}
+
+function parseFormIntoJSON(){
+	return {}; //TODO
 }
 
 function ajouterNouvelleLigne() {

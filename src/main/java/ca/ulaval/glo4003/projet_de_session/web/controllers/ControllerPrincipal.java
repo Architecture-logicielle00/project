@@ -125,8 +125,10 @@ public class ControllerPrincipal {
 		return sauvegardeEffectueAvecSucces;
 	}
 
-	@RequestMapping("deplacementForm")
+	@RequestMapping("/deplacementForm")
 	public String depenseDeplacement(HttpServletRequest request, Model model) {
+		
+		//model.addAttribute("formulaire", feuilleDeTempsCourante);
 		return chargerPageOuLogin(Page.DEPENSEDEPLACEMENT, request, model);
 	}
 
