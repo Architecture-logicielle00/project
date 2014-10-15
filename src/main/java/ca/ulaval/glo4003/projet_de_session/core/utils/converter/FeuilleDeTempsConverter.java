@@ -49,7 +49,6 @@ public class FeuilleDeTempsConverter {
 			feuilleDeTemps.defDebut(formatter.parse(entry.debutPeriode));
 			feuilleDeTemps.defFin(formatter.parse(entry.finPeriode));
 		} catch (ParseException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 

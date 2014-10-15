@@ -11,7 +11,6 @@ import java.util.Map;
 
 import org.joda.time.DateTime;
 import org.joda.time.DateTimeConstants;
-import org.springframework.cglib.core.Constants;
 
 import ca.ulaval.glo4003.projet_de_session.core.domain.Employe;
 import ca.ulaval.glo4003.projet_de_session.core.domain.FeuilleDeTemps;
@@ -20,6 +19,7 @@ import ca.ulaval.glo4003.projet_de_session.core.utils.converter.FeuilleDeTempsCo
 import ca.ulaval.glo4003.projet_de_session.persistence.repository.RepoFeuilleDeTemps;
 import ca.ulaval.glo4003.projet_de_session.persistence.repositoryXml.RepoFeuilleDeTempsXml;
 import ca.ulaval.glo4003.projet_de_session.web.viewmodels.FeuilleDeTempsViewModel;
+
 
 public class ServiceFeuilleDeTemps {
 	

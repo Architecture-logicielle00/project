@@ -1,3 +1,4 @@
+package ca.ulaval.glo4003.projet_de_session.core.utils;
 //package ca.ulaval.glo4003.projet_de_session.core.utils;
 //
 //import ca.ulaval.glo4003.projet_de_session.core.domain.DepenseDiverse;
