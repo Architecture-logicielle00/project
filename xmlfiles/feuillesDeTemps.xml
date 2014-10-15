@@ -4,10 +4,10 @@
       <ca.ulaval.glo4003.projet__de__session.core.domain.TempsParTache>
         <tache>Sacrer après le JSON</tache>
         <nbHeuresParJours>
-          <float>0.0</float>
-          <float>0.0</float>
-          <float>0.0</float>
-          <float>0.0</float>
+          <float>1.0</float>
+          <float>2.0</float>
+          <float>4.0</float>
+          <null/>
           <float>0.0</float>
           <float>0.0</float>
           <float>0.0</float>
@@ -20,8 +20,8 @@
         </nbHeuresParJours>
       </ca.ulaval.glo4003.projet__de__session.core.domain.TempsParTache>
     </taches>
-    <debut>2014-10-13 20:51:39.23 UTC</debut>
-    <fin>2014-10-26 20:51:39.23 UTC</fin>
+    <debut>2014-10-13 04:00:00.0 UTC</debut>
+    <fin>2014-10-26 04:00:00.0 UTC</fin>
     <identifiant>ALSAM</identifiant>
   </FeuilleDeTemps>
   <FeuilleDeTemps>

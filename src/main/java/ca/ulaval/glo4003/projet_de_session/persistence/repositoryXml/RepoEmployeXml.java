@@ -13,6 +13,8 @@ public class RepoEmployeXml implements RepoEmployer {
 	{
 		employes = new ArrayList<Employe>();
 		xmlEmploye = new Xml<Employe>(Employe.class);
+		
+		charger();
 	}
 
 	
@@ -22,6 +24,7 @@ public class RepoEmployeXml implements RepoEmployer {
 		if (obtenir( e.obtNomUtilisateur() ) == null)
 		{
 			employes.add(e);
+			sauvegarder();
 		}
 		// Ajouter un lanc� d'exception si pr�sent
 		
@@ -55,6 +58,7 @@ public class RepoEmployeXml implements RepoEmployer {
 			if (e.obtNomUtilisateur().equals(nomUtilisateur))
 			{
 				employes.remove(e);
+				sauvegarder();
 				return;
 			}
 		}
