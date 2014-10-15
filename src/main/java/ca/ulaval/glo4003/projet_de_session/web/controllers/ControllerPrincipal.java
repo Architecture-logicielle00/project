@@ -133,10 +133,17 @@ public class ControllerPrincipal {
 		return chargerPageOuLogin(Page.DEPENSEDEPLACEMENT, request, model);
 	}
 
-	@RequestMapping(value = "/deplacementForm", method = RequestMethod.POST)
+	@RequestMapping(value = "/deplacementFormDeplacement", method = RequestMethod.POST)
+	public @ResponseBody Boolean sauvegarderDepenseDeplacement(
+			@RequestBody DepenseDeplacement depenseDeplacement,
+			HttpServletRequest request, Model model) {
+		//en attendant passage de depensediverse et depensedeplacement
+		return true;
+	}
+	
+	@RequestMapping(value = "/deplacementFormDiverse", method = RequestMethod.POST)
 	public @ResponseBody Boolean sauvegarderDepenseDeplacement(
 			@RequestBody DepenseDiverse depenseDiverse,
-			@RequestBody DepenseDeplacement depenseDeplacement,
 			HttpServletRequest request, Model model) {
 		//en attendant passage de depensediverse et depensedeplacement
 		return true;

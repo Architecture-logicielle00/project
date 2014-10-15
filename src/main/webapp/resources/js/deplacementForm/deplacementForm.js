@@ -9,7 +9,23 @@ function sauvegarder() {
     var formJSON = parseFormIntoJSON();
 
     $.ajax({
-        url : "/deplacementForm",
+        url : "/sauvegarderDepenseDeplacement",
+        type: "POST",
+        data : formJSON,
+        dataType: "json",
+        contentType: "application/json; charset=utf-8",
+        success: function(data, textStatus, jqXHR)
+        {
+            //data - response from server
+        },
+        error: function (jqXHR, textStatus, errorThrown)
+        {
+
+        }
+    });
+    
+    $.ajax({
+        url : "/deplacementFormDiverse",
         type: "POST",
         data : formJSON,
         dataType: "json",
