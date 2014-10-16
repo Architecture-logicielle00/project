@@ -19,7 +19,7 @@ public class FeuilleDeTempsConverter {
 	public Collection<FeuilleDeTempsViewModel> convert(Map<String, FeuilleDeTemps> entries) {
 		Collection<FeuilleDeTempsViewModel> viewModels = new LinkedList<FeuilleDeTempsViewModel>();
 		for (Entry<String, FeuilleDeTemps> entry : entries.entrySet()) {
-			FeuilleDeTempsViewModel viewModel = convert((FeuilleDeTemps)entry);
+			FeuilleDeTempsViewModel viewModel = convert(entry.getValue());
 			viewModels.add(viewModel);
 		}
 		return viewModels;
