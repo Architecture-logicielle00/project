@@ -4,6 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -94,10 +95,13 @@ public class ControllerPrincipal {
 
 	@RequestMapping("/feuilleDeTemps")
 	public String accederFeuilleDeTemps(HttpServletRequest request, Model model) {
+		
+		String nomUtilisateurSession = manageSession.ObtenirNomUtilisateur(
+				request);
 
-		String nomUtilisateurSession = manageSession.obtenirUtilisateurSession(
-				request).obtNomUtilisateur();
-
+		if (StringUtils.isEmpty(nomUtilisateurSession))
+			return chargerPageOuLogin(Page.FEUILLEDETEMPS, request, model);
+			
 		Employe employe = serviceEmploye.obtEmploye(nomUtilisateurSession);
 		
 		String idFeuilleDeTempsCourante;

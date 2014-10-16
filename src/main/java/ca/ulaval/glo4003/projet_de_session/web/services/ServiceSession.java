@@ -21,8 +21,13 @@ public class ServiceSession implements IServiceSession
 		return utilisateurConnecter;
 	}
 	
-	public UtilisateurViewModel obtenirUtilisateurSession(HttpServletRequest request){
-		return (UtilisateurViewModel)obtenirSessionUtilisateur(request).getAttribute("UtilisateurSession");
+	public String ObtenirNomUtilisateur(HttpServletRequest request){
+		UtilisateurViewModel utilisateur = obtenirUtilisateurSession(request);
+		
+		if (utilisateur == null)
+			return "";
+		
+		return utilisateur.obtNomUtilisateur();
 	}
 	
 	public void definirUtilisateur(HttpServletRequest request, UtilisateurViewModel _utilisateurSession)
@@ -36,6 +41,9 @@ public class ServiceSession implements IServiceSession
 		obtenirSessionUtilisateur(request).invalidate();
 	}
 
+	private UtilisateurViewModel obtenirUtilisateurSession(HttpServletRequest request){
+		return (UtilisateurViewModel)obtenirSessionUtilisateur(request).getAttribute("UtilisateurSession");
+	}
 	
 	private HttpSession obtenirSessionUtilisateur(HttpServletRequest request)
 	{
