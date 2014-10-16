@@ -27,10 +27,6 @@ public class RepoFeuilleDeTempsXmlTest {
 		//
 	}
 
-	@Test
-	public void testRepoFeuilleDeTempsXml() {
-		fail("Not yet implemented");
-	}
 
 	@Test
 	public void testAjouter() {

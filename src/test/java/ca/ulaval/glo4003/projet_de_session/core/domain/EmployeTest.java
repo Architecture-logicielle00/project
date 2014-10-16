@@ -57,7 +57,7 @@ public class EmployeTest {
 
 	@Test(expected=FeuilleDeTempsIntrouvableException.class)
 	public void testObtFeuilleDeTempsCourantePasDeFeuille() throws Exception {
-	      employe.obtIDFeuilleDeTempsCourante();
+		employe.obtIDFeuilleDeTempsCourante();
 	}
 	
 	
@@ -71,6 +71,9 @@ public class EmployeTest {
 	@Test
 	public void testAjouterIdFeuilleDeTemps() throws Exception {
 		feuillesDeTemps.add("Feuille1");
+		employe.ajouterIdFeuilleDeTemps("Feuille1");
+		assertEquals(feuillesDeTemps,employe.obtIDFeuillesDeTemps());
+		
 		employe.ajouterIdFeuilleDeTemps("Feuille1");
 		assertEquals(feuillesDeTemps,employe.obtIDFeuillesDeTemps());
 	}
