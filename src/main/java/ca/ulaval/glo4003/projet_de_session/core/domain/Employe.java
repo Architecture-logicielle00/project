@@ -157,7 +157,7 @@ public class Employe extends Utilisateur {
 		taches.remove(tache); //
 	}
 
-	public String obtFeuilleDeTempsCourante() throws Exception{
+	public String obtIDFeuilleDeTempsCourante() throws Exception{
 		try{
 			return feuillesDeTemps.get(feuillesDeTemps.size() -1);
 		}
@@ -165,6 +165,10 @@ public class Employe extends Utilisateur {
 		{
 			throw new FeuilleDeTempsIntrouvableException();
 		}
+	}
+	
+	public ArrayList<String> obtIDFeuillesDeTemps() throws Exception{
+		return feuillesDeTemps;
 	}
 	
 	public void ajouterIdFeuilleDeTemps(String id) {
