@@ -35,25 +35,4 @@ public class TempsParTacheTest {
 	public void testTempsParTacheStringInt() {
 		fail("Not yet implemented");
 	}
-
-	@Test
-	public void testObtTache() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testDefTache() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testObtNbHeuresParJours() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testDefNbHeuresParJours() {
-		fail("Not yet implemented");
-	}
-
 }

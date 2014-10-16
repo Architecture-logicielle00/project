@@ -27,7 +27,17 @@ public class FeuilleDeTempsTest {
 	}
 
 	@Test
-	public void test() {
+	public void testFeuilleDeTemps() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testFeuilleDeTempsStringDateDateArrayListOfString() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testObtUneTache() {
 		fail("Not yet implemented");
 	}
 

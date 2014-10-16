@@ -61,19 +61,5 @@ public class ServiceFeuilleDeTempsTest {
 		fail("Not yet implemented");
 	}
 
-	@Test
-	public void testObtFeuillesDeTemps() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testObtFeuillesDeTempsViewModel() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testObtFeuilleDeTempsViewModel() {
-		fail("Not yet implemented");
-	}
 
 }
