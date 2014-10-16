@@ -12,9 +12,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import ca.ulaval.glo4003.projet_de_session.core.domain.DepenseDeplacement;
 import ca.ulaval.glo4003.projet_de_session.core.domain.DepenseDiverse;
 import ca.ulaval.glo4003.projet_de_session.core.domain.Employe;
-
 import ca.ulaval.glo4003.projet_de_session.core.services.ServiceEmploye;
 import ca.ulaval.glo4003.projet_de_session.core.services.ServiceFeuilleDeTemps;
+import ca.ulaval.glo4003.projet_de_session.exception.FeuilleDeTempsIntrouvableException;
 import ca.ulaval.glo4003.projet_de_session.web.services.IServiceSession;
 import ca.ulaval.glo4003.projet_de_session.web.services.ServiceSession;
 //import ca.ulaval.glo4003.projet_de_session.web.viewmodels.DepenseDeplacementViewModel;
@@ -99,14 +99,19 @@ public class ControllerPrincipal {
 				request).obtNomUtilisateur();
 
 		Employe employe = serviceEmploye.obtEmploye(nomUtilisateurSession);
-		String idFeuilleDeTempsCourante = employe.obtFeuilleDeTempsCourante();
-
-		if (idFeuilleDeTempsCourante == "") {
+		
+		String idFeuilleDeTempsCourante;
+		try{
+			idFeuilleDeTempsCourante = employe.obtFeuilleDeTempsCourante();
+		}
+		catch(Exception e)
+		{
 			idFeuilleDeTempsCourante = serviceFeuilleDeTemps
 					.creerFeuilleDeTempsCourante(employe);
 			employe.ajouterIdFeuilleDeTemps(idFeuilleDeTempsCourante);
 			//serviceEmploye.modifierEmploye(employe);
 		}
+
 
 		FeuilleDeTempsViewModel feuilleDeTempsCourante = serviceFeuilleDeTemps
 				.obtFeuilleDeTempsViewModel(idFeuilleDeTempsCourante);

@@ -3,6 +3,8 @@ package ca.ulaval.glo4003.projet_de_session.core.domain;
 import java.util.ArrayList;
 import java.util.Date;
 
+import ca.ulaval.glo4003.projet_de_session.exception.FeuilleDeTempsIntrouvableException;
+
 public class Employe extends Utilisateur {
 	String nom;
 	String prenom;
@@ -155,13 +157,13 @@ public class Employe extends Utilisateur {
 		taches.remove(tache);
 	}
 
-	public String obtFeuilleDeTempsCourante() {
+	public String obtFeuilleDeTempsCourante() throws Exception{
 		try{
 			return feuillesDeTemps.get(feuillesDeTemps.size() -1);
 		}
 		catch(IndexOutOfBoundsException e)
 		{
-			return "";
+			throw new FeuilleDeTempsIntrouvableException();
 		}
 	}
 	
