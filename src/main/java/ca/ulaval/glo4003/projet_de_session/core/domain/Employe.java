@@ -154,7 +154,7 @@ public class Employe extends Utilisateur {
 	}
 
 	public void supprimerTache(String tache) {
-		taches.remove(tache);
+		taches.remove(tache); //
 	}
 
 	public String obtFeuilleDeTempsCourante() throws Exception{
