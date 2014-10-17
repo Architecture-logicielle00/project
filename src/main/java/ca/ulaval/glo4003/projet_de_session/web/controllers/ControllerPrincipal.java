@@ -119,7 +119,7 @@ public class ControllerPrincipal {
 			idFeuilleDeTempsCourante = serviceFeuilleDeTemps
 					.creerFeuilleDeTempsCourante(employe);
 			employe.ajouterIdFeuilleDeTemps(idFeuilleDeTempsCourante);
-			//serviceEmploye.modifierEmploye(employe);
+			serviceEmploye.modifierEmploye(employe);
 		}
 
 

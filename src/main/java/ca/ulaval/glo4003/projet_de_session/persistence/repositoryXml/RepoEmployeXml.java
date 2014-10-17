@@ -51,10 +51,22 @@ public class RepoEmployeXml implements RepoEmploye {
 	public void supprimer(String nomUtilisateur)
 	{
 		employes.remove(nomUtilisateur);
+		sauvegarder();
 	}
 	
+
 	@Override
-	public void charger()
+	public void modifier(Employe employe)
+	{
+		if(obtenir( employe.obtNomUtilisateur() ) != null)
+		{
+			employes.put(employe.obtNomUtilisateur(), employe);
+		}
+		sauvegarder();
+		
+	}
+	
+	private void charger()
 	{
 		employes.clear();
 		ArrayList<Employe> eList = (ArrayList<Employe>) xmlEmploye.charger("xmlfiles/employes");
@@ -63,18 +75,7 @@ public class RepoEmployeXml implements RepoEmploye {
 		}
 	}
 	
-	public void modifier(Employe e)
-	{
-		if(obtenir( e.obtNomUtilisateur() ) != null)
-		{
-			employes.put(e.obtNomUtilisateur(), e);
-		}
-		sauvegarder();
-		
-	}
-	
-	@Override
-	public void sauvegarder()
+	private void sauvegarder()
 	{
 		xmlEmploye.enregistrer(obtEmployes(), "xmlfiles/employes");
 	}

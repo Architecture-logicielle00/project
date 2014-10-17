@@ -32,7 +32,11 @@ public class ServiceEmploye
 	{
 		Employe e = factory.creerEmploye(evm);
 		repo.ajouter(e);
-		repo.sauvegarder();
+	}
+	
+	public void modifierEmploye(Employe employe)
+	{
+		repo.modifier(employe);
 	}
 	
 	public List<Employe> obtEmployes()
@@ -106,11 +110,7 @@ public class ServiceEmploye
 		creerEmploye("LAHOL", mdp, "Holy","Laurianne", "", "", "", "", "", "", 0, 0, 0, "", "");
 		
 		creerEmploye("OLDU", mdp, "Dugas", "Olivier", "", "", "", "", "", "", 0, 0, 0, "", "");
-		obtEmploye("OLDU").changerStatutGestionnaire(true);
-		
-		repo.sauvegarder();
-		*/
-		repo.charger();
+		obtEmploye("OLDU").changerStatutGestionnaire(true);*/
 	}
 
 	

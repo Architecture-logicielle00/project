@@ -13,9 +13,7 @@ public interface RepoEmploye {
 	public abstract List<Employe> obtEmployes();
 
 	public abstract void supprimer(String nomUtilisateur);
-
-	public abstract void charger();
-
-	public abstract void sauvegarder();
+	
+	public abstract void modifier(Employe employe);
 
 }
