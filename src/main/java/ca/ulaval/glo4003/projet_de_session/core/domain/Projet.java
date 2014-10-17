@@ -15,6 +15,7 @@ public class Projet {
 	}
 
 	public Projet() {
+		taches = new ArrayList<Tache>();
 	}
 
 	public String obtNom() {
