@@ -4,7 +4,7 @@ import java.util.List;
 
 import ca.ulaval.glo4003.projet_de_session.core.domain.Employe;
 
-public interface RepoEmployer {
+public interface RepoEmploye {
 
 	public abstract void ajouter(Employe e);
 

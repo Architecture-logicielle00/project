@@ -18,6 +18,8 @@ import ca.ulaval.glo4003.projet_de_session.core.services.ServiceFeuilleDeTemps;
 import ca.ulaval.glo4003.projet_de_session.exception.FeuilleDeTempsIntrouvableException;
 import ca.ulaval.glo4003.projet_de_session.web.services.IServiceSession;
 import ca.ulaval.glo4003.projet_de_session.web.services.ServiceSession;
+import ca.ulaval.glo4003.projet_de_session.web.utils.Reponse;
+import ca.ulaval.glo4003.projet_de_session.web.viewmodels.EmployeeViewModel;
 //import ca.ulaval.glo4003.projet_de_session.web.viewmodels.DepenseDeplacementViewModel;
 //import ca.ulaval.glo4003.projet_de_session.web.viewmodels.DepenseDiverseViewModel;
 import ca.ulaval.glo4003.projet_de_session.web.viewmodels.FeuilleDeTempsViewModel;
@@ -81,10 +83,14 @@ public class ControllerPrincipal {
 			Model model) {
 		return chargerPageOuLogin(Page.CREEUTILISATEUR, request, model);
 	}
-
+	
 	@RequestMapping(value = "/creationEmployee", method = RequestMethod.POST)
-	public String creerEmployee(HttpServletRequest request, Model model) {
-		return chargerPageOuLogin(Page.EMPLOYEEMANAGEMENT, request, model);
+	public @ResponseBody Reponse creerEmployee(
+			@RequestBody EmployeeViewModel evm,
+			HttpServletRequest request, Model model) {
+		
+		serviceEmploye.creerEmploye(evm);
+		return new Reponse(true, "Creer un employe", chargerPageOuLogin(Page.EMPLOYEEMANAGEMENT, request, model) );
 	}
 
 	@RequestMapping("/gestionEmployee")

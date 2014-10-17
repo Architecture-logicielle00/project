@@ -1,6 +1,7 @@
 package ca.ulaval.glo4003.projet_de_session.web.viewmodels;
 
 public class EmployeeViewModel extends UtilisateurViewModel{
+	//public String nomUtilisateur;
 	public String nom;
 	public String prenom;
 	public String email;
@@ -8,7 +9,6 @@ public class EmployeeViewModel extends UtilisateurViewModel{
 	public String province;
 	public String ville;
 	public String codePostal;
-	//public String dateDeNaissance;
 	public String sexe;
 	public String telephone;
 	public boolean statutGestionnaire;

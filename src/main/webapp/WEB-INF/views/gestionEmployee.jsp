@@ -34,7 +34,7 @@
             	</c:forEach>
 
         	</ul>
-        	<button id="add-new-employee-btn" class="btn btn-primary"><a href="/creationEmployee">Add New Employee</a></button>
+        	<a href="/creationEmployee">Ajouter un employé</a>
     	</div>
     </div>
     <!-- /#page-wrapper -->

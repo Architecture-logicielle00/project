@@ -1,17 +1,22 @@
 package ca.ulaval.glo4003.projet_de_session.persistence.repositoryXml;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
 
 import ca.ulaval.glo4003.projet_de_session.core.domain.Employe;
-import ca.ulaval.glo4003.projet_de_session.persistence.repository.RepoEmployer;
+import ca.ulaval.glo4003.projet_de_session.core.domain.FeuilleDeTemps;
+import ca.ulaval.glo4003.projet_de_session.persistence.repository.RepoEmploye;
 import ca.ulaval.glo4003.projet_de_session.persistence.utils.Xml;
 
-public class RepoEmployeXml implements RepoEmployer {
+public class RepoEmployeXml implements RepoEmploye {
 	
 	public RepoEmployeXml()
 	{
-		employes = new ArrayList<Employe>();
+		employes = new HashMap<String, Employe>();
 		xmlEmploye = new Xml<Employe>(Employe.class);
 		
 		charger();
@@ -23,60 +28,57 @@ public class RepoEmployeXml implements RepoEmployer {
 	{
 		if (obtenir( e.obtNomUtilisateur() ) == null)
 		{
-			employes.add(e);
+			employes.put(e.obtNomUtilisateur(), e);
 			sauvegarder();
 		}
-		// Ajouter un lanc� d'exception si pr�sent
-		
 	}
 	
 	@Override
 	public Employe obtenir(String nomUtilisateur)
 	{
-		for (Employe e : employes)
-		{
-			if (e.obtNomUtilisateur().equals(nomUtilisateur))
-			{
-				return e;
-			}
-		}
-		return null;
+		return employes.get(nomUtilisateur);
 	}
 	
 	@Override
 	public List<Employe> obtEmployes()
 	{
-		return employes;
+		List<Employe> list = new ArrayList<Employe>(employes.values());
+		return list;
 	}
 	
 
 	@Override
 	public void supprimer(String nomUtilisateur)
 	{
-		for (Employe e : employes)
-		{
-			if (e.obtNomUtilisateur().equals(nomUtilisateur))
-			{
-				employes.remove(e);
-				sauvegarder();
-				return;
-			}
-		}
+		employes.remove(nomUtilisateur);
 	}
 	
 	@Override
 	public void charger()
 	{
 		employes.clear();
-		employes = (ArrayList<Employe>) xmlEmploye.charger("xmlfiles/employes");
+		ArrayList<Employe> eList = (ArrayList<Employe>) xmlEmploye.charger("xmlfiles/employes");
+		for (Employe e : eList) {
+			ajouter(e);
+		}
+	}
+	
+	public void modifier(Employe e)
+	{
+		if(obtenir( e.obtNomUtilisateur() ) != null)
+		{
+			employes.put(e.obtNomUtilisateur(), e);
+		}
+		sauvegarder();
+		
 	}
 	
 	@Override
 	public void sauvegarder()
 	{
-		xmlEmploye.enregistrer(employes, "xmlfiles/employes");
+		xmlEmploye.enregistrer(obtEmployes(), "xmlfiles/employes");
 	}
 	
-	ArrayList<Employe> employes;
+	HashMap<String, Employe> employes;
 	Xml<Employe> xmlEmploye;
 }

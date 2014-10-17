@@ -1,34 +1,50 @@
-function sauvegarderEmployee() {
-					
-					alert("Début de la sauvegarde");
-					
-					   var utilisateur = {
-					    	"nom" : $("#name").val(),
-							"prenom" : $("prenom").val(),
-							"email" : $("email").val(),
-							"nomUsager" : $("#username").val(),
-							"pays" : $("#pays").val(),
-							"province" : $("#province").val(),
-							"ville" : $("ville").val(),
-							"codePostal" : $("codepos").val(),
-							"mdp" : $("#password").val(),
-						
-							"mois" : $("#BirthMonth").val(),
-							"jour" : $("#BirthDay").val(),
-							"annee" : $("#BirthYear").val(),
-						
-							"sexe" : $("gender").val(),
-							"telephone" : $("phone").val()
-					   }
-					   
-					   $.ajax({
-					      type: "POST",
-					      contentType : 'application/json; charset=utf-8',
-					      dataType : 'json',
-					      url: "/creeUtilisateur"
-					      data: JSON.stringify(utilisateur), // Note it is
-																// important
-					      success :function(result) {
-					    	  alert("Employee sauvegardé");
-					     }
-					  });
+function envoyer(path, data) {
+	var jData = JSON.stringify(data);
+	$.ajax({
+        url : path,
+        type: "POST",
+        data : jData,
+        dataType: "json",
+        contentType: "application/json; charset=utf-8",
+        success: function(reponse)
+        {
+        	if(reponse.statut){
+        		document.location.href = reponse.url;
+        	}
+        	else{
+        		alert(reponse.message)
+        	}
+        	
+        },
+        error: function ()
+        {
+            alert("Erreur!");
+        }
+    });
+}
+
+function creerEmploye(){
+	var employe = {
+			   "nomUtilisateur" : $("#username").val(),
+			   "nom" : $("#name").val(),
+			   "prenom" : $("prenom").val(),
+			   "email" : $("email").val(),
+			   "pays" : $("#pays").val(),
+			   "province" : $("#province").val(),
+			   "ville" : $("ville").val(),
+			   "codePostal" : $("codepos").val(),
+			   "sexe" : $("gender").val(),
+			   "telephone" : $("phone").val(),
+			   "statutGestionnaire" : $("#gestionnaire").is(":checked")
+		}
+	
+	envoyer("/creationEmployee", employe);
+}
+
+$(document).ready(function(){
+	var $button = $("#envoyer");
+	$button.click(function(){
+		creerEmploye();
+    });
+});
+

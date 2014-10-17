@@ -1,58 +1,5 @@
 <list>
   <Employe>
-    <nomUtilisateur>JFGRA</nomUtilisateur>
-    <mdp>12345</mdp>
-    <nom>Gravel</nom>
-    <prenom>Jean-François</prenom>
-    <entreprise></entreprise>
-    <email></email>
-    <pays></pays>
-    <province></province>
-    <ville></ville>
-    <codePostal></codePostal>
-    <genre></genre>
-    <numTelephone></numTelephone>
-    <feuillesDeTemps/>
-    <statutGestionnaire>false</statutGestionnaire>
-    <taches>
-    	<string>Manger une poutine</string></taches></Employe>
-  <Employe>
-    <nomUtilisateur>ALSAM</nomUtilisateur>
-    <mdp>12345</mdp>
-    <nom>Samson</nom>
-    <prenom>Alexandra</prenom>
-    <entreprise></entreprise>
-    <email></email>
-    <pays></pays>
-    <province></province>
-    <ville></ville>
-    <codePostal></codePostal>
-    <genre></genre>
-    <numTelephone></numTelephone>
-    <feuillesDeTemps/>
-    <statutGestionnaire>false</statutGestionnaire>
-    <taches>
-    	<string>Sacrer après le JSON</string></taches>
-  </Employe>
-  <Employe>
-    <nomUtilisateur>DASAU</nomUtilisateur>
-    <mdp>12345</mdp>
-    <nom>Sauvé</nom>
-    <prenom>David</prenom>
-    <entreprise></entreprise>
-    <email></email>
-    <pays></pays>
-    <province></province>
-    <ville></ville>
-    <codePostal></codePostal>
-    <genre></genre>
-    <numTelephone></numTelephone>
-    <feuillesDeTemps><string>DASAU2014-08-162014-08-28</string></feuillesDeTemps>
-    <statutGestionnaire>false</statutGestionnaire>
-    <taches>
-    	<string>Dormir</string></taches>
-  </Employe>
-  <Employe>
     <nomUtilisateur>JPDEL</nomUtilisateur>
     <mdp>12345</mdp>
     <nom>Delisle</nom>
@@ -66,46 +13,10 @@
     <genre></genre>
     <numTelephone></numTelephone>
     <feuillesDeTemps/>
-    <statutGestionnaire>false</statutGestionnaire>
     <taches>
-    	<string>Manger une poutine</string></taches>
-  </Employe>
-  <Employe>
-    <nomUtilisateur>MOMEC</nomUtilisateur>
-    <mdp>12345</mdp>
-    <nom>Mechqrane</nom>
-    <prenom>Mounir</prenom>
-    <entreprise></entreprise>
-    <email></email>
-    <pays></pays>
-    <province></province>
-    <ville></ville>
-    <codePostal></codePostal>
-    <genre></genre>
-    <numTelephone></numTelephone>
-    <feuillesDeTemps/>
-    <statutGestionnaire>false</statutGestionnaire>
-    <taches>
-    	<string>Manger une poutine</string></taches>
-  </Employe>
-  <Employe>
-    <nomUtilisateur>LAHOL</nomUtilisateur>
-    <mdp>12345</mdp>
-    <nom>Holy</nom>
-    <prenom>Laurianne</prenom>
-    <entreprise></entreprise>
-    <email></email>
-    <pays></pays>
-    <province></province>
-    <ville></ville>
-    <codePostal></codePostal>
-    <genre></genre>
-    <numTelephone></numTelephone>
-    <feuillesDeTemps/>
-    <statutGestionnaire>false</statutGestionnaire>
-    <taches>
-    	<string>Découvrir le Québec</string>
+      <string>Manger une poutine</string>
     </taches>
+    <statutGestionnaire>false</statutGestionnaire>
   </Employe>
   <Employe>
     <nomUtilisateur>OLDU</nomUtilisateur>
@@ -121,8 +32,118 @@
     <genre></genre>
     <numTelephone></numTelephone>
     <feuillesDeTemps/>
-    <statutGestionnaire>true</statutGestionnaire>
     <taches>
-    	<string>Enseigner l'architecture logicielle </string></taches>
+      <string>Enseigner l&apos;architecture logicielle </string>
+    </taches>
+    <statutGestionnaire>true</statutGestionnaire>
+  </Employe>
+  <Employe>
+    <nomUtilisateur>MOMEC</nomUtilisateur>
+    <mdp>12345</mdp>
+    <nom>Mechqrane</nom>
+    <prenom>Mounir</prenom>
+    <entreprise></entreprise>
+    <email></email>
+    <pays></pays>
+    <province></province>
+    <ville></ville>
+    <codePostal></codePostal>
+    <genre></genre>
+    <numTelephone></numTelephone>
+    <feuillesDeTemps/>
+    <taches>
+      <string>Manger une poutine</string>
+    </taches>
+    <statutGestionnaire>false</statutGestionnaire>
+  </Employe>
+  <Employe>
+    <nomUtilisateur>DASAU</nomUtilisateur>
+    <mdp>12345</mdp>
+    <nom>Sauvé</nom>
+    <prenom>David</prenom>
+    <entreprise></entreprise>
+    <email></email>
+    <pays></pays>
+    <province></province>
+    <ville></ville>
+    <codePostal></codePostal>
+    <genre></genre>
+    <numTelephone></numTelephone>
+    <feuillesDeTemps>
+      <string>DASAU2014-08-162014-08-28</string>
+    </feuillesDeTemps>
+    <taches>
+      <string>Dormir</string>
+    </taches>
+    <statutGestionnaire>false</statutGestionnaire>
+  </Employe>
+  <Employe>
+    <nomUtilisateur>dfdgtrgfsgfds</nomUtilisateur>
+    <mdp>12345</mdp>
+    <nom></nom>
+    <entreprise>NERV</entreprise>
+    <pays></pays>
+    <province></province>
+    <dateDeNaissance>2014-10-17 08:03:36.948 UTC</dateDeNaissance>
+    <feuillesDeTemps/>
+    <taches/>
+    <statutGestionnaire>false</statutGestionnaire>
+  </Employe>
+  <Employe>
+    <nomUtilisateur>LAHOL</nomUtilisateur>
+    <mdp>12345</mdp>
+    <nom>Holy</nom>
+    <prenom>Laurianne</prenom>
+    <entreprise></entreprise>
+    <email></email>
+    <pays></pays>
+    <province></province>
+    <ville></ville>
+    <codePostal></codePostal>
+    <genre></genre>
+    <numTelephone></numTelephone>
+    <feuillesDeTemps/>
+    <taches>
+      <string>Découvrir le Québec</string>
+    </taches>
+    <statutGestionnaire>false</statutGestionnaire>
+  </Employe>
+  <Employe>
+    <nomUtilisateur>ALSAM</nomUtilisateur>
+    <mdp>12345</mdp>
+    <nom>Samson</nom>
+    <prenom>Alexandra</prenom>
+    <entreprise></entreprise>
+    <email></email>
+    <pays></pays>
+    <province></province>
+    <ville></ville>
+    <codePostal></codePostal>
+    <genre></genre>
+    <numTelephone></numTelephone>
+    <feuillesDeTemps/>
+    <taches>
+      <string>Sacrer après le JSON</string>
+    </taches>
+    <statutGestionnaire>false</statutGestionnaire>
+  </Employe>
+  <Employe>
+    <nomUtilisateur>JFGRA</nomUtilisateur>
+    <mdp>12345</mdp>
+    <nom>Gravel</nom>
+    <prenom>Jean-François</prenom>
+    <entreprise></entreprise>
+    <email></email>
+    <pays></pays>
+    <province></province>
+    <ville></ville>
+    <codePostal></codePostal>
+    <genre></genre>
+    <numTelephone></numTelephone>
+    <feuillesDeTemps/>
+    <taches>
+      <string>Manger une poutine</string>
+    </taches>
+    <statutGestionnaire>false</statutGestionnaire>
   </Employe>
 </list>

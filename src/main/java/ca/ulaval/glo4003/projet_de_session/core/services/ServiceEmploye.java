@@ -2,12 +2,13 @@ package ca.ulaval.glo4003.projet_de_session.core.services;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Date;
 import java.util.List;
 
 import ca.ulaval.glo4003.projet_de_session.core.domain.Employe;
 import ca.ulaval.glo4003.projet_de_session.core.utils.FactoryEmploye;
 import ca.ulaval.glo4003.projet_de_session.core.utils.converter.EmployeeConverter;
-import ca.ulaval.glo4003.projet_de_session.persistence.repository.RepoEmployer;
+import ca.ulaval.glo4003.projet_de_session.persistence.repository.RepoEmploye;
 import ca.ulaval.glo4003.projet_de_session.persistence.repositoryXml.RepoEmployeXml;
 import ca.ulaval.glo4003.projet_de_session.web.viewmodels.EmployeeViewModel;
 
@@ -27,10 +28,11 @@ public class ServiceEmploye
 		return repo.obtenir(nomUtilisateur);
 	}
 	
-	public void creerEmploye(EmployeeViewModel employe)
+	public void creerEmploye(EmployeeViewModel evm)
 	{
-		Employe e = factory.creerEmploye(employe);
+		Employe e = factory.creerEmploye(evm);
 		repo.ajouter(e);
+		repo.sauvegarder();
 	}
 	
 	public List<Employe> obtEmployes()
@@ -72,10 +74,26 @@ public class ServiceEmploye
 		return ec.convert( obtEmployes() );
 	}
 	
+	public void defEmploye(EmployeeViewModel evm)
+	{
+		Employe e = obtEmploye(evm.nomUtilisateur);
+		
+		e.defCodePostal(evm.codePostal);
+		e.defDateDeNaissance(new Date()); // Date fictive
+		e.defEmail(evm.email);
+		e.defGenre(evm.sexe);
+		e.defNom(evm.nom);
+		e.defNumTelephone(evm.telephone);
+		e.defPays(evm.pays);
+		e.defPrenom(evm.prenom);
+		e.defProvince(evm.pays);
+		e.defStatutGestionnaire(evm.statutGestionnaire);
+		e.defVille(evm.ville);
+	}
 	
 	private void init()
 	{
-		/* Je le garde au cas ou on supprime le fichier xml par erreur et qu'on vu le refaire
+		/* Je le garde au cas ou on supprime le fichier xml par erreur et qu'on veux le refaire
 		 * 
 		String mdp = "12345";
 		
@@ -96,7 +114,7 @@ public class ServiceEmploye
 	}
 
 	
-	RepoEmployer repo;
+	RepoEmploye repo;
 	FactoryEmploye factory;
 	EmployeeConverter ec;
 }

@@ -27,68 +27,48 @@
 		<div id="page-wrapper">
 			<h1>Création d'un utilisateur</h1>
 
-			<form id="posttoolbar" class="comment" action="/creationEmployee" method="post">
-				<p class="contact">
-					<label for="name">Nom:</label>
-				</p>
-				<input id="name" name="name" placeholder="First and last name"
-					required="" tabindex="1" type="text" style="width: 300px">
-
-				<p class="contact">
-					<label for="name">Prénom:</label>
-				</p>
-				<input id="prenom" name="prenom" placeholder="First and last name"
-					required="" tabindex="1" type="text" style="width: 300px">
-
-				<p class="contact">
-					<label for="name">Adresse courriel:(S'il y a lieu)</label>
-				</p>
-				<input id="email" name="email" placeholder="example@domain.com"
-					required="" type="email" style="width: 300px">
-
-				<p class="contact">Nom de l'usager:</p>
-				<input id="username" name="username" placeholder="username"
-					required="" tabindex="2" type="text" style="width: 300px">
-
-				<p class="contact">Pays:</p>
-				<input id="pays" name="pays" placeholder="username" required=""
-					tabindex="2" type="text" style="width: 300px">
-
-				<p class="contact">Région/Province:</p>
-				<input id="province" name="province" placeholder="username"
-					required="" tabindex="2" type="text" style="width: 300px">
-
-				<p class="contact">Ville:</p>
-				<input id="ville" name="ville" placeholder="username" required=""
-					tabindex="2" type="text" style="width: 300px">
-
-				<p class="contact">Code postal:</p>
-				<input id="codepos" name="codepos" placeholder="username"
-					required="" tabindex="2" type="text" style="width: 300px">
-
-				<p class="contact">Mot de passe (temporaire):</p>
-				<input type="password" id="password" name="password" required=""
-					style="width: 300px">
-
-				<p class="contact">Confirmer votre mot de passe:</p>
-				<input type="password" id="repassword" name="repassword" required=""
-					style="width: 300px">
-
-				<br>Sexe <select class="select-style gender" id="gender" name="gender">
+			<form id="posttoolbar" class="comment">
+				<label for="username">Nom d'utilisateur:</label>
+				<input id="username" name="username" required="" tabindex="2" type="text" style="width: 300px">
+				<br>
+				<label for="gestionnaire">Est gestionnaire?</label>
+				<input type="checkbox" id="gestionnaire" name="gestionnaire" value="gestionnaire">
+				<br>
+				<label for="name">Nom:</label>
+				<input id="name" name="name" required="" tabindex="1" type="text" style="width: 300px">
+				<br>
+				<label for="prenom">Prénom:</label>
+				<input id="prenom" name="prenom" required="" tabindex="1" type="text" style="width: 300px">
+				<br>
+				<label for="email">Adresse courriel:</label>
+				<input id="email" name="email" required="" type="email" style="width: 300px">
+				<br>
+				<label for="pays">Pays:</label>
+				<input id="pays" name="pays" required=""tabindex="2" type="text" style="width: 300px">
+				<br>
+				<label for="province">Province:</label>
+				<input id="province" name="province" required="" tabindex="2" type="text" style="width: 300px">
+				<br>
+				<label for="ville">Ville:</label>
+				<input id="ville" name="ville" required="" tabindex="2" type="text" style="width: 300px">
+				<br>
+				<label for="codepos">Code Postal:</label>
+				<input id="codepos" name="codepos" required="" tabindex="2" type="text" style="width: 300px">
+				<br>
+				<label for="gender">Genre:</label>
+				<select class="select-style gender" id="gender" name="gender">
 					<option value="select"></option>
 					<option value="m">Male</option>
 					<option value="f">Female</option>
 					<option value="others">Other</option>
-				</select><br>
-				<p class="contact">
-					<label for="phone">Téléphone (domicile)</label>
-				</p>
-				<input id="phone" name="phone" placeholder="phone number"
-					required="" type="text" style="width: 300px"> <br> <br>
-					
-				<input class="buttom" name="Entrer" id="submit" tabindex="10"
-					value="Valider" type="submit" style="width: 119px; height: 50px">					
+				</select>
+				<br>
+				<label for="phone">Téléphone (domicile):</label>
+				<input id="phone" name="phone" required="" type="text" style="width: 300px">
+				<br>					
+							
 			</form>
+			<button name="Entrer" id="envoyer" tabindex="10" style="width: 119px; height: 50px">envoyer</button>
 
 		</div>
 	</div>
