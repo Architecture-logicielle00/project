@@ -37,13 +37,15 @@ public class FeuilleDeTempsViewModel {
 		LocalDate debutPeriodeDateTime = new LocalDate(new DateTime(debutPeriode));
 		LocalDate finPeriodeDateTime = new LocalDate(new DateTime(finPeriode));
 		
-		DateTimeFormatter formatter = DateTimeFormat.forPattern("dd-MM-yyyy");
+		DateTimeFormatter formatter = DateTimeFormat.forPattern("yyyy-MM-dd");
 		
 		int days = Days.daysBetween(debutPeriodeDateTime, finPeriodeDateTime).getDays();
 		for (int i=0; i < days; i++) {
 		    LocalDate d = debutPeriodeDateTime.withFieldAdded(DurationFieldType.days(), i);
 		    dates.add(formatter.print(d));
 		}
+		
+		dates.add(formatter.print(finPeriodeDateTime));
 		
 		return dates;
 	}
