@@ -26,50 +26,104 @@
 
 		<div id="page-wrapper">
 			<h1>Création d'un utilisateur</h1>
-
-			<form id="posttoolbar" class="comment">
-				<label for="username">Nom d'utilisateur:</label>
-				<input id="username" name="username" required="" tabindex="2" type="text" style="width: 300px">
-				<br>
-				<label for="gestionnaire">Est gestionnaire?</label>
-				<input type="checkbox" id="gestionnaire" name="gestionnaire" value="gestionnaire">
-				<br>
-				<label for="name">Nom:</label>
-				<input id="name" name="name" required="" tabindex="1" type="text" style="width: 300px">
-				<br>
-				<label for="prenom">Prénom:</label>
-				<input id="prenom" name="prenom" required="" tabindex="1" type="text" style="width: 300px">
-				<br>
-				<label for="email">Adresse courriel:</label>
-				<input id="email" name="email" required="" type="email" style="width: 300px">
-				<br>
-				<label for="pays">Pays:</label>
-				<input id="pays" name="pays" required=""tabindex="2" type="text" style="width: 300px">
-				<br>
-				<label for="province">Province:</label>
-				<input id="province" name="province" required="" tabindex="2" type="text" style="width: 300px">
-				<br>
-				<label for="ville">Ville:</label>
-				<input id="ville" name="ville" required="" tabindex="2" type="text" style="width: 300px">
-				<br>
-				<label for="codepos">Code Postal:</label>
-				<input id="codepos" name="codepos" required="" tabindex="2" type="text" style="width: 300px">
-				<br>
-				<label for="gender">Genre:</label>
-				<select class="select-style gender" id="gender" name="gender">
-					<option value="select"></option>
-					<option value="m">Male</option>
-					<option value="f">Female</option>
-					<option value="others">Other</option>
-				</select>
-				<br>
-				<label for="phone">Téléphone (domicile):</label>
-				<input id="phone" name="phone" required="" type="text" style="width: 300px">
-				<br>					
-							
-			</form>
-			<button name="Entrer" id="envoyer" tabindex="10" style="width: 119px; height: 50px">envoyer</button>
-
+				<form id="posttoolbar" class="comment">
+					<table>
+						<tr>
+							<td>
+								<label for="username">Nom d'utilisateur:</label>
+							</td>
+							<td>
+								<input id="username" name="username" required="" tabindex="2" type="text" style="width: 300px">
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<label for="gestionnaire">Est gestionnaire?</label>
+							</td>
+							<td>
+								<input type="checkbox" id="gestionnaire" name="gestionnaire" value="gestionnaire">
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<label for="name">Nom:</label>
+							</td>
+							<td>
+								<input id="name" name="name" required="" tabindex="1" type="text" style="width: 300px">
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<label for="prenom">Prénom:</label>
+							</td>
+							<td>
+								<input id="prenom" name="prenom" required="" tabindex="1" type="text" style="width: 300px">
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<label for="email">Adresse courriel:</label>
+							</td>
+							<td>
+								<input id="email" name="email" required="" type="email" style="width: 300px">
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<label for="pays">Pays:</label>
+							</td>
+							<td>
+								<input id="pays" name="pays" required=""tabindex="2" type="text" style="width: 300px">
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<label for="province">Province:</label>
+							</td>
+							<td>
+								<input id="province" name="province" required="" tabindex="2" type="text" style="width: 300px">
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<label for="ville">Ville:</label>
+							</td>
+							<td>
+								<input id="ville" name="ville" required="" tabindex="2" type="text" style="width: 300px">
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<label for="codepos">Code Postal:</label>
+							</td>
+							<td>
+								<input id="codepos" name="codepos" required="" tabindex="2" type="text" style="width: 300px">
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<label for="gender">Genre:</label>
+							</td>
+							<td>
+								<select class="select-style gender" id="gender" name="gender">
+									<option value="select"></option>
+									<option value="m">Male</option>
+									<option value="f">Female</option>
+									<option value="others">Other</option>
+								</select>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<label for="phone">Téléphone (domicile):</label>
+							</td>
+							<td>
+								<input id="phone" name="phone" required="" type="text" style="width: 300px">
+							</td>
+						</tr>	
+					</table>						
+				</form>
+				<button name="Entrer" id="envoyer" tabindex="10" style="width: 119px; height: 50px">envoyer</button>
 		</div>
 	</div>
 	<!-- /#wrapper -->

@@ -8,8 +8,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import ca.ulaval.glo4003.projet_de_session.core.domain.Employe;
-
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.io.xml.DomDriver;
 
@@ -23,7 +21,7 @@ public class Xml<T> {
 	
 	public void enregistrer(List<T> listes, String path){
 		try {
-		    XStream xstream = new XStream(new DomDriver());
+		    XStream xstream = new XStream(new DomDriver("UTF-8"));
 		    File file = new File(path+".xml");
 		    FileOutputStream fos = new FileOutputStream(file);
 		    try {
@@ -43,7 +41,7 @@ public class Xml<T> {
 	public List<T> charger(String path){
 		List<T> listes  = new ArrayList<T>();
 		 try {
-	         XStream xstream = new XStream(new DomDriver());
+	         XStream xstream = new XStream(new DomDriver("UTF-8"));
 	         FileInputStream fis = new FileInputStream(new File(path+".xml"));
 	
 	         try {

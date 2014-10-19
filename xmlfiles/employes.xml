@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8" ?>
 <list>
   <Employe>
     <nomUtilisateur>ALSAM</nomUtilisateur>
@@ -14,14 +15,14 @@
     <numTelephone></numTelephone>
     <feuillesDeTemps/>
     <taches>
-      <string>Sacrer après le JSON</string>
+      <string>Sacrer</string>
     </taches>
     <statutGestionnaire>false</statutGestionnaire>
   </Employe>
   <Employe>
     <nomUtilisateur>DASAU</nomUtilisateur>
     <mdp>12345</mdp>
-    <nom>Sauvé</nom>
+    <nom>Sauve</nom>
     <prenom>David</prenom>
     <entreprise></entreprise>
     <email></email>
@@ -55,7 +56,7 @@
     <nomUtilisateur>JFGRA</nomUtilisateur>
     <mdp>12345</mdp>
     <nom>Gravel</nom>
-    <prenom>Jean-François</prenom>
+    <prenom>Jean-Francois</prenom>
     <entreprise></entreprise>
     <email></email>
     <pays></pays>
@@ -85,7 +86,7 @@
     <numTelephone></numTelephone>
     <feuillesDeTemps/>
     <taches>
-      <string>Enseigner l&apos;architecture logicielle </string>
+      <string>Enseigner larchitecture logicielle </string>
     </taches>
     <statutGestionnaire>true</statutGestionnaire>
   </Employe>
@@ -144,7 +145,7 @@
     <numTelephone></numTelephone>
     <feuillesDeTemps/>
     <taches>
-      <string>Découvrir le Québec</string>
+      <string>Decouvrir</string>
     </taches>
     <statutGestionnaire>false</statutGestionnaire>
   </Employe>
