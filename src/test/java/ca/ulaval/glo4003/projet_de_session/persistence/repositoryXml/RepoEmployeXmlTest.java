@@ -2,9 +2,7 @@ package ca.ulaval.glo4003.projet_de_session.persistence.repositoryXml;
 
 import static org.junit.Assert.*;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 
 import org.junit.After;
 import org.junit.AfterClass;
@@ -14,7 +12,6 @@ import org.junit.Test;
 import org.mockito.Mockito;
 
 import ca.ulaval.glo4003.projet_de_session.core.domain.Employe;
-import ca.ulaval.glo4003.projet_de_session.core.domain.FeuilleDeTemps;
 import ca.ulaval.glo4003.projet_de_session.persistence.utils.Xml;
 
 public class RepoEmployeXmlTest {

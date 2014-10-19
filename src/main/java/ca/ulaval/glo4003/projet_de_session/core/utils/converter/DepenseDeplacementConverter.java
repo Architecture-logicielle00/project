@@ -6,9 +6,7 @@ import java.util.List;
 
 import ca.ulaval.glo4003.projet_de_session.core.domain.Depense;
 import ca.ulaval.glo4003.projet_de_session.core.domain.DepenseDeplacement;
-import ca.ulaval.glo4003.projet_de_session.core.domain.DepenseDiverse;
 import ca.ulaval.glo4003.projet_de_session.web.viewmodels.DepenseDeplacementViewModel;
-import ca.ulaval.glo4003.projet_de_session.web.viewmodels.DepenseDiverseViewModel;
 
 public class DepenseDeplacementConverter {
 

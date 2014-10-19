@@ -1,14 +1,9 @@
 package ca.ulaval.glo4003.projet_de_session.persistence.repositoryXml;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
-import java.util.Map.Entry;
 
 import ca.ulaval.glo4003.projet_de_session.core.domain.Employe;
-import ca.ulaval.glo4003.projet_de_session.core.domain.FeuilleDeTemps;
 import ca.ulaval.glo4003.projet_de_session.persistence.repository.RepoEmploye;
 import ca.ulaval.glo4003.projet_de_session.persistence.utils.Xml;
 
@@ -16,7 +11,7 @@ public class RepoEmployeXml implements RepoEmploye {
 	
 	public RepoEmployeXml()
 	{
-		employes = new HashMap<String, Employe>();
+		employes = new ArrayList<Employe>();
 		xmlEmploye = new Xml<Employe>(Employe.class);
 		
 		charger();
@@ -28,7 +23,7 @@ public class RepoEmployeXml implements RepoEmploye {
 	{
 		if (obtenir( e.obtNomUtilisateur() ) == null)
 		{
-			employes.put(e.obtNomUtilisateur(), e);
+			employes.add(e);
 			sauvegarder();
 		}
 	}
@@ -36,14 +31,20 @@ public class RepoEmployeXml implements RepoEmploye {
 	@Override
 	public Employe obtenir(String nomUtilisateur)
 	{
-		return employes.get(nomUtilisateur);
+		for (Employe e : employes)
+		{
+			if (e.obtNomUtilisateur().equals(nomUtilisateur))
+			{
+				return e;
+			}
+		}
+		return null;
 	}
 	
 	@Override
 	public List<Employe> obtEmployes()
 	{
-		List<Employe> list = new ArrayList<Employe>(employes.values());
-		return list;
+		return employes;
 	}
 	
 
@@ -58,21 +59,14 @@ public class RepoEmployeXml implements RepoEmploye {
 	@Override
 	public void modifier(Employe employe)
 	{
-		if(obtenir( employe.obtNomUtilisateur() ) != null)
-		{
-			employes.put(employe.obtNomUtilisateur(), employe);
-		}
 		sauvegarder();
-		
 	}
 	
 	private void charger()
 	{
 		employes.clear();
 		ArrayList<Employe> eList = (ArrayList<Employe>) xmlEmploye.charger("xmlfiles/employes");
-		for (Employe e : eList) {
-			ajouter(e);
-		}
+		employes = eList;
 	}
 	
 	private void sauvegarder()
@@ -80,6 +74,6 @@ public class RepoEmployeXml implements RepoEmploye {
 		xmlEmploye.enregistrer(obtEmployes(), "xmlfiles/employes");
 	}
 	
-	HashMap<String, Employe> employes;
+	ArrayList<Employe> employes;
 	Xml<Employe> xmlEmploye;
 }

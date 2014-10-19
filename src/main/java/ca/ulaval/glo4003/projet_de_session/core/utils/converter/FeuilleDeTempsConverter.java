@@ -7,7 +7,6 @@ import java.util.Collection;
 import java.util.LinkedList;
 import java.util.Map;
 import java.util.Map.Entry;
-
 import ca.ulaval.glo4003.projet_de_session.core.domain.FeuilleDeTemps;
 import ca.ulaval.glo4003.projet_de_session.core.domain.TempsParTache;
 import ca.ulaval.glo4003.projet_de_session.web.viewmodels.FeuilleDeTempsViewModel;
@@ -34,7 +33,6 @@ public class FeuilleDeTempsConverter {
 		viewModel.defFinPeriode(formatter.format(entry.obtFin()));
 		viewModel.defEmploye(entry.obtNomEmploye());
 		
-		ArrayList<TempsParTache> listeTempsParTache = entry.obtTaches();
 		viewModel.defTaches(convertTempsParTache(entry.obtTaches()));
 
 		return viewModel;
