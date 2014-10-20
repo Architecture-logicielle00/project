@@ -167,6 +167,31 @@
   <FeuilleDeTemps>
     <taches>
       <ca.ulaval.glo4003.projet__de__session.core.domain.TempsParTache>
+        <tache>Decouvrir</tache>
+        <nbHeuresParJours>
+          <float>0.0</float>
+          <float>0.0</float>
+          <float>0.0</float>
+          <float>0.0</float>
+          <float>0.0</float>
+          <float>0.0</float>
+          <float>0.0</float>
+          <float>0.0</float>
+          <float>0.0</float>
+          <float>0.0</float>
+          <float>0.0</float>
+          <float>0.0</float>
+          <float>0.0</float>
+        </nbHeuresParJours>
+      </ca.ulaval.glo4003.projet__de__session.core.domain.TempsParTache>
+    </taches>
+    <debut>2014-10-14 00:12:57.889 UTC</debut>
+    <fin>2014-10-27 00:12:57.889 UTC</fin>
+    <identifiant>LAHOL</identifiant>
+  </FeuilleDeTemps>
+  <FeuilleDeTemps>
+    <taches>
+      <ca.ulaval.glo4003.projet__de__session.core.domain.TempsParTache>
         <tache>Manger une poutine</tache>
         <nbHeuresParJours>
           <float>0.0</float>
