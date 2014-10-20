@@ -5,11 +5,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import ca.ulaval.glo4003.projet_de_session.core.domain.DepenseDeplacement;
+import ca.ulaval.glo4003.projet_de_session.core.domain.DepenseDiverse;
 import ca.ulaval.glo4003.projet_de_session.persistence.repository.RepoDepenseDeplacement;
 import ca.ulaval.glo4003.projet_de_session.persistence.utils.Xml;
 
 public class RepoDepenseDeplacementXml implements RepoDepenseDeplacement {
-	ArrayList<DepenseDeplacement> depenseDeplacement;
+	ArrayList<DepenseDeplacement> depensesDeplacement;
 	Xml<DepenseDeplacement> xmlDepense;
 
 	public RepoDepenseDeplacementXml() {
@@ -19,32 +20,33 @@ public class RepoDepenseDeplacementXml implements RepoDepenseDeplacement {
 	}
 
 	private ArrayList<DepenseDeplacement> obtenirListe() {
-		if (depenseDeplacement == null)
+		if (depensesDeplacement == null)
 			charger();
-		return depenseDeplacement;
+		return depensesDeplacement;
 
 	}
 
 	public void ajouter(DepenseDeplacement depense) {
-		depenseDeplacement.add(depense);
+		depensesDeplacement.add(depense);
 		sauvegarder();
 	}
-
+	@Override
 	public DepenseDeplacement obtenir(String identifiantDepense) {
-		// for (DepenseDeplacement depenseDeplacement : depenseDeplacement) {
-		// if (depenseDeplacement.obtIdentifant() == identifiantDepense)
-		// return depenseDeplacement;
-		// }
+		for (DepenseDeplacement depenseDeplacement : depensesDeplacement) {
+			if (depenseDeplacement.obtIdentifant() == identifiantDepense)
+				return depenseDeplacement;
+		}
 
+		// TODO Lancer une exeption
 		return null;
 	}
 
 	public List<DepenseDeplacement> obtTout() {
-		return depenseDeplacement;
+		return depensesDeplacement;
 	}
 
 	public void supprimer(DepenseDeplacement depense) {
-		depenseDeplacement.remove(depense);
+		depensesDeplacement.remove(depense);
 		sauvegarder();
 	}
 
@@ -54,13 +56,13 @@ public class RepoDepenseDeplacementXml implements RepoDepenseDeplacement {
 	}
 
 	private void charger() {
-		depenseDeplacement.clear();
-		depenseDeplacement = (ArrayList<DepenseDeplacement>) xmlDepense
+		depensesDeplacement.clear();
+		depensesDeplacement = (ArrayList<DepenseDeplacement>) xmlDepense
 				.charger("xmlfiles/depenses");
 	}
 
 	private void sauvegarder() {
-		xmlDepense.enregistrer(depenseDeplacement, "xmlfiles/depenses");
+		xmlDepense.enregistrer(depensesDeplacement, "xmlfiles/depenses");
 	}
 }
 
