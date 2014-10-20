@@ -3,7 +3,7 @@ package ca.ulaval.glo4003.projet_de_session.web.viewmodels;
 import java.util.ArrayList;
 
 public class FeuilleDeDepenseViewModel {
-	// Déclarations de variables
+	// Declarations de variables
 
 	public ArrayList<FeuilleDeDepenseViewModel> depenses;
 

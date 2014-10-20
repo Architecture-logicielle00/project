@@ -30,7 +30,7 @@
 //				return depenseDeplacement;
 //		}
 //		
-//		// TODO Lancer une exeption
+//		// TODO Lancer une exception
 //		return null;
 //	}
 //
@@ -44,7 +44,7 @@
 //	}
 //
 //	public void modifier(DepenseDeplacement depense) {
-//		// TODO S'assurer que le pointeur est bien dans la mémoire, on retourne que des ponteur?
+//		// TODO S'assurer que le pointeur est bien dans la memoire, on retourne que des ponteur?
 //		sauvegarder();
 //	}
 //

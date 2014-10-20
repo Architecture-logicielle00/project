@@ -31,7 +31,7 @@
 //				return depenseDiverse;
 //		}
 //		
-//		// TODO Lancer une exeption
+//		// TODO Lancer une exception
 //		return null;
 //	}
 //
@@ -48,7 +48,7 @@
 //
 //	@Override
 //	public void modifier(DepenseDiverse depense) {
-//		// TODO S'assurer que le pointeur est bien dans la mémoire, on retourne que des ponteur?
+//		// TODO S'assurer que le pointeur est bien dans la memoire, on retourne que des ponteur?
 //		sauvegarder();
 //	}
 //
