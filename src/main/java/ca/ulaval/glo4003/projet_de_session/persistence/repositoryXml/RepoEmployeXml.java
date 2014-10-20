@@ -2,13 +2,9 @@ package ca.ulaval.glo4003.projet_de_session.persistence.repositoryXml;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
-import java.util.Map.Entry;
 
 import ca.ulaval.glo4003.projet_de_session.core.domain.Employe;
-import ca.ulaval.glo4003.projet_de_session.core.domain.FeuilleDeTemps;
 import ca.ulaval.glo4003.projet_de_session.persistence.repository.RepoEmploye;
 import ca.ulaval.glo4003.projet_de_session.persistence.utils.Xml;
 
