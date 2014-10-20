@@ -13,11 +13,15 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import ca.ulaval.glo4003.projet_de_session.core.domain.DepenseDeplacement;
 import ca.ulaval.glo4003.projet_de_session.core.domain.DepenseDiverse;
 import ca.ulaval.glo4003.projet_de_session.core.domain.Employe;
+import ca.ulaval.glo4003.projet_de_session.core.services.ServiceDepenseDeplacement;
+import ca.ulaval.glo4003.projet_de_session.core.services.ServiceDepenseDiverse;
 import ca.ulaval.glo4003.projet_de_session.core.services.ServiceEmploye;
 import ca.ulaval.glo4003.projet_de_session.core.services.ServiceFeuilleDeTemps;
 import ca.ulaval.glo4003.projet_de_session.web.services.IServiceSession;
 import ca.ulaval.glo4003.projet_de_session.web.services.ServiceSession;
 import ca.ulaval.glo4003.projet_de_session.web.utils.Reponse;
+import ca.ulaval.glo4003.projet_de_session.web.viewmodels.DepenseDeplacementViewModel;
+import ca.ulaval.glo4003.projet_de_session.web.viewmodels.DepenseDiverseViewModel;
 import ca.ulaval.glo4003.projet_de_session.web.viewmodels.EmployeeViewModel;
 import ca.ulaval.glo4003.projet_de_session.web.viewmodels.FeuilleDeTempsViewModel;
 
@@ -35,7 +39,8 @@ public class ControllerPrincipal {
 
 	ServiceEmploye serviceEmploye;
 	ServiceFeuilleDeTemps serviceFeuilleDeTemps;
-
+	ServiceDepenseDeplacement serviceDepenseDeplacement;
+	ServiceDepenseDiverse serviceDepenseDiverse;
 
 	private IServiceSession manageSession;
 
@@ -43,7 +48,8 @@ public class ControllerPrincipal {
 		manageSession = new ServiceSession();
 		serviceEmploye = new ServiceEmploye();
 		serviceFeuilleDeTemps = new ServiceFeuilleDeTemps();
-	
+		serviceDepenseDeplacement = new ServiceDepenseDeplacement();
+		serviceDepenseDiverse = new ServiceDepenseDiverse();
 	}
 
 	public ControllerPrincipal(IServiceSession _manageSession) {
@@ -66,10 +72,7 @@ public class ControllerPrincipal {
 
 			return chargerPageOuLogin(Page.INDEX, request, model);
 		} else
-		{
-			model.addAttribute("nomUtilisateur", nomUtilisateur);
 			return Page.ERREUR;
-		}
 	}
 
 	@RequestMapping("/deconnection")
@@ -83,14 +86,15 @@ public class ControllerPrincipal {
 			Model model) {
 		return chargerPageOuLogin(Page.CREEUTILISATEUR, request, model);
 	}
-	
+
 	@RequestMapping(value = "/creationEmployee", method = RequestMethod.POST)
 	public @ResponseBody Reponse creerEmployee(
-			@RequestBody EmployeeViewModel evm,
-			HttpServletRequest request, Model model) {
-		
+			@RequestBody EmployeeViewModel evm, HttpServletRequest request,
+			Model model) {
+
 		serviceEmploye.creerEmploye(evm);
-		return new Reponse(true, "Creer un employe", chargerPageOuLogin(Page.EMPLOYEEMANAGEMENT, request, model) );
+		return new Reponse(true, "Creer un employe", chargerPageOuLogin(
+				Page.EMPLOYEEMANAGEMENT, request, model));
 	}
 
 	@RequestMapping("/gestionEmployee")
@@ -101,27 +105,24 @@ public class ControllerPrincipal {
 
 	@RequestMapping("/feuilleDeTemps")
 	public String accederFeuilleDeTemps(HttpServletRequest request, Model model) {
-		
-		String nomUtilisateurSession = manageSession.ObtenirNomUtilisateur(
-				request);
+
+		String nomUtilisateurSession = manageSession
+				.ObtenirNomUtilisateur(request);
 
 		if (StringUtils.isEmpty(nomUtilisateurSession))
 			return chargerPageOuLogin(Page.FEUILLEDETEMPS, request, model);
-			
+
 		Employe employe = serviceEmploye.obtEmploye(nomUtilisateurSession);
-		
+
 		String idFeuilleDeTempsCourante;
-		try{
+		try {
 			idFeuilleDeTempsCourante = employe.obtIDFeuilleDeTempsCourante();
-		}
-		catch(Exception e)
-		{
+		} catch (Exception e) {
 			idFeuilleDeTempsCourante = serviceFeuilleDeTemps
 					.creerFeuilleDeTempsCourante(employe);
 			employe.ajouterIdFeuilleDeTemps(idFeuilleDeTempsCourante);
 			serviceEmploye.modifierEmploye(employe);
 		}
-
 
 		FeuilleDeTempsViewModel feuilleDeTempsCourante = serviceFeuilleDeTemps
 				.obtFeuilleDeTempsViewModel(idFeuilleDeTempsCourante);
@@ -143,24 +144,24 @@ public class ControllerPrincipal {
 
 	@RequestMapping("/deplacementForm")
 	public String depenseDeplacement(HttpServletRequest request, Model model) {
-		
+
 		//model.addAttribute("formulaire", feuilleDeTempsCourante);
 		return chargerPageOuLogin(Page.DEPENSEDEPLACEMENT, request, model);
 	}
 
 	@RequestMapping(value = "/deplacementFormDeplacement", method = RequestMethod.POST)
 	public @ResponseBody Boolean sauvegarderDepenseDeplacement(
-			@RequestBody DepenseDeplacement depenseDeplacement,
+			@RequestBody DepenseDeplacementViewModel depenseDeplacementViewModel,
 			HttpServletRequest request, Model model) {
-		//en attendant passage de depensediverse et depensedeplacement
+		serviceDepenseDeplacement.Creer(depenseDeplacementViewModel);
 		return true;
 	}
-	
+
 	@RequestMapping(value = "/deplacementFormDiverse", method = RequestMethod.POST)
 	public @ResponseBody Boolean sauvegarderDepenseDeplacement(
-			@RequestBody DepenseDiverse depenseDiverse,
+			@RequestBody DepenseDiverseViewModel depenseDiverseViewModel,
 			HttpServletRequest request, Model model) {
-		//en attendant passage de depensediverse et depensedeplacement
+		serviceDepenseDiverse.Creer(depenseDiverseViewModel);
 		return true;
 	}
 

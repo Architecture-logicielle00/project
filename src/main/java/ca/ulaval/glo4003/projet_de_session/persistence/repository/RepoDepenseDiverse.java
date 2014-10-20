@@ -12,7 +12,5 @@ public interface RepoDepenseDiverse {
 
 	public abstract List<DepenseDiverse> obtTout();
 
-	public abstract void supprimer(DepenseDiverse depense);
-
 	public abstract void modifier(DepenseDiverse depense);
 }

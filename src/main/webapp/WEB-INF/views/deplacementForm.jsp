@@ -26,8 +26,7 @@
 		<jsp:include page="./importHtml/_layout.jsp" />
 
 		<div id="page-wrapper">
-			<button id="ajouter-nouvelle-ligne">ajouter ligne</button>
-			<button id="supprimer-nouvelle-ligne">supprimer ligne</button>
+			
 
 			<table id="table-depense-deplacement">
 				<tr>
@@ -40,22 +39,22 @@
 					<th>Couts de logement</th>
 					<th>Divers</th>
 					<th>Sous-total</th>
-				</tr>
-				<c:forEach var="blocDeDepense" items="${formulaire.obtNbBlocDeDepense()}">
-					<tr>
-						<td><input type="checkbox"/></td>
-						<td><input class="date row-input" type="text" value="${blocDeDepense.date}"/></td>
-						<td><input class="distance row-input" type="text" value="${blocDeDepense.distance}"/></td>
-						<td><input class="cout-km row-input" type="text" value="${blocDeDepense.coutKm}"/></td>
-						<td><input class="nb-repas row-input" type="text" value="${blocDeDepense.nbRepas}"/></td>
-						<td><input class="cout-repas row-input" type="text" value="${blocDeDepense.coutRepas}"/></td>
-						<td><input class="coucher row-input" type="text" value="${blocDeDepense.coucher}"/></td>
-						<td><input class="divers row-input" type="text" value="${blocDeDepense.divers}"/></td>
-						<td><input class="sous-total" type="text" readonly="true" /></td>
-					</tr>
-				</c:forEach>
-			</table>
-
+					<th>Description</th>
+			</tr>
+				<tr>
+						<td style="height: 26px"></td>
+						<td style="height: 26px"><input id="date" name="date"/></td>
+						<td style="height: 26px"><input id="distance" name="distance"/></td>
+						<td style="height: 26px"><input id="cout-km" name="cout-km"/></td>
+						<td style="height: 26px"><input id="nb-repas" name="distance"/></td>
+						<td style="height: 26px"><input id="cout-repas" name="distance"/></td>
+						<td style="height: 26px"><input id="coucher" name="distance"/></td>
+						<td style="height: 26px"><input id="divers" name="distance"/></td>
+						<td style="height: 26px"><input id="sous-total" name="distance"/></td>
+						<td style="height: 26px"><input id="description" name="distance"/></td>
+				</table>
+			
+												
 			<input id="total" type="text" readonly="true" />
 
 			<button id="sauvegarder-feuille">sauvegarder</button>

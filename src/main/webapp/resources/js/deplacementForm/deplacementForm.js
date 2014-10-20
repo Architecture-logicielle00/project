@@ -5,7 +5,7 @@ $(document).ready(function() {
 
 function sauvegarder() {
 	alert("test");
-	//TODO
+	// TODO
 	
     var formJSON = parseFormIntoJSON();
 
@@ -17,7 +17,7 @@ function sauvegarder() {
         contentType: "application/json; charset=utf-8",
         success: function(data, textStatus, jqXHR)
         {
-            //data - response from server
+            // data - response from server
         },
         error: function (jqXHR, textStatus, errorThrown)
         {
@@ -33,7 +33,7 @@ function sauvegarder() {
         contentType: "application/json; charset=utf-8",
         success: function(data, textStatus, jqXHR)
         {
-            //data - response from server
+            // data - response from server
         },
         error: function (jqXHR, textStatus, errorThrown)
         {
@@ -42,13 +42,57 @@ function sauvegarder() {
     });
 }
 
-function parseFormIntoJSON(){
-	return {}; //TODO
+function parseFormIntoJSON(table){
+	
+$('table-depense-deplacement').find('tr:has("td")').each(
+		
+		var date = $("#debut-periode-input").val();
+       	var distance =$("#fin-periode-input").val();
+       	var coutkm = $("#utilisateur-dropdown").val();
+       	var nbRepas = $("#debut-periode-input").val();
+       	var coutRepas = $("#fin-periode-input").val();
+       	var coucher = $("#debut-periode-input").val();
+       	var divers = $("#utilisateur-dropdown").val();
+       	var soustotal = $("#fin-periode-input").val();
+       	var description = $("#utilisateur-dropdown").val();
+       	var total = $("#utilisateur-dropdown").val();
+		
+// (function($){
+// var getJsonFromTable = function()
+// {
+// var rows = [];
+// $('#table-depense-deplacement tr').each(function(i, n){
+// var $row = $(n);
+// rows.push({
+// id: $row.find('td:eq(0)').text(),
+// name: $row.find('td:eq(1)'.text(),
+// add: $row.find('td:eq(2) .input-row'.text(),
+// edit: $row.find('td:eq(3) .input-row'.text(),
+// authorize: $row.find('td:eq(4) .input-row').text(),
+// view: $row.find('td:eq(5) .input-row').text(),
+// });
+// return JSON.stringify(rows);
+		        
+    
+    return JSON.stringify({
+    	"date" : date
+    	"distance" : distance
+    	"coutkm" : coutkm
+    	"nbRepas" : nbRepas
+    	"coutRepas" : coutRepas
+    	"coucher" : coucher
+    	"divers" : divers
+    	"soustotal" : soustotal
+    	"description" : description
+    	"total" : total
+    	    	 
+    });
+	
 }
 
-function ajouterNouvelleLigne() {
-	$("#table-depense-deplacement").append(rowTemplate);
-}
+// function ajouterNouvelleLigne() {
+// $("#table-depense-deplacement").append(rowTemplate);
+// }
 
 function supprimerLignesSelectionne() {
 	$("#table-depense-deplacement").find('tr > td > input:checked').parent()
@@ -57,13 +101,13 @@ function supprimerLignesSelectionne() {
 }
 
 function initialiserEvenements() {
-	$("#ajouter-nouvelle-ligne").on("click", function() {
-		ajouterNouvelleLigne();
-	});
-
-	$("#supprimer-nouvelle-ligne").on("click", function() {
-		supprimerLignesSelectionne();
-	});
+// $("#ajouter-nouvelle-ligne").on("click", function() {
+// ajouterNouvelleLigne();
+// });
+//
+// $("#supprimer-nouvelle-ligne").on("click", function() {
+// supprimerLignesSelectionne();
+// });
 
 	$("#sauvegarder-feuille").on("click", function() {
 		sauvegarder();
@@ -71,31 +115,17 @@ function initialiserEvenements() {
 
 	$('body').on(
 			"change",
-			".row-input",
+			"row-input",
 			function() {
-				var $row = $(this).parent().parent();
-				var $inputsRow = $row.find(".row-input");
-
-				var sousTotalCalcul = $inputsRow.filter(".distance").val()
-						* $inputsRow.filter(".cout-km").val()
-						+ $inputsRow.filter(".nb-repas").val()
-						* $inputsRow.filter(".cout-repas").val()
-						+ ($inputsRow.filter(".coucher").val() * 1)
-						+ ($inputsRow.filter(".divers").val() * 1);
-
-				$row.find(".sous-total").val(sousTotalCalcul);
-				$row.find(".sous-total").change();
+				var sousTotalCalcul = document.getElementById("distance").val
+						* document.getElementById("cout-km").val()
+						+ document.getElementById("nb-repas").val()
+						* document.getElementById("cout-repas").val()
+						+ (document.getElementById("coucher").val() * 1)
+						+ (document.getElementById("divers").val() * 1);
+						document.getElementById("sous-total").val(sousTotalCalcul);
+						document.getElementById("sous-total").change();
 			});
-
-	$('body').on("change", ".sous-total", function() {
-		var total = 0;
-		$(".sous-total").each(function() {
-			total += $(this).val() != "" ? parseFloat($(this).val()) : 0;
-		})
-
-		$("#total").val(total);
-
-	});
 
 }
 

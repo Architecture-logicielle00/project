@@ -1,5 +1,6 @@
 package ca.ulaval.glo4003.projet_de_session.core.utils.converter;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.LinkedList;
 import java.util.List;
@@ -11,26 +12,23 @@ import ca.ulaval.glo4003.projet_de_session.web.viewmodels.DepenseDeplacementView
 public class DepenseDeplacementConverter {
 
 	public Collection<DepenseDeplacementViewModel> convert(
-			List<DepenseDeplacement> entries) {
-		Collection<DepenseDeplacementViewModel> viewModels = new LinkedList<DepenseDeplacementViewModel>();
-		for (Depense entry : entries) {
-			DepenseDeplacementViewModel viewModel = convert((DepenseDeplacement) entry);
+			List<DepenseDeplacement> depenses) {
+		Collection<DepenseDeplacementViewModel> viewModels = new ArrayList<DepenseDeplacementViewModel>();
+		for (Depense depense : depenses) {
+			DepenseDeplacementViewModel viewModel = convert((DepenseDeplacement) depense);
 			viewModels.add(viewModel);
 		}
 		return viewModels;
 	}
 
-	public DepenseDeplacementViewModel convert(DepenseDeplacement entry) {
-			DepenseDeplacementViewModel viewModel = new DepenseDeplacementViewModel();
-			viewModel.coutkm= entry.obtCoutKm();
-			viewModel.distance = entry.obtDistance();
-			viewModel.description = entry.obtDescription();
-			viewModel.indentifiant = entry.obtIdentifant();
-			viewModel.date = entry.obtDate();
-			viewModel.sousTotal = entry.obtSoutTotal();
-			
-			
-		
-			return viewModel;
-		}
+	public DepenseDeplacementViewModel convert(DepenseDeplacement depense) {
+		DepenseDeplacementViewModel viewModel = new DepenseDeplacementViewModel();
+		viewModel.coutkm = depense.obtCoutKm();
+		viewModel.distance = depense.obtDistance();
+		viewModel.description = depense.obtDescription();
+		viewModel.identifiant = depense.obtIdentifant();
+		viewModel.date = depense.obtDate();
+		viewModel.sousTotal = depense.obtSoutTotal();
+		return viewModel;
+	}
 }

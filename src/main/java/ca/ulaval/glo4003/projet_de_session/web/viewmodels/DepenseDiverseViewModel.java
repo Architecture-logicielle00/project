@@ -1,11 +1,7 @@
 package ca.ulaval.glo4003.projet_de_session.web.viewmodels;
 
-import java.util.Date;
-
-public class DepenseDiverseViewModel {
-	// D�clarations de variables
-	public String indentifiant;
-	public Date date;
+public class DepenseDiverseViewModel extends DepenseViewModel {
+	
 	public float distance;
 	public float coutkm;
 	public int nbRepas;
@@ -15,24 +11,6 @@ public class DepenseDiverseViewModel {
 	public float sousTotal;
 	public String description;
 	public float total;
-
-	public String obtIdentifant() {
-		return indentifiant;
-	}
-
-	public void defIdentifiant(String indentifiant) {
-		this.indentifiant = indentifiant;
-
-	}
-
-	public Date obtDate() {
-		return date;
-	}
-
-	public void defDate(Date date) {
-		this.date = date;
-
-	}
 
 	public float obtDistance() {
 		return distance;
@@ -81,28 +59,5 @@ public class DepenseDiverseViewModel {
 	public void defCoucher(float coucher) {
 		this.coucher = coucher;
 	}
-
-
-	public float obtSoutTotal() {
-		return sousTotal;
-	}
-
-	public void defSousTotal(float sousTotal) {
-		this.sousTotal = sousTotal;
-	}
-	
-	public String obtDescription() {
-		return description;
-	}
-
-	public void defDescription(String description) {
-		this.description = description;
-
-	}
-
-	public float obtTotalDepense() {
-		return total;
-	}
-
 
 }
