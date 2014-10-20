@@ -27,8 +27,14 @@
 
     <div id="page-wrapper">
         <div id="welcome-div" class="jumbotron">
-             <h1>Hello, ${utilisateur.obtNomUtilisateur()}!</h1>
-             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda consequatur dolor error, esse laudantium modi quidem repellat. Assumenda corporis cupiditate eos et facere nesciunt placeat totam unde vero! Numquam, sint?</p>
+             <h1>Bonjour, ${utilisateur.obtNomUtilisateur()}!</h1>
+             <p>
+             	Bienvenu sur RESULTAT.
+             	<c:if test="${utilisateur.estGestionnaire()}">
+             		Il s'agit d'un système qui vous permettra de gérer efficacement votre capital humain.
+             	</c:if> 
+             	Vous pouvez gérer vos heures et vos dépenses <c:if test="${utilisateur.estGestionnaire()}">ainsi que ceux de vos employés</c:if>.
+             </p>
         </div>
     </div>
     <!-- /#page-wrapper -->

@@ -42,17 +42,24 @@ public class Xml<T> {
 		List<T> listes  = new ArrayList<T>();
 		 try {
 	         XStream xstream = new XStream(new DomDriver("UTF-8"));
-	         FileInputStream fis = new FileInputStream(new File(path+".xml"));
-	
-	         try {
-	        	 xstream.alias(type.getSimpleName(), type);
-	        	 listes = (List<T>) xstream.fromXML(fis);
-	         } finally {
-	             fis.close();
+	         
+	         File f = new File("file");
+	         
+	         if (f.isFile() && f.canRead())
+	         {
+		         try {
+		        	 FileInputStream fis = new FileInputStream(f);
+		        	 xstream.alias(type.getSimpleName(), type);
+		        	 listes = (List<T>) xstream.fromXML(fis);
+		        	 fis.close();
+			     }
+		         finally {}
 	         }
-	     } catch (FileNotFoundException e) {
+		 }
+		 catch (FileNotFoundException e) {
 	         e.printStackTrace();
-	     } catch (IOException ioe) {
+	     } 
+         catch (IOException ioe) {
 	         ioe.printStackTrace();
 	     }
 	 

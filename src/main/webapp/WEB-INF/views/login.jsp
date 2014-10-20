@@ -19,13 +19,10 @@
 <div id="main">
     <div id="form-wrapper" class="jumbotron">
         <form class="form-signin" role="form" method="post" action="/">
-            <h2 class="form-signin-heading">Sign In to your Account</h2>
-            <input type="text" name="nomUtilisateur" class="form-control" placeholder="voir repositoryUtilisateur " required autofocus>
-            <input type="password" name="mdp" class="form-control" placeholder="Password" required>
-            <label class="checkbox">
-                <input type="checkbox" value="remember-me"> Remember me
-            </label>
-            <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+            <h2 class="form-signin-heading">Connectez-vous à votre compte</h2>
+            <input type="text" name="nomUtilisateur" class="form-control" placeholder="Nom utilisateur" required autofocus>
+            <input type="password" name="mdp" class="form-control" placeholder="Mot de passe" required>
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Se connecter</button>
         </form>
     </div>
 </div>

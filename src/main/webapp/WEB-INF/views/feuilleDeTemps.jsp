@@ -37,11 +37,8 @@
 				</div>
 			</div>
 
-
-
-
 			<div id="header-time-sheet">
-				<h1>Timesheet</h1>
+				<h1>Feuille de temps</h1>
 
 				<div class="date-periode-grp">
 					<div id="debut-periode" class="date-periode">
