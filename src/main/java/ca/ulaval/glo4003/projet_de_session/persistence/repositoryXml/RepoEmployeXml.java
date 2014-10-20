@@ -17,7 +17,6 @@ public class RepoEmployeXml implements RepoEmploye {
 		
 		charger();
 	}
-
 	
 	@Override
 	public void ajouter(Employe e)

@@ -66,7 +66,10 @@ public class ControllerPrincipal {
 
 			return chargerPageOuLogin(Page.INDEX, request, model);
 		} else
+		{
+			model.addAttribute("nomUtilisateur", nomUtilisateur);
 			return Page.ERREUR;
+		}
 	}
 
 	@RequestMapping("/deconnection")

@@ -9,7 +9,7 @@
     <link type="text/css" rel="stylesheet" href="/resources/css/lib/bootstrap-theme.css.map"/>
     <link type="text/css" rel="stylesheet" href="/resources/css/lib/font-awesome.min.css"/>
     <link type="text/css" rel="stylesheet" href="/resources/css/index.css"/>
-    <title></title>
+    <title>Connection</title>
 </head>
 <body>
 <header>
