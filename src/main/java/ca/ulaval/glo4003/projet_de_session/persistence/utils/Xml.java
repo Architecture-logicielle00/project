@@ -43,7 +43,7 @@ public class Xml<T> {
 		 try {
 	         XStream xstream = new XStream(new DomDriver("UTF-8"));
 	         
-	         File f = new File("file");
+	         File f = new File(path+".xml");
 	         
 	         if (f.isFile() && f.canRead())
 	         {
