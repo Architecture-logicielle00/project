@@ -40,6 +40,7 @@
 					<th>Divers</th>
 					<th>Sous-total</th>
 					<th>Description</th>
+
 			</tr>
 				<tr>
 						<td style="height: 26px"></td>
@@ -50,10 +51,9 @@
 						<td style="height: 26px"><input id="cout-repas" name="distance"/></td>
 						<td style="height: 26px"><input id="coucher" name="distance"/></td>
 						<td style="height: 26px"><input id="divers" name="distance"/></td>
-						<td style="height: 26px"><input id="sous-total" name="distance"/></td>
+						<td style="height: 26px"><input id="sous-total" name="distance" onchange="additionner()"/></td>
 						<td style="height: 26px"><input id="description" name="distance"/></td>
-				</table>
-			
+				</table>			
 												
 			<input id="total" type="text" readonly="true" />
 

@@ -3,6 +3,9 @@ $(document).ready(function() {
 	initialiserEvenements();
 })
 
+function additionner.onchange(){
+	
+};
 function sauvegarder() {
 	alert("test");
 	// TODO
@@ -93,41 +96,36 @@ $('table-depense-deplacement').find('tr:has("td")').each(
 // function ajouterNouvelleLigne() {
 // $("#table-depense-deplacement").append(rowTemplate);
 // }
-
-function supprimerLignesSelectionne() {
-	$("#table-depense-deplacement").find('tr > td > input:checked').parent()
-			.parent().remove();
-	$(".sous-total").change();
-}
-
-function initialiserEvenements() {
-// $("#ajouter-nouvelle-ligne").on("click", function() {
+//
+//function supprimerLignesSelectionne() {
+//	$("#table-depense-deplacement").find('tr > td > input:checked').parent()
+//			.parent().remove();
+//	$(".sous-total").change();
+//}
+//
+//function initialiserEvenements() {
+// $("#additionner").on("onchange", function() {
 // ajouterNouvelleLigne();
 // });
-//
+////
 // $("#supprimer-nouvelle-ligne").on("click", function() {
 // supprimerLignesSelectionne();
 // });
 
-	$("#sauvegarder-feuille").on("click", function() {
-		sauvegarder();
-	});
+$("#sauvegarder-feuille").on("click", function() {
+	sauvegarder();
+});
 
-	$('body').on(
-			"change",
-			"row-input",
-			function() {
+$("#additionner").on("onchange",function(){
 				var sousTotalCalcul = document.getElementById("distance").val
 						* document.getElementById("cout-km").val()
 						+ document.getElementById("nb-repas").val()
 						* document.getElementById("cout-repas").val()
 						+ (document.getElementById("coucher").val() * 1)
 						+ (document.getElementById("divers").val() * 1);
-						document.getElementById("sous-total").val(sousTotalCalcul);
-						document.getElementById("sous-total").change();
+						return sousTotalCalcul;
 			});
 
-}
 
 var rowTemplate = '<tr> \
                          <td><input type="checkbox"/></td> \
