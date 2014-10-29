@@ -10,9 +10,9 @@ public class Depense {
 
 	private String description;
 
-	private float sousTotal;
+	private float sousTotal; //Attribut calculé : utile ?
 	
-	private float total;
+	private float total; //Attribut calculé : utile ?
 
 	public Depense(String _identifiant, Date _date, float _total, float _sousTotal, String _description ) {
 		identifiant = _identifiant;
@@ -52,6 +52,7 @@ public class Depense {
 
 	}
 
+	////Attributs calculés : utile ?
 	public float obtSoutTotal() {
 		return sousTotal;
 	}
