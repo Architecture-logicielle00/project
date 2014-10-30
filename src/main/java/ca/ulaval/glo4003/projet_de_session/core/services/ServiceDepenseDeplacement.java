@@ -5,25 +5,25 @@ import java.util.Collection;
 
 import ca.ulaval.glo4003.projet_de_session.core.domain.DepenseDeplacement;
 import ca.ulaval.glo4003.projet_de_session.core.utils.FactoryDepenseDeplacement;
+import ca.ulaval.glo4003.projet_de_session.core.utils.FactoryRepository;
 import ca.ulaval.glo4003.projet_de_session.core.utils.converter.DepenseDeplacementConverter;
-import ca.ulaval.glo4003.projet_de_session.persistence.repository.RepoDepenseDeplacement;
-import ca.ulaval.glo4003.projet_de_session.persistence.repositoryXml.RepoDepenseDeplacementXml;
+import ca.ulaval.glo4003.projet_de_session.persistence.repository.Repository;
 import ca.ulaval.glo4003.projet_de_session.web.viewmodels.DepenseDeplacementViewModel;
 
 public class ServiceDepenseDeplacement {
 
-	RepoDepenseDeplacement repo;
+	Repository<DepenseDeplacement> repo;
 	FactoryDepenseDeplacement factory;
 	DepenseDeplacementConverter conv;
 
 	public ServiceDepenseDeplacement() {
 		factory = new FactoryDepenseDeplacement();
-		repo = new RepoDepenseDeplacementXml();
+		repo = FactoryRepository.cree(DepenseDeplacement.class);
 		conv = new DepenseDeplacementConverter();
 	}
 
 	public DepenseDeplacement obtenir(String identifiant) {
-		return repo.obtenir(identifiant);
+		return repo.obt(identifiant);
 	}
 
 	public void Creer(DepenseDeplacementViewModel v) {

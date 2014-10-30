@@ -37,8 +37,6 @@ public class RepoFeuilleDeTempsXmlTest {
 	private static Xml<FeuilleDeTemps> xmlFeuilleDeTemps;
 	private static ArrayList<FeuilleDeTemps> sauvegardeCollection;
 	
-	
-	
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 		
@@ -96,7 +94,7 @@ public class RepoFeuilleDeTempsXmlTest {
 		repoFeuilleDeTempsXml.ajouter(feuilleDeTemps);
 		
 		assertEquals(
-				repoFeuilleDeTempsXml.obtenir(idFeuilleDeTemps),
+				repoFeuilleDeTempsXml.obt(idFeuilleDeTemps),
 				feuilleDeTemps);
 	}
 
@@ -104,12 +102,12 @@ public class RepoFeuilleDeTempsXmlTest {
 	public void testObtenir() {
 		repoFeuilleDeTempsXml.ajouter(feuilleDeTemps);
 		
-		assertEquals(feuilleDeTemps, repoFeuilleDeTempsXml.obtenir(idFeuilleDeTemps));
+		assertEquals(feuilleDeTemps, repoFeuilleDeTempsXml.obt(idFeuilleDeTemps));
 	}
 
 	@Test(expected=FeuilleDeTempsIntrouvableException.class)
 	public void testObtenirFeuilleDeTempsIntrouvable(){
-		repoFeuilleDeTempsXml.obtenir("idIntrouvable");
+		repoFeuilleDeTempsXml.obt("idIntrouvable");
 	}
 	
 	@Test
@@ -123,7 +121,7 @@ public class RepoFeuilleDeTempsXmlTest {
 		
 		mapFeuilleDeTempsTest.put(idFeuilleDeTemps2, feuilleDeTemps2);
 		
-		Map<String, FeuilleDeTemps> collection = repoFeuilleDeTempsXml.obtTout();
+		Map<String, FeuilleDeTemps> collection = repoFeuilleDeTempsXml.obtMap();
 		
 		for (String key : collection.keySet()) {
 			assertEquals(mapFeuilleDeTempsTest.get(key), collection.get(key));
@@ -142,7 +140,7 @@ public class RepoFeuilleDeTempsXmlTest {
 		
 		mapFeuilleDeTempsTest.put(idFeuilleDeTemps, feuilleDeTemps);
 		
-		Map<String, FeuilleDeTemps> collection = repoFeuilleDeTempsXml.obtTout();
+		Map<String, FeuilleDeTemps> collection = repoFeuilleDeTempsXml.obtMap();
 		
 		for (String key : collection.keySet()) {
 			assertEquals(mapFeuilleDeTempsTest.get(key), collection.get(key));
@@ -166,7 +164,7 @@ public class RepoFeuilleDeTempsXmlTest {
 		
 		repoFeuilleDeTempsXml.modifier(idFeuilleDeTemps, feuilleDeTemps2);
 				
-		assertEquals(feuilleDeTemps2, repoFeuilleDeTempsXml.obtenir(idFeuilleDeTemps));
+		assertEquals(feuilleDeTemps2, repoFeuilleDeTempsXml.obt(idFeuilleDeTemps));
 	}
 
 }

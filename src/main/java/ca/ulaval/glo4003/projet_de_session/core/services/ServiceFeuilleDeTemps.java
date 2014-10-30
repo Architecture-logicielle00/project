@@ -11,15 +11,14 @@ import org.joda.time.DateTimeConstants;
 import ca.ulaval.glo4003.projet_de_session.core.domain.Employe;
 import ca.ulaval.glo4003.projet_de_session.core.domain.FeuilleDeTemps;
 import ca.ulaval.glo4003.projet_de_session.core.utils.FactoryFeuilleDeTemps;
+import ca.ulaval.glo4003.projet_de_session.core.utils.FactoryRepository;
 import ca.ulaval.glo4003.projet_de_session.core.utils.converter.FeuilleDeTempsConverter;
-import ca.ulaval.glo4003.projet_de_session.persistence.repository.RepoFeuilleDeTemps;
-import ca.ulaval.glo4003.projet_de_session.persistence.repositoryXml.RepoFeuilleDeTempsXml;
+import ca.ulaval.glo4003.projet_de_session.persistence.repository.Repository;
 import ca.ulaval.glo4003.projet_de_session.web.viewmodels.FeuilleDeTempsViewModel;
 
 
 public class ServiceFeuilleDeTemps {
-	
-	private RepoFeuilleDeTemps repository;
+	private Repository<FeuilleDeTemps> repository;
 	private FactoryFeuilleDeTemps factory;
 	private FeuilleDeTempsConverter converter;
 	
@@ -27,12 +26,12 @@ public class ServiceFeuilleDeTemps {
 
 	public ServiceFeuilleDeTemps() {
 		factory = new FactoryFeuilleDeTemps();
-		repository = new RepoFeuilleDeTempsXml();
+		repository = FactoryRepository.cree(FeuilleDeTemps.class);
 		converter = new FeuilleDeTempsConverter();
 	}
 
 	public FeuilleDeTemps obtFeuilleDeTemps(String id) {
-		return repository.obtenir(id);
+		return repository.obt(id);
 	}
 
 	public void suppFeuilleDeTemps(String id) {
@@ -73,7 +72,7 @@ public class ServiceFeuilleDeTemps {
 	}
 
 	public Map<String, FeuilleDeTemps> obtFeuillesDeTemps() {
-		return repository.obtTout();
+		return repository.obtMap();
 	}
 
 	public Collection<FeuilleDeTempsViewModel> obtFeuillesDeTempsViewModel() {

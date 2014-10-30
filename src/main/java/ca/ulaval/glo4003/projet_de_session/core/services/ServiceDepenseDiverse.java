@@ -5,24 +5,24 @@ import java.util.List;
 
 import ca.ulaval.glo4003.projet_de_session.core.domain.DepenseDiverse;
 import ca.ulaval.glo4003.projet_de_session.core.utils.FactoryDepenseDiverse;
+import ca.ulaval.glo4003.projet_de_session.core.utils.FactoryRepository;
 import ca.ulaval.glo4003.projet_de_session.core.utils.converter.DepenseDiverseConverter;
-import ca.ulaval.glo4003.projet_de_session.persistence.repository.RepoDepenseDiverse;
-import ca.ulaval.glo4003.projet_de_session.persistence.repositoryXml.RepoDepenseDiverseXml;
+import ca.ulaval.glo4003.projet_de_session.persistence.repository.Repository;
 import ca.ulaval.glo4003.projet_de_session.web.viewmodels.DepenseDiverseViewModel;
 
 public class ServiceDepenseDiverse {
-	RepoDepenseDiverse repo;
+	Repository<DepenseDiverse> repo;
 	FactoryDepenseDiverse factory;
 	DepenseDiverseConverter conv;
 
 	public ServiceDepenseDiverse() {
 		factory = new FactoryDepenseDiverse();
-		repo = new RepoDepenseDiverseXml();
+		repo = FactoryRepository.cree(DepenseDiverse.class);
 		conv = new DepenseDiverseConverter();
 	}
 
 	public DepenseDiverse obtenir(String identifiant) {
-		return repo.obtenir(identifiant);
+		return repo.obt(identifiant);
 	}
 
 	public void Creer(DepenseDiverseViewModel v) {

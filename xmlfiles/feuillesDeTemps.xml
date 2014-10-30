@@ -2,7 +2,57 @@
   <FeuilleDeTemps>
     <taches>
       <ca.ulaval.glo4003.projet__de__session.core.domain.TempsParTache>
-        <tache>Decouvrir</tache>
+        <tache>Sacrer apr?s le JSON</tache>
+        <nbHeuresParJours>
+          <float>1.0</float>
+          <float>2.0</float>
+          <float>4.0</float>
+          <float>4.0</float>
+          <float>0.0</float>
+          <float>0.0</float>
+          <float>0.0</float>
+          <float>0.0</float>
+          <float>0.0</float>
+          <float>0.0</float>
+          <float>0.0</float>
+          <float>0.0</float>
+          <float>0.0</float>
+        </nbHeuresParJours>
+      </ca.ulaval.glo4003.projet__de__session.core.domain.TempsParTache>
+    </taches>
+    <debut>2014-10-13 04:00:00.0 UTC</debut>
+    <fin>2014-10-26 04:00:00.0 UTC</fin>
+    <identifiant>ALSAM</identifiant>
+  </FeuilleDeTemps>
+  <FeuilleDeTemps>
+    <taches>
+      <ca.ulaval.glo4003.projet__de__session.core.domain.TempsParTache>
+        <tache>Dormir</tache>
+        <nbHeuresParJours>
+          <float>10.0</float>
+          <float>1.0</float>
+          <float>2.0</float>
+          <float>3.0</float>
+          <float>4.0</float>
+          <float>4.0</float>
+          <float>0.0</float>
+          <float>0.0</float>
+          <float>0.0</float>
+          <float>0.0</float>
+          <float>0.0</float>
+          <float>0.0</float>
+          <float>0.0</float>
+        </nbHeuresParJours>
+      </ca.ulaval.glo4003.projet__de__session.core.domain.TempsParTache>
+    </taches>
+    <debut>2014-10-13 04:00:00.0 UTC</debut>
+    <fin>2014-10-26 04:00:00.0 UTC</fin>
+    <identifiant>DASAU</identifiant>
+  </FeuilleDeTemps>
+  <FeuilleDeTemps>
+    <taches>
+      <ca.ulaval.glo4003.projet__de__session.core.domain.TempsParTache>
+        <tache>Sacrer</tache>
         <nbHeuresParJours>
           <float>0.0</float>
           <float>0.0</float>
@@ -20,9 +70,65 @@
         </nbHeuresParJours>
       </ca.ulaval.glo4003.projet__de__session.core.domain.TempsParTache>
     </taches>
-    <debut>2014-10-14 00:12:57.889 UTC</debut>
-    <fin>2014-10-27 00:12:57.889 UTC</fin>
-    <identifiant>LAHOL</identifiant>
+    <debut>2014-10-20 04:12:01.548 UTC</debut>
+    <fin>2014-11-02 04:12:01.548 UTC</fin>
+    <identifiant>ALSAM</identifiant>
+  </FeuilleDeTemps>
+  <FeuilleDeTemps>
+    <taches>
+      <ca.ulaval.glo4003.projet__de__session.core.domain.TempsParTache>
+        <tache>Enseigner l&apos;architecture logicielle </tache>
+        <nbHeuresParJours>
+          <float>0.0</float>
+          <float>0.0</float>
+          <float>0.0</float>
+          <float>0.0</float>
+          <float>0.0</float>
+          <float>0.0</float>
+          <float>0.0</float>
+          <float>0.0</float>
+          <float>0.0</float>
+          <float>0.0</float>
+          <float>0.0</float>
+          <float>0.0</float>
+          <float>0.0</float>
+        </nbHeuresParJours>
+      </ca.ulaval.glo4003.projet__de__session.core.domain.TempsParTache>
+    </taches>
+    <debut>2014-10-13 04:00:00.0 UTC</debut>
+    <fin>2014-10-26 04:00:00.0 UTC</fin>
+    <identifiant>OLDU</identifiant>
+  </FeuilleDeTemps>
+  <FeuilleDeTemps>
+    <taches/>
+    <debut>2014-10-13 04:00:00.0 UTC</debut>
+    <fin>2014-10-26 04:00:00.0 UTC</fin>
+    <identifiant>BOB</identifiant>
+  </FeuilleDeTemps>
+  <FeuilleDeTemps>
+    <taches>
+      <ca.ulaval.glo4003.projet__de__session.core.domain.TempsParTache>
+        <tache>Manger une poutine</tache>
+        <nbHeuresParJours>
+          <float>0.0</float>
+          <float>10.0</float>
+          <float>1.0</float>
+          <float>2.0</float>
+          <float>4.0</float>
+          <float>0.0</float>
+          <float>0.0</float>
+          <float>0.0</float>
+          <float>0.0</float>
+          <float>0.0</float>
+          <float>0.0</float>
+          <float>0.0</float>
+          <float>0.0</float>
+        </nbHeuresParJours>
+      </ca.ulaval.glo4003.projet__de__session.core.domain.TempsParTache>
+    </taches>
+    <debut>2014-10-13 04:00:00.0 UTC</debut>
+    <fin>2014-10-26 04:00:00.0 UTC</fin>
+    <identifiant>MOMEC</identifiant>
   </FeuilleDeTemps>
   <FeuilleDeTemps>
     <taches>
@@ -86,38 +192,13 @@
   <FeuilleDeTemps>
     <taches>
       <ca.ulaval.glo4003.projet__de__session.core.domain.TempsParTache>
-        <tache>Sacrer</tache>
-        <nbHeuresParJours>
-          <float>0.0</float>
-          <float>0.0</float>
-          <float>0.0</float>
-          <float>0.0</float>
-          <float>0.0</float>
-          <float>0.0</float>
-          <float>0.0</float>
-          <float>0.0</float>
-          <float>0.0</float>
-          <float>0.0</float>
-          <float>0.0</float>
-          <float>0.0</float>
-          <float>0.0</float>
-        </nbHeuresParJours>
-      </ca.ulaval.glo4003.projet__de__session.core.domain.TempsParTache>
-    </taches>
-    <debut>2014-10-20 04:12:01.548 UTC</debut>
-    <fin>2014-11-02 04:12:01.548 UTC</fin>
-    <identifiant>ALSAM</identifiant>
-  </FeuilleDeTemps>
-  <FeuilleDeTemps>
-    <taches>
-      <ca.ulaval.glo4003.projet__de__session.core.domain.TempsParTache>
         <tache>Manger une poutine</tache>
         <nbHeuresParJours>
           <float>0.0</float>
-          <float>10.0</float>
-          <float>1.0</float>
-          <float>2.0</float>
-          <float>4.0</float>
+          <float>0.0</float>
+          <float>0.0</float>
+          <float>0.0</float>
+          <float>0.0</float>
           <float>0.0</float>
           <float>0.0</float>
           <float>0.0</float>
@@ -129,20 +210,14 @@
         </nbHeuresParJours>
       </ca.ulaval.glo4003.projet__de__session.core.domain.TempsParTache>
     </taches>
-    <debut>2014-10-13 04:00:00.0 UTC</debut>
-    <fin>2014-10-26 04:00:00.0 UTC</fin>
-    <identifiant>MOMEC</identifiant>
-  </FeuilleDeTemps>
-  <FeuilleDeTemps>
-    <taches/>
-    <debut>2014-10-13 04:00:00.0 UTC</debut>
-    <fin>2014-10-26 04:00:00.0 UTC</fin>
-    <identifiant>BOB</identifiant>
+    <debut>2014-10-27 16:16:11.340 UTC</debut>
+    <fin>2014-11-09 17:16:11.340 UTC</fin>
+    <identifiant>JFGRA</identifiant>
   </FeuilleDeTemps>
   <FeuilleDeTemps>
     <taches>
       <ca.ulaval.glo4003.projet__de__session.core.domain.TempsParTache>
-        <tache>Enseigner l&apos;architecture logicielle </tache>
+        <tache>Enseigner larchitecture logicielle </tache>
         <nbHeuresParJours>
           <float>0.0</float>
           <float>0.0</float>
@@ -160,19 +235,19 @@
         </nbHeuresParJours>
       </ca.ulaval.glo4003.projet__de__session.core.domain.TempsParTache>
     </taches>
-    <debut>2014-10-13 04:00:00.0 UTC</debut>
-    <fin>2014-10-26 04:00:00.0 UTC</fin>
+    <debut>2014-10-27 16:51:25.648 UTC</debut>
+    <fin>2014-11-09 17:51:25.648 UTC</fin>
     <identifiant>OLDU</identifiant>
   </FeuilleDeTemps>
   <FeuilleDeTemps>
     <taches>
       <ca.ulaval.glo4003.projet__de__session.core.domain.TempsParTache>
-        <tache>Sacrer apr?s le JSON</tache>
+        <tache>Decouvrir</tache>
         <nbHeuresParJours>
-          <float>1.0</float>
-          <float>2.0</float>
-          <float>4.0</float>
-          <float>4.0</float>
+          <float>0.0</float>
+          <float>0.0</float>
+          <float>0.0</float>
+          <float>0.0</float>
           <float>0.0</float>
           <float>0.0</float>
           <float>0.0</float>
@@ -185,34 +260,9 @@
         </nbHeuresParJours>
       </ca.ulaval.glo4003.projet__de__session.core.domain.TempsParTache>
     </taches>
-    <debut>2014-10-13 04:00:00.0 UTC</debut>
-    <fin>2014-10-26 04:00:00.0 UTC</fin>
-    <identifiant>ALSAM</identifiant>
-  </FeuilleDeTemps>
-  <FeuilleDeTemps>
-    <taches>
-      <ca.ulaval.glo4003.projet__de__session.core.domain.TempsParTache>
-        <tache>Dormir</tache>
-        <nbHeuresParJours>
-          <float>10.0</float>
-          <float>1.0</float>
-          <float>2.0</float>
-          <float>3.0</float>
-          <float>4.0</float>
-          <float>4.0</float>
-          <float>0.0</float>
-          <float>0.0</float>
-          <float>0.0</float>
-          <float>0.0</float>
-          <float>0.0</float>
-          <float>0.0</float>
-          <float>0.0</float>
-        </nbHeuresParJours>
-      </ca.ulaval.glo4003.projet__de__session.core.domain.TempsParTache>
-    </taches>
-    <debut>2014-10-13 04:00:00.0 UTC</debut>
-    <fin>2014-10-26 04:00:00.0 UTC</fin>
-    <identifiant>DASAU</identifiant>
+    <debut>2014-10-14 00:12:57.889 UTC</debut>
+    <fin>2014-10-27 00:12:57.889 UTC</fin>
+    <identifiant>LAHOL</identifiant>
   </FeuilleDeTemps>
   <FeuilleDeTemps>
     <taches>

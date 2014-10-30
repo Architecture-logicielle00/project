@@ -61,7 +61,7 @@ public class RepoEmployeXmlTest {
 		xmlEmploye.enregistrer(new ArrayList<Employe>(), "xmlfiles/employes");
 		repoEmployeXml = new RepoEmployeXml();
 		
-		assertEquals(new ArrayList<Employe>(), repoEmployeXml.obtEmployes());
+		assertEquals(new ArrayList<Employe>(), repoEmployeXml.obtMap());
 	}
 
 	@After
@@ -72,14 +72,14 @@ public class RepoEmployeXmlTest {
 	public void testAjouter() {
 		repoEmployeXml.ajouter(employe1);
 		
-		assertEquals(employe1, repoEmployeXml.obtenir("nomUtilisateurTest1"));
+		assertEquals(employe1, repoEmployeXml.obt("nomUtilisateurTest1"));
 	}
 
 	@Test
 	public void testObtenir() {
 		repoEmployeXml.ajouter(employe1);
 		
-		assertEquals(employe1, repoEmployeXml.obtenir("nomUtilisateurTest1"));
+		assertEquals(employe1, repoEmployeXml.obt("nomUtilisateurTest1"));
 	}
 
 	@Test
@@ -91,7 +91,7 @@ public class RepoEmployeXmlTest {
 		employes.add(employe1);
 		employes.add(employe2);
 		
-		assertEquals(employes, repoEmployeXml.obtEmployes());
+		assertEquals(employes, repoEmployeXml.obtMap());
 	}
 
 	@Test
@@ -103,14 +103,14 @@ public class RepoEmployeXmlTest {
 		employes1.add(employe1);
 		employes1.add(employe2);
 		
-		assertEquals(employes1, repoEmployeXml.obtEmployes());
+		assertEquals(employes1, repoEmployeXml.obtMap());
 		
 		repoEmployeXml.supprimer("nomUtilisateurTest2");
 		
 		ArrayList<Employe> employes2= new ArrayList<Employe>();
 		employes2.add(employe1);
 		
-		assertEquals(employes2, repoEmployeXml.obtEmployes());
+		assertEquals(employes2, repoEmployeXml.obtMap());
 
 	}
 
@@ -124,7 +124,7 @@ public class RepoEmployeXmlTest {
 		
 		repoEmployeXml.modifier(employe3);
 		
-		assertEquals("emailTestModifie", repoEmployeXml.obtenir("nomUtilisateurTest1").obtEmail());
+		assertEquals("emailTestModifie", repoEmployeXml.obt("nomUtilisateurTest1").obtEmail());
 
 		
 		

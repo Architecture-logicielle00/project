@@ -7,9 +7,9 @@ import java.util.List;
 
 import ca.ulaval.glo4003.projet_de_session.core.domain.Employe;
 import ca.ulaval.glo4003.projet_de_session.core.utils.FactoryEmploye;
+import ca.ulaval.glo4003.projet_de_session.core.utils.FactoryRepository;
 import ca.ulaval.glo4003.projet_de_session.core.utils.converter.EmployeeConverter;
-import ca.ulaval.glo4003.projet_de_session.persistence.repository.RepoEmploye;
-import ca.ulaval.glo4003.projet_de_session.persistence.repositoryXml.RepoEmployeXml;
+import ca.ulaval.glo4003.projet_de_session.persistence.repository.Repository;
 import ca.ulaval.glo4003.projet_de_session.web.viewmodels.EmployeeViewModel;
 
 public class ServiceEmploye
@@ -17,7 +17,7 @@ public class ServiceEmploye
 	public ServiceEmploye()
 	{
 		factory = new FactoryEmploye();
-		repo = new RepoEmployeXml();
+		repo = FactoryRepository.cree(Employe.class);
 		ec = new EmployeeConverter();
 		
 		init();
@@ -25,7 +25,7 @@ public class ServiceEmploye
 	
 	public Employe obtEmploye(String nomUtilisateur)
 	{
-		return repo.obtenir(nomUtilisateur);
+		return repo.obt(nomUtilisateur);
 	}
 	
 	public void creerEmploye(EmployeeViewModel evm)
@@ -41,14 +41,13 @@ public class ServiceEmploye
 	
 	public List<Employe> obtEmployes()
 	{
-		return repo.obtEmployes();
+		return repo.obtTout();
 	}
 	
 	public List<Employe> obtEmployesParEntreprise(String entreprise)
 	{
-		
 		//TODO creer méthode obtEmployesParEntreprise dans le repo
-		List<Employe> repoList =  repo.obtEmployes();
+		List<Employe> repoList =  obtEmployes();
 		List<Employe> entrepriseList = new ArrayList<Employe>();
 		
 		for (Employe e : repoList)
@@ -114,7 +113,7 @@ public class ServiceEmploye
 	}
 
 	
-	RepoEmploye repo;
+	Repository<Employe> repo;
 	FactoryEmploye factory;
 	EmployeeConverter ec;
 }

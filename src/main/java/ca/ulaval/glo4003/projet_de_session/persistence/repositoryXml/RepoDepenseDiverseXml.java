@@ -1,56 +1,24 @@
 
 package ca.ulaval.glo4003.projet_de_session.persistence.repositoryXml;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import ca.ulaval.glo4003.projet_de_session.core.domain.DepenseDiverse;
-import ca.ulaval.glo4003.projet_de_session.persistence.repository.RepoDepenseDiverse;
-import ca.ulaval.glo4003.projet_de_session.persistence.utils.Xml;
 
-public class RepoDepenseDiverseXml implements RepoDepenseDiverse {
-	
-	ArrayList<DepenseDiverse> depensesDiverse;
-	Xml<DepenseDiverse> xmlDepense;
+public class RepoDepenseDiverseXml extends RepoGeneralXml<DepenseDiverse> {
 
 	public RepoDepenseDiverseXml() {
-		depensesDiverse = new ArrayList<DepenseDiverse>();
-		xmlDepense = new Xml<DepenseDiverse>(DepenseDiverse.class);
-		charger();
+		super(DepenseDiverse.class,"depensesDiverse");
 	}
 
-	@Override
-	public void ajouter(DepenseDiverse depense) {
-		depensesDiverse.add(depense);
-		sauvegarder();
+	public String ajouter(DepenseDiverse depense) {
+		put(depense.obtIdentifant(),depense);
+		
+		return depense.obtIdentifant();
 	}
 
-	@Override
-	public DepenseDiverse obtenir(String identifiantDepense) {
-		for (DepenseDiverse depenseDiverse : depensesDiverse) {
-			if (depenseDiverse.obtIdentifant() == identifiantDepense)
-				return depenseDiverse;
-		}
-
-		// TODO Lancer une exeption
-		return null;
-	}
-
-	@Override
-	public List<DepenseDiverse> obtTout() {
-		return depensesDiverse;
-	}
-
-	@Override
 	public void modifier(DepenseDiverse depense) {
-		sauvegarder();
-	}
-
-	private void charger() {
-
-	}
-
-	private void sauvegarder() {
-	xmlDepense.enregistrer(depensesDiverse, "xmlfiles/depenses");
+		if(obt( depense.obtIdentifant() ) != null)
+		{
+			put(depense.obtIdentifant(), depense);
+		}
 	}
 }
