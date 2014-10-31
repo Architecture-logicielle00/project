@@ -8,16 +8,10 @@
 <link type="text/css" rel="stylesheet"
 	href="/resources/css/lib/bootstrap.min.css" />
 <link type="text/css" rel="stylesheet"
-	href="/resources/css/lib/bootstrap.css.map" />
-<link type="text/css" rel="stylesheet"
 	href="/resources/css/lib/bootstrap-theme.min.css" />
-<link type="text/css" rel="stylesheet"
-	href="/resources/css/lib/bootstrap-theme.css.map" />
 <link type="text/css" rel="stylesheet"
 	href="/resources/css/lib/font-awesome.min.css" />
 <link type="text/css" rel="stylesheet" href="/resources/css/layout.css" />
-<link type="text/css" rel="stylesheet"
-	href="/resources/css/deplacementForm.css" />
 <title>Accueil</title>
 </head>
 <body>
@@ -26,39 +20,30 @@
 		<jsp:include page="./importHtml/_layout.jsp" />
 
 		<div id="page-wrapper">
-			
 
-			<table id="table-depense-deplacement">
-			<tr>
-					<th></th>
-					<th>Date</th>
-					<th>Distance(Km)</th>
-					<th>Cout($/Km)</th>
-					<th>Nombre Repas</th>
-					<th>Couts de repas ($/repas)</th>
-					<th>Couts de logement</th>
-					<th>Divers</th>
-					<th>Sous-total</th>
-					<th>Description</th>
 
-			</tr>
-				<tr>
-						<td style="height: 26px"></td>
-						<td style="height: 26px"><input id="date" name="date"/></td>
-						<td style="height: 26px"><input id="distance" name="distance"/></td>
-						<td style="height: 26px"><input id="cout-km" name="cout-km"/></td>
-						<td style="height: 26px"><input id="nb-repas" name="distance"/></td>
-						<td style="height: 26px"><input id="cout-repas" name="distance"/></td>
-						<td style="height: 26px"><input id="coucher" name="distance"/></td>
-						<td style="height: 26px"><input id="divers" name="distance"/></td>
-						<td style="height: 26px"><input id="sous-total" name="distance" onchange="additionner()"/></td>
-						<td style="height: 26px"><input id="description" name="distance"/></td>
-				</tr>			
-				</table>			
-												
-			<input id="total" type="text" readonly="true" />
+			<div id="depenses-wrapper">
+				<table id="table-depense-deplacement" class="table table-striped">
+					<tr>
+						<th>Date</th>
+						<th>Distance(Km)</th>
+						<th>Cout($/Km)</th>
+						<th>Description</th>
+						<th></th>
+					</tr>
+					<tr>
+						<td class="date">2014-10-23</td>
+						<td class="distance">40</td>
+						<td class="cout-km">12</td>
+						<td class="commentaires">Lorem ipsum dolor sit amet,
+							consectetur adipisicing elit. A accusamus accusanti</td>
+					</tr>
+				</table>
 
-			<button id="sauvegarder-feuille">sauvegarder</button>
+				<button type="button" class="btn btn-primary btn-lg"
+					data-toggle="modal" data-target="#nouveau-deplacement-formulaire">
+					Ajouter</button>
+			</div>
 
 		</div>
 		<!-- /#page-wrapper -->
@@ -66,10 +51,39 @@
 	</div>
 	<!-- /#wrapper -->
 
+	<div class="modal fade" id="nouveau-deplacement-formulaire">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">
+						<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+					</button>
+					<h4 class="modal-title">Nouveau Déplacement</h4>
+				</div>
+				<div class="modal-body">
+					<form id="deplacement-form">
+						<label for="distance-input">Distance :</label> <input
+							id="distance-input" type="number" /> <label for="cout-km-input">Cout
+							(Km) :</label> <input id="cout-km-input" type="number" />
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
+					<button id="bouton-sauvegarde-deplacement" type="button"
+						class="btn btn-primary" data-dismiss="modal">Sauvegarder</button>
+				</div>
+			</div>
+			<!-- /.modal-content -->
+		</div>
+		<!-- /.modal-dialog -->
+	</div>
+	<!-- /.modal -->
+
 
 	<script src="/resources/js/lib/jquery.js"></script>
-	<script src="/resources/js/lib/jquery-ui.js"></script>
 	<script src="/resources/js/lib/bootstrap.min.js"></script>
+	<script src="/resources/js/utils/date.js"></script>
+	<script src="/resources/js/utils/jsonRest.js"></script>
 	<script src="/resources/js/deplacementForm/deplacementForm.js"></script>
 
 </body>
