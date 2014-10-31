@@ -25,13 +25,11 @@ public class DepenseDiverseConverter {
 		DepenseDiverseViewModel viewModel = new DepenseDiverseViewModel();
 		viewModel.coucher = depense.obtCoucher();
 		viewModel.coutRepas = depense.obtCoutRepas();
-		viewModel.date = depense.obtDate();
+		viewModel.date = depense.obtDate().toString();
 		viewModel.description = depense.obtDescription();
 		viewModel.identifiant = depense.obtIdentifant();
 		viewModel.nbRepas = depense.obtNbRepas();
 		viewModel.divers = depense.obtDivers();
-		viewModel.sousTotal = depense.obtSoutTotal();
-		viewModel.total = depense.obtTotal();
 
 		return viewModel;
 	}

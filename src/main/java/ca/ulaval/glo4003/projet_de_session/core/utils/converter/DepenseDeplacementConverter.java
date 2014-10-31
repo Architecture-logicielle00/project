@@ -27,8 +27,7 @@ public class DepenseDeplacementConverter {
 		viewModel.distance = depense.obtDistance();
 		viewModel.description = depense.obtDescription();
 		viewModel.identifiant = depense.obtIdentifant();
-		viewModel.date = depense.obtDate();
-		viewModel.sousTotal = depense.obtSoutTotal();
+		viewModel.date = depense.obtDate().toString();
 		return viewModel;
 	}
 }

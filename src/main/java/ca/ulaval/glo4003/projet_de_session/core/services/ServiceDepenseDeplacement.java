@@ -45,12 +45,11 @@ public class ServiceDepenseDeplacement {
 	public void defDepenseDeplacement(DepenseDeplacementViewModel v) {
 		DepenseDeplacement d = obtenir(v.identifiant);
 
-		d.defDate(v.date);
-		d.defCoutKm(v.coutkm);
-		d.defDistance(v.distance);
-		d.defSousTotal(v.sousTotal);
-		d.defDescription(v.description);
-		d.defTotal(v.total);
+//		d.defDate(v.date);
+//		d.defCoutKm(v.coutkm);
+//		d.defDistance(v.distance);
+//		d.defDescription(v.description);
+		
 
 	}
 

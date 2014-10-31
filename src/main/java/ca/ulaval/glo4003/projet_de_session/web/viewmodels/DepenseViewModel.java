@@ -5,16 +5,8 @@ import java.util.Date;
 public class DepenseViewModel {
 
 	public String identifiant;
-	public Date date;
-	public float distance;
-	public float coutkm;
-	public int nbRepas;
-	public float coutRepas;
-	public float divers;
-	public float coucher;
-	public float sousTotal;
+	public String date;
 	public String description;
-	public float total;
 
 	public String obtIdentifant() {
 		return identifiant;
@@ -25,21 +17,13 @@ public class DepenseViewModel {
 
 	}
 
-	public Date obtDate() {
+	public String obtDate() {
 		return date;
 	}
 
-	public void defDate(Date date) {
+	public void defDate(String date) {
 		this.date = date;
 
-	}
-
-	public float obtSoutTotal() {
-		return sousTotal;
-	}
-
-	public void defSousTotal(float sousTotal) {
-		this.sousTotal = sousTotal;
 	}
 
 	public String obtDescription() {
@@ -49,10 +33,6 @@ public class DepenseViewModel {
 	public void defDescription(String description) {
 		this.description = description;
 
-	}
-
-	public float obtTotalDepense() {
-		return total;
 	}
 
 }

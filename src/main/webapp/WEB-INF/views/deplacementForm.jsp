@@ -29,7 +29,7 @@
 			
 
 			<table id="table-depense-deplacement">
-				<tr>
+			<tr>
 					<th></th>
 					<th>Date</th>
 					<th>Distance(Km)</th>
@@ -53,6 +53,7 @@
 						<td style="height: 26px"><input id="divers" name="distance"/></td>
 						<td style="height: 26px"><input id="sous-total" name="distance" onchange="additionner()"/></td>
 						<td style="height: 26px"><input id="description" name="distance"/></td>
+				</tr>			
 				</table>			
 												
 			<input id="total" type="text" readonly="true" />

@@ -1,11 +1,7 @@
 $(document).ready(function() {
-	ajouterNouvelleLigne();
-	initialiserEvenements();
 })
 
-function additionner.onchange(){
-	
-};
+
 function sauvegarder() {
 	alert("test");
 	// TODO
@@ -13,7 +9,7 @@ function sauvegarder() {
     var formJSON = parseFormIntoJSON();
 
     $.ajax({
-        url : "/sauvegarderDepenseDeplacement",
+        url : "/deplacementFormDeplacement",
         type: "POST",
         data : formJSON,
         dataType: "json",
@@ -28,37 +24,37 @@ function sauvegarder() {
         }
     });
     
-    $.ajax({
-        url : "/deplacementFormDiverse",
-        type: "POST",
-        data : formJSON,
-        dataType: "json",
-        contentType: "application/json; charset=utf-8",
-        success: function(data, textStatus, jqXHR)
-        {
-            // data - response from server
-        },
-        error: function (jqXHR, textStatus, errorThrown)
-        {
-
-        }
-    });
+// $.ajax({
+// url : "/deplacementFormDiverse",
+// type: "POST",
+// data : formJSON,
+// dataType: "json",
+// contentType: "application/json; charset=utf-8",
+// success: function(data, textStatus, jqXHR)
+// {
+// // data - response from server
+// },
+// error: function (jqXHR, textStatus, errorThrown)
+// {
+//
+// }
+// });
 }
 
-function parseFormIntoJSON(table){
+function parseFormIntoJSON(){
 	
-$('table-depense-deplacement').find('tr:has("td")').each(
+//$('table-depense-deplacement').find('tr:has("td")').each(
 		
-		var date = $("#debut-periode-input").val();
-       	var distance =$("#fin-periode-input").val();
-       	var coutkm = $("#utilisateur-dropdown").val();
-       	var nbRepas = $("#debut-periode-input").val();
-       	var coutRepas = $("#fin-periode-input").val();
-       	var coucher = $("#debut-periode-input").val();
-       	var divers = $("#utilisateur-dropdown").val();
-       	var soustotal = $("#fin-periode-input").val();
-       	var description = $("#utilisateur-dropdown").val();
-       	var total = $("#utilisateur-dropdown").val();
+//		var date = $("#debut-periode-input").val();
+//       	var distance =$("#fin-periode-input").val();
+//       	var coutkm = $("#utilisateur-dropdown").val();
+//       	var nbRepas = $("#debut-periode-input").val();
+//       	var coutRepas = $("#fin-periode-input").val();
+//       	var coucher = $("#debut-periode-input").val();
+//       	var divers = $("#utilisateur-dropdown").val();
+//       	var soustotal = $("#fin-periode-input").val();
+//       	var description = $("#utilisateur-dropdown").val();
+//       	var total = $("#utilisateur-dropdown").val();
 		
 // (function($){
 // var getJsonFromTable = function()
@@ -78,16 +74,12 @@ $('table-depense-deplacement').find('tr:has("td")').each(
 		        
     
     return JSON.stringify({
-    	"date" : date
-    	"distance" : distance
-    	"coutkm" : coutkm
-    	"nbRepas" : nbRepas
-    	"coutRepas" : coutRepas
-    	"coucher" : coucher
-    	"divers" : divers
-    	"soustotal" : soustotal
-    	"description" : description
-    	"total" : total
+    	"date" : "30-10-2014",
+    	"distance" : "10",
+    	"coutkm" : "10",
+    	"description" : "test",
+    	"identifiant" : "ALSAM"
+    	
     	    	 
     });
 	
@@ -97,17 +89,17 @@ $('table-depense-deplacement').find('tr:has("td")').each(
 // $("#table-depense-deplacement").append(rowTemplate);
 // }
 //
-//function supprimerLignesSelectionne() {
-//	$("#table-depense-deplacement").find('tr > td > input:checked').parent()
-//			.parent().remove();
-//	$(".sous-total").change();
-//}
+// function supprimerLignesSelectionne() {
+// $("#table-depense-deplacement").find('tr > td > input:checked').parent()
+// .parent().remove();
+// $(".sous-total").change();
+// }
 //
-//function initialiserEvenements() {
+// function initialiserEvenements() {
 // $("#additionner").on("onchange", function() {
 // ajouterNouvelleLigne();
 // });
-////
+// //
 // $("#supprimer-nouvelle-ligne").on("click", function() {
 // supprimerLignesSelectionne();
 // });

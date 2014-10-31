@@ -45,14 +45,14 @@ public class ServiceDepenseDiverse {
 	public void defDepenseDiverse(DepenseDiverseViewModel v) {
 		DepenseDiverse d = obtenir(v.identifiant);
 
-		d.defDate(v.date);
-		d.defCoutRepas(v.coutRepas);
-		d.defNbRepas(v.nbRepas);
-		d.defCoucher(v.coucher);
-		d.defDivers(v.divers);
-		d.defSousTotal(v.sousTotal);
-		d.defDescription(v.description);
-		d.defTotal(v.total);
+//		d.defDate(v.date);
+//		d.defCoutRepas(v.coutRepas);
+//		d.defNbRepas(v.nbRepas);
+//		d.defCoucher(v.coucher);
+//		d.defDivers(v.divers);
+//		d.defSousTotal(v.sousTotal);
+//		d.defDescription(v.description);
+//		d.defTotal(v.total);
 
 }
 }
