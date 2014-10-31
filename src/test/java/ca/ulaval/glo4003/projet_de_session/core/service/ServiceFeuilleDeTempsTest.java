@@ -20,9 +20,6 @@ import org.mockito.runners.MockitoJUnitRunner;
 import ca.ulaval.glo4003.projet_de_session.core.domain.Employe;
 import ca.ulaval.glo4003.projet_de_session.core.domain.FeuilleDeTemps;
 import ca.ulaval.glo4003.projet_de_session.core.services.ServiceFeuilleDeTemps;
-import ca.ulaval.glo4003.projet_de_session.core.utils.FactoryFeuilleDeTemps;
-import ca.ulaval.glo4003.projet_de_session.core.utils.converter.FeuilleDeTempsConverter;
-import ca.ulaval.glo4003.projet_de_session.persistence.repository.RepoFeuilleDeTemps;
 import ca.ulaval.glo4003.projet_de_session.web.viewmodels.FeuilleDeTempsViewModel;
 
 @RunWith(MockitoJUnitRunner.class)
