@@ -12,6 +12,10 @@ public class DepenseDeplacement extends Depense {
 		
 	}
 
+	public DepenseDeplacement() {
+		// TODO Auto-generated constructor stub
+	}
+
 	private float distance;
 
 	private float coutkm;

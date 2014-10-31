@@ -26,7 +26,7 @@ public class ServiceDepenseDeplacement {
 		return repo.obt(identifiant);
 	}
 
-	public void Creer(DepenseDeplacementViewModel v) {
+	public void creer(DepenseDeplacementViewModel v) {
 		DepenseDeplacement d = factory.creer(v);
 		repo.ajouter(d);
 	}

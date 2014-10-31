@@ -18,6 +18,7 @@ public abstract class Depense {
 		
 	}
 	
+	public Depense(){}
 
 	public String obtIdentifant() {
 		return identifiant;

@@ -1,8 +1,9 @@
 package ca.ulaval.glo4003.projet_de_session.core.utils.converter;
 
+
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.LinkedList;
 import java.util.List;
 
 import ca.ulaval.glo4003.projet_de_session.core.domain.Depense;
@@ -27,7 +28,8 @@ public class DepenseDeplacementConverter {
 		viewModel.distance = depense.obtDistance();
 		viewModel.description = depense.obtDescription();
 		viewModel.identifiant = depense.obtIdentifant();
-		viewModel.date = depense.obtDate().toString();
+		viewModel.date = (new SimpleDateFormat("yyyy-MM-dd")).format(depense
+				.obtDate());
 		return viewModel;
 	}
 }
