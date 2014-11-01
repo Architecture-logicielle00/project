@@ -1,5 +1,6 @@
 package ca.ulaval.glo4003.projet_de_session.core.services;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Collection;
 
@@ -37,6 +38,21 @@ public class ServiceDepenseDeplacement {
 
 	public List<DepenseDeplacement> obtTout() {
 		return repo.obtTout();
+	}
+	
+	public List<DepenseDeplacementViewModel> obtParUtilisateur(String utilisateur) {
+		List<DepenseDeplacement> collection = obtTout();
+		
+		List<DepenseDeplacement> collectionFiltre = new ArrayList<DepenseDeplacement>();
+		
+		
+		for (DepenseDeplacement depenseDeplacement : collection) {
+			//if(depenseDeplacement.)
+		}
+		
+		return (List<DepenseDeplacementViewModel>) conv.convert(collection);
+		
+		
 	}
 	
 	public Collection<DepenseDeplacementViewModel> obtDepenseDeplacementViewModel() {

@@ -1,10 +1,13 @@
 package ca.ulaval.glo4003.projet_de_session.web.controllers;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -153,6 +156,11 @@ public class ControllerPrincipal {
 			HttpServletRequest request, Model model) {
 		serviceDepenseDeplacement.creer(depenseDeplacementViewModel);
 		return true;
+	}
+	
+	@RequestMapping(value = "{utilisateur}/deplacements")
+	public @ResponseBody List<DepenseDeplacementViewModel> obtenirDeplacements(Model model, @PathVariable String utilisateur) {
+		return serviceDepenseDeplacement.obtParUtilisateur(utilisateur);
 	}
 
 	@RequestMapping(value = "/deplacementFormDiverse", method = RequestMethod.POST)
