@@ -31,13 +31,6 @@
 						<th>Description</th>
 						<th></th>
 					</tr>
-					<tr>
-						<td class="date">2014-10-23</td>
-						<td class="distance">40</td>
-						<td class="cout-km">12</td>
-						<td class="commentaires">Lorem ipsum dolor sit amet,
-							consectetur adipisicing elit. A accusamus accusanti</td>
-					</tr>
 				</table>
 
 				<button type="button" class="btn btn-primary btn-lg"
@@ -80,9 +73,11 @@
 	<!-- /.modal -->
 
 
+
 	<script src="/resources/js/lib/jquery.js"></script>
 	<script src="/resources/js/lib/bootstrap.min.js"></script>
-	<script src="/resources/js/utils/callback.js"></script>	
+	<script src="/resources/js/lib/mustache.js"></script>	
+	<script src="/resources/js/utils/callback.js"></script>
 	<script src="/resources/js/utils/date.js"></script>
 	<script src="/resources/js/utils/jsonRest.js"></script>
 	<script src="/resources/js/deplacementForm/deplacementForm.js"></script>

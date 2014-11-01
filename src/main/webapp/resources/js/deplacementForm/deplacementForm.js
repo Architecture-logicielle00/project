@@ -16,15 +16,14 @@ function addEvent(){
 
 function sauvegarderNouveauDeplacement(){
     var data = getFormData();
-    j_post("/deplacementFormDeplacement",
-            data,
-            function(){showCallBack();},
-            function(data, textStatus, jqXHR){hideCallBack();alert("Enregistrement reussi"); updateTable();},
-            function (jqXHR, textStatus, errorThrown){
-            	hideCallBack();
-            	alert("Une erreur s'est produite. Veuillez réessayer");
-            	}
-            );
+    
+    var successFunction = function(data, textStatus, jqXHR){
+    		hideCallBack();
+    		alert("Enregistrement reussi"); 
+    		updateTable();
+    	};
+    
+    j_post("/deplacementFormDeplacement",data, undefined, successFunction, undefined);
 }
 
 function getFormData(){
@@ -38,17 +37,30 @@ function getFormData(){
         "description" : "",
         "date" : now.yyyymmdd()
     });
-/*    return JSON.stringify({
-        "date" : "30-10-2014",
-        "distance" : "10",
-        "coutkm" : "10",
-        "description" : "test",
-        "identifiant" : "ALSAM"
-
-
-    });*/
 }
 
 function updateTable(){
-	//var data= j_get("");
+	var dataFromServer = [];
+	var tpl = '{{#deplacements}}' +
+			  '<tr>' +
+			  	'<td class="date">{{date}}</td>' +
+			    '<td class="distance">{{distance}}</td>' +
+			    '<td class="cout-km">{{coutKm}}</td>' +
+			    '<td class="commentaires">{{commentaires}}</td>' +
+			  '</tr>' +
+			  '{{/deplacements}}';
+	
+	var username = "test";
+	
+	var successFunction = function(data, textStatus, jqXHR){
+			dataFromServer = data
+		};
+	
+	j_get("/" + username + "/deplacements", undefined, successFunction, undefined);
+	
+	var rendered = Mustache.render(tpl, dataFromServer);
+	
+	$("#table-depense-deplacement").append(rendered);
 }
+
+
