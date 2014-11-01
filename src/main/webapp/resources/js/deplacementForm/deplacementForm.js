@@ -3,7 +3,7 @@
  */
 $(document).ready(function(){
 	
-	var jsonj_get("")
+	updateTable();
 	
 	addEvent();
 });
@@ -16,20 +16,28 @@ function addEvent(){
 
 function sauvegarderNouveauDeplacement(){
     var data = getFormData();
-    j_post("/deplacementFormDeplacement", data);
+    j_post("/deplacementFormDeplacement",
+            data,
+            function(){showCallBack();},
+            function(data, textStatus, jqXHR){hideCallBack();alert("Enregistrement reussi"); updateTable();},
+            function (jqXHR, textStatus, errorThrown){
+            	hideCallBack();
+            	alert("Une erreur s'est produite. Veuillez réessayer");
+            	}
+            );
 }
 
 function getFormData(){
 
     var now = new Date();
 
-    return {
-        "distance" : $("#distance-input").val(),
-        "coutKm" :  $("#cout-km-input").val(),
+    return JSON.stringify({
+        "distance" : parseFloat($("#distance-input").val()),
+        "coutkm" :  parseFloat($("#cout-km-input").val()),
         "identifiant" : "test",
         "description" : "",
         "date" : now.yyyymmdd()
-    };
+    });
 /*    return JSON.stringify({
         "date" : "30-10-2014",
         "distance" : "10",
@@ -42,7 +50,5 @@ function getFormData(){
 }
 
 function updateTable(){
-	var data= j_get("");
-	
-	
+	//var data= j_get("");
 }

@@ -82,6 +82,7 @@
 
 	<script src="/resources/js/lib/jquery.js"></script>
 	<script src="/resources/js/lib/bootstrap.min.js"></script>
+	<script src="/resources/js/utils/callback.js"></script>	
 	<script src="/resources/js/utils/date.js"></script>
 	<script src="/resources/js/utils/jsonRest.js"></script>
 	<script src="/resources/js/deplacementForm/deplacementForm.js"></script>

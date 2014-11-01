@@ -139,6 +139,7 @@
 	<!-- /#wrapper -->
 	
 		<script src="/resources/js/lib/jquery.js"></script>
+		<script src="/resources/js/utils/jsonRest.js"></script>
 		<script src="/resources/js/creationEmployee/creationEmployee.js"></script>
 </body>
 </html>

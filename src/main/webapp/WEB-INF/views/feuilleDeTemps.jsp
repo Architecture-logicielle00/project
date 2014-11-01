@@ -85,6 +85,7 @@
 	<script src="/resources/js/lib/jquery.js"></script>
 	<script src="/resources/js/lib/jquery-ui.js"></script>
 	<script src="/resources/js/lib/bootstrap.min.js"></script>
+	<script src="/resources/js/utils/jsonRest.js"></script>
 	<script src="/resources/js/utils/callback.js"></script>
 	<script src="/resources/js/feuilleDeTemps/feuilleDeTemps.js"></script>
 </body>

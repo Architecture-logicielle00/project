@@ -10,26 +10,13 @@ $(document).ready(function(){
 function saveTimeSheet(){
     var timeSheetJSON = parseTimeSheetIntoJSON();
 
-    $.ajax({
-        url : "/feuilleDeTemps",
-        type: "POST",
-        data : timeSheetJSON,
-        dataType: "json",
-        contentType: "application/json; charset=utf-8",
-        beforeSend: function(){
-        	showCallBack();
-        },
-        success: function(data, textStatus, jqXHR)
-        {
-            hideCallBack();
-            alert("Enregistrement reussi");
-        },
-        error: function (jqXHR, textStatus, errorThrown)
-        {
-            hideCallBack();
-            alert("Une erreur s'est produite. Veuillez réessayer");
-        }
-    });
+
+
+    j_post("/feuilleDeTemps",
+            timeSheetJSON,
+            function(){showCallBack();},
+            function(data, textStatus, jqXHR){hideCallBack();alert("Enregistrement reussi");},
+            function (jqXHR, textStatus, errorThrown){hideCallBack();alert("Une erreur s'est produite. Veuillez réessayer");});
 }
 
 function parseTimeSheetIntoJSON(){
