@@ -32,7 +32,7 @@ function getFormData(){
 
     return JSON.stringify({
         "distance" : parseFloat($("#distance-input").val()),
-        "coutkm" :  parseFloat($("#cout-km-input").val()),
+        "coutKm" :  parseFloat($("#cout-km-input").val()),
         "identifiant" : "test",
         "description" : "",
         "date" : now.yyyymmdd()
@@ -41,26 +41,38 @@ function getFormData(){
 
 function updateTable(){
 	var dataFromServer = [];
-	var tpl = '{{#deplacements}}' +
-			  '<tr>' +
+	var bodyTpl = '<tr>' +
 			  	'<td class="date">{{date}}</td>' +
 			    '<td class="distance">{{distance}}</td>' +
 			    '<td class="cout-km">{{coutKm}}</td>' +
 			    '<td class="commentaires">{{commentaires}}</td>' +
-			  '</tr>' +
-			  '{{/deplacements}}';
+			  '</tr>';
+	
+	var headerTpl = '<tr>' +
+					 '<th>Date</th>' +
+					 '<th>Distance(Km)</th>' +
+					 '<th>Cout($/Km)</th>' +
+					 '<th>Description</th>' +
+					 '<th></th>' +
+					 '</tr>';
 	
 	var username = "test";
 	
 	var successFunction = function(data, textStatus, jqXHR){
-			dataFromServer = data
+			dataFromServer = data;
+			
+			var rendered = headerTpl;
+			
+			$.each(dataFromServer, function(index, value){
+				rendered += Mustache.render(bodyTpl, dataFromServer[index]);
+			});
+			
+			$("#table-depense-deplacement").html(rendered);
 		};
 	
 	j_get("/" + username + "/deplacements", undefined, successFunction, undefined);
 	
-	var rendered = Mustache.render(tpl, dataFromServer);
-	
-	$("#table-depense-deplacement").append(rendered);
+
 }
 
 

@@ -3,7 +3,7 @@ package ca.ulaval.glo4003.projet_de_session.web.viewmodels;
 public class DepenseDeplacementViewModel extends DepenseViewModel {
 
 	public float distance;
-	public float coutkm;
+	public float coutKm;
 
 	public float obtDistance() {
 		return distance;
@@ -14,11 +14,11 @@ public class DepenseDeplacementViewModel extends DepenseViewModel {
 	}
 
 	public float obtCoutKm() {
-		return coutkm;
+		return coutKm;
 	}
 
 	public void defCoutkm(float CoutKm) {
-		this.coutkm = CoutKm;
+		this.coutKm = CoutKm;
 	}
 
 }

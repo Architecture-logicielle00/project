@@ -24,13 +24,6 @@
 
 			<div id="depenses-wrapper">
 				<table id="table-depense-deplacement" class="table table-striped">
-					<tr>
-						<th>Date</th>
-						<th>Distance(Km)</th>
-						<th>Cout($/Km)</th>
-						<th>Description</th>
-						<th></th>
-					</tr>
 				</table>
 
 				<button type="button" class="btn btn-primary btn-lg"

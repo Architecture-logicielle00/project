@@ -12,7 +12,7 @@ public class FactoryDepenseDeplacement {
 		// (float) 1.5, (float) (1.6));
 		DepenseDeplacement d = new DepenseDeplacement();
 		d.defIdentifiant(dvm.identifiant);
-		d.defCoutKm(dvm.coutkm);
+		d.defCoutKm(dvm.coutKm);
 		d.defDistance(dvm.distance);
 		try {
 			d.defDate(new SimpleDateFormat("yyyy-MM-dd").parse(dvm.date));
