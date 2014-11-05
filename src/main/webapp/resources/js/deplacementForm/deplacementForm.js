@@ -35,7 +35,8 @@ function getFormData(){
         "coutKm" :  parseFloat($("#cout-km-input").val()),
         "identifiant" : "test",
         "description" : "",
-        "date" : now.yyyymmdd()
+        "date" : now.yyyymmdd(),
+        "time" : now.hhmmss()
     });
 }
 

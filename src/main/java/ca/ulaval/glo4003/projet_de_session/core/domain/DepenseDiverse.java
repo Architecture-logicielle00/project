@@ -4,9 +4,9 @@ import java.util.Date;
 
 public class DepenseDiverse extends Depense {
 
-	public DepenseDiverse(String _identifiant, Date _date, String _description, int _nbRepas,
+	public DepenseDiverse(String _identifiant, Date _date, String _time, String _description, int _nbRepas,
 			float _coutRepas, float _divers, float _coucher) {
-		super(_identifiant, _date, _description);
+		super(_identifiant, _date, _time, _description);
 
 		nbRepas = _nbRepas;
 		coutRepas = _coutRepas;

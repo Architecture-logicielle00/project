@@ -23,20 +23,20 @@ public class ServiceDepenseDeplacement {
 		conv = new DepenseDeplacementConverter();
 	}
 
-	public DepenseDeplacement obtenir(String identifiant) {
-		return repo.obt(identifiant);
+	public DepenseDeplacementViewModel obtenir(String id) {
+		return conv.convert(repo.obt(id));
 	}
 
 	public void creer(DepenseDeplacementViewModel v) {
-		DepenseDeplacement d = factory.creer(v);
+		DepenseDeplacement d = conv.convert(v);
 		repo.ajouter(d);
 	}
 
-	public void modifier(DepenseDeplacement depense) {
-		repo.modifier(depense);
+	public void modifier(DepenseDeplacementViewModel depense) {
+		repo.modifier(conv.convert(depense));
 	}
 
-	public List<DepenseDeplacement> obtTout() {
+	private List<DepenseDeplacement> obtTout() {
 		return repo.obtTout();
 	}
 	
@@ -47,7 +47,8 @@ public class ServiceDepenseDeplacement {
 		
 		
 		for (DepenseDeplacement depenseDeplacement : collection) {
-			//if(depenseDeplacement.)
+			if(depenseDeplacement.obtIdentifant() == utilisateur)
+				collectionFiltre.add(depenseDeplacement);
 		}
 		
 		return (List<DepenseDeplacementViewModel>) conv.convert(collection);
@@ -57,16 +58,6 @@ public class ServiceDepenseDeplacement {
 	
 	public Collection<DepenseDeplacementViewModel> obtDepenseDeplacementViewModel() {
 		return conv.convert(obtTout());
-	}
-	public void defDepenseDeplacement(DepenseDeplacementViewModel v) {
-		DepenseDeplacement d = obtenir(v.identifiant);
-
-//		d.defDate(v.date);
-//		d.defCoutKm(v.coutkm);
-//		d.defDistance(v.distance);
-//		d.defDescription(v.description);
-		
-
 	}
 
 }
