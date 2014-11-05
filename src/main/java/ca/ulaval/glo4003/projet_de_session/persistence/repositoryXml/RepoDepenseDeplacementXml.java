@@ -16,15 +16,17 @@ public class RepoDepenseDeplacementXml extends RepoGeneralXml<DepenseDeplacement
 
 
 	public String ajouter(DepenseDeplacement depense) {
-		put(depense.obtIdentifant() + dateFormatter.format(depense.obtDate()) + depense.obtTime(),
-				depense);
 		
-		return depense.obtIdentifant();
+		String id = depense.obtIdentifant() + depense.obtDate() + depense.obtTime();
+		
+		put(id, depense);
+		
+		return id;
 	}
 
 	public void modifier(DepenseDeplacement depense) {
 		
-		String id = depense.obtIdentifant() + dateFormatter.format(depense.obtDate()) + depense.obtTime();
+		String id = depense.obtIdentifant() + depense.obtDate() + depense.obtTime();
 		
 		if(obt(id) != null)
 		{

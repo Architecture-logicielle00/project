@@ -8,13 +8,13 @@ public abstract class Depense {
 	
 	private String identifiant;
 
-	private Date date;
+	private String date;
 	
 	private String time;
 
 	private String description;
 
-	public Depense(String _identifiant, Date _date, String _time, String _description ) {
+	public Depense(String _identifiant, String _date, String _time, String _description ) {
 		identifiant = _identifiant;
 		date = _date;
 		time = _time;
@@ -34,11 +34,11 @@ public abstract class Depense {
 
 	}
 
-	public Date obtDate() {
+	public String obtDate() {
 		return date;
 	}
 
-	public void defDate(Date date) {
+	public void defDate(String date) {
 		this.date = date;
 
 	}

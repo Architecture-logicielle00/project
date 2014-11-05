@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class DepenseDeplacement extends Depense {
 
-	public DepenseDeplacement(String _identifiant, Date _date, String _time, String _description, float _distance,float _coutkm) {
+	public DepenseDeplacement(String _identifiant, String _date, String _time, String _description, float _distance,float _coutkm) {
 		super(_identifiant, _date, _time, _description);
 		
 		distance = _distance;

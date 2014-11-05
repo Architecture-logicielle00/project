@@ -10,7 +10,7 @@ public class FactoryDepenseDiverse {
 	public DepenseDiverse creer(DepenseDiverseViewModel v) {
 		DepenseDiverse c = new DepenseDiverse(
 				v.identifiant, 
-				new Date(),
+				v.date,
 				v.time,
 				v.description,
 				v.nbRepas,

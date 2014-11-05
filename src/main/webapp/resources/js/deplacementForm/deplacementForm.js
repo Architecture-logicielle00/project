@@ -33,7 +33,7 @@ function getFormData(){
     return JSON.stringify({
         "distance" : parseFloat($("#distance-input").val()),
         "coutKm" :  parseFloat($("#cout-km-input").val()),
-        "identifiant" : "test",
+        "identifiant" : $("#utilisateur-dropdown").text().replace(/\s/g, ''),
         "description" : "",
         "date" : now.yyyymmdd(),
         "time" : now.hhmmss()
@@ -57,7 +57,7 @@ function updateTable(){
 					 '<th></th>' +
 					 '</tr>';
 	
-	var username = "test";
+	var username = $("#utilisateur-dropdown").text().replace(/\s/g, '');
 	
 	var successFunction = function(data, textStatus, jqXHR){
 			dataFromServer = data;

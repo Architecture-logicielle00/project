@@ -14,12 +14,8 @@ public class FactoryDepenseDeplacement {
 		d.defIdentifiant(dvm.identifiant);
 		d.defCoutKm(dvm.coutKm);
 		d.defDistance(dvm.distance);
-		try {
-			d.defDate(new SimpleDateFormat("yyyy-MM-dd").parse(dvm.date));
-		} catch (ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		d.defDate(dvm.date);
+
 		d.defDescription(dvm.description);
 
 		return d;
