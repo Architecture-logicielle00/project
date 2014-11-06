@@ -47,7 +47,7 @@ public class ControleurDeplacement {
 	ServiceDepenseDeplacement serviceDepenseDeplacement;
 	@Autowired
 	ServiceDepenseDiverse serviceDepenseDiverse;
-
+	@Autowired
 	private IServiceSession manageSession;
 
 	public ControleurDeplacement() {
