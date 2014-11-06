@@ -53,13 +53,6 @@
 							(Km) :</label> <input id="cout-km-input" type="number" />
 					</form>
 				</div>
-				<div class="modal-body">
-					<form id="deplacement-form">
-						<label for="distance-input">Distance :</label> <input
-							id="distance-input" type="number" /> <label for="cout-km-input">Cout
-							(Km) :</label> <input id="cout-km-input" type="number" />
-					</form>
-				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
 					<button id="bouton-sauvegarde-deplacement" type="button"
