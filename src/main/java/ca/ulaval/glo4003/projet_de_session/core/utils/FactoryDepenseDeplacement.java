@@ -1,20 +1,12 @@
 package ca.ulaval.glo4003.projet_de_session.core.utils;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-
 import ca.ulaval.glo4003.projet_de_session.core.domain.DepenseDeplacement;
 import ca.ulaval.glo4003.projet_de_session.web.viewmodels.DepenseDeplacementViewModel;
 
 public class FactoryDepenseDeplacement {
 	public DepenseDeplacement creer(DepenseDeplacementViewModel dvm) {
-		DepenseDeplacement d = new DepenseDeplacement();
-		d.defIdentifiant(dvm.identifiant);
-		d.defCoutKm(dvm.coutKm);
-		d.defDistance(dvm.distance);
-		d.defDate(dvm.date);
-
-		d.defDescription(dvm.description);
+		DepenseDeplacement d = new DepenseDeplacement(dvm.identifiant,
+				dvm.date, dvm.time, dvm.description, dvm.distance, dvm.coutKm);
 
 		return d;
 	}
