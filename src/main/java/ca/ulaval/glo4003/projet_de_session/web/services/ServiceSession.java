@@ -3,10 +3,12 @@ package ca.ulaval.glo4003.projet_de_session.web.services;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
 import ca.ulaval.glo4003.projet_de_session.web.viewmodels.UtilisateurViewModel;
 
+@Service
 public class ServiceSession implements IServiceSession 
 {
 	public Boolean chargerUtilisateurInformation(HttpServletRequest request, Model model)

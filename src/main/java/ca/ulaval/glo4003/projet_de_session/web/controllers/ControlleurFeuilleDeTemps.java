@@ -2,6 +2,7 @@ package ca.ulaval.glo4003.projet_de_session.web.controllers;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
@@ -19,17 +20,14 @@ import ca.ulaval.glo4003.projet_de_session.web.viewmodels.FeuilleDeTempsViewMode
 
 @Controller
 public class ControlleurFeuilleDeTemps {
-
+	@Autowired
 	ServiceEmploye serviceEmploye;
+	@Autowired
 	ServiceFeuilleDeTemps serviceFeuilleDeTemps;
-
+	@Autowired
 	private IServiceSession manageSession;
 
-	public ControlleurFeuilleDeTemps() {
-		manageSession = new ServiceSession();
-		serviceEmploye = new ServiceEmploye();
-		serviceFeuilleDeTemps = new ServiceFeuilleDeTemps();
-	}
+	public ControlleurFeuilleDeTemps() {}
 
 	public ControlleurFeuilleDeTemps(IServiceSession _manageSession) {
 		manageSession = _manageSession;

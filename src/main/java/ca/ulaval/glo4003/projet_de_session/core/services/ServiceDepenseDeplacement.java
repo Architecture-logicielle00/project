@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Collection;
 
+import org.springframework.stereotype.Service;
+
 import ca.ulaval.glo4003.projet_de_session.core.domain.DepenseDeplacement;
 import ca.ulaval.glo4003.projet_de_session.core.utils.FactoryDepenseDeplacement;
 import ca.ulaval.glo4003.projet_de_session.core.utils.FactoryRepository;
@@ -11,6 +13,7 @@ import ca.ulaval.glo4003.projet_de_session.core.utils.converter.DepenseDeplaceme
 import ca.ulaval.glo4003.projet_de_session.persistence.repository.Repository;
 import ca.ulaval.glo4003.projet_de_session.web.viewmodels.DepenseDeplacementViewModel;
 
+@Service
 public class ServiceDepenseDeplacement {
 
 	Repository<DepenseDeplacement> repo;

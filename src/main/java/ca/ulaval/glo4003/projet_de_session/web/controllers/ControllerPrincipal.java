@@ -2,23 +2,24 @@ package ca.ulaval.glo4003.projet_de_session.web.controllers;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
 import ca.ulaval.glo4003.projet_de_session.core.services.ServiceEmploye;
 import ca.ulaval.glo4003.projet_de_session.web.services.IServiceSession;
 import ca.ulaval.glo4003.projet_de_session.web.services.ServiceSession;
 
 @Controller
 public class ControllerPrincipal {
-
+	@Autowired
 	ServiceEmploye serviceEmploye;
+	@Autowired
 	private IServiceSession manageSession;
 
 	public ControllerPrincipal() {
-		manageSession = new ServiceSession();
-		serviceEmploye = new ServiceEmploye();
 	}
 
 	public ControllerPrincipal(IServiceSession _manageSession) {

@@ -2,6 +2,7 @@ package ca.ulaval.glo4003.projet_de_session.web.controllers;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -17,14 +18,12 @@ import ca.ulaval.glo4003.projet_de_session.web.viewmodels.EmployeeViewModel;
 
 @Controller
 public class ControlleurEmploye {
-
+	@Autowired
 	ServiceEmploye serviceEmploye;
-
+	@Autowired
 	private IServiceSession manageSession;
 
 	public ControlleurEmploye() {
-		manageSession = new ServiceSession();
-		serviceEmploye = new ServiceEmploye();
 	}
 
 	public ControlleurEmploye(IServiceSession _manageSession) {

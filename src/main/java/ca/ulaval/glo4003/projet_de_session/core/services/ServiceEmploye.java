@@ -5,6 +5,8 @@ import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
 import ca.ulaval.glo4003.projet_de_session.core.domain.Employe;
 import ca.ulaval.glo4003.projet_de_session.core.utils.FactoryEmploye;
 import ca.ulaval.glo4003.projet_de_session.core.utils.FactoryRepository;
@@ -12,6 +14,7 @@ import ca.ulaval.glo4003.projet_de_session.core.utils.converter.EmployeeConverte
 import ca.ulaval.glo4003.projet_de_session.persistence.repository.Repository;
 import ca.ulaval.glo4003.projet_de_session.web.viewmodels.EmployeeViewModel;
 
+@Service
 public class ServiceEmploye
 {
 	public ServiceEmploye()

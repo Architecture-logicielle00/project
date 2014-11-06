@@ -7,6 +7,7 @@ import java.util.Map;
 
 import org.joda.time.DateTime;
 import org.joda.time.DateTimeConstants;
+import org.springframework.stereotype.Service;
 
 import ca.ulaval.glo4003.projet_de_session.core.domain.Employe;
 import ca.ulaval.glo4003.projet_de_session.core.domain.FeuilleDeTemps;
@@ -16,7 +17,7 @@ import ca.ulaval.glo4003.projet_de_session.core.utils.converter.FeuilleDeTempsCo
 import ca.ulaval.glo4003.projet_de_session.persistence.repository.Repository;
 import ca.ulaval.glo4003.projet_de_session.web.viewmodels.FeuilleDeTempsViewModel;
 
-
+@Service
 public class ServiceFeuilleDeTemps {
 	private Repository<FeuilleDeTemps> repository;
 	private FactoryFeuilleDeTemps factory;

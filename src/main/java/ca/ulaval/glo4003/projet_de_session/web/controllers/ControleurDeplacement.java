@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
@@ -37,20 +38,20 @@ public class ControleurDeplacement {
 		public static final String FEUILLEDETEMPS = "feuilleDeTemps";
 		public static final String DEPENSEDEPLACEMENT = "deplacementForm";
 	}
-
+	
+	@Autowired
 	ServiceEmploye serviceEmploye;
+	@Autowired
 	ServiceFeuilleDeTemps serviceFeuilleDeTemps;
+	@Autowired
 	ServiceDepenseDeplacement serviceDepenseDeplacement;
+	@Autowired
 	ServiceDepenseDiverse serviceDepenseDiverse;
 
 	private IServiceSession manageSession;
 
 	public ControleurDeplacement() {
-		manageSession = new ServiceSession();
-		serviceEmploye = new ServiceEmploye();
-		serviceFeuilleDeTemps = new ServiceFeuilleDeTemps();
-		serviceDepenseDeplacement = new ServiceDepenseDeplacement();
-		serviceDepenseDiverse = new ServiceDepenseDiverse();
+		
 	}
 
 	public ControleurDeplacement(IServiceSession _manageSession) {

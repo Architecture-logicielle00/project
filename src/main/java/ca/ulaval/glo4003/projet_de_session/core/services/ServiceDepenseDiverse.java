@@ -3,6 +3,8 @@ package ca.ulaval.glo4003.projet_de_session.core.services;
 import java.util.Collection;
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
 import ca.ulaval.glo4003.projet_de_session.core.domain.DepenseDiverse;
 import ca.ulaval.glo4003.projet_de_session.core.utils.FactoryDepenseDiverse;
 import ca.ulaval.glo4003.projet_de_session.core.utils.FactoryRepository;
@@ -10,6 +12,7 @@ import ca.ulaval.glo4003.projet_de_session.core.utils.converter.DepenseDiverseCo
 import ca.ulaval.glo4003.projet_de_session.persistence.repository.Repository;
 import ca.ulaval.glo4003.projet_de_session.web.viewmodels.DepenseDiverseViewModel;
 
+@Service
 public class ServiceDepenseDiverse {
 	Repository<DepenseDiverse> repo;
 	FactoryDepenseDiverse factory;
