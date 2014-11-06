@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import ca.ulaval.glo4003.projet_de_session.core.services.ServiceEmploye;
 import ca.ulaval.glo4003.projet_de_session.web.services.IServiceSession;
-import ca.ulaval.glo4003.projet_de_session.web.services.ServiceSession;
 
 @Controller
 public class ControllerPrincipal {

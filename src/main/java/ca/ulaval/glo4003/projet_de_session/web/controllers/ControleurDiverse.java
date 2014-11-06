@@ -17,7 +17,6 @@ import ca.ulaval.glo4003.projet_de_session.core.services.ServiceDepenseDiverse;
 import ca.ulaval.glo4003.projet_de_session.core.services.ServiceEmploye;
 import ca.ulaval.glo4003.projet_de_session.core.services.ServiceFeuilleDeTemps;
 import ca.ulaval.glo4003.projet_de_session.web.services.IServiceSession;
-import ca.ulaval.glo4003.projet_de_session.web.viewmodels.DepenseDeplacementViewModel;
 import ca.ulaval.glo4003.projet_de_session.web.viewmodels.DepenseDiverseViewModel;
 
 @Controller

@@ -15,7 +15,6 @@ import ca.ulaval.glo4003.projet_de_session.core.domain.Employe;
 import ca.ulaval.glo4003.projet_de_session.core.services.ServiceEmploye;
 import ca.ulaval.glo4003.projet_de_session.core.services.ServiceFeuilleDeTemps;
 import ca.ulaval.glo4003.projet_de_session.web.services.IServiceSession;
-import ca.ulaval.glo4003.projet_de_session.web.services.ServiceSession;
 import ca.ulaval.glo4003.projet_de_session.web.viewmodels.FeuilleDeTempsViewModel;
 
 @Controller

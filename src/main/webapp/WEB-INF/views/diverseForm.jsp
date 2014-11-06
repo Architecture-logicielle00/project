@@ -55,7 +55,7 @@
 						<label for="divers-input"> 
 						Cout Divers :</label> <input id="divers-input" type="number" /> 
 						<label for="coucher-input">
-						Nuité :</label> <input id="coucher-input" type="number" />
+						Coucher :</label> <input id="coucher-input" type="number" />
 					</form>
 				</div>
 				<div class="modal-footer">
