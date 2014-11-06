@@ -2,11 +2,11 @@
   <DepenseDiverse>
     <identifiant>ALSAM</identifiant>
     <date>2014-11-06</date>
-    <time>14:53:27</time>
+    <time>15:06:10</time>
     <description></description>
     <nbRepas>1</nbRepas>
-    <coutRepas>1.0</coutRepas>
-    <divers>1.0</divers>
-    <coucher>1.0</coucher>
+    <coutRepas>2.0</coutRepas>
+    <divers>3.0</divers>
+    <coucher>4.0</coucher>
   </DepenseDiverse>
 </list>

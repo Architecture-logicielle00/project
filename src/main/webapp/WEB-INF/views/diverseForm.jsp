@@ -44,19 +44,18 @@
 					<button type="button" class="close" data-dismiss="modal">
 						<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
 					</button>
-					<h4 class="modal-title">Nouveau Déplacement</h4>
+					<h4 class="modal-title">Nouvelle dépense</h4>
 				</div>
-				
-				
-				
 				<div class="modal-body">
 					<form id="diverse-form">
-						<label for="nbRepas-input">Nombre de Repas :</label> <input
-							id="nbRepas-input" type="number" /> <label for="coutRepas-input">Cout par Repas
-							:</label> <input id="coutRepas-input" type="number" />Couts divers
-						<label for="divers-input">Cout Divers :</label> <input
-							id="divers-input" type="number" /> <label for="coucher-input">Nuité
-							:</label> <input id="coucher-input" type="number" />
+						<label for="nbRepas-input"> 
+						Nombre de Repas :</label> <input id="nbRepas-input" type="number" /> 
+						<label for="coutRepas-input"> 
+						Cout par Repas :</label> <input id="coutRepas-input" type="number" />
+						<label for="divers-input"> 
+						Cout Divers :</label> <input id="divers-input" type="number" /> 
+						<label for="coucher-input">
+						Nuité :</label> <input id="coucher-input" type="number" />
 					</form>
 				</div>
 				<div class="modal-footer">
