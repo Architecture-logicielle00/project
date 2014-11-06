@@ -39,7 +39,7 @@
 					class="fa fa-fw fa fa-clock-o"></i> Feuille de Temps</a>
 			</li>
 			<li>
-				<a href="/deplacementForm"><i class="fa fa-fw fa-money"></i> Depense relatives aux deplacements</a>
+				<a href="/deplacementForm"><i class="fa fa-fw fa-money"></i> Depenses relatives aux deplacements</a>
 			</li>
 			<li>
 				<a href="/diverseForm"><i class="fa fa-fw fa-money"></i> Depenses diverses</a>
