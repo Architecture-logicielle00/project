@@ -48,7 +48,7 @@ function updateTable(){
 			    '<td class="coutRepas">{{coutRepas}}</td>' +
 			    '<td class="divers">{{divers}}</td>' +
 			    '<td class="coucher">{{coucher}}</td>' +
-			    '<td class="commentaires">{{commentaires}}</td>' +
+			    '<td class="description">{{description}}</td>' +
 			  '</tr>';
 	
 	var headerTpl = '<tr>' +

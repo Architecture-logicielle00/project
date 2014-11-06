@@ -27,7 +27,7 @@
 				</table>
 
 				<button type="button" class="btn btn-primary btn-lg"
-					data-toggle="modal" data-target="#nouveau-diverse-formulaire">
+					data-toggle="modal" data-target="#nouvelle-depense-formulaire">
 					Ajouter</button>
 			</div>
 
@@ -37,7 +37,7 @@
 	</div>
 	<!-- /#wrapper -->
 
-	<div class="modal fade" id="nouveau-diverse-formulaire">
+	<div class="modal fade" id="nouvelle-depense-formulaire">
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">

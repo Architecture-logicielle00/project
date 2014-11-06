@@ -18,6 +18,7 @@ import ca.ulaval.glo4003.projet_de_session.core.services.ServiceEmploye;
 import ca.ulaval.glo4003.projet_de_session.core.services.ServiceFeuilleDeTemps;
 import ca.ulaval.glo4003.projet_de_session.web.services.IServiceSession;
 import ca.ulaval.glo4003.projet_de_session.web.viewmodels.DepenseDeplacementViewModel;
+import ca.ulaval.glo4003.projet_de_session.web.viewmodels.DepenseDiverseViewModel;
 
 @Controller
 public class ControleurDeplacement {
@@ -63,6 +64,14 @@ public class ControleurDeplacement {
 	public @ResponseBody List<DepenseDeplacementViewModel> obtenirDeplacements(
 			Model model, @PathVariable String utilisateur) {
 		return serviceDepenseDeplacement.obtParUtilisateur(utilisateur);
+	}
+
+	@RequestMapping(value = "/diverseForm", method = RequestMethod.POST)
+	public @ResponseBody Boolean sauvegarderDepenseDeplacement(
+			@RequestBody DepenseDiverseViewModel depenseDiverseViewModel,
+			HttpServletRequest request, Model model) {
+		serviceDepenseDiverse.Creer(depenseDiverseViewModel);
+		return true;
 	}
 
 	private String chargerPageOuLogin(String _page, HttpServletRequest request,

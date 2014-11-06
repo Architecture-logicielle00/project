@@ -1,6 +1,4 @@
-/**
- * Created by David on 2014-10-30.
- */
+
 $(document).ready(function(){
 	
 	updateTable();
