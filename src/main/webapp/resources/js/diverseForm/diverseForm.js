@@ -43,7 +43,7 @@ function getFormData(){
 function updateTable(){
 	var dataFromServer = [];
 	var bodyTpl = '<tr>' +
-				'<td class="date">{{nbRepas}}</td>' +
+				'<td class="date">{{date}}</td>' +
 			  	'<td class="nbRepas">{{nbRepas}}</td>' +
 			    '<td class="coutRepas">{{coutRepas}}</td>' +
 			    '<td class="divers">{{divers}}</td>' +
