@@ -57,7 +57,7 @@ public class ControleurDiverse {
 		return true;
 	}
 	
-	//Besoin de ca pour le dropper dans le xml
+	
 	@RequestMapping(value = "{utilisateur}/diverse")
 	public @ResponseBody List<DepenseDiverseViewModel> obtenirDiverse(
 			Model model, @PathVariable String utilisateur) {

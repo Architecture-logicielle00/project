@@ -52,31 +52,6 @@
   <FeuilleDeTemps>
     <taches>
       <ca.ulaval.glo4003.projet__de__session.core.domain.TempsParTache>
-        <tache>Enseigner larchitecture logicielle </tache>
-        <nbHeuresParJours>
-          <float>0.0</float>
-          <float>0.0</float>
-          <float>0.0</float>
-          <float>0.0</float>
-          <float>0.0</float>
-          <float>0.0</float>
-          <float>0.0</float>
-          <float>0.0</float>
-          <float>0.0</float>
-          <float>0.0</float>
-          <float>0.0</float>
-          <float>0.0</float>
-          <float>0.0</float>
-        </nbHeuresParJours>
-      </ca.ulaval.glo4003.projet__de__session.core.domain.TempsParTache>
-    </taches>
-    <debut>2014-10-27 16:51:25.648 UTC</debut>
-    <fin>2014-11-09 17:51:25.648 UTC</fin>
-    <identifiant>OLDU</identifiant>
-  </FeuilleDeTemps>
-  <FeuilleDeTemps>
-    <taches>
-      <ca.ulaval.glo4003.projet__de__session.core.domain.TempsParTache>
         <tache>promener le chien</tache>
         <nbHeuresParJours>
           <float>0.0</float>
@@ -136,6 +111,31 @@
   <FeuilleDeTemps>
     <taches>
       <ca.ulaval.glo4003.projet__de__session.core.domain.TempsParTache>
+        <tache>Enseigner larchitecture logicielle </tache>
+        <nbHeuresParJours>
+          <float>0.0</float>
+          <float>0.0</float>
+          <float>0.0</float>
+          <float>0.0</float>
+          <float>0.0</float>
+          <float>0.0</float>
+          <float>0.0</float>
+          <float>0.0</float>
+          <float>0.0</float>
+          <float>0.0</float>
+          <float>0.0</float>
+          <float>0.0</float>
+          <float>0.0</float>
+        </nbHeuresParJours>
+      </ca.ulaval.glo4003.projet__de__session.core.domain.TempsParTache>
+    </taches>
+    <debut>2014-10-27 16:51:25.648 UTC</debut>
+    <fin>2014-11-09 17:51:25.648 UTC</fin>
+    <identifiant>OLDU</identifiant>
+  </FeuilleDeTemps>
+  <FeuilleDeTemps>
+    <taches>
+      <ca.ulaval.glo4003.projet__de__session.core.domain.TempsParTache>
         <tache>Sacrer</tache>
         <nbHeuresParJours>
           <null/>
@@ -184,12 +184,6 @@
     <identifiant>MOMEC</identifiant>
   </FeuilleDeTemps>
   <FeuilleDeTemps>
-    <taches/>
-    <debut>2014-10-13 04:00:00.0 UTC</debut>
-    <fin>2014-10-26 04:00:00.0 UTC</fin>
-    <identifiant>BOB</identifiant>
-  </FeuilleDeTemps>
-  <FeuilleDeTemps>
     <taches>
       <ca.ulaval.glo4003.projet__de__session.core.domain.TempsParTache>
         <tache>Enseigner l&apos;architecture logicielle </tache>
@@ -213,6 +207,12 @@
     <debut>2014-10-13 04:00:00.0 UTC</debut>
     <fin>2014-10-26 04:00:00.0 UTC</fin>
     <identifiant>OLDU</identifiant>
+  </FeuilleDeTemps>
+  <FeuilleDeTemps>
+    <taches/>
+    <debut>2014-10-13 04:00:00.0 UTC</debut>
+    <fin>2014-10-26 04:00:00.0 UTC</fin>
+    <identifiant>BOB</identifiant>
   </FeuilleDeTemps>
   <FeuilleDeTemps>
     <taches>

@@ -34,14 +34,6 @@
   <DepenseDeplacement>
     <identifiant>ALSAM</identifiant>
     <date>2014-11-06</date>
-    <time>15:22:28</time>
-    <description></description>
-    <distance>4.0</distance>
-    <coutkm>4.0</coutkm>
-  </DepenseDeplacement>
-  <DepenseDeplacement>
-    <identifiant>ALSAM</identifiant>
-    <date>2014-11-06</date>
     <time>16:01:35</time>
     <description></description>
     <distance>2.0</distance>
@@ -50,18 +42,42 @@
   <DepenseDeplacement>
     <identifiant>ALSAM</identifiant>
     <date>2014-11-06</date>
-    <time>13:31:39</time>
-    <description></description>
-    <distance>1.0</distance>
-    <coutkm>1.0</coutkm>
-  </DepenseDeplacement>
-  <DepenseDeplacement>
-    <identifiant>ALSAM</identifiant>
-    <date>2014-11-06</date>
     <time>16:01:46</time>
     <description></description>
     <distance>1.11111107E10</distance>
     <coutkm>2.0</coutkm>
+  </DepenseDeplacement>
+  <DepenseDeplacement>
+    <identifiant>ALSAM</identifiant>
+    <date>2014-11-06</date>
+    <time>13:44:39</time>
+    <description></description>
+    <distance>5.0</distance>
+    <coutkm>5.0</coutkm>
+  </DepenseDeplacement>
+  <DepenseDeplacement>
+    <identifiant>ALSAM</identifiant>
+    <date>2014-11-06</date>
+    <time>16:06:22</time>
+    <description></description>
+    <distance>4.0</distance>
+    <coutkm>5.0</coutkm>
+  </DepenseDeplacement>
+  <DepenseDeplacement>
+    <identifiant>ALSAM</identifiant>
+    <date>2014-11-06</date>
+    <time>15:22:28</time>
+    <description></description>
+    <distance>4.0</distance>
+    <coutkm>4.0</coutkm>
+  </DepenseDeplacement>
+  <DepenseDeplacement>
+    <identifiant>ALSAM</identifiant>
+    <date>2014-11-06</date>
+    <time>13:31:39</time>
+    <description></description>
+    <distance>1.0</distance>
+    <coutkm>1.0</coutkm>
   </DepenseDeplacement>
   <DepenseDeplacement>
     <identifiant>ALSAM</identifiant>
@@ -78,14 +94,6 @@
     <description></description>
     <distance>1.0</distance>
     <coutkm>1.0</coutkm>
-  </DepenseDeplacement>
-  <DepenseDeplacement>
-    <identifiant>ALSAM</identifiant>
-    <date>2014-11-06</date>
-    <time>13:44:39</time>
-    <description></description>
-    <distance>5.0</distance>
-    <coutkm>5.0</coutkm>
   </DepenseDeplacement>
   <DepenseDeplacement>
     <identifiant>ALSAM</identifiant>
