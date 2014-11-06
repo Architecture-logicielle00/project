@@ -1,24 +1,5 @@
 <list>
   <Employe>
-    <nomUtilisateur>JPDEL</nomUtilisateur>
-    <mdp>12345</mdp>
-    <nom>Delisle</nom>
-    <prenom>Jean-Phillipe</prenom>
-    <entreprise></entreprise>
-    <email></email>
-    <pays></pays>
-    <province></province>
-    <ville></ville>
-    <codePostal></codePostal>
-    <genre></genre>
-    <numTelephone></numTelephone>
-    <feuillesDeTemps/>
-    <taches>
-      <string>Manger une poutine</string>
-    </taches>
-    <statutGestionnaire>false</statutGestionnaire>
-  </Employe>
-  <Employe>
     <nomUtilisateur>OLDU</nomUtilisateur>
     <mdp>12345</mdp>
     <nom>Dugas</nom>
@@ -38,6 +19,25 @@
       <string>Enseigner larchitecture logicielle </string>
     </taches>
     <statutGestionnaire>true</statutGestionnaire>
+  </Employe>
+  <Employe>
+    <nomUtilisateur>JPDEL</nomUtilisateur>
+    <mdp>12345</mdp>
+    <nom>Delisle</nom>
+    <prenom>Jean-Phillipe</prenom>
+    <entreprise></entreprise>
+    <email></email>
+    <pays></pays>
+    <province></province>
+    <ville></ville>
+    <codePostal></codePostal>
+    <genre></genre>
+    <numTelephone></numTelephone>
+    <feuillesDeTemps/>
+    <taches>
+      <string>Manger une poutine</string>
+    </taches>
+    <statutGestionnaire>false</statutGestionnaire>
   </Employe>
   <Employe>
     <nomUtilisateur>MOMEC</nomUtilisateur>
@@ -82,6 +82,18 @@
     <statutGestionnaire>false</statutGestionnaire>
   </Employe>
   <Employe>
+    <nomUtilisateur>dfdgtrgfsgfds</nomUtilisateur>
+    <mdp>12345</mdp>
+    <nom></nom>
+    <entreprise>NERV</entreprise>
+    <pays></pays>
+    <province></province>
+    <dateDeNaissance>2014-10-17 08:03:36.948 UTC</dateDeNaissance>
+    <feuillesDeTemps/>
+    <taches/>
+    <statutGestionnaire>false</statutGestionnaire>
+  </Employe>
+  <Employe>
     <nomUtilisateur>LAHOL</nomUtilisateur>
     <mdp>12345</mdp>
     <nom>Holy</nom>
@@ -100,18 +112,6 @@
     <taches>
       <string>Decouvrir</string>
     </taches>
-    <statutGestionnaire>false</statutGestionnaire>
-  </Employe>
-  <Employe>
-    <nomUtilisateur>dfdgtrgfsgfds</nomUtilisateur>
-    <mdp>12345</mdp>
-    <nom></nom>
-    <entreprise>NERV</entreprise>
-    <pays></pays>
-    <province></province>
-    <dateDeNaissance>2014-10-17 08:03:36.948 UTC</dateDeNaissance>
-    <feuillesDeTemps/>
-    <taches/>
     <statutGestionnaire>false</statutGestionnaire>
   </Employe>
   <Employe>

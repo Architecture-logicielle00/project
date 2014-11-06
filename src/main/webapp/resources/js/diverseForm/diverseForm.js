@@ -43,16 +43,20 @@ function getFormData(){
 function updateTable(){
 	var dataFromServer = [];
 	var bodyTpl = '<tr>' +
-			  	'<td class="date">{{date}}</td>' +
-			    '<td class="distance">{{distance}}</td>' +
-			    '<td class="cout-km">{{coutKm}}</td>' +
+				'<td class="date">{{nbRepas}}</td>' +
+			  	'<td class="nbRepas">{{nbRepas}}</td>' +
+			    '<td class="coutRepas">{{coutRepas}}</td>' +
+			    '<td class="divers">{{divers}}</td>' +
+			    '<td class="coucher">{{coucher}}</td>' +
 			    '<td class="commentaires">{{commentaires}}</td>' +
 			  '</tr>';
 	
 	var headerTpl = '<tr>' +
 					 '<th>Date</th>' +
-					 '<th>Distance(Km)</th>' +
-					 '<th>Cout($/Km)</th>' +
+					 '<th>Nombre de Repas</th>' +
+					 '<th>Cout par repas($)</th>' +
+					 '<th>Coût divers($/Km)</th>' +
+					 '<th>Coucher($/Km)</th>' +
 					 '<th>Description</th>' +
 					 '<th></th>' +
 					 '</tr>';

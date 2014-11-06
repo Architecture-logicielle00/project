@@ -1,11 +1,10 @@
 package ca.ulaval.glo4003.projet_de_session.core.domain;
 
-import java.util.Date;
-
 public class DepenseDiverse extends Depense {
 
-	public DepenseDiverse(String _identifiant, String _date, String _time, String _description, int _nbRepas,
-			float _coutRepas, float _divers, float _coucher) {
+	public DepenseDiverse(String _identifiant, String _date, String _time,
+			String _description, int _nbRepas, float _coutRepas, float _divers,
+			float _coucher) {
 		super(_identifiant, _date, _time, _description);
 
 		nbRepas = _nbRepas;
