@@ -1,15 +1,18 @@
 package ca.ulaval.glo4003.projet_de_session.core.services;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
 
 import ca.ulaval.glo4003.projet_de_session.core.domain.DepenseDiverse;
+import ca.ulaval.glo4003.projet_de_session.core.domain.DepenseDiverse;
 import ca.ulaval.glo4003.projet_de_session.core.utils.FactoryDepenseDiverse;
 import ca.ulaval.glo4003.projet_de_session.core.utils.FactoryRepository;
 import ca.ulaval.glo4003.projet_de_session.core.utils.converter.DepenseDiverseConverter;
 import ca.ulaval.glo4003.projet_de_session.persistence.repository.Repository;
+import ca.ulaval.glo4003.projet_de_session.web.viewmodels.DepenseDiverseViewModel;
 import ca.ulaval.glo4003.projet_de_session.web.viewmodels.DepenseDiverseViewModel;
 
 @Service
@@ -47,15 +50,20 @@ public class ServiceDepenseDiverse {
 
 	public void defDepenseDiverse(DepenseDiverseViewModel v) {
 		DepenseDiverse d = obtenir(v.identifiant);
+	}
 
-//		d.defDate(v.date);
-//		d.defCoutRepas(v.coutRepas);
-//		d.defNbRepas(v.nbRepas);
-//		d.defCoucher(v.coucher);
-//		d.defDivers(v.divers);
-//		d.defSousTotal(v.sousTotal);
-//		d.defDescription(v.description);
-//		d.defTotal(v.total);
+	public List<DepenseDiverseViewModel> obtParUtilisateur(
+			String utilisateur) {
+		List<DepenseDiverse> collection = obtTout();
 
-}
+		List<DepenseDiverse> collectionFiltre = new ArrayList<DepenseDiverse>();
+
+		for (DepenseDiverse depenseDiverse : collection) {
+			if (depenseDiverse.obtIdentifant() == utilisateur)
+				collectionFiltre.add(depenseDiverse);
+		}
+
+		return (List<DepenseDiverseViewModel>) conv.convert(collection);
+
+	}
 }

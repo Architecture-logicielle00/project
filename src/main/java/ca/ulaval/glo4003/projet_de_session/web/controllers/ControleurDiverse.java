@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-import ca.ulaval.glo4003.projet_de_session.core.services.ServiceDepenseDeplacement;
+
 import ca.ulaval.glo4003.projet_de_session.core.services.ServiceDepenseDiverse;
 import ca.ulaval.glo4003.projet_de_session.core.services.ServiceEmploye;
 import ca.ulaval.glo4003.projet_de_session.core.services.ServiceFeuilleDeTemps;
@@ -21,10 +21,10 @@ import ca.ulaval.glo4003.projet_de_session.web.viewmodels.DepenseDeplacementView
 import ca.ulaval.glo4003.projet_de_session.web.viewmodels.DepenseDiverseViewModel;
 
 @Controller
-public class ControleurDeplacement {
+public class ControleurDiverse {
 	private static class Page {
 		public static final String CONNECTION = "login";
-		public static final String DEPENSEDEPLACEMENT = "deplacementForm";
+		public static final String DEPENSEDIVERSE = "diverseForm";
 	}
 
 	@Autowired
@@ -32,48 +32,39 @@ public class ControleurDeplacement {
 	@Autowired
 	ServiceFeuilleDeTemps serviceFeuilleDeTemps;
 	@Autowired
-	ServiceDepenseDeplacement serviceDepenseDeplacement;
-	@Autowired
 	ServiceDepenseDiverse serviceDepenseDiverse;
 	@Autowired
 	private IServiceSession manageSession;
 
-	public ControleurDeplacement() {
+	public ControleurDiverse() {
 
 	}
 
-	public ControleurDeplacement(IServiceSession _manageSession) {
+	public ControleurDiverse(IServiceSession _manageSession) {
 		manageSession = _manageSession;
 	}
 
-	@RequestMapping("/deplacementForm")
-	public String depenseDeplacement(HttpServletRequest request, Model model) {
+	@RequestMapping("/diverseForm")
+	public String depenseDiverse(HttpServletRequest request, Model model) {
 
-		return chargerPageOuLogin(Page.DEPENSEDEPLACEMENT, request, model);
+		return chargerPageOuLogin(Page.DEPENSEDIVERSE, request, model);
 	}
 
-	@RequestMapping(value = "/deplacementFormDeplacement", method = RequestMethod.POST)
-	public @ResponseBody Boolean sauvegarderDepenseDeplacement(
-			@RequestBody DepenseDeplacementViewModel depenseDeplacementViewModel,
-			HttpServletRequest request, Model model) {
-		serviceDepenseDeplacement.creer(depenseDeplacementViewModel);
-		return true;
-	}
-
-	@RequestMapping(value = "{utilisateur}/deplacements")
-	public @ResponseBody List<DepenseDeplacementViewModel> obtenirDeplacements(
-			Model model, @PathVariable String utilisateur) {
-		return serviceDepenseDeplacement.obtParUtilisateur(utilisateur);
-	}
-
-	@RequestMapping(value = "/diverseForm", method = RequestMethod.POST)
-	public @ResponseBody Boolean sauvegarderDepenseDeplacement(
+	@RequestMapping(value = "/diverseFormdiverse", method = RequestMethod.POST)
+	public @ResponseBody Boolean sauvegarderDepenseDiverse(
 			@RequestBody DepenseDiverseViewModel depenseDiverseViewModel,
 			HttpServletRequest request, Model model) {
 		serviceDepenseDiverse.Creer(depenseDiverseViewModel);
 		return true;
 	}
-
+	
+	//Besoin de ca pour le dropper dans le xml
+	@RequestMapping(value = "{utilisateur}/diverse")
+	public @ResponseBody List<DepenseDiverseViewModel> obtenirDiverse(
+			Model model, @PathVariable String utilisateur) {
+		return serviceDepenseDiverse.obtParUtilisateur(utilisateur);
+	}
+	
 	private String chargerPageOuLogin(String _page, HttpServletRequest request,
 			Model model) {
 		if (manageSession.chargerUtilisateurInformation(request, model))

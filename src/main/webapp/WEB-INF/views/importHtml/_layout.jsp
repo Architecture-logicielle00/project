@@ -23,7 +23,7 @@
 						<a href="#"><i class="fa fa-fw fa-user"></i> Profile</a>
 					</li>
 					<li>
-						<a href="#"><i class="fa fa-fw fa-gear"></i> Paramètres</a>
+						<a href="#"><i class="fa fa-fw fa-gear"></i> Paramï¿½tres</a>
 					</li>
 				</c:if>
 				<li class="divider"></li>
@@ -39,16 +39,19 @@
 					class="fa fa-fw fa fa-clock-o"></i> Feuille de Temps</a>
 			</li>
 			<li>
-				<a href="/deplacementForm"><i class="fa fa-fw fa-money"></i> Dépenses /Déplacements</a>
+				<a href="/deplacementForm"><i class="fa fa-fw fa-money"></i> Depense relatives aux deplacements</a>
+			</li>
+			<li>
+				<a href="/diverseForm"><i class="fa fa-fw fa-money"></i> Depenses diverses</a>
 			</li>
 			<c:if test="false">
 				<li>
-					<a href=""><i class="fa fa-fw fa-tasks"></i>Projets/Tâches</a>
+					<a href=""><i class="fa fa-fw fa-tasks"></i>Projets et tÃ¢ches</a>
 				</li>
 			</c:if>
 			<c:if test="${utilisateur.estGestionnaire()}">
 				<li><a href="/gestionEmployee"><i
-						class="fa fa-fw fa fa-users"></i> Gestion des Employés</a></li>
+						class="fa fa-fw fa fa-users"></i> Gestion des EmployÃ©s</a></li>
 			</c:if>
 		</ul>
 	</div>
