@@ -8,16 +8,16 @@ $(document).ready(function(){
 
 function addEvent(){
     $("#bouton-sauvegarde-diverse").on("click", function(){
-        sauvegarderNouveaudiverse();
+        sauvegarderDiverse();
     })
 }
 
-function sauvegarderNouveaudiverse(){
+function sauvegarderDiverse(){
     var data = getFormData();
     
     var successFunction = function(data, textStatus, jqXHR){
     		hideCallBack();
-    		alert("Enregistrement reussi"); 
+    		alert("Enregistrement réussi"); 
     		updateTable();
     	};
     
@@ -55,8 +55,8 @@ function updateTable(){
 					 '<th>Date</th>' +
 					 '<th>Nombre de Repas</th>' +
 					 '<th>Cout par repas($)</th>' +
-					 '<th>Coût divers($/Km)</th>' +
-					 '<th>Coucher($/Km)</th>' +
+					 '<th>Coût divers($)</th>' +
+					 '<th>Coucher($)</th>' +
 					 '<th>Description</th>' +
 					 '<th></th>' +
 					 '</tr>';
