@@ -66,14 +66,6 @@ public class ControleurDeplacement {
 		return serviceDepenseDeplacement.obtParUtilisateur(utilisateur);
 	}
 
-	@RequestMapping(value = "/diverseForm", method = RequestMethod.POST)
-	public @ResponseBody Boolean sauvegarderDepenseDeplacement(
-			@RequestBody DepenseDiverseViewModel depenseDiverseViewModel,
-			HttpServletRequest request, Model model) {
-		serviceDepenseDiverse.Creer(depenseDiverseViewModel);
-		return true;
-	}
-
 	private String chargerPageOuLogin(String _page, HttpServletRequest request,
 			Model model) {
 		if (manageSession.chargerUtilisateurInformation(request, model))

@@ -64,6 +64,7 @@ public class ControleurDiverse {
 		return serviceDepenseDiverse.obtParUtilisateur(utilisateur);
 	}
 	
+	
 	private String chargerPageOuLogin(String _page, HttpServletRequest request,
 			Model model) {
 		if (manageSession.chargerUtilisateurInformation(request, model))
