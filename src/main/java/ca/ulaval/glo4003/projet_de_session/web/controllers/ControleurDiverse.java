@@ -53,7 +53,7 @@ public class ControleurDiverse {
 	public @ResponseBody Boolean sauvegarderDepenseDiverse(
 			@RequestBody DepenseDiverseViewModel depenseDiverseViewModel,
 			HttpServletRequest request, Model model) {
-		serviceDepenseDiverse.Creer(depenseDiverseViewModel);
+		serviceDepenseDiverse.creer(depenseDiverseViewModel);
 		return true;
 	}
 	

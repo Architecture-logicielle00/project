@@ -1,24 +1,36 @@
-
 package ca.ulaval.glo4003.projet_de_session.persistence.repositoryXml;
+
+import java.text.SimpleDateFormat;
 
 import ca.ulaval.glo4003.projet_de_session.core.domain.DepenseDiverse;
 
-public class RepoDepenseDiverseXml extends RepoGeneralXml<DepenseDiverse> {
+public class RepoDepenseDiverseXml extends
+		RepoGeneralXml<DepenseDiverse> {
+
+	private SimpleDateFormat dateFormatter;
 
 	public RepoDepenseDiverseXml() {
-		super(DepenseDiverse.class,"depensesDiverse");
+		super(DepenseDiverse.class, "depensesdiverse");
+		dateFormatter = new SimpleDateFormat("yyyy-MM-dd");
 	}
 
 	public String ajouter(DepenseDiverse depense) {
-		put(depense.obtIdentifant(),depense);
-		
-		return depense.obtIdentifant();
+
+		String id = depense.obtIdentifant() + depense.obtDate()
+				+ depense.obtTime();
+
+		put(id, depense);
+
+		return id;
 	}
 
 	public void modifier(DepenseDiverse depense) {
-		if(obt( depense.obtIdentifant() ) != null)
-		{
-			put(depense.obtIdentifant(), depense);
+
+		String id = depense.obtIdentifant() + depense.obtDate()
+				+ depense.obtTime();
+
+		if (obt(id) != null) {
+			put(id, depense);
 		}
 	}
 }

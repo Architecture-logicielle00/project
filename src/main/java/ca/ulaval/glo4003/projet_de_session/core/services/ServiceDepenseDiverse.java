@@ -1,22 +1,21 @@
 package ca.ulaval.glo4003.projet_de_session.core.services;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
+import java.util.Collection;
 
 import org.springframework.stereotype.Service;
 
-import ca.ulaval.glo4003.projet_de_session.core.domain.DepenseDiverse;
 import ca.ulaval.glo4003.projet_de_session.core.domain.DepenseDiverse;
 import ca.ulaval.glo4003.projet_de_session.core.utils.FactoryDepenseDiverse;
 import ca.ulaval.glo4003.projet_de_session.core.utils.FactoryRepository;
 import ca.ulaval.glo4003.projet_de_session.core.utils.converter.DepenseDiverseConverter;
 import ca.ulaval.glo4003.projet_de_session.persistence.repository.Repository;
 import ca.ulaval.glo4003.projet_de_session.web.viewmodels.DepenseDiverseViewModel;
-import ca.ulaval.glo4003.projet_de_session.web.viewmodels.DepenseDiverseViewModel;
 
 @Service
 public class ServiceDepenseDiverse {
+
 	Repository<DepenseDiverse> repo;
 	FactoryDepenseDiverse factory;
 	DepenseDiverseConverter conv;
@@ -27,43 +26,41 @@ public class ServiceDepenseDiverse {
 		conv = new DepenseDiverseConverter();
 	}
 
-	public DepenseDiverse obtenir(String identifiant) {
-		return repo.obt(identifiant);
+	public DepenseDiverseViewModel obtenir(String id) {
+		return conv.convert(repo.obt(id));
 	}
 
-	public void Creer(DepenseDiverseViewModel v) {
-		DepenseDiverse d = factory.creer(v);
+	public void creer(DepenseDiverseViewModel v) {
+		DepenseDiverse d = conv.convert(v);
 		repo.ajouter(d);
 	}
 
-	public void modifier(DepenseDiverse depense) {
-		repo.modifier(depense);
+	public void modifier(DepenseDiverseViewModel depense) {
+		repo.modifier(conv.convert(depense));
 	}
 
-	public List<DepenseDiverse> obtTout() {
+	private List<DepenseDiverse> obtTout() {
 		return repo.obtTout();
 	}
-
-	public Collection<DepenseDiverseViewModel> obtDepenseDiverseViewModel() {
+	
+	public List<DepenseDiverseViewModel> obtParUtilisateur(String utilisateur) {
+		List<DepenseDiverse> collection = obtTout();
+		
+		List<DepenseDiverse> collectionFiltre = new ArrayList<DepenseDiverse>();
+		
+		
+		for (DepenseDiverse depensediverse : collection) {
+			if(depensediverse.obtIdentifant() == utilisateur)
+				collectionFiltre.add(depensediverse);
+		}
+		
+		return (List<DepenseDiverseViewModel>) conv.convert(collection);
+		
+		
+	}
+	
+	public Collection<DepenseDiverseViewModel> obtDepensediverseViewModel() {
 		return conv.convert(obtTout());
 	}
 
-	public void defDepenseDiverse(DepenseDiverseViewModel v) {
-		DepenseDiverse d = obtenir(v.identifiant);
-	}
-
-	public List<DepenseDiverseViewModel> obtParUtilisateur(
-			String utilisateur) {
-		List<DepenseDiverse> collection = obtTout();
-
-		List<DepenseDiverse> collectionFiltre = new ArrayList<DepenseDiverse>();
-
-		for (DepenseDiverse depenseDiverse : collection) {
-			if (depenseDiverse.obtIdentifant() == utilisateur)
-				collectionFiltre.add(depenseDiverse);
-		}
-
-		return (List<DepenseDiverseViewModel>) conv.convert(collection);
-
-	}
 }

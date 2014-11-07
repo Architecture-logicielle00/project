@@ -114,6 +114,14 @@
   <DepenseDeplacement>
     <identifiant>ALSAM</identifiant>
     <date>2014-11-06</date>
+    <time>19:34:00</time>
+    <description></description>
+    <distance>7.0</distance>
+    <coutkm>8.0</coutkm>
+  </DepenseDeplacement>
+  <DepenseDeplacement>
+    <identifiant>ALSAM</identifiant>
+    <date>2014-11-06</date>
     <time>14:34:06</time>
     <description></description>
     <distance>1.0</distance>
