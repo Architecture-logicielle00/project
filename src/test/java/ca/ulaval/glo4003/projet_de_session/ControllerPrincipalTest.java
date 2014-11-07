@@ -2,7 +2,10 @@ package ca.ulaval.glo4003.projet_de_session;
 
 import static org.junit.Assert.*;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.junit.Test;
+import org.mockito.Mockito;
 import org.springframework.ui.ExtendedModelMap;
 
 import ca.ulaval.glo4003.projet_de_session.web.controllers.ControllerPrincipal;
@@ -17,24 +20,24 @@ public class ControllerPrincipalTest {
 	
 	@Test
 	public void rendersLogin() {
-		HttpServletRequestTest req = new HttpServletRequestTest();
+		HttpServletRequest req = Mockito.mock(HttpServletRequest.class);
 		assertEquals("login", ObtenirControlleurTest().login(req,new ExtendedModelMap()));
 	}
 	
 	@Test
 	public void rendersIndex() {
-		HttpServletRequestTest req = new HttpServletRequestTest();
-		req.setAttribute("nomUtilisateur", "Jeff");
-		req.setAttribute("mdp", "12345");
-		
+		HttpServletRequest req = Mockito.mock(HttpServletRequest.class);
+		Mockito.when(req.getParameter("nomUtilisateur")).thenReturn("JFGRA");
+		Mockito.when(req.getParameter("mdp")).thenReturn("12345");
+
 		assertEquals("index", ObtenirControlleurTest().connection(req,new ExtendedModelMap()));
 	}
 	
 	@Test
 	public void rendersErreuLogin() {
-		HttpServletRequestTest req = new HttpServletRequestTest();
-		req.setAttribute("nomUtilisateur", "MauvaisUser");
-		req.setAttribute("mdp", "98765");
+		HttpServletRequest req = Mockito.mock(HttpServletRequest.class);
+		Mockito.when(req.getParameter("nomUtilisateur")).thenReturn("MauvaisUser");
+		Mockito.when(req.getParameter("mdp")).thenReturn("98765");
 		
 		assertEquals("erreur", ObtenirControlleurTest().connection(req,new ExtendedModelMap()));
 	}

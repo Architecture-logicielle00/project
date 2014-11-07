@@ -4,10 +4,8 @@ import static org.junit.Assert.*;
 
 import java.util.ArrayList;
 
-import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 
 import ca.ulaval.glo4003.projet_de_session.exception.FeuilleDeTempsIntrouvableException;
@@ -17,11 +15,6 @@ public class EmployeTest {
 	private static Employe employe;
 	private static ArrayList<String> taches;
 	private static ArrayList<String> feuillesDeTemps;
-	
-	@BeforeClass
-	public static void setUpBeforeClass() throws Exception {
-
-	}
 
 	@AfterClass
 	public static void tearDownAfterClass() throws Exception {
@@ -35,11 +28,6 @@ public class EmployeTest {
 		feuillesDeTemps = new ArrayList<String>();
 		
 	}
-
-	@After
-	public void tearDown() throws Exception {
-	}
-
 	
 	@Test
 	public void testAjouterTache() {

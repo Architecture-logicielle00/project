@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -37,6 +38,14 @@ public class RepoFeuilleDeTempsXmlTest {
 	private static Xml<FeuilleDeTemps> xmlFeuilleDeTemps;
 	private static ArrayList<FeuilleDeTemps> sauvegardeCollection;
 	
+	private static Date createDate(int annee, int mois, int jour){
+		Calendar cal = Calendar.getInstance();
+	    cal.set(Calendar.YEAR, annee);
+	    cal.set(Calendar.MONTH, mois);
+	    cal.set(Calendar.DAY_OF_MONTH, jour);
+	    return cal.getTime();
+	}
+	
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 		
@@ -52,8 +61,8 @@ public class RepoFeuilleDeTempsXmlTest {
 		
 		
 		feuilleDeTemps = Mockito.mock(FeuilleDeTemps.class);
-		Mockito.when(feuilleDeTemps.obtDebut()).thenReturn(new Date(2014, 02, 17));
-		Mockito.when(feuilleDeTemps.obtFin()).thenReturn(new Date(2014, 05, 17));
+		Mockito.when(feuilleDeTemps.obtDebut()).thenReturn(createDate(2014, 02, 17));
+		Mockito.when(feuilleDeTemps.obtFin()).thenReturn(createDate(2014, 05, 17));
 		Mockito.when(feuilleDeTemps.obtNomEmploye()).thenReturn("TEST1");
 		
 		idFeuilleDeTemps = 
@@ -62,8 +71,8 @@ public class RepoFeuilleDeTempsXmlTest {
 					simpleDateFormat.format(feuilleDeTemps.obtFin());
 		
 		feuilleDeTemps2 = Mockito.mock(FeuilleDeTemps.class);
-		Mockito.when(feuilleDeTemps2.obtDebut()).thenReturn(new Date(2014, 02, 17));
-		Mockito.when(feuilleDeTemps2.obtFin()).thenReturn(new Date(2014, 05, 17));
+		Mockito.when(feuilleDeTemps2.obtDebut()).thenReturn(createDate(2014, 02, 17));
+		Mockito.when(feuilleDeTemps2.obtFin()).thenReturn(createDate(2014, 05, 17));
 		Mockito.when(feuilleDeTemps2.obtNomEmploye()).thenReturn("TEST2");
 		
 		idFeuilleDeTemps2 = 

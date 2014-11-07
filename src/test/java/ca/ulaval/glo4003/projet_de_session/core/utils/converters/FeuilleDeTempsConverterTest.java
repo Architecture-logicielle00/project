@@ -4,15 +4,13 @@ import static org.junit.Assert.*;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Collection;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.mockito.Mockito;
@@ -36,14 +34,23 @@ public class FeuilleDeTempsConverterTest {
 	
 	private static FeuilleDeTempsConverter feuilleDeTempsConverter;
 
+	
+	private static Date createDate(int annee, int mois, int jour){
+		Calendar cal = Calendar.getInstance();
+	    cal.set(Calendar.YEAR, annee);
+	    cal.set(Calendar.MONTH, mois);
+	    cal.set(Calendar.DAY_OF_MONTH, jour);
+	    return cal.getTime();
+	}
+	
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 		feuilleDeTempsConverter = new FeuilleDeTempsConverter();
 		simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
 
 		feuilleDeTemps = Mockito.mock(FeuilleDeTemps.class);
-		Mockito.when(feuilleDeTemps.obtDebut()).thenReturn(new Date(2014, 02, 17));
-		Mockito.when(feuilleDeTemps.obtFin()).thenReturn(new Date(2014, 05, 17));
+		Mockito.when(feuilleDeTemps.obtDebut()).thenReturn(createDate(2014, 02, 17));
+		Mockito.when(feuilleDeTemps.obtFin()).thenReturn(createDate(2014, 05, 17));
 		Mockito.when(feuilleDeTemps.obtNomEmploye()).thenReturn("TEST1");
 
 		ArrayList<TempsParTache> collectionTempsParTacheFeuille1 = new ArrayList<TempsParTache>();
@@ -61,8 +68,8 @@ public class FeuilleDeTempsConverterTest {
 		
 		
 		feuilleDeTemps2 = Mockito.mock(FeuilleDeTemps.class);
-		Mockito.when(feuilleDeTemps2.obtDebut()).thenReturn(new Date(2014, 01, 27));
-		Mockito.when(feuilleDeTemps2.obtFin()).thenReturn(new Date(2014, 01, 19));
+		Mockito.when(feuilleDeTemps2.obtDebut()).thenReturn(createDate(2014, 01, 27));
+		Mockito.when(feuilleDeTemps2.obtFin()).thenReturn(createDate(2014, 01, 19));
 		Mockito.when(feuilleDeTemps2.obtNomEmploye()).thenReturn("TEST2");
 
 		ArrayList<TempsParTache> collectionTempsParTacheFeuille2 = new ArrayList<TempsParTache>();
@@ -99,18 +106,6 @@ public class FeuilleDeTempsConverterTest {
 		Mockito.when(feuilleDeTemps.obtTaches()).thenReturn(collectionTempsParTacheFeuille1);
 	}
 
-	@AfterClass
-	public static void tearDownAfterClass() throws Exception {
-	}
-
-	@Before
-	public void setUp() throws Exception {
-	}
-
-	@After
-	public void tearDown() throws Exception {
-	}
-
 	@Test
 	public void testConvertMapOfStringFeuilleDeTemps() {
 		Map<String, FeuilleDeTemps> mapTest = new HashMap<String, FeuilleDeTemps>();
@@ -119,7 +114,7 @@ public class FeuilleDeTempsConverterTest {
 
 		Collection<FeuilleDeTempsViewModel> collectionFeuilleDeTempsViewModels = feuilleDeTempsConverter.convert(mapTest);
 
-		Iterator iterator = collectionFeuilleDeTempsViewModels.iterator();
+		Iterator<FeuilleDeTempsViewModel> iterator = collectionFeuilleDeTempsViewModels.iterator();
 		FeuilleDeTempsViewModel feuilleDeTempsViewModel = (FeuilleDeTempsViewModel) iterator
 				.next();
 

@@ -32,27 +32,10 @@ public class ServiceFeuilleDeTempsTest {
 	String IDchercher ="bonne feuille";
 	String IDcreer;
 	HashMap<String, FeuilleDeTemps> feuilles=null;
-	@BeforeClass
-	public static void setUpBeforeClass() throws Exception {
-	}
-
-	@AfterClass
-	public static void tearDownAfterClass() throws Exception {
-	}
-
+	
 	@Before
 	public void setUp() throws Exception {
-		 MockitoAnnotations.initMocks(this);//initialisation des trois mocks, c'est le travail du ServiceFeuilleDeTemps
-	}
-
-	@After
-	public void tearDown() throws Exception {
-	}
-
-	/*@Test
-	public void testServiceFeuilleDeTemps() {
-		fail("Not yet implemented");
-	}*/
+		 MockitoAnnotations.initMocks(this);
 
 	@Test
 	public void testObtFeuilleDeTemps() {
@@ -90,9 +73,6 @@ public class ServiceFeuilleDeTempsTest {
 
 	@Test
 	public void testModifierFeuilleDeTemps() {
-		DateTime aujourdhui = DateTime.now();
-		Date debutDelasemaineCourante = aujourdhui.withDayOfWeek(DateTimeConstants.MONDAY).toDate();
-		Date finDelaSemaineCourante = aujourdhui.withDayOfWeek(DateTimeConstants.SUNDAY).toDate();
 		String id=serviceFeuilleDeTemps.creerFeuilleDeTempsCourante(employe);
 
 		serviceFeuilleDeTemps.modifierFeuilleDeTemps(id, feuille);

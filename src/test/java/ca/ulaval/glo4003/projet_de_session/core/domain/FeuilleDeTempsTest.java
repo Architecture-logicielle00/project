@@ -5,13 +5,10 @@ import static org.junit.Assert.*;
 import java.util.ArrayList;
 
 import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import org.mockito.Mockito;
 
-import ca.ulaval.glo4003.projet_de_session.exception.FeuilleDeTempsIntrouvableException;
 import ca.ulaval.glo4003.projet_de_session.exception.TacheIntrouvableException;
 
 public class FeuilleDeTempsTest {
@@ -22,14 +19,6 @@ public class FeuilleDeTempsTest {
 	private static ArrayList<TempsParTache> tempsParTache;
 	private static ArrayList<String> tempsParTacheString;
 	
-
-	@BeforeClass
-	public static void setUpBeforeClass() throws Exception {
-	}
-
-	@AfterClass
-	public static void tearDownAfterClass() throws Exception {
-	}
 
 	@Before
 	public void setUp() throws Exception {
