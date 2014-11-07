@@ -43,8 +43,8 @@ public class RepoFeuilleDeTempsXml extends RepoGeneralXml<FeuilleDeTemps> {
 	}
 
 	private String construireIdentifiant(FeuilleDeTemps feuille){
-		return feuille.obtNomEmploye() + 
-				obtSimpleDateFormat().format(feuille.obtDebut()) +
-				obtSimpleDateFormat().format(feuille.obtFin());
+		return feuille.getIdentifiant() + 
+				obtSimpleDateFormat().format(feuille.getDebut()) +
+				obtSimpleDateFormat().format(feuille.getFin());
 	}
 }

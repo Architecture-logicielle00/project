@@ -65,9 +65,9 @@ public class ServiceFeuilleDeTemps {
 		
 		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
 		
-		String id = feuilleDeTemps.obtNomEmploye() +
-				simpleDateFormat.format(feuilleDeTemps.obtDebut()) +
-				simpleDateFormat.format(feuilleDeTemps.obtFin());
+		String id = feuilleDeTemps.getIdentifiant() +
+				simpleDateFormat.format(feuilleDeTemps.getDebut()) +
+				simpleDateFormat.format(feuilleDeTemps.getFin());
 
 		repository.modifier(id, feuilleDeTemps);
 	}

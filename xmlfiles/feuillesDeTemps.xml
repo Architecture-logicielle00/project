@@ -70,8 +70,8 @@
         </nbHeuresParJours>
       </ca.ulaval.glo4003.projet__de__session.core.domain.TempsParTache>
     </taches>
-    <debut>2014-10-27 16:51:25.648 UTC</debut>
-    <fin>2014-11-09 17:51:25.648 UTC</fin>
+    <debut>2014-10-27 04:00:00.0 UTC</debut>
+    <fin>2014-11-09 05:00:00.0 UTC</fin>
     <identifiant>OLDU</identifiant>
   </FeuilleDeTemps>
   <FeuilleDeTemps>

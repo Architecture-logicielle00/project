@@ -50,7 +50,7 @@ public class ServiceDepenseDeplacement {
 		
 		
 		for (DepenseDeplacement depenseDeplacement : collection) {
-			if(depenseDeplacement.obtIdentifant() == utilisateur)
+			if(depenseDeplacement.getIdentifant() == utilisateur)
 				collectionFiltre.add(depenseDeplacement);
 		}
 		

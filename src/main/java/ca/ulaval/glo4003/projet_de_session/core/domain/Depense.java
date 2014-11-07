@@ -25,38 +25,38 @@ public abstract class Depense {
 	
 	public Depense(){}
 
-	public String obtIdentifant() {
+	public String getIdentifant() {
 		return identifiant;
 	}
 
-	public void defIdentifiant(String indentifiant) {
+	public void setIdentifiant(String indentifiant) {
 		this.identifiant = indentifiant;
 
 	}
 
-	public String obtDate() {
+	public String getDate() {
 		return date;
 	}
 
-	public void defDate(String date) {
+	public void setDate(String date) {
 		this.date = date;
 
 	}
 	
-	public String obtTime() {
+	public String getTime() {
 		return time;
 	}
 
-	public void defTime(String _time) {
+	public void setTime(String _time) {
 		this.time = _time;
 
 	}
 
-	public String obtDescription() {
+	public String getDescription() {
 		return description;
 	}
 
-	public void defDescription(String description) {
+	public void setDescription(String description) {
 		this.description = description;
 
 	}

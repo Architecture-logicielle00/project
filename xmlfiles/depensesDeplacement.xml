@@ -72,6 +72,14 @@
     <coutkm>5.0</coutkm>
   </DepenseDeplacement>
   <DepenseDeplacement>
+    <identifiant>OLDU</identifiant>
+    <date>2014-11-07</date>
+    <time>8:52:32</time>
+    <description></description>
+    <distance>56.0</distance>
+    <coutkm>56.0</coutkm>
+  </DepenseDeplacement>
+  <DepenseDeplacement>
     <identifiant>ALSAM</identifiant>
     <date>2014-11-06</date>
     <time>16:06:22</time>
@@ -114,18 +122,18 @@
   <DepenseDeplacement>
     <identifiant>ALSAM</identifiant>
     <date>2014-11-06</date>
-    <time>19:34:00</time>
-    <description></description>
-    <distance>7.0</distance>
-    <coutkm>8.0</coutkm>
-  </DepenseDeplacement>
-  <DepenseDeplacement>
-    <identifiant>ALSAM</identifiant>
-    <date>2014-11-06</date>
     <time>14:34:06</time>
     <description></description>
     <distance>1.0</distance>
     <coutkm>1.0</coutkm>
+  </DepenseDeplacement>
+  <DepenseDeplacement>
+    <identifiant>ALSAM</identifiant>
+    <date>2014-11-06</date>
+    <time>19:34:00</time>
+    <description></description>
+    <distance>7.0</distance>
+    <coutkm>8.0</coutkm>
   </DepenseDeplacement>
   <DepenseDeplacement>
     <identifiant>ALSAM</identifiant>

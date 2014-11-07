@@ -17,13 +17,16 @@ import ca.ulaval.glo4003.projet_de_session.web.viewmodels.EmployeeViewModel;
 @Service
 public class ServiceEmploye
 {
+	
+	Repository<Employe> repo;
+	FactoryEmploye factory;
+	EmployeeConverter ec;
+	
 	public ServiceEmploye()
 	{
 		factory = new FactoryEmploye();
 		repo = FactoryRepository.cree(Employe.class);
 		ec = new EmployeeConverter();
-		
-		init();
 	}
 	
 	public Employe obtEmploye(String nomUtilisateur)
@@ -80,7 +83,7 @@ public class ServiceEmploye
 		return ec.convert( obtEmployes() );
 	}
 	
-	public void defEmploye(EmployeeViewModel evm)
+	public void modifierEmployeExistant(EmployeeViewModel evm)
 	{
 		Employe e = obtEmploye(evm.nomUtilisateur);
 		
@@ -96,27 +99,4 @@ public class ServiceEmploye
 		e.defStatutGestionnaire(evm.statutGestionnaire);
 		e.defVille(evm.ville);
 	}
-	
-	private void init()
-	{
-		/* Je le garde au cas ou on supprime le fichier xml par erreur et qu'on veux le refaire
-		 * 
-		String mdp = "12345";
-		
-		creerEmploye("JFGRA", mdp,  "Gravel", "Jean-François", "", "", "", "", "", "", 0, 0, 0, "", "");
-		creerEmploye("ALSAM", mdp, "Samson","Alexandra",  "", "", "", "", "", "", 0, 0, 0, "", "");
-		creerEmploye("DASAU", mdp, "Sauvé", "David", "", "", "", "", "", "", 0, 0, 0, "", "");
-		creerEmploye("JPDEL", mdp, "Delisle","Jean-Phillipe", "", "", "", "", "", "", 0, 0, 0, "", "");
-		creerEmploye("MOMEC", mdp, "Mechqrane","Mounir", "", "", "", "", "", "", 0, 0, 0, "", "");
-		creerEmploye("WAHJK", mdp, "Maksoud","Walid", "", "", "", "", "", "", 0, 0, 0, "", "");
-		creerEmploye("LAHOL", mdp, "Holy","Laurianne", "", "", "", "", "", "", 0, 0, 0, "", "");
-		
-		creerEmploye("OLDU", mdp, "Dugas", "Olivier", "", "", "", "", "", "", 0, 0, 0, "", "");
-		obtEmploye("OLDU").changerStatutGestionnaire(true);*/
-	}
-
-	
-	Repository<Employe> repo;
-	FactoryEmploye factory;
-	EmployeeConverter ec;
 }

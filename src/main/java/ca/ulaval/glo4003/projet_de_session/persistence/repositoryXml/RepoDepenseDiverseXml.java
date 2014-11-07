@@ -16,8 +16,8 @@ public class RepoDepenseDiverseXml extends
 
 	public String ajouter(DepenseDiverse depense) {
 
-		String id = depense.obtIdentifant() + depense.obtDate()
-				+ depense.obtTime();
+		String id = depense.getIdentifant() + depense.getDate()
+				+ depense.getTime();
 
 		put(id, depense);
 
@@ -26,8 +26,8 @@ public class RepoDepenseDiverseXml extends
 
 	public void modifier(DepenseDiverse depense) {
 
-		String id = depense.obtIdentifant() + depense.obtDate()
-				+ depense.obtTime();
+		String id = depense.getIdentifant() + depense.getDate()
+				+ depense.getTime();
 
 		if (obt(id) != null) {
 			put(id, depense);

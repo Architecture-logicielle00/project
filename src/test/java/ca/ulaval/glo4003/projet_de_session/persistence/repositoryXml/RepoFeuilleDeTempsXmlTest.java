@@ -61,24 +61,24 @@ public class RepoFeuilleDeTempsXmlTest {
 		
 		
 		feuilleDeTemps = Mockito.mock(FeuilleDeTemps.class);
-		Mockito.when(feuilleDeTemps.obtDebut()).thenReturn(createDate(2014, 02, 17));
-		Mockito.when(feuilleDeTemps.obtFin()).thenReturn(createDate(2014, 05, 17));
-		Mockito.when(feuilleDeTemps.obtNomEmploye()).thenReturn("TEST1");
+		Mockito.when(feuilleDeTemps.getDebut()).thenReturn(createDate(2014, 02, 17));
+		Mockito.when(feuilleDeTemps.getFin()).thenReturn(createDate(2014, 05, 17));
+		Mockito.when(feuilleDeTemps.getIdentifiant()).thenReturn("TEST1");
 		
 		idFeuilleDeTemps = 
-					feuilleDeTemps.obtNomEmploye() + 
-					simpleDateFormat.format(feuilleDeTemps.obtDebut()) +
-					simpleDateFormat.format(feuilleDeTemps.obtFin());
+					feuilleDeTemps.getIdentifiant() + 
+					simpleDateFormat.format(feuilleDeTemps.getDebut()) +
+					simpleDateFormat.format(feuilleDeTemps.getFin());
 		
 		feuilleDeTemps2 = Mockito.mock(FeuilleDeTemps.class);
-		Mockito.when(feuilleDeTemps2.obtDebut()).thenReturn(createDate(2014, 02, 17));
-		Mockito.when(feuilleDeTemps2.obtFin()).thenReturn(createDate(2014, 05, 17));
-		Mockito.when(feuilleDeTemps2.obtNomEmploye()).thenReturn("TEST2");
+		Mockito.when(feuilleDeTemps2.getDebut()).thenReturn(createDate(2014, 02, 17));
+		Mockito.when(feuilleDeTemps2.getFin()).thenReturn(createDate(2014, 05, 17));
+		Mockito.when(feuilleDeTemps2.getIdentifiant()).thenReturn("TEST2");
 		
 		idFeuilleDeTemps2 = 
-					feuilleDeTemps2.obtNomEmploye() + 
-					simpleDateFormat.format(feuilleDeTemps2.obtDebut()) +
-					simpleDateFormat.format(feuilleDeTemps2.obtFin());
+					feuilleDeTemps2.getIdentifiant() + 
+					simpleDateFormat.format(feuilleDeTemps2.getDebut()) +
+					simpleDateFormat.format(feuilleDeTemps2.getFin());
 	}
 
 	@AfterClass
@@ -159,17 +159,17 @@ public class RepoFeuilleDeTempsXmlTest {
 	@Test
 	public void testModifier() {
 
-		Mockito.when(feuilleDeTemps.obtUneTache("tache1")).thenReturn(new TempsParTache("une tache", 1));
-		Mockito.when(feuilleDeTemps2.obtUneTache("tache1")).thenReturn(new TempsParTache("une autre tache", 1));	
+		Mockito.when(feuilleDeTemps.getTempsParTache("tache1")).thenReturn(new TempsParTache("une tache", 1));
+		Mockito.when(feuilleDeTemps2.getTempsParTache("tache1")).thenReturn(new TempsParTache("une autre tache", 1));	
 		
 		
 		
 		repoFeuilleDeTempsXml.ajouter(feuilleDeTemps);
 		
 		String idFeuilleDeTemps = 
-				feuilleDeTemps.obtNomEmploye() + 
-				simpleDateFormat.format(feuilleDeTemps.obtDebut()) +
-				simpleDateFormat.format(feuilleDeTemps.obtFin());
+				feuilleDeTemps.getIdentifiant() + 
+				simpleDateFormat.format(feuilleDeTemps.getDebut()) +
+				simpleDateFormat.format(feuilleDeTemps.getFin());
 		
 		repoFeuilleDeTempsXml.modifier(idFeuilleDeTemps, feuilleDeTemps2);
 				

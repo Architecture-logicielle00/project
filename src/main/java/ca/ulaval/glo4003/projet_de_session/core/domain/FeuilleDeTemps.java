@@ -28,43 +28,43 @@ public class FeuilleDeTemps {
 
 		for (int i = 0; i < _listeTaches.size(); i++) {
 			taches.add(new TempsParTache(_listeTaches.get(i),
-					obtNombreJourPeriode()));
+					getNombreJourPeriode()));
 		}
 	}
 
-	public ArrayList<TempsParTache> obtTaches() {
+	public ArrayList<TempsParTache> getTaches() {
 		return taches;
 	}
 
-	public void defTaches(ArrayList<TempsParTache> _taches) {
+	public void setTaches(ArrayList<TempsParTache> _taches) {
 		taches = _taches;
 	}
 
-	public Date obtDebut() {
+	public Date getDebut() {
 		return debut;
 	}
 
-	public void defDebut(Date dbt) {
+	public void setDebut(Date dbt) {
 		debut = dbt;
 	}
 
-	public Date obtFin() {
+	public Date getFin() {
 		return fin;
 	}
 
-	public void defFin(Date Fn) {
+	public void setFin(Date Fn) {
 		fin = Fn;
 	}
 
-	public String obtNomEmploye() {
+	public String getIdentifiant() {
 		return identifiant;
 	}
 
-	public void defNomEmploye(String id) {
+	public void setIdentifiant(String id) {
 		identifiant = id;
 	}
 
-	public TempsParTache obtUneTache(String _tache) {
+	public TempsParTache getTempsParTache(String _tache) {
 		for (TempsParTache blocDeTemps : taches) {
 			if (blocDeTemps.obtTache() == _tache)
 				return blocDeTemps;
@@ -73,11 +73,11 @@ public class FeuilleDeTemps {
 		throw new TacheIntrouvableException();
 	}
 
-	public void defUneTache(TempsParTache _tache) {
+	public void addTempsParTache(TempsParTache _tache) {
 		taches.add(_tache);
 	}
 
-	private int obtNombreJourPeriode() {
+	private int getNombreJourPeriode() {
 		return Days.daysBetween((new DateTime(debut)).toLocalDate(),
 				(new DateTime(fin)).toLocalDate()).getDays();
 	}

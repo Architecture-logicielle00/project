@@ -39,7 +39,7 @@ public class FeuilleDeTempsTest {
 		tempsParTache.add(tempsParTache1);
 		tempsParTache.add(tempsParTache2);
 		
-		feuilleDeTemps.defTaches(tempsParTache);
+		feuilleDeTemps.setTaches(tempsParTache);
 	}
 
 	@After
@@ -49,13 +49,13 @@ public class FeuilleDeTempsTest {
 
 	@Test
 	public void testObtUneTache() {
-		assertEquals(tempsParTache1,feuilleDeTemps.obtUneTache("Dormir"));
+		assertEquals(tempsParTache1,feuilleDeTemps.getTempsParTache("Dormir"));
 	}
 	
 
 	@Test(expected=TacheIntrouvableException.class)
 	public void testObtUneTacheIntrouvable() {
-		feuilleDeTemps.obtUneTache("Sortir");
+		feuilleDeTemps.getTempsParTache("Sortir");
 		
 	}
 	

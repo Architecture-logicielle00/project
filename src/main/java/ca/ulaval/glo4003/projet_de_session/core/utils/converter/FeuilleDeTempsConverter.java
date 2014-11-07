@@ -29,11 +29,11 @@ public class FeuilleDeTempsConverter {
 		
 		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
 		
-		viewModel.defDebutPeriode(formatter.format(entry.obtDebut()));
-		viewModel.defFinPeriode(formatter.format(entry.obtFin()));
-		viewModel.defEmploye(entry.obtNomEmploye());
+		viewModel.defDebutPeriode(formatter.format(entry.getDebut()));
+		viewModel.defFinPeriode(formatter.format(entry.getFin()));
+		viewModel.defEmploye(entry.getIdentifiant());
 		
-		viewModel.defTaches(convertTempsParTache(entry.obtTaches()));
+		viewModel.defTaches(convertTempsParTache(entry.getTaches()));
 
 		return viewModel;
 	}
@@ -44,14 +44,14 @@ public class FeuilleDeTempsConverter {
 		
 		FeuilleDeTemps feuilleDeTemps = new FeuilleDeTemps();
 		try {
-			feuilleDeTemps.defDebut(formatter.parse(entry.debutPeriode));
-			feuilleDeTemps.defFin(formatter.parse(entry.finPeriode));
+			feuilleDeTemps.setDebut(formatter.parse(entry.debutPeriode));
+			feuilleDeTemps.setFin(formatter.parse(entry.finPeriode));
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
 
-		feuilleDeTemps.defNomEmploye(entry.employe);
-		feuilleDeTemps.defTaches(convertTempsParTacheViewModel(entry.obtTaches()));
+		feuilleDeTemps.setIdentifiant(entry.employe);
+		feuilleDeTemps.setTaches(convertTempsParTacheViewModel(entry.obtTaches()));
 		
 		return feuilleDeTemps;
 	}

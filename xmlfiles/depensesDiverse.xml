@@ -1,13 +1,13 @@
 <list>
   <DepenseDiverse>
-    <identifiant>ALSAM</identifiant>
-    <date>2014-11-06</date>
-    <time>20:48:15</time>
+    <identifiant>OLDU</identifiant>
+    <date>2014-11-07</date>
+    <time>8:31:24</time>
     <description></description>
-    <nbRepas>7</nbRepas>
-    <coutRepas>9.0</coutRepas>
-    <divers>9.0</divers>
-    <coucher>0.0</coucher>
+    <nbRepas>3</nbRepas>
+    <coutRepas>10.0</coutRepas>
+    <divers>10.0</divers>
+    <coucher>10.0</coucher>
   </DepenseDiverse>
   <DepenseDiverse>
     <identifiant>ALSAM</identifiant>
@@ -18,5 +18,15 @@
     <coutRepas>0.0</coutRepas>
     <divers>3.0</divers>
     <coucher>8.0</coucher>
+  </DepenseDiverse>
+  <DepenseDiverse>
+    <identifiant>ALSAM</identifiant>
+    <date>2014-11-06</date>
+    <time>20:48:15</time>
+    <description></description>
+    <nbRepas>7</nbRepas>
+    <coutRepas>9.0</coutRepas>
+    <divers>9.0</divers>
+    <coucher>0.0</coucher>
   </DepenseDiverse>
 </list>

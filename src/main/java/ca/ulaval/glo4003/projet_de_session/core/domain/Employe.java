@@ -46,7 +46,6 @@ public class Employe extends Utilisateur {
 	}
 
 	public Employe() {
-		this("", "", "", "", "", "", "", "", "", "", new Date(), "", "");
 	}
 
 	public String obtNom() {

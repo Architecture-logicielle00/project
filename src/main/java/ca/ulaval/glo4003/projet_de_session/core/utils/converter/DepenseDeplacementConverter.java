@@ -23,10 +23,10 @@ public class DepenseDeplacementConverter {
 		DepenseDeplacementViewModel viewModel = new DepenseDeplacementViewModel();
 		viewModel.coutKm = depense.obtCoutKm();
 		viewModel.distance = depense.obtDistance();
-		viewModel.description = depense.obtDescription();
-		viewModel.identifiant = depense.obtIdentifant();
-		viewModel.date = depense.obtDate();
-		viewModel.time = depense.obtTime();
+		viewModel.description = depense.getDescription();
+		viewModel.identifiant = depense.getIdentifant();
+		viewModel.date = depense.getDate();
+		viewModel.time = depense.getTime();
 		
 		return viewModel;
 	}
@@ -35,12 +35,12 @@ public class DepenseDeplacementConverter {
 		DepenseDeplacement deplacement = new DepenseDeplacement();
 		deplacement.defCoutKm(deplacementViewModel.coutKm);
 		deplacement.defDistance(deplacementViewModel.distance);
-		deplacement.defIdentifiant(deplacementViewModel.identifiant);
-		deplacement.defDescription(deplacementViewModel.description);
-		deplacement.defDate(deplacementViewModel.date);
+		deplacement.setIdentifiant(deplacementViewModel.identifiant);
+		deplacement.setDescription(deplacementViewModel.description);
+		deplacement.setDate(deplacementViewModel.date);
 
 		
-		deplacement.defTime(deplacementViewModel.time);
+		deplacement.setTime(deplacementViewModel.time);
 		return deplacement;
 	}
 }
