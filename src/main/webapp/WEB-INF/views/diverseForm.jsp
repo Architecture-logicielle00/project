@@ -56,6 +56,8 @@
 						Cout Divers :</label> <input id="divers-input" type="number" /> 
 						<label for="coucher-input">
 						Coucher :</label> <input id="coucher-input" type="number" />
+						<label for="description-input">
+						Description :</label> <input id="description-input" type="text" />
 					</form>
 				</div>
 				<div class="modal-footer">
