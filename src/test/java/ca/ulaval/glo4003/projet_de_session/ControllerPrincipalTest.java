@@ -8,6 +8,7 @@ import org.junit.Test;
 import org.mockito.Mockito;
 import org.springframework.ui.ExtendedModelMap;
 
+import ca.ulaval.glo4003.projet_de_session.core.services.ServiceEmploye;
 import ca.ulaval.glo4003.projet_de_session.web.controllers.ControllerPrincipal;
 import ca.ulaval.glo4003.projet_de_session.web.services.ServiceSession;
 
@@ -15,7 +16,7 @@ public class ControllerPrincipalTest {
 	
 	private ControllerPrincipal ObtenirControlleurTest()
 	{
-		return new ControllerPrincipal(new ServiceSession());
+		return new ControllerPrincipal(new ServiceSession(),new ServiceEmploye());
 	}
 	
 	@Test

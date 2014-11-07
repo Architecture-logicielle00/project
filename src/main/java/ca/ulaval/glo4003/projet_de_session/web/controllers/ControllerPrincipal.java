@@ -21,8 +21,9 @@ public class ControllerPrincipal {
 	public ControllerPrincipal() {
 	}
 
-	public ControllerPrincipal(IServiceSession _manageSession) {
+	public ControllerPrincipal(IServiceSession _manageSession, ServiceEmploye _serviceEmploye) {
 		manageSession = _manageSession;
+		serviceEmploye = _serviceEmploye;
 	}
 
 	@RequestMapping("/")
