@@ -1,11 +1,8 @@
 package ca.ulaval.glo4003.projet_de_session.persistence.repositoryXml;
 
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Map;
 
 import ca.ulaval.glo4003.projet_de_session.core.domain.FeuilleDeTemps;
