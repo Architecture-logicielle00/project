@@ -2,52 +2,101 @@
  * Created by David on 2014-09-20.
  */
 
+var tableData = {};
+
 $(document).ready(function(){
-    initializeEvents();
+	
+	getData();
 });
 
 
-function saveTimeSheet(){
-    var timeSheetJSON = parseTimeSheetIntoJSON();
 
+function saveData(){
+    var timeSheetJSON = parseDataIntoJSON();
 
-
-    j_post("/feuilleDeTemps",
+    var username = $("#utilisateur-dropdown").text().replace(/\s/g, '');
+    
+    j_post("/" + username + "/feuilleDeTemps",
             timeSheetJSON,
             function(){showCallBack();},
             function(data, textStatus, jqXHR){hideCallBack();alert("Enregistrement reussi");},
             function (jqXHR, textStatus, errorThrown){hideCallBack();alert("Une erreur s'est produite. Veuillez réessayer");});
 }
 
-function parseTimeSheetIntoJSON(){
-	var debutPeriode = $("#debut-periode-input").val();
-	var finPeriode=$("#fin-periode-input").val();
-	var employe = $("#utilisateur-dropdown").text().replace(/\s/g, '');
+function parseDataIntoJSON()
+{
+	var temp = jQuery.extend(true, {}, tableData);
 	
-	var heuresParTaches = new Array();
+	delete temp['joursPeriode'];
 	
-    $('table.time-sheet-table').find('tr:has("td")').each(function(){
-    	var tache = $(this).find('.fixcol2').html();
-    	var heuresParJour = new Array();
-    	
-    	$(this).find('.time-input').each(function(){
-    		var nbHeures = $(this).val() != "" ? parseFloat($(this).val()) : 0.0;
-    		heuresParJour.push(nbHeures);
-    	})
-    	
-    	heuresParTaches.push({
-    		"tache" : tache,
-    		"nbHeuresParJours" : heuresParJour
-    	});
-    });
-    
-    return JSON.stringify({
-    	"debutPeriode" : debutPeriode,
-    	"finPeriode" : finPeriode,
-    	"employe" : employe,
-    	"taches" : heuresParTaches
-    });
+	$.each(temp['taches'], function(index1, value){
+		
+		
+		$.each(temp['taches'][index1]['heures'], function(index2, value){
+			temp['taches'][index1]['nbHeuresParJours'][index2] = temp['taches'][index1]['heures'][index2]['heure'];
+		});
+		
+		delete temp['taches'][index1]['heures'];
+	})
+	
+	return JSON.stringify(temp);
+	
 }
+
+function getData(){
+	
+	var username = $("#utilisateur-dropdown").text().replace(/\s/g, '');
+	
+	j_get('/' + username + '/feuilleDeTemps', 
+			undefined, 
+			function(data){
+				tableData = data;
+				adaptDataForMustacheRendering();
+				drawTable(tableData);
+			    initializeEvents();
+				},
+			undefined
+			);
+}
+
+
+function drawTable(data){
+	
+	var tpl = 
+		'<tr>' +
+			'<th class="fixcol2">Taches</th>' +
+			'{{#joursPeriode}}' +
+				'<th id="{{jourPeriode}}">{{jourPeriode}}</th>' +
+			'{{/joursPeriode}}' +
+		'</tr>' +
+		'{{#taches}}' +
+		'<tr>' +
+			'<td class="fixcol2">{{tache}}</td>' +
+			'{{#heures}}' +
+				'<td><input id="{{tache}}_{{date}}" class="time-input" type="text" value="{{heure}}" /></td>' +
+			'{{/heures}}' +
+	'{{/taches}}'; 
+			
+	$("#table-wrapper > table").html(Mustache.render(tpl, data));
+			
+	
+
+}
+
+function updateModel($el){
+	var settingInput = ($el[0].id).split("_");
+	
+	$.each(tableData['taches'], function(index1, value){
+		if(((tableData['taches'])[index1])['tache'] == settingInput[0])
+		{
+			$.each(((tableData['taches'])[index1])['heures'], function(index2, value){
+				if(((tableData['taches'])[index1])['heures'][index2]['date'] ==  settingInput[1])
+					((tableData['taches'])[index1])['heures'][index2]['heure'] = parseFloat($el.val());
+			});
+		}
+	});
+}
+ 
 
 function initializeEvents(){
 
@@ -59,7 +108,7 @@ function initializeEvents(){
 
     $timeInputs.blur(function(){
         checkAndParseInput($(this));
-        updateTotalRowSection();
+        updateModel($(this));
     });
 
     $previousDayButton.click(function () {
@@ -77,9 +126,11 @@ function initializeEvents(){
     });
 
     $saveButton.click(function(){
-        saveTimeSheet();
+    	saveData();
     });
 }
+
+// Utils functions
 
 function checkAndParseInput($input){
     var taskTimeRegExp = /\d$/g;
@@ -102,18 +153,48 @@ function deleteLeadingZeros(value){
     return parseInt(s_value);
 }
 
-function updateTotalRowSection(){
-    var $totalRowSection = $("#table-wrapper").find("#total-time-row").find("input");
-
-    $totalRowSection.each(function(index, value){
-        var sum = 0;
-        var $columnIndexInputs =  $("#table-wrapper").find("tr[id!='total-time-row']").find("td:nth-child(" + (index + 3) + ") input");
-        $columnIndexInputs.each(function(index, value){
-            var realValue = parseInt($(value).val().length === 0 ? 0 : $(value).val());
-            sum += realValue;
-        });
-
-        $(value).val(sum);
-
-    })
+function adaptDataForMustacheRendering(){
+	if(tableData != {}){
+		var temp = tableData;
+		
+		//joursPeriode
+		temp['joursPeriode'] = [{'jourPeriode' : tableData.debutPeriode}];
+		
+		var trotteur = tableData.debutPeriode;
+		
+		while(trotteur != tableData.finPeriode){
+			trotteur = incr_date(trotteur);
+			temp['joursPeriode'].push({'jourPeriode' : trotteur});
+		}
+		
+		//heures
+		$.each(temp['taches'], function(index, value){
+			var heures = [];
+			
+			$.each(temp['taches'][index]['nbHeuresParJours'], function(index, value){
+				heures.push({
+					'heure' : value,
+					'date' : ((temp['joursPeriode'])[index])['jourPeriode']
+				});
+			});
+			
+			((temp['taches'])[index])['heures'] = heures;
+		});
+		
+		
+		tableData = temp;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }

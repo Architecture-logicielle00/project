@@ -56,22 +56,6 @@
 
 			<div id="table-wrapper">
 				<table class="table time-sheet-table">
-					<tr>
-						<th class="fixcol2">Taches</th>
-						<c:forEach var="jourPeriode"
-							items="${feuilleDeTemps.obtListeJoursPeriode()}">
-							<th id="${jourPeriode}">${jourPeriode}</th>
-						</c:forEach>
-					</tr>
-
-					<c:forEach var="tache" items="${feuilleDeTemps.obtTaches()}">
-						<tr>
-							<td class="fixcol2">${tache.obtTache()}</td>
-
-							<c:forEach var="heure" items="${tache.obtNbHeuresParJours()}">
-								<td><input class="time-input" type="text" value="${heure}" /></td>
-							</c:forEach>
-					</c:forEach>
 				</table>
 			</div>
 			<button id="save-button">Enregistrer</button>
@@ -81,10 +65,11 @@
 	</div>
 	<!-- /#wrapper -->
 
-
 	<script src="/resources/js/lib/jquery.js"></script>
 	<script src="/resources/js/lib/jquery-ui.js"></script>
 	<script src="/resources/js/lib/bootstrap.min.js"></script>
+	<script src="/resources/js/lib/mustache.js"></script>
+	<script src="/resources/js/utils/date.js"></script>	
 	<script src="/resources/js/utils/jsonRest.js"></script>
 	<script src="/resources/js/utils/callback.js"></script>
 	<script src="/resources/js/feuilleDeTemps/feuilleDeTemps.js"></script>

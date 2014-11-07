@@ -1,11 +1,14 @@
 package ca.ulaval.glo4003.projet_de_session.web.controllers;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -15,6 +18,7 @@ import ca.ulaval.glo4003.projet_de_session.core.domain.Employe;
 import ca.ulaval.glo4003.projet_de_session.core.services.ServiceEmploye;
 import ca.ulaval.glo4003.projet_de_session.core.services.ServiceFeuilleDeTemps;
 import ca.ulaval.glo4003.projet_de_session.web.services.IServiceSession;
+import ca.ulaval.glo4003.projet_de_session.web.viewmodels.DepenseDeplacementViewModel;
 import ca.ulaval.glo4003.projet_de_session.web.viewmodels.FeuilleDeTempsViewModel;
 
 @Controller
@@ -34,15 +38,15 @@ public class ControlleurFeuilleDeTemps {
 
 
 	@RequestMapping("/feuilleDeTemps")
-	public String accederFeuilleDeTemps(HttpServletRequest request, Model model) {
+	public String accederPageFeuilleDeTemps(HttpServletRequest request, Model model) {
+		return chargerPageOuLogin("feuilleDeTemps", request, model);
+	}
+	
+	@RequestMapping("{utilisateur}/feuilleDeTemps")
+	public @ResponseBody FeuilleDeTempsViewModel accederFeuilleDeTempsUtilisateur(Model model, @PathVariable String utilisateur) {
+		
 
-		String nomUtilisateurSession = manageSession
-				.ObtenirNomUtilisateur(request);
-
-		if (StringUtils.isEmpty(nomUtilisateurSession))
-			return chargerPageOuLogin("feuilleDeTemps", request, model);;
-
-		Employe employe = serviceEmploye.obtEmploye(nomUtilisateurSession);
+		Employe employe = serviceEmploye.obtEmploye(utilisateur);
 
 		String idFeuilleDeTempsCourante;
 		try {
@@ -54,14 +58,13 @@ public class ControlleurFeuilleDeTemps {
 			serviceEmploye.modifierEmploye(employe);
 		}
 
-		FeuilleDeTempsViewModel feuilleDeTempsCourante = serviceFeuilleDeTemps
-				.obtFeuilleDeTempsViewModel(idFeuilleDeTempsCourante);
-		model.addAttribute("feuilleDeTemps", feuilleDeTempsCourante);
-
-		return chargerPageOuLogin("feuilleDeTemps", request, model);
+		return serviceFeuilleDeTemps.obtFeuilleDeTempsViewModel(idFeuilleDeTempsCourante);
 	}
+	
 
-	@RequestMapping(value = "/feuilleDeTemps", method = RequestMethod.POST)
+	
+
+	@RequestMapping(value = "{utilisateur}/feuilleDeTemps", method = RequestMethod.POST)
 	public @ResponseBody Boolean sauvegarderFeuilleDeTemps(
 			@RequestBody FeuilleDeTempsViewModel feuilleDeTempsViewModel,
 			HttpServletRequest request, Model model) {
