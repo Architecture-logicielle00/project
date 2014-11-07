@@ -62,8 +62,7 @@ function getData(){
 
 function drawTable(data){
 	
-	var tpl = 
-		'<tr>' +
+	var tableTpl = '<tr>' +
 			'<th class="fixcol2">Taches</th>' +
 			'{{#joursPeriode}}' +
 				'<th id="{{jourPeriode}}">{{jourPeriode}}</th>' +
@@ -75,9 +74,24 @@ function drawTable(data){
 			'{{#heures}}' +
 				'<td><input id="{{tache}}_{{date}}" class="time-input" type="text" value="{{heure}}" /></td>' +
 			'{{/heures}}' +
-	'{{/taches}}'; 
+	'{{/taches}}';
+	
+	
+	var dateWrapperTpl = '<h1>Feuille de temps</h1>' +
+		'<div class="date-periode-grp">' +
+			'<div id="debut-periode" class="date-periode">' +
+				'<label for="debut-periode-input">Debut de la période</label>' +
+				'<input id="debut-periode-input" type="date" name="debut-periode" value="{{debutPeriode}}" readonly="true">' +
+			'</div>' +
+			'<div id="fin-periode" class="date-periode">' +
+				'<label for="fin-periode-input">Fin de la période</label>' +
+				'<input	id="fin-periode-input" type="date" name="fin-periode" value="{{finPeriode}}" readonly="true">' +
+			'</div>' +
+		'</div>';
+	
 			
-	$("#table-wrapper > table").html(Mustache.render(tpl, data));
+	$("#header-time-sheet").html(Mustache.render(dateWrapperTpl, data));	
+	$("#table-wrapper > table").html(Mustache.render(tableTpl, data));
 			
 	
 

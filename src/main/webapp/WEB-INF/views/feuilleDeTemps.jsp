@@ -38,20 +38,7 @@
 			</div>
 
 			<div id="header-time-sheet">
-				<h1>Feuille de temps</h1>
 
-				<div class="date-periode-grp">
-					<div id="debut-periode" class="date-periode">
-						<label for="debut-periode-input">Debut de la période</label> <input
-							id="debut-periode-input" type="date" name="debut-periode"
-							value="${feuilleDeTemps.obtDebutPeriode()}" readonly="true">
-					</div>
-					<div id="fin-periode" class="date-periode">
-						<label for="fin-periode-input">Fin de la période</label> <input
-							id="fin-periode-input" type="date" name="fin-periode"
-							value="${feuilleDeTemps.obtFinPeriode()}" readonly="true">
-					</div>
-				</div>
 			</div>
 
 			<div id="table-wrapper">
