@@ -36,6 +36,7 @@ public class ServiceFeuilleDeTempsTest {
 	@Before
 	public void setUp() throws Exception {
 		 MockitoAnnotations.initMocks(this);
+	}
 
 	@Test
 	public void testObtFeuilleDeTemps() {
