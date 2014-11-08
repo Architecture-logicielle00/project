@@ -25,17 +25,7 @@ function envoyer(path, data) {
 
 function creerEmploye(){
 	var employe = {
-			   "nomUtilisateur" : $("#username").val(),
-			   "nom" : $("#name").val(),
-			   "prenom" : $("#prenom").val(),
-			   "email": $("#email").val(),
-			   "pays" : $("#pays").val(),
-			   "province" : $("#province").val(),
-			   "ville" : $("#ville").val(),
-			   "codePostal" : $("#codepos").val(),
-			   "sexe" : $("#gender").val(),
-			   "telephone" :  parseFloat($("#phone").val()),
-			   "statutGestionnaire" : $("#gestionnaire").is(":checked")
+			
 		}
 	
 	envoyer("/creationEmployee", employe);
