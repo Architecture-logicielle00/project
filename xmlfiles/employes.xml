@@ -402,4 +402,22 @@
     <taches/>
     <statutGestionnaire>true</statutGestionnaire>
   </Employe>
+  <Employe>
+    <nomUtilisateur>fffff</nomUtilisateur>
+    <mdp>12345</mdp>
+    <nom>q</nom>
+    <prenom>q</prenom>
+    <entreprise>NERV</entreprise>
+    <email>alexandrasam24@hotmail.com</email>
+    <pays>q</pays>
+    <province>q</province>
+    <ville>q</ville>
+    <codePostal>q</codePostal>
+    <dateDeNaissance>2014-11-08 03:27:37.631 UTC</dateDeNaissance>
+    <genre>f</genre>
+    <numTelephone>333-333-3333</numTelephone>
+    <feuillesDeTemps/>
+    <taches/>
+    <statutGestionnaire>true</statutGestionnaire>
+  </Employe>
 </list>

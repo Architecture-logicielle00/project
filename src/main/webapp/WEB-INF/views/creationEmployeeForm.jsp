@@ -49,7 +49,7 @@
 								<label for="name">Nom: </label>
 							</td>
 							<td>
-								<input id="name" name="name" type="text" style="width: 300px" tabindex="3">
+								<input id="name" name="name" required type="text" style="width: 300px" tabindex="3">
 							</td>
 						</tr>
 						<tr>
@@ -57,7 +57,7 @@
 								<label for="prenom">Prénom: </label>
 							</td>
 							<td>
-								<input id="prenom" name="prenom" type="text" style="width: 300px" tabindex="4">
+								<input id="prenom" name="prenom" required type="text" style="width: 300px" tabindex="4">
 							</td>
 						</tr>
 						<tr>
@@ -118,7 +118,7 @@
 								<label for="phone">Téléphone (domicile): </label>
 							</td>
 							<td>
-								<input id="phone" name="phone" required type="number" style="width: 300px" tabindex="11">
+								<input id="phone" name="phone" required type="text" style="width: 300px" tabindex="11">
 							</td>
 						</tr>	
 						<tr>

@@ -34,7 +34,7 @@ function creerEmploye(){
 			   "ville" : $("#ville").val(),
 			   "codePostal" : $("#codepos").val(),
 			   "sexe" : $("#gender").val(),
-			   "telephone" :  parseFloat($("#phone").val()),
+			   "telephone" : $("#phone").val(),
 			   "statutGestionnaire" : $("#gestionnaire").is(":checked")
 		}
 	
