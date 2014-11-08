@@ -138,9 +138,9 @@
       <ca.ulaval.glo4003.projet__de__session.core.domain.TempsParTache>
         <tache>Sacrer</tache>
         <nbHeuresParJours>
-          <null/>
-          <null/>
-          <null/>
+          <float>2.0</float>
+          <float>2.0</float>
+          <float>2.0</float>
           <float>0.0</float>
           <float>0.0</float>
           <float>0.0</float>

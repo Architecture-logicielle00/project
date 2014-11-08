@@ -51,7 +51,7 @@
 			</c:if>
 			<c:if test="${utilisateur.estGestionnaire()}">
 				<li><a href="/gestionEmployee"><i
-						class="fa fa-fw fa fa-users"></i> Gestion des Employés</a></li>
+						class="fa fa-fw fa fa-users"></i> Gestion des employes</a></li>
 			</c:if>
 		</ul>
 	</div>
