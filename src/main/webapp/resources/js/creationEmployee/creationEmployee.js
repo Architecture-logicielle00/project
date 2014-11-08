@@ -27,14 +27,14 @@ function creerEmploye(){
 	var employe = {
 			   "nomUtilisateur" : $("#username").val(),
 			   "nom" : $("#name").val(),
-			   "prenom" : $("prenom").val(),
-			   "email" : $("email").val(),
+			   "prenom" : $("#prenom").val(),
+			   "email": $("#email").val(),
 			   "pays" : $("#pays").val(),
 			   "province" : $("#province").val(),
-			   "ville" : $("ville").val(),
-			   "codePostal" : $("codepos").val(),
-			   "sexe" : $("gender").val(),
-			   "telephone" : $("phone").val(),
+			   "ville" : $("#ville").val(),
+			   "codePostal" : $("#codepos").val(),
+			   "sexe" : $("#gender").val(),
+			   "telephone" :  parseFloat($("#phone").val()),
 			   "statutGestionnaire" : $("#gestionnaire").is(":checked")
 		}
 	
