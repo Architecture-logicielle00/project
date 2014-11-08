@@ -79,7 +79,7 @@ public class FeuilleDeTemps {
 
 	private int getNombreJourPeriode() {
 		return Days.daysBetween((new DateTime(debut)).toLocalDate(),
-				(new DateTime(fin)).toLocalDate()).getDays();
+				(new DateTime(fin)).toLocalDate()).getDays() + 1;
 	}
 
 }

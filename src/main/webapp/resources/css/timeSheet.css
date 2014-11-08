@@ -7,9 +7,8 @@
 
 
 #table-wrapper{
-    width: 534px;
+    width: 100%;
     overflow-x:scroll;
-    margin-left:586px;
     overflow-y:visible;
     padding-bottom:1px;
     white-space: nowrap;
@@ -62,22 +61,6 @@
                 overflow: hidden;
                 text-overflow: ellipsis;
             }
-
-.fixcol1{
-    position : absolute;
-    max-width: 15em;
-    min-width: 15em;
-    left : 248px;
-
-
-}
-
-.fixcol2{
-    position : absolute;
-    max-width: 26em;
-    min-width: 26em;
-    left : 458px;
-}
 
 .input-not-empty{
     border:solid;

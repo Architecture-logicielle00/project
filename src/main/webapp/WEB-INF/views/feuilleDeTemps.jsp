@@ -42,7 +42,7 @@
 			</div>
 
 			<div id="table-wrapper">
-				<table class="table time-sheet-table">
+				<table class="table table-striped time-sheet-table">
 				</table>
 			</div>
 			<button id="save-button">Enregistrer</button>
