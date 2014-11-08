@@ -5,6 +5,7 @@ import java.util.Date;
 
 import org.joda.time.DateTime;
 import org.joda.time.Days;
+import org.joda.time.Interval;
 
 import ca.ulaval.glo4003.projet_de_session.exception.TacheIntrouvableException;
 
@@ -54,6 +55,10 @@ public class FeuilleDeTemps {
 
 	public void setFin(Date Fn) {
 		fin = Fn;
+	}
+	
+	public Boolean estCourante(Date date){
+		return !(date.before(debut) || date.after(fin));
 	}
 
 	public String getIdentifiant() {

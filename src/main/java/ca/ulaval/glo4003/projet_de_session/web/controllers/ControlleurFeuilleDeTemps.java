@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import ca.ulaval.glo4003.projet_de_session.core.domain.Employe;
 import ca.ulaval.glo4003.projet_de_session.core.services.ServiceEmploye;
 import ca.ulaval.glo4003.projet_de_session.core.services.ServiceFeuilleDeTemps;
+import ca.ulaval.glo4003.projet_de_session.exception.FeuilleDeTempsIntrouvableException;
 import ca.ulaval.glo4003.projet_de_session.web.services.IServiceSession;
 import ca.ulaval.glo4003.projet_de_session.web.viewmodels.DepenseDeplacementViewModel;
 import ca.ulaval.glo4003.projet_de_session.web.viewmodels.FeuilleDeTempsViewModel;
@@ -45,20 +46,21 @@ public class ControlleurFeuilleDeTemps {
 	@RequestMapping("{utilisateur}/feuilleDeTemps")
 	public @ResponseBody FeuilleDeTempsViewModel accederFeuilleDeTempsUtilisateur(Model model, @PathVariable String utilisateur) {
 		
-
 		Employe employe = serviceEmploye.obtEmploye(utilisateur);
 
-		String idFeuilleDeTempsCourante;
-		try {
-			idFeuilleDeTempsCourante = employe.obtIDFeuilleDeTempsCourante();
-		} catch (Exception e) {
-			idFeuilleDeTempsCourante = serviceFeuilleDeTemps
-					.creerFeuilleDeTempsCourante(employe);
+		try{
+			return serviceFeuilleDeTemps.getFeuilleDeTempsCourante(utilisateur);
+		}
+		catch(FeuilleDeTempsIntrouvableException e){
+			String idFeuilleDeTempsCourante = serviceFeuilleDeTemps
+					.createFeuilleDeTempsCourante(employe);
 			employe.ajouterIdFeuilleDeTemps(idFeuilleDeTempsCourante);
 			serviceEmploye.modifierEmploye(employe);
+			
+			return serviceFeuilleDeTemps.getFeuilleDeTempsViewModel(idFeuilleDeTempsCourante);
 		}
 
-		return serviceFeuilleDeTemps.obtFeuilleDeTempsViewModel(idFeuilleDeTempsCourante);
+
 	}
 	
 
@@ -68,7 +70,7 @@ public class ControlleurFeuilleDeTemps {
 	public @ResponseBody Boolean sauvegarderFeuilleDeTemps(
 			@RequestBody FeuilleDeTempsViewModel feuilleDeTempsViewModel,
 			HttpServletRequest request, Model model) {
-		serviceFeuilleDeTemps.modifierFeuilleDeTemps(feuilleDeTempsViewModel);
+		serviceFeuilleDeTemps.updateFeuilleDeTemps(feuilleDeTempsViewModel);
 
 		boolean sauvegardeEffectueAvecSucces = true;
 

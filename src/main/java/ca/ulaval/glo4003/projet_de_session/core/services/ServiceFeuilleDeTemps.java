@@ -1,8 +1,11 @@
 package ca.ulaval.glo4003.projet_de_session.core.services;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 
 import org.joda.time.DateTime;
@@ -14,6 +17,7 @@ import ca.ulaval.glo4003.projet_de_session.core.domain.FeuilleDeTemps;
 import ca.ulaval.glo4003.projet_de_session.core.utils.FactoryFeuilleDeTemps;
 import ca.ulaval.glo4003.projet_de_session.core.utils.FactoryRepository;
 import ca.ulaval.glo4003.projet_de_session.core.utils.converter.FeuilleDeTempsConverter;
+import ca.ulaval.glo4003.projet_de_session.exception.FeuilleDeTempsIntrouvableException;
 import ca.ulaval.glo4003.projet_de_session.persistence.repository.Repository;
 import ca.ulaval.glo4003.projet_de_session.web.viewmodels.FeuilleDeTempsViewModel;
 
@@ -31,20 +35,15 @@ public class ServiceFeuilleDeTemps {
 		converter = new FeuilleDeTempsConverter();
 	}
 
-	public FeuilleDeTemps obtFeuilleDeTemps(String id) {
-		return repository.obt(id);
-	}
 
-	public void suppFeuilleDeTemps(String id) {
-		repository.supprimer(id);
-	}
 
-	public String creerFeuilleDeTemps(Employe _employe, Date _debut, Date _fin) {
+
+	public String createFeuilleDeTemps(Employe _employe, Date _debut, Date _fin) {
 		FeuilleDeTemps e = factory.creerFeuilleDeTemps(_employe, _debut, _fin);
 		return repository.ajouter(e);
 	}
 	
-	public String creerFeuilleDeTempsCourante(Employe _employe)
+	public String createFeuilleDeTempsCourante(Employe _employe)
 	{
 		DateTime aujourdhui = DateTime.now();
 		DateTime debutDelasemaineCourante = aujourdhui.withDayOfWeek(DateTimeConstants.MONDAY);
@@ -52,14 +51,38 @@ public class ServiceFeuilleDeTemps {
 		DateTime finDelaPeriodeCourante = finDelaSemaineCourante.plusWeeks(dureePeriodeDePaieEnSemaines - 1);
 		
 		
-		return creerFeuilleDeTemps(_employe, debutDelasemaineCourante.toDate(), finDelaPeriodeCourante.toDate());
+		return createFeuilleDeTemps(_employe, debutDelasemaineCourante.toDate(), finDelaPeriodeCourante.toDate());
+	}
+	
+	public FeuilleDeTempsViewModel getFeuilleDeTempsCourante(String utilisateur){
+		List<FeuilleDeTemps> collectionSpecifique = getFeuillesDeTempsParUtilisateur(utilisateur);
+		
+		Date aujourdhui = new Date();
+		
+		for (FeuilleDeTemps feuilleDeTemps : collectionSpecifique) {
+			if(feuilleDeTemps.estCourante(aujourdhui))
+				return converter.convert(feuilleDeTemps);
+		}
+		
+		throw new FeuilleDeTempsIntrouvableException();
+		
+		
+	}
+	
+	public Collection<FeuilleDeTempsViewModel> getFeuillesDeTempsViewModel() {
+		return converter.convert(getFeuillesDeTemps());
 	}
 
-	public void modifierFeuilleDeTemps(String id, FeuilleDeTemps feuilleDeTemps) {
-		repository.modifier(id, feuilleDeTemps);
+	public FeuilleDeTempsViewModel getFeuilleDeTempsViewModel(String id) {
+		return converter.convert(getFeuilleDeTemps(id));
+	}
+	
+	public void deleteFeuilleDeTemps(String id) {
+		repository.supprimer(id);
 	}
 
-	public void modifierFeuilleDeTemps(FeuilleDeTempsViewModel feuilleDeTempsViewModel) {
+
+	public void updateFeuilleDeTemps(FeuilleDeTempsViewModel feuilleDeTempsViewModel) {
 		FeuilleDeTemps feuilleDeTemps = converter
 				.convert(feuilleDeTempsViewModel);
 		
@@ -69,18 +92,36 @@ public class ServiceFeuilleDeTemps {
 				simpleDateFormat.format(feuilleDeTemps.getDebut()) +
 				simpleDateFormat.format(feuilleDeTemps.getFin());
 
-		repository.modifier(id, feuilleDeTemps);
+		updateFeuilleDeTemps(id, feuilleDeTemps);
 	}
 
-	public Map<String, FeuilleDeTemps> obtFeuillesDeTemps() {
+	
+	
+//INTERN METHODS
+	
+	private FeuilleDeTemps getFeuilleDeTemps(String id) {
+		return repository.obt(id);
+	}
+	
+	private Map<String, FeuilleDeTemps> getFeuillesDeTemps() {
 		return repository.obtMap();
 	}
-
-	public Collection<FeuilleDeTempsViewModel> obtFeuillesDeTempsViewModel() {
-		return converter.convert(obtFeuillesDeTemps());
+	
+	private List<FeuilleDeTemps> getFeuillesDeTempsParUtilisateur(String utilisateur) {
+		List<FeuilleDeTemps> collection = new ArrayList<FeuilleDeTemps>();
+		
+		for (FeuilleDeTemps feuilleDeTemps : repository.obtTout()) {
+			if(feuilleDeTemps.getIdentifiant() == utilisateur){
+				collection.add(feuilleDeTemps);
+			}
+		}
+		
+		return collection;
+		
+		
 	}
-
-	public FeuilleDeTempsViewModel obtFeuilleDeTempsViewModel(String id) {
-		return converter.convert(obtFeuilleDeTemps(id));
+	
+	private void updateFeuilleDeTemps(String id, FeuilleDeTemps feuilleDeTemps) {
+		repository.modifier(id, feuilleDeTemps);
 	}
 }
