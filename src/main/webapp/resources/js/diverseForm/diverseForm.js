@@ -21,7 +21,7 @@ function sauvegarderDiverse(){
     		updateTable();
     	};
     
-    j_post("/diverseFormdiverse",data, undefined, successFunction, undefined);
+    j_post("/depensediverse",data, undefined, successFunction, undefined);
 }
 
 function getFormData(){
@@ -75,7 +75,7 @@ function updateTable(){
 			$("#table-depense-diverse").html(rendered);
 		};
 	
-	j_get("/" + username + "/diverse", undefined, successFunction, undefined);
+	j_get("/" + username + "/depensediverse", undefined, successFunction, undefined);
 	
 
 }

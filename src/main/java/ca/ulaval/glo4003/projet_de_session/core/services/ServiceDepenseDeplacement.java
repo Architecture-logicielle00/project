@@ -44,17 +44,17 @@ public class ServiceDepenseDeplacement {
 	}
 	
 	public List<DepenseDeplacementViewModel> obtParUtilisateur(String utilisateur) {
-		List<DepenseDeplacement> collection = obtTout();
+		List<DepenseDeplacement> collectionComplete = obtTout();
 		
 		List<DepenseDeplacement> collectionFiltre = new ArrayList<DepenseDeplacement>();
 		
 		
-		for (DepenseDeplacement depenseDeplacement : collection) {
-			if(depenseDeplacement.getIdentifant() == utilisateur)
+		for (DepenseDeplacement depenseDeplacement : collectionComplete) {
+			if(depenseDeplacement.getIdentifiant().equals(utilisateur))
 				collectionFiltre.add(depenseDeplacement);
 		}
 		
-		return (List<DepenseDeplacementViewModel>) conv.convert(collection);
+		return (List<DepenseDeplacementViewModel>) conv.convert(collectionFiltre);
 		
 		
 	}

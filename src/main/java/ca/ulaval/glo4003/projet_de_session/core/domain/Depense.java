@@ -25,7 +25,7 @@ public abstract class Depense {
 	
 	public Depense(){}
 
-	public String getIdentifant() {
+	public String getIdentifiant() {
 		return identifiant;
 	}
 

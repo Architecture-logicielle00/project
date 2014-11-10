@@ -50,11 +50,11 @@ public class ServiceDepenseDiverse {
 		
 		
 		for (DepenseDiverse depensediverse : collection) {
-			if(depensediverse.getIdentifant() == utilisateur)
+			if(depensediverse.getIdentifiant().equals(utilisateur))
 				collectionFiltre.add(depensediverse);
 		}
 		
-		return (List<DepenseDiverseViewModel>) conv.convert(collection);
+		return (List<DepenseDiverseViewModel>) conv.convert(collectionFiltre);
 		
 		
 	}

@@ -24,7 +24,7 @@ public class DepenseDeplacementConverter {
 		viewModel.coutKm = depense.obtCoutKm();
 		viewModel.distance = depense.obtDistance();
 		viewModel.description = depense.getDescription();
-		viewModel.identifiant = depense.getIdentifant();
+		viewModel.identifiant = depense.getIdentifiant();
 		viewModel.date = depense.getDate();
 		viewModel.time = depense.getTime();
 		

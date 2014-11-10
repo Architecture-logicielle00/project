@@ -49,7 +49,7 @@ public class ControleurDiverse {
 		return chargerPageOuLogin(Page.DEPENSEDIVERSE, request, model);
 	}
 
-	@RequestMapping(value = "/diverseFormdiverse", method = RequestMethod.POST)
+	@RequestMapping(value = "/depensediverse", method = RequestMethod.POST)
 	public @ResponseBody Boolean sauvegarderDepenseDiverse(
 			@RequestBody DepenseDiverseViewModel depenseDiverseViewModel,
 			HttpServletRequest request, Model model) {
@@ -58,7 +58,7 @@ public class ControleurDiverse {
 	}
 	
 	
-	@RequestMapping(value = "{utilisateur}/diverse")
+	@RequestMapping(value = "{utilisateur}/depensediverse")
 	public @ResponseBody List<DepenseDiverseViewModel> obtenirDiverse(
 			Model model, @PathVariable String utilisateur) {
 		return serviceDepenseDiverse.obtParUtilisateur(utilisateur);
