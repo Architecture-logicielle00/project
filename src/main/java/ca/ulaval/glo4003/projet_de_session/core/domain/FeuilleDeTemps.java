@@ -12,6 +12,7 @@ import ca.ulaval.glo4003.projet_de_session.exception.TacheIntrouvableException;
 public class FeuilleDeTemps {
 
 	private ArrayList<TempsParTache> taches;
+	private ArrayList<String> commentaires;
 	private Date debut;
 	private Date fin;
 	private String identifiant;
@@ -25,8 +26,13 @@ public class FeuilleDeTemps {
 		debut = _debut;
 		fin = _fin;
 
+		commentaires = new ArrayList<String>();
+		for (int i = 0; i < getNombreJourPeriode(); i++) {
+			commentaires.add("");
+		}
+		
+		
 		taches = new ArrayList<TempsParTache>();
-
 		for (int i = 0; i < _listeTaches.size(); i++) {
 			taches.add(new TempsParTache(_listeTaches.get(i),
 					getNombreJourPeriode()));
@@ -41,6 +47,15 @@ public class FeuilleDeTemps {
 		taches = _taches;
 	}
 
+	public ArrayList<String> getCommentaires(){
+		return commentaires;
+	}
+	
+	public void setCommentaires(ArrayList<String> _commentaires){
+		commentaires = _commentaires;
+	}
+	
+	
 	public Date getDebut() {
 		return debut;
 	}

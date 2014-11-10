@@ -51,6 +51,8 @@
 						<label for="distance-input">Distance :</label> <input
 							id="distance-input" type="number" /> <label for="cout-km-input">Cout
 							(Km) :</label> <input id="cout-km-input" type="number" />
+							<i id="comment-toggle" class="fa fa-comment fa-2x"></i>
+							<textarea id="comment-area" rows="5" cols="50"></textarea>
 					</form>
 				</div>
 				<div class="modal-footer">
@@ -73,6 +75,7 @@
 	<script src="/resources/js/utils/callback.js"></script>
 	<script src="/resources/js/utils/date.js"></script>
 	<script src="/resources/js/utils/jsonRest.js"></script>
+	<script src="/resources/js/utils/comment.js"></script>
 	<script src="/resources/js/deplacementForm/deplacementForm.js"></script>
 
 </body>

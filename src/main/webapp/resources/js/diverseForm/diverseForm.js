@@ -34,7 +34,7 @@ function getFormData(){
         "divers" :  parseFloat($("#divers-input").val()),
         "coucher" :  parseFloat($("#coucher-input").val()),
         "identifiant" : $("#utilisateur-dropdown").text().replace(/\s/g, ''),
-        "description" : $("#description-input").val(),
+        "description" : $("#comment-area").val(),
         "date" : now.yyyymmdd(),
         "time" : now.hhmmss()
     });

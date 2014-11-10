@@ -45,7 +45,7 @@
 				<table class="table table-striped time-sheet-table">
 				</table>
 			</div>
-			<button id="save-button">Enregistrer</button>
+			<button class="btn btn-primary" id="save-button">Enregistrer</button>
 		</div>
 		<!-- /#page-wrapper -->
 

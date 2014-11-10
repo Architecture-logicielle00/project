@@ -74,7 +74,14 @@ function drawTable(data){
 			'{{#heures}}' +
 				'<td><input id="{{tache}}_{{date}}" class="time-input" type="text" value="{{heure}}" /></td>' +
 			'{{/heures}}' +
-	'{{/taches}}';
+		'</tr>' +	
+		'{{/taches}}' +
+		'<tr class=commentaires-wrapper>' +
+		'<td class="fixcol2">Commentaires</td>' +
+		'{{#commentaires}}' +
+			'<td><i class="commentaire fa fa-2x"></i></td>' +
+		'{{/commentaires}}' +
+		'<tr>';
 	
 	
 	var dateWrapperTpl = '<h1>Feuille de temps</h1>' +
@@ -92,9 +99,23 @@ function drawTable(data){
 			
 	$("#header-time-sheet").html(Mustache.render(dateWrapperTpl, data));	
 	$("#table-wrapper > table").html(Mustache.render(tableTpl, data));
+	
+	
+	renderCommentaires();
 			
 	
 
+}
+
+function renderCommentaires(){
+	$commentairesFontList = $("#table-wrapper").find(".commentaire");
+	
+	$.each(tableData['commentaires'], function(index, value){
+		if(value == "")
+			$($commentairesFontList[index]).addClass("fa-comment-o");
+		else
+			$($commentairesFontList[index]).addClass("fa-comment");
+	});
 }
 
 function updateModel($el){

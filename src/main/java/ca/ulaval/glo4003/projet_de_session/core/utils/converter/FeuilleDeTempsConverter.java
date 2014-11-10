@@ -34,6 +34,7 @@ public class FeuilleDeTempsConverter {
 		viewModel.defEmploye(entry.getIdentifiant());
 		
 		viewModel.defTaches(convertTempsParTache(entry.getTaches()));
+		viewModel.commentaires = entry.getCommentaires();
 
 		return viewModel;
 	}
@@ -52,6 +53,7 @@ public class FeuilleDeTempsConverter {
 
 		feuilleDeTemps.setIdentifiant(entry.employe);
 		feuilleDeTemps.setTaches(convertTempsParTacheViewModel(entry.obtTaches()));
+		feuilleDeTemps.setCommentaires(entry.commentaires);
 		
 		return feuilleDeTemps;
 	}

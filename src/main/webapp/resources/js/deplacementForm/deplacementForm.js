@@ -32,7 +32,7 @@ function getFormData(){
         "distance" : parseFloat($("#distance-input").val()),
         "coutKm" :  parseFloat($("#cout-km-input").val()),
         "identifiant" : $("#utilisateur-dropdown").text().replace(/\s/g, ''),
-        "description" : "",
+        "description" : $("#comment-area").val(),
         "date" : now.yyyymmdd(),
         "time" : now.hhmmss()
     });
@@ -44,7 +44,7 @@ function updateTable(){
 			  	'<td class="date">{{date}}</td>' +
 			    '<td class="distance">{{distance}}</td>' +
 			    '<td class="cout-km">{{coutKm}}</td>' +
-			    '<td class="commentaires">{{commentaires}}</td>' +
+			    '<td class="commentaires">{{description}}</td>' +
 			  '</tr>';
 	
 	var headerTpl = '<tr>' +

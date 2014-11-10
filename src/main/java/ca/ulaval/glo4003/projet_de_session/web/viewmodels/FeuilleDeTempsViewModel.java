@@ -18,6 +18,8 @@ public class FeuilleDeTempsViewModel {
 	public String employe;
 	
 	public ArrayList<TempsParTacheViewModel> taches;
+	
+	public ArrayList<String> commentaires;
 			
 	public String obtDebutPeriode() {return debutPeriode;}	
 	public void defDebutPeriode(String _debutPeriode){debutPeriode = _debutPeriode;}

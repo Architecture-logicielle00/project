@@ -56,8 +56,8 @@
 						Cout Divers :</label> <input id="divers-input" type="number" /> 
 						<label for="coucher-input">
 						Coucher :</label> <input id="coucher-input" type="number" />
-						<label for="description-input">
-						Description :</label> <input id="description-input" type="text" />
+						<i id="comment-toggle" class="fa fa-comment fa-2x"></i>
+						<textarea id="comment-area" rows="5" cols="50"></textarea>
 					</form>
 				</div>
 				<div class="modal-footer">
@@ -80,6 +80,7 @@
 	<script src="/resources/js/utils/callback.js"></script>
 	<script src="/resources/js/utils/date.js"></script>
 	<script src="/resources/js/utils/jsonRest.js"></script>
+	<script src="/resources/js/utils/comment.js"></script>	
 	<script src="/resources/js/diverseForm/diverseForm.js"></script>
 
 </body>
