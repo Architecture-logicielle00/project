@@ -27,7 +27,7 @@ public class FeuilleDeTemps {
 		fin = _fin;
 
 		commentaires = new ArrayList<String>();
-		for (int i = 0; i < getNombreJourPeriode(); i++) {
+		for (int i = 0; i < obtNombreJourPeriode(); i++) {
 			commentaires.add("");
 		}
 		
@@ -35,11 +35,11 @@ public class FeuilleDeTemps {
 		taches = new ArrayList<TempsParTache>();
 		for (int i = 0; i < _listeTaches.size(); i++) {
 			taches.add(new TempsParTache(_listeTaches.get(i),
-					getNombreJourPeriode()));
+					obtNombreJourPeriode()));
 		}
 	}
 
-	public ArrayList<TempsParTache> getTaches() {
+	public ArrayList<TempsParTache> obtTaches() {
 		return taches;
 	}
 
@@ -47,7 +47,7 @@ public class FeuilleDeTemps {
 		taches = _taches;
 	}
 
-	public ArrayList<String> getCommentaires(){
+	public ArrayList<String> obtCommentaires(){
 		return commentaires;
 	}
 	
@@ -56,7 +56,7 @@ public class FeuilleDeTemps {
 	}
 	
 	
-	public Date getDebut() {
+	public Date obtDebut() {
 		return debut;
 	}
 
@@ -64,7 +64,7 @@ public class FeuilleDeTemps {
 		debut = dbt;
 	}
 
-	public Date getFin() {
+	public Date obtFin() {
 		return fin;
 	}
 
@@ -76,7 +76,7 @@ public class FeuilleDeTemps {
 		return !(date.before(debut) || date.after(fin));
 	}
 
-	public String getIdentifiant() {
+	public String obtIdentifiant() {
 		return identifiant;
 	}
 
@@ -84,7 +84,7 @@ public class FeuilleDeTemps {
 		identifiant = id;
 	}
 
-	public TempsParTache getTempsParTache(String _tache) {
+	public TempsParTache obtTempsParTache(String _tache) {
 		for (TempsParTache blocDeTemps : taches) {
 			if (blocDeTemps.obtTache() == _tache)
 				return blocDeTemps;
@@ -97,7 +97,7 @@ public class FeuilleDeTemps {
 		taches.add(_tache);
 	}
 
-	private int getNombreJourPeriode() {
+	private int obtNombreJourPeriode() {
 		return Days.daysBetween((new DateTime(debut)).toLocalDate(),
 				(new DateTime(fin)).toLocalDate()).getDays() + 1;
 	}

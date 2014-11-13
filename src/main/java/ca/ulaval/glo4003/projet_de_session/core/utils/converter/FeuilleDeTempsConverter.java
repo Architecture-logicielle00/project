@@ -29,12 +29,12 @@ public class FeuilleDeTempsConverter {
 		
 		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
 		
-		viewModel.defDebutPeriode(formatter.format(entry.getDebut()));
-		viewModel.defFinPeriode(formatter.format(entry.getFin()));
-		viewModel.defEmploye(entry.getIdentifiant());
+		viewModel.defDebutPeriode(formatter.format(entry.obtDebut()));
+		viewModel.defFinPeriode(formatter.format(entry.obtFin()));
+		viewModel.defEmploye(entry.obtIdentifiant());
 		
-		viewModel.defTaches(convertTempsParTache(entry.getTaches()));
-		viewModel.commentaires = entry.getCommentaires();
+		viewModel.defTaches(convertTempsParTache(entry.obtTaches()));
+		viewModel.commentaires = entry.obtCommentaires();
 
 		return viewModel;
 	}

@@ -227,6 +227,7 @@
     <numTelephone></numTelephone>
     <feuillesDeTemps>
       <string>ALSAM2014-10-202014-11-02</string>
+      <string>ALSAM2014-11-102014-11-23</string>
     </feuillesDeTemps>
     <taches>
       <string>Sacrer</string>
@@ -265,6 +266,24 @@
       <string>Manger de la lasagne</string>
     </taches>
     <statutGestionnaire>false</statutGestionnaire>
+  </Employe>
+  <Employe>
+    <nomUtilisateur>TEST</nomUtilisateur>
+    <mdp>12345</mdp>
+    <nom>t</nom>
+    <prenom>t</prenom>
+    <entreprise>NERV</entreprise>
+    <email>alexandrasam24@hotmail.com</email>
+    <pays>t</pays>
+    <province>t</province>
+    <ville>t</ville>
+    <codePostal>t</codePostal>
+    <dateDeNaissance>2014-11-13 16:19:13.35 UTC</dateDeNaissance>
+    <genre>f</genre>
+    <numTelephone>555-555-666</numTelephone>
+    <feuillesDeTemps/>
+    <taches/>
+    <statutGestionnaire>true</statutGestionnaire>
   </Employe>
   <Employe>
     <nomUtilisateur>OLDU</nomUtilisateur>

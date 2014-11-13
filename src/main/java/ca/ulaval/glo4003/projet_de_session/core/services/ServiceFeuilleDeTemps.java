@@ -54,8 +54,8 @@ public class ServiceFeuilleDeTemps {
 		return createFeuilleDeTemps(_employe, debutDelasemaineCourante.toDate(), finDelaPeriodeCourante.toDate());
 	}
 	
-	public FeuilleDeTempsViewModel getFeuilleDeTempsCourante(String utilisateur){
-		List<FeuilleDeTemps> collectionSpecifique = getFeuillesDeTempsParUtilisateur(utilisateur);
+	public FeuilleDeTempsViewModel obtFeuilleDeTempsCourante(String utilisateur){
+		List<FeuilleDeTemps> collectionSpecifique = obtFeuillesDeTempsParUtilisateur(utilisateur);
 		
 		Date aujourdhui = new Date();
 		
@@ -69,12 +69,12 @@ public class ServiceFeuilleDeTemps {
 		
 	}
 	
-	public Collection<FeuilleDeTempsViewModel> getFeuillesDeTempsViewModel() {
-		return converter.convert(getFeuillesDeTemps());
+	public Collection<FeuilleDeTempsViewModel> obtFeuillesDeTempsViewModel() {
+		return converter.convert(obtFeuillesDeTemps());
 	}
 
-	public FeuilleDeTempsViewModel getFeuilleDeTempsViewModel(String id) {
-		return converter.convert(getFeuilleDeTemps(id));
+	public FeuilleDeTempsViewModel obtFeuilleDeTempsViewModel(String id) {
+		return converter.convert(obtFeuilleDeTemps(id));
 	}
 	
 	public void deleteFeuilleDeTemps(String id) {
@@ -88,9 +88,9 @@ public class ServiceFeuilleDeTemps {
 		
 		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
 		
-		String id = feuilleDeTemps.getIdentifiant() +
-				simpleDateFormat.format(feuilleDeTemps.getDebut()) +
-				simpleDateFormat.format(feuilleDeTemps.getFin());
+		String id = feuilleDeTemps.obtIdentifiant() +
+				simpleDateFormat.format(feuilleDeTemps.obtDebut()) +
+				simpleDateFormat.format(feuilleDeTemps.obtFin());
 
 		updateFeuilleDeTemps(id, feuilleDeTemps);
 	}
@@ -99,19 +99,19 @@ public class ServiceFeuilleDeTemps {
 	
 //INTERN METHODS
 	
-	private FeuilleDeTemps getFeuilleDeTemps(String id) {
+	private FeuilleDeTemps obtFeuilleDeTemps(String id) {
 		return repository.obt(id);
 	}
 	
-	private Map<String, FeuilleDeTemps> getFeuillesDeTemps() {
+	private Map<String, FeuilleDeTemps> obtFeuillesDeTemps() {
 		return repository.obtMap();
 	}
 	
-	private List<FeuilleDeTemps> getFeuillesDeTempsParUtilisateur(String utilisateur) {
+	private List<FeuilleDeTemps> obtFeuillesDeTempsParUtilisateur(String utilisateur) {
 		List<FeuilleDeTemps> collection = new ArrayList<FeuilleDeTemps>();
 		
 		for (FeuilleDeTemps feuilleDeTemps : repository.obtTout()) {
-			if(feuilleDeTemps.getIdentifiant().equals(utilisateur)){
+			if(feuilleDeTemps.obtIdentifiant().equals(utilisateur)){
 				collection.add(feuilleDeTemps);
 			}
 		}

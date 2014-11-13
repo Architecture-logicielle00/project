@@ -16,8 +16,8 @@ public class RepoDepenseDeplacementXml extends
 
 	public String ajouter(DepenseDeplacement depense) {
 
-		String id = depense.getIdentifiant() + depense.getDate()
-				+ depense.getTime();
+		String id = depense.obtIdentifiant() + depense.obtDate()
+				+ depense.obtTime();
 
 		put(id, depense);
 
@@ -26,8 +26,8 @@ public class RepoDepenseDeplacementXml extends
 
 	public void modifier(DepenseDeplacement depense) {
 
-		String id = depense.getIdentifiant() + depense.getDate()
-				+ depense.getTime();
+		String id = depense.obtIdentifiant() + depense.obtDate()
+				+ depense.obtTime();
 
 		if (obt(id) != null) {
 			put(id, depense);

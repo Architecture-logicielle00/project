@@ -24,9 +24,9 @@ public class DepenseDiverseConverter {
 		DepenseDiverseViewModel viewModel = new DepenseDiverseViewModel();
 		viewModel.coucher = depense.obtCoucher();
 		viewModel.coutRepas = depense.obtCoutRepas();
-		viewModel.date = depense.getDate().toString();
-		viewModel.description = depense.getDescription();
-		viewModel.identifiant = depense.getIdentifiant();
+		viewModel.date = depense.obtDate().toString();
+		viewModel.description = depense.obtDescription();
+		viewModel.identifiant = depense.obtIdentifiant();
 		viewModel.nbRepas = depense.obtNbRepas();
 		viewModel.divers = depense.obtDivers();
 
@@ -37,12 +37,12 @@ public class DepenseDiverseConverter {
 		DepenseDiverse diverse = new DepenseDiverse();
 		diverse.defCoucher(diverseViewModel.coucher);
 		diverse.defCoutRepas(diverseViewModel.coutRepas);
-		diverse.setDate(diverseViewModel.date);
-		diverse.setDescription(diverseViewModel.description);
-		diverse.setIdentifiant(diverseViewModel.identifiant);
+		diverse.defDate(diverseViewModel.date);
+		diverse.defDescription(diverseViewModel.description);
+		diverse.defIdentifiant(diverseViewModel.identifiant);
 		diverse.defNbRepas(diverseViewModel.nbRepas);
 		diverse.defDivers(diverseViewModel.divers);
-		diverse.setTime(diverseViewModel.time);
+		diverse.defTime(diverseViewModel.time);
 		return diverse;
 	}
 }

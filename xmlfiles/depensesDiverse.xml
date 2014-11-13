@@ -30,6 +30,16 @@
   </DepenseDiverse>
   <DepenseDiverse>
     <identifiant>ALSAM</identifiant>
+    <date>2014-11-13</date>
+    <time>10:59:08</time>
+    <description>dsasadsad</description>
+    <nbRepas>5</nbRepas>
+    <coutRepas>5.0</coutRepas>
+    <divers>5.0</divers>
+    <coucher>5.0</coucher>
+  </DepenseDiverse>
+  <DepenseDiverse>
+    <identifiant>ALSAM</identifiant>
     <date>2014-11-07</date>
     <time>19:07:00</time>
     <description>asas</description>
@@ -77,5 +87,15 @@
     <coutRepas>2.0</coutRepas>
     <divers>2.0</divers>
     <coucher>2.0</coucher>
+  </DepenseDiverse>
+  <DepenseDiverse>
+    <identifiant>ALSAM</identifiant>
+    <date>2014-11-13</date>
+    <time>11:16:01</time>
+    <description>TEST</description>
+    <nbRepas>54545</nbRepas>
+    <coutRepas>54543.0</coutRepas>
+    <divers>43545.0</divers>
+    <coucher>45435.0</coucher>
   </DepenseDiverse>
 </list>
