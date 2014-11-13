@@ -159,16 +159,16 @@
     <statutGestionnaire>true</statutGestionnaire>
   </Employe>
   <Employe>
-    <nomUtilisateur>tesssst</nomUtilisateur>
+    <nomUtilisateur>dfdgtrgfsgfds</nomUtilisateur>
     <mdp>12345</mdp>
-    <nom>a</nom>
+    <nom></nom>
     <entreprise>NERV</entreprise>
-    <pays>Canada</pays>
-    <province>Québec</province>
-    <dateDeNaissance>2014-11-08 00:46:03.361 UTC</dateDeNaissance>
+    <pays></pays>
+    <province></province>
+    <dateDeNaissance>2014-10-17 08:03:36.948 UTC</dateDeNaissance>
     <feuillesDeTemps/>
     <taches/>
-    <statutGestionnaire>true</statutGestionnaire>
+    <statutGestionnaire>false</statutGestionnaire>
   </Employe>
   <Employe>
     <nomUtilisateur>testtt</nomUtilisateur>
@@ -189,16 +189,16 @@
     <statutGestionnaire>false</statutGestionnaire>
   </Employe>
   <Employe>
-    <nomUtilisateur>dfdgtrgfsgfds</nomUtilisateur>
+    <nomUtilisateur>tesssst</nomUtilisateur>
     <mdp>12345</mdp>
-    <nom></nom>
+    <nom>a</nom>
     <entreprise>NERV</entreprise>
-    <pays></pays>
-    <province></province>
-    <dateDeNaissance>2014-10-17 08:03:36.948 UTC</dateDeNaissance>
+    <pays>Canada</pays>
+    <province>Québec</province>
+    <dateDeNaissance>2014-11-08 00:46:03.361 UTC</dateDeNaissance>
     <feuillesDeTemps/>
     <taches/>
-    <statutGestionnaire>false</statutGestionnaire>
+    <statutGestionnaire>true</statutGestionnaire>
   </Employe>
   <Employe>
     <nomUtilisateur>bibi</nomUtilisateur>
@@ -211,18 +211,6 @@
     <feuillesDeTemps/>
     <taches/>
     <statutGestionnaire>false</statutGestionnaire>
-  </Employe>
-  <Employe>
-    <nomUtilisateur>lala</nomUtilisateur>
-    <mdp>12345</mdp>
-    <nom>Samson</nom>
-    <entreprise>NERV</entreprise>
-    <pays>Canada</pays>
-    <province>Québec</province>
-    <dateDeNaissance>2014-11-08 00:32:22.815 UTC</dateDeNaissance>
-    <feuillesDeTemps/>
-    <taches/>
-    <statutGestionnaire>true</statutGestionnaire>
   </Employe>
   <Employe>
     <nomUtilisateur>ALSAM</nomUtilisateur>
@@ -245,6 +233,18 @@
       <string>Sacrer</string>
     </taches>
     <statutGestionnaire>false</statutGestionnaire>
+  </Employe>
+  <Employe>
+    <nomUtilisateur>lala</nomUtilisateur>
+    <mdp>12345</mdp>
+    <nom>Samson</nom>
+    <entreprise>NERV</entreprise>
+    <pays>Canada</pays>
+    <province>Québec</province>
+    <dateDeNaissance>2014-11-08 00:32:22.815 UTC</dateDeNaissance>
+    <feuillesDeTemps/>
+    <taches/>
+    <statutGestionnaire>true</statutGestionnaire>
   </Employe>
   <Employe>
     <nomUtilisateur>JFGRA</nomUtilisateur>
@@ -286,25 +286,6 @@
     <statutGestionnaire>true</statutGestionnaire>
   </Employe>
   <Employe>
-    <nomUtilisateur>JPDEL</nomUtilisateur>
-    <mdp>12345</mdp>
-    <nom>Delisle</nom>
-    <prenom>Jean-Phillipe</prenom>
-    <entreprise></entreprise>
-    <email></email>
-    <pays></pays>
-    <province></province>
-    <ville></ville>
-    <codePostal></codePostal>
-    <genre></genre>
-    <numTelephone></numTelephone>
-    <feuillesDeTemps/>
-    <taches>
-      <string>Manger une poutine</string>
-    </taches>
-    <statutGestionnaire>false</statutGestionnaire>
-  </Employe>
-  <Employe>
     <nomUtilisateur>OLDU</nomUtilisateur>
     <mdp>12345</mdp>
     <nom>Dugas</nom>
@@ -324,6 +305,25 @@
       <string>Enseigner larchitecture logicielle </string>
     </taches>
     <statutGestionnaire>true</statutGestionnaire>
+  </Employe>
+  <Employe>
+    <nomUtilisateur>JPDEL</nomUtilisateur>
+    <mdp>12345</mdp>
+    <nom>Delisle</nom>
+    <prenom>Jean-Phillipe</prenom>
+    <entreprise></entreprise>
+    <email></email>
+    <pays></pays>
+    <province></province>
+    <ville></ville>
+    <codePostal></codePostal>
+    <genre></genre>
+    <numTelephone></numTelephone>
+    <feuillesDeTemps/>
+    <taches>
+      <string>Manger une poutine</string>
+    </taches>
+    <statutGestionnaire>false</statutGestionnaire>
   </Employe>
   <Employe>
     <nomUtilisateur>Correction</nomUtilisateur>
