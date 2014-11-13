@@ -57,6 +57,14 @@
   </DepenseDeplacement>
   <DepenseDeplacement>
     <identifiant>ALSAM</identifiant>
+    <date>2014-11-13</date>
+    <time>11:37:02</time>
+    <description>testttt</description>
+    <distance>2323.0</distance>
+    <coutkm>2323.0</coutkm>
+  </DepenseDeplacement>
+  <DepenseDeplacement>
+    <identifiant>ALSAM</identifiant>
     <date>2014-11-06</date>
     <time>19:11:07</time>
     <description></description>
@@ -130,18 +138,18 @@
   <DepenseDeplacement>
     <identifiant>ALSAM</identifiant>
     <date>2014-11-06</date>
-    <time>19:34:00</time>
-    <description></description>
-    <distance>7.0</distance>
-    <coutkm>8.0</coutkm>
-  </DepenseDeplacement>
-  <DepenseDeplacement>
-    <identifiant>ALSAM</identifiant>
-    <date>2014-11-06</date>
     <time>14:34:06</time>
     <description></description>
     <distance>1.0</distance>
     <coutkm>1.0</coutkm>
+  </DepenseDeplacement>
+  <DepenseDeplacement>
+    <identifiant>ALSAM</identifiant>
+    <date>2014-11-06</date>
+    <time>19:34:00</time>
+    <description></description>
+    <distance>7.0</distance>
+    <coutkm>8.0</coutkm>
   </DepenseDeplacement>
   <DepenseDeplacement>
     <identifiant>ALSAM</identifiant>

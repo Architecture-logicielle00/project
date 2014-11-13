@@ -49,38 +49,38 @@ public class FeuilleDeTempsConverterTest {
 		simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
 
 		feuilleDeTemps = Mockito.mock(FeuilleDeTemps.class);
-		Mockito.when(feuilleDeTemps.getDebut()).thenReturn(createDate(2014, 02, 17));
-		Mockito.when(feuilleDeTemps.getFin()).thenReturn(createDate(2014, 05, 17));
-		Mockito.when(feuilleDeTemps.getIdentifiant()).thenReturn("TEST1");
+		Mockito.when(feuilleDeTemps.obtDebut()).thenReturn(createDate(2014, 02, 17));
+		Mockito.when(feuilleDeTemps.obtFin()).thenReturn(createDate(2014, 05, 17));
+		Mockito.when(feuilleDeTemps.obtIdentifiant()).thenReturn("TEST1");
 
 		ArrayList<TempsParTache> collectionTempsParTacheFeuille1 = new ArrayList<TempsParTache>();
 		collectionTempsParTacheFeuille1.add(new TempsParTache("promener le chien", 1));
 		collectionTempsParTacheFeuille1.add(new TempsParTache("dormir", 2));
 
-		Mockito.when(feuilleDeTemps.getTaches()).thenReturn(collectionTempsParTacheFeuille1);
+		Mockito.when(feuilleDeTemps.obtTaches()).thenReturn(collectionTempsParTacheFeuille1);
 
 		
-		idFeuilleDeTemps = feuilleDeTemps.getIdentifiant()
-				+ simpleDateFormat.format(feuilleDeTemps.getDebut())
-				+ simpleDateFormat.format(feuilleDeTemps.getFin());
+		idFeuilleDeTemps = feuilleDeTemps.obtIdentifiant()
+				+ simpleDateFormat.format(feuilleDeTemps.obtDebut())
+				+ simpleDateFormat.format(feuilleDeTemps.obtFin());
 
 		
 		
 		
 		feuilleDeTemps2 = Mockito.mock(FeuilleDeTemps.class);
-		Mockito.when(feuilleDeTemps2.getDebut()).thenReturn(createDate(2014, 01, 27));
-		Mockito.when(feuilleDeTemps2.getFin()).thenReturn(createDate(2014, 01, 19));
-		Mockito.when(feuilleDeTemps2.getIdentifiant()).thenReturn("TEST2");
+		Mockito.when(feuilleDeTemps2.obtDebut()).thenReturn(createDate(2014, 01, 27));
+		Mockito.when(feuilleDeTemps2.obtFin()).thenReturn(createDate(2014, 01, 19));
+		Mockito.when(feuilleDeTemps2.obtIdentifiant()).thenReturn("TEST2");
 
 		ArrayList<TempsParTache> collectionTempsParTacheFeuille2 = new ArrayList<TempsParTache>();
 		collectionTempsParTacheFeuille2.add(new TempsParTache("promener le chat", 1));
 		collectionTempsParTacheFeuille2.add(new TempsParTache("se reveiller", 2));
 
-		Mockito.when(feuilleDeTemps.getTaches()).thenReturn(collectionTempsParTacheFeuille2);
+		Mockito.when(feuilleDeTemps.obtTaches()).thenReturn(collectionTempsParTacheFeuille2);
 
-		idFeuilleDeTemps2 = feuilleDeTemps2.getIdentifiant()
-				+ simpleDateFormat.format(feuilleDeTemps2.getDebut())
-				+ simpleDateFormat.format(feuilleDeTemps2.getFin());
+		idFeuilleDeTemps2 = feuilleDeTemps2.obtIdentifiant()
+				+ simpleDateFormat.format(feuilleDeTemps2.obtDebut())
+				+ simpleDateFormat.format(feuilleDeTemps2.obtFin());
 		
 		
 		feuilleDeTempsViewModelTest = Mockito.mock(FeuilleDeTempsViewModel.class);
@@ -103,7 +103,7 @@ public class FeuilleDeTempsConverterTest {
 		collectionTempsParTacheViewModels.add(tptvm1);
 		collectionTempsParTacheViewModels.add(tptvm2);
 
-		Mockito.when(feuilleDeTemps.getTaches()).thenReturn(collectionTempsParTacheFeuille1);
+		Mockito.when(feuilleDeTemps.obtTaches()).thenReturn(collectionTempsParTacheFeuille1);
 	}
 
 	@Test
@@ -118,15 +118,15 @@ public class FeuilleDeTempsConverterTest {
 		FeuilleDeTempsViewModel feuilleDeTempsViewModel = (FeuilleDeTempsViewModel) iterator
 				.next();
 
-		assertEquals(simpleDateFormat.format(feuilleDeTemps2.getDebut()),
+		assertEquals(simpleDateFormat.format(feuilleDeTemps2.obtDebut()),
 				feuilleDeTempsViewModel.debutPeriode);
-		assertEquals(simpleDateFormat.format(feuilleDeTemps2.getFin()),
+		assertEquals(simpleDateFormat.format(feuilleDeTemps2.obtFin()),
 				feuilleDeTempsViewModel.finPeriode);
-		assertEquals(feuilleDeTemps2.getIdentifiant(),
+		assertEquals(feuilleDeTemps2.obtIdentifiant(),
 				feuilleDeTempsViewModel.employe);
 
 		for (int i = 0; i < feuilleDeTempsViewModel.taches.size() - 1; i++) {
-			TempsParTache tempsParTache = feuilleDeTemps2.getTaches().get(i);
+			TempsParTache tempsParTache = feuilleDeTemps2.obtTaches().get(i);
 			TempsParTacheViewModel tempsParTacheViewModel = feuilleDeTempsViewModel.taches
 					.get(i);
 
@@ -138,15 +138,15 @@ public class FeuilleDeTempsConverterTest {
 
 		feuilleDeTempsViewModel = (FeuilleDeTempsViewModel) iterator.next();
 
-		assertEquals(simpleDateFormat.format(feuilleDeTemps.getDebut()),
+		assertEquals(simpleDateFormat.format(feuilleDeTemps.obtDebut()),
 				feuilleDeTempsViewModel.debutPeriode);
-		assertEquals(simpleDateFormat.format(feuilleDeTemps.getFin()),
+		assertEquals(simpleDateFormat.format(feuilleDeTemps.obtFin()),
 				feuilleDeTempsViewModel.finPeriode);
-		assertEquals(feuilleDeTemps.getIdentifiant(),
+		assertEquals(feuilleDeTemps.obtIdentifiant(),
 				feuilleDeTempsViewModel.employe);
 
 		for (int i = 0; i < feuilleDeTempsViewModel.taches.size() - 1; i++) {
-			TempsParTache tempsParTache = feuilleDeTemps.getTaches().get(i);
+			TempsParTache tempsParTache = feuilleDeTemps.obtTaches().get(i);
 			TempsParTacheViewModel tempsParTacheViewModel = feuilleDeTempsViewModel.taches
 					.get(i);
 
@@ -164,15 +164,15 @@ public class FeuilleDeTempsConverterTest {
 		FeuilleDeTempsViewModel feuilleDeTempsViewModel = feuilleDeTempsConverter
 				.convert(feuilleDeTemps);
 
-		assertEquals(simpleDateFormat.format(feuilleDeTemps.getDebut()),
+		assertEquals(simpleDateFormat.format(feuilleDeTemps.obtDebut()),
 				feuilleDeTempsViewModel.debutPeriode);
-		assertEquals(simpleDateFormat.format(feuilleDeTemps.getFin()),
+		assertEquals(simpleDateFormat.format(feuilleDeTemps.obtFin()),
 				feuilleDeTempsViewModel.finPeriode);
-		assertEquals(feuilleDeTemps.getIdentifiant(),
+		assertEquals(feuilleDeTemps.obtIdentifiant(),
 				feuilleDeTempsViewModel.employe);
 
 		for (int i = 0; i < feuilleDeTempsViewModel.taches.size() - 1; i++) {
-			TempsParTache tempsParTache = feuilleDeTemps.getTaches().get(i);
+			TempsParTache tempsParTache = feuilleDeTemps.obtTaches().get(i);
 			TempsParTacheViewModel tempsParTacheViewModel = feuilleDeTempsViewModel.taches
 					.get(i);
 
@@ -188,15 +188,15 @@ public class FeuilleDeTempsConverterTest {
 	public void testConvertFeuilleDeTempsViewModel() {
 		FeuilleDeTemps feuilleDeTemps = feuilleDeTempsConverter.convert(feuilleDeTempsViewModelTest);
 
-		assertEquals(simpleDateFormat.format(feuilleDeTemps.getDebut()),
+		assertEquals(simpleDateFormat.format(feuilleDeTemps.obtDebut()),
 				feuilleDeTempsViewModelTest.obtDebutPeriode());
-		assertEquals(simpleDateFormat.format(feuilleDeTemps.getFin()),
+		assertEquals(simpleDateFormat.format(feuilleDeTemps.obtFin()),
 				feuilleDeTempsViewModelTest.obtFinPeriode());
-		assertEquals(feuilleDeTemps.getIdentifiant(),
+		assertEquals(feuilleDeTemps.obtIdentifiant(),
 				feuilleDeTempsViewModelTest.obtEmploye());
 
 		for (int i = 0; i < feuilleDeTempsViewModelTest.obtTaches().size() - 1; i++) {
-			TempsParTache tempsParTache = feuilleDeTemps.getTaches().get(i);
+			TempsParTache tempsParTache = feuilleDeTemps.obtTaches().get(i);
 			TempsParTacheViewModel tempsParTacheViewModel = feuilleDeTempsViewModelTest.taches
 					.get(i);
 			

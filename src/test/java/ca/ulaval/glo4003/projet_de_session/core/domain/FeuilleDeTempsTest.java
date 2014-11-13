@@ -49,13 +49,13 @@ public class FeuilleDeTempsTest {
 
 	@Test
 	public void testObtUneTache() {
-		assertEquals(tempsParTache1,feuilleDeTemps.getTempsParTache("Dormir"));
+		assertEquals(tempsParTache1,feuilleDeTemps.obtTempsParTache("Dormir"));
 	}
 	
 
 	@Test(expected=TacheIntrouvableException.class)
 	public void testObtUneTacheIntrouvable() {
-		feuilleDeTemps.getTempsParTache("Sortir");
+		feuilleDeTemps.obtTempsParTache("Sortir");
 		
 	}
 	
