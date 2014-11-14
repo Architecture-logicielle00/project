@@ -14,7 +14,7 @@ import org.mockito.Mockito;
 import ca.ulaval.glo4003.projet_de_session.core.domain.DepenseDeplacement;
 import ca.ulaval.glo4003.projet_de_session.persistence.utils.Xml;
 
-public class RepoDepenseDeplacementTest {
+public class RepoDepenseDeplacementXmlTest {
 
 	private static DepenseDeplacement DepenseDeplacement1;
 	private static DepenseDeplacement DepenseDeplacement2;
