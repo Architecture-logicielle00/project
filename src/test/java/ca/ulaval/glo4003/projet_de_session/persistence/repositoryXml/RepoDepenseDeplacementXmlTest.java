@@ -85,5 +85,12 @@ public class RepoDepenseDeplacementXmlTest {
 		repoDepenseDeplacementXml.modifier(DepenseDeplacement2);
 		assertEquals(DepenseDeplacement2, repoDepenseDeplacementXml.obt(id));
 	}
-
+	
+	@Test
+	public void ObtTest() {
+		String id = DepenseDeplacement1.obtIdentifiant()
+				+ DepenseDeplacement1.obtDate() + DepenseDeplacement1.obtTime();
+		repoDepenseDeplacementXml.ajouter(DepenseDeplacement1);
+		assertEquals(DepenseDeplacement1, repoDepenseDeplacementXml.obt(id));
+	}
 }

@@ -16,7 +16,6 @@ import ca.ulaval.glo4003.projet_de_session.persistence.utils.Xml;
 
 public class RepoDepenseDiverseXmlTest {
 
-	private static DepenseDiverse DepenseDiverse0;
 	private static DepenseDiverse DepenseDiverse1;
 	private static DepenseDiverse DepenseDiverse2;
 	private static Xml<DepenseDiverse> xmlDepenseDiverse;
@@ -90,4 +89,13 @@ public class RepoDepenseDiverseXmlTest {
 		repoDepenseDiverseXml.modifier(DepenseDiverse2);
 		assertEquals(DepenseDiverse2, repoDepenseDiverseXml.obt(id));
 	}
+	
+	@Test
+	public void ObtTest() {
+		String id = DepenseDiverse1.obtIdentifiant()
+				+ DepenseDiverse1.obtDate() + DepenseDiverse1.obtTime();
+		repoDepenseDiverseXml.ajouter(DepenseDiverse1);
+		assertEquals(DepenseDiverse1, repoDepenseDiverseXml.obt(id));
+	}
+
 }
