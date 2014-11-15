@@ -64,9 +64,6 @@ public class FeuilleDeTempsConverterTest {
 				+ simpleDateFormat.format(feuilleDeTemps.obtDebut())
 				+ simpleDateFormat.format(feuilleDeTemps.obtFin());
 
-		
-		
-		
 		feuilleDeTemps2 = Mockito.mock(FeuilleDeTemps.class);
 		Mockito.when(feuilleDeTemps2.obtDebut()).thenReturn(createDate(2014, 01, 27));
 		Mockito.when(feuilleDeTemps2.obtFin()).thenReturn(createDate(2014, 01, 19));
@@ -82,11 +79,10 @@ public class FeuilleDeTempsConverterTest {
 				+ simpleDateFormat.format(feuilleDeTemps2.obtDebut())
 				+ simpleDateFormat.format(feuilleDeTemps2.obtFin());
 		
-		
 		feuilleDeTempsViewModelTest = Mockito.mock(FeuilleDeTempsViewModel.class);
 		
-		feuilleDeTempsViewModelTest.debutPeriode = "2014-02-17";
-		feuilleDeTempsViewModelTest.finPeriode = "2014-05-17";
+		feuilleDeTempsViewModelTest.debutPeriode = ("2014-02-17");
+		feuilleDeTempsViewModelTest.finPeriode = ("2014-05-17");
 		feuilleDeTempsViewModelTest.employe = "TEST1";
 		
 		Mockito.when(feuilleDeTempsViewModelTest.obtDebutPeriode()).thenReturn("2014-02-17");

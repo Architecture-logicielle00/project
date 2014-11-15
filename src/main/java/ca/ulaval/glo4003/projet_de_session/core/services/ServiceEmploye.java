@@ -52,7 +52,6 @@ public class ServiceEmploye
 	
 	public List<Employe> obtEmployesParEntreprise(String entreprise)
 	{
-		//TODO creer méthode obtEmployesParEntreprise dans le repo
 		List<Employe> repoList =  obtEmployes();
 		List<Employe> entrepriseList = new ArrayList<Employe>();
 		

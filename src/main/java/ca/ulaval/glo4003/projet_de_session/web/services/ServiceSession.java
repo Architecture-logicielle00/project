@@ -13,12 +13,12 @@ public class ServiceSession implements IServiceSession
 {
 	public Boolean chargerUtilisateurInformation(HttpServletRequest request, Model model)
 	{
-		UtilisateurViewModel user = (UtilisateurViewModel)request.getSession().getAttribute("UtilisateurSession");
+		Object user = request.getSession().getAttribute("UtilisateurSession");
 		
 		Boolean utilisateurConnecter = user != null;
 		
 		if (utilisateurConnecter)
-			model.addAttribute("utilisateur", user);
+			model.addAttribute("utilisateur", (UtilisateurViewModel)user);
 		
 		return utilisateurConnecter;
 	}
