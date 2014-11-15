@@ -23,12 +23,9 @@ public class RepoDepenseDeplacementXmlTest {
 	private static RepoDepenseDeplacementXml repoDepenseDeplacementXml;
 	private static final float un = (float) 15.0;
 	private static final float deux = (float) 16.8;
-	private static final float trois = (float) 20.9;
-	private static final Integer quatre = (Integer) 3;
-	private static final float cinq = (float) 20.0;
-	private static final float six = (float) 22.8;
-	private static final float sept = (float) 234.9;
-	private static final Integer huit = (Integer) 4;
+	private static final float trois = (float) 20.0;
+	private static final float quatre= (float) 22.8;
+
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 		
@@ -48,8 +45,8 @@ public class RepoDepenseDeplacementXmlTest {
 		
 		repoDepenseDeplacementXml = new RepoDepenseDeplacementXml();
 		DepenseDeplacement2 = Mockito.mock(DepenseDeplacement.class);
-		Mockito.when(DepenseDeplacement1.obtCoutKm()).thenReturn(cinq);
-		Mockito.when(DepenseDeplacement1.obtDistance()).thenReturn(six);
+		Mockito.when(DepenseDeplacement1.obtCoutKm()).thenReturn(trois);
+		Mockito.when(DepenseDeplacement1.obtDistance()).thenReturn(quatre);
 		Mockito.when(DepenseDeplacement2.obtDate()).thenReturn("2010-11-14");
 		Mockito.when(DepenseDeplacement2.obtDescription()).thenReturn("descirption");
 		Mockito.when(DepenseDeplacement2.obtIdentifiant()).thenReturn("ALSAM");
