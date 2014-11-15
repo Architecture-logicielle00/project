@@ -13,13 +13,11 @@ import org.junit.Test;
 import org.mockito.Mockito;
 
 import ca.ulaval.glo4003.projet_de_session.core.domain.DepenseDiverse;
-import ca.ulaval.glo4003.projet_de_session.core.domain.Employe;
 import ca.ulaval.glo4003.projet_de_session.persistence.utils.Xml;
 
 public class RepoDepenseDiverseXmlTest {
 
 	private static DepenseDiverse DepenseDiverse1;
-	private static DepenseDiverse DepenseDiverse0;
 	private static DepenseDiverse DepenseDiverse2;
 	private static Xml<DepenseDiverse> xmlDepenseDiverse;
 	private static ArrayList<DepenseDiverse> sauvegardeCollection;
