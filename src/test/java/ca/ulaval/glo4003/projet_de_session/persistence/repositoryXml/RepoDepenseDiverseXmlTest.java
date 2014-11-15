@@ -3,6 +3,7 @@ package ca.ulaval.glo4003.projet_de_session.persistence.repositoryXml;
 import static org.junit.Assert.assertEquals;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import org.junit.After;
 import org.junit.AfterClass;
@@ -12,11 +13,13 @@ import org.junit.Test;
 import org.mockito.Mockito;
 
 import ca.ulaval.glo4003.projet_de_session.core.domain.DepenseDiverse;
+import ca.ulaval.glo4003.projet_de_session.core.domain.Employe;
 import ca.ulaval.glo4003.projet_de_session.persistence.utils.Xml;
 
 public class RepoDepenseDiverseXmlTest {
 
 	private static DepenseDiverse DepenseDiverse1;
+	private static DepenseDiverse DepenseDiverse0;
 	private static DepenseDiverse DepenseDiverse2;
 	private static Xml<DepenseDiverse> xmlDepenseDiverse;
 	private static ArrayList<DepenseDiverse> sauvegardeCollection;
@@ -32,9 +35,9 @@ public class RepoDepenseDiverseXmlTest {
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
-		
+
 		xmlDepenseDiverse = new Xml<DepenseDiverse>(DepenseDiverse.class);
-		
+
 		sauvegardeCollection = (ArrayList<DepenseDiverse>) xmlDepenseDiverse
 				.charger("xmlfiles/depensesDiverse");
 
@@ -48,7 +51,7 @@ public class RepoDepenseDiverseXmlTest {
 		Mockito.when(DepenseDiverse1.obtIdentifiant()).thenReturn("ALSAM");
 		Mockito.when(DepenseDiverse1.obtNbRepas()).thenReturn(quatre);
 		Mockito.when(DepenseDiverse1.obtTime()).thenReturn("123");
-		
+
 		repoDepenseDiverseXml = new RepoDepenseDiverseXml();
 		DepenseDiverse2 = Mockito.mock(DepenseDiverse.class);
 		Mockito.when(DepenseDiverse2.obtCoucher()).thenReturn(cinq);
@@ -66,6 +69,7 @@ public class RepoDepenseDiverseXmlTest {
 		xmlDepenseDiverse.enregistrer(sauvegardeCollection,
 				"xmlfiles/depensesDiverse");
 	}
+
 	@Before
 	public void setUp() throws Exception {
 		xmlDepenseDiverse.enregistrer(new ArrayList<DepenseDiverse>(),
@@ -75,7 +79,7 @@ public class RepoDepenseDiverseXmlTest {
 
 	@After
 	public void tearDown() throws Exception {
-		
+
 	}
 
 	@Test
@@ -85,7 +89,7 @@ public class RepoDepenseDiverseXmlTest {
 		repoDepenseDiverseXml.ajouter(DepenseDiverse1);
 		assertEquals(repoDepenseDiverseXml.obt(id), DepenseDiverse1);
 	}
-	
+
 	@Test
 	public void ModifierDepenseDiverseTest() {
 		repoDepenseDiverseXml.ajouter(DepenseDiverse1);
@@ -94,13 +98,27 @@ public class RepoDepenseDiverseXmlTest {
 		repoDepenseDiverseXml.modifier(DepenseDiverse2);
 		assertEquals(DepenseDiverse2, repoDepenseDiverseXml.obt(id));
 	}
-	
+
 	@Test
-	public void ObtTest() {
+	public void ObtDepenseDiverseTest() {
 		String id = DepenseDiverse1.obtIdentifiant()
 				+ DepenseDiverse1.obtDate() + DepenseDiverse1.obtTime();
 		repoDepenseDiverseXml.ajouter(DepenseDiverse1);
 		assertEquals(DepenseDiverse1, repoDepenseDiverseXml.obt(id));
+	}
+
+	@Test
+	public void PutDepenseDiverseTest() {
+		String id = DepenseDiverse1.obtIdentifiant()
+				+ DepenseDiverse1.obtDate() + DepenseDiverse1.obtTime();
+		String iddeux = DepenseDiverse2.obtIdentifiant()
+				+ DepenseDiverse2.obtDate() + DepenseDiverse2.obtTime();
+		repoDepenseDiverseXml.ajouter(DepenseDiverse1);
+		repoDepenseDiverseXml.ajouter(DepenseDiverse2);
+		HashMap<String, DepenseDiverse> ColDepenseDiverse = new HashMap<String, DepenseDiverse>();
+		ColDepenseDiverse.put(id, DepenseDiverse1);
+		ColDepenseDiverse.put(iddeux, DepenseDiverse2);
+		assertEquals(ColDepenseDiverse, repoDepenseDiverseXml.obtMap());
 	}
 
 }

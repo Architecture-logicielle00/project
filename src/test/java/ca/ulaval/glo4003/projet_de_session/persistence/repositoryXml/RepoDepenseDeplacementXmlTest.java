@@ -3,6 +3,7 @@ package ca.ulaval.glo4003.projet_de_session.persistence.repositoryXml;
 import static org.junit.Assert.*;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import org.junit.After;
 import org.junit.AfterClass;
@@ -16,7 +17,6 @@ import ca.ulaval.glo4003.projet_de_session.persistence.utils.Xml;
 
 public class RepoDepenseDeplacementXmlTest {
 
-
 	private static DepenseDeplacement DepenseDeplacement1;
 	private static DepenseDeplacement DepenseDeplacement2;
 	private static Xml<DepenseDeplacement> xmlDepenseDeplacement;
@@ -25,13 +25,14 @@ public class RepoDepenseDeplacementXmlTest {
 	private static final float un = (float) 15.0;
 	private static final float deux = (float) 16.8;
 	private static final float trois = (float) 20.0;
-	private static final float quatre= (float) 22.8;
+	private static final float quatre = (float) 22.8;
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
-		
-		xmlDepenseDeplacement = new Xml<DepenseDeplacement>(DepenseDeplacement.class);
-		
+
+		xmlDepenseDeplacement = new Xml<DepenseDeplacement>(
+				DepenseDeplacement.class);
+
 		sauvegardeCollection = (ArrayList<DepenseDeplacement>) xmlDepenseDeplacement
 				.charger("xmlfiles/depensesDeplacement");
 
@@ -43,13 +44,14 @@ public class RepoDepenseDeplacementXmlTest {
 		Mockito.when(DepenseDeplacement1.obtDescription()).thenReturn("test");
 		Mockito.when(DepenseDeplacement1.obtIdentifiant()).thenReturn("ALSAM");
 		Mockito.when(DepenseDeplacement1.obtTime()).thenReturn("123");
-		
+
 		repoDepenseDeplacementXml = new RepoDepenseDeplacementXml();
 		DepenseDeplacement2 = Mockito.mock(DepenseDeplacement.class);
 		Mockito.when(DepenseDeplacement1.obtCoutKm()).thenReturn(trois);
 		Mockito.when(DepenseDeplacement1.obtDistance()).thenReturn(quatre);
 		Mockito.when(DepenseDeplacement2.obtDate()).thenReturn("2010-11-14");
-		Mockito.when(DepenseDeplacement2.obtDescription()).thenReturn("descirption");
+		Mockito.when(DepenseDeplacement2.obtDescription()).thenReturn(
+				"descirption");
 		Mockito.when(DepenseDeplacement2.obtIdentifiant()).thenReturn("ALSAM");
 		Mockito.when(DepenseDeplacement2.obtTime()).thenReturn("123");
 	}
@@ -59,6 +61,7 @@ public class RepoDepenseDeplacementXmlTest {
 		xmlDepenseDeplacement.enregistrer(sauvegardeCollection,
 				"xmlfiles/depensesDeplacement");
 	}
+
 	@Before
 	public void setUp() throws Exception {
 		xmlDepenseDeplacement.enregistrer(new ArrayList<DepenseDeplacement>(),
@@ -68,7 +71,7 @@ public class RepoDepenseDeplacementXmlTest {
 
 	@After
 	public void tearDown() throws Exception {
-		
+
 	}
 
 	@Test
@@ -78,7 +81,7 @@ public class RepoDepenseDeplacementXmlTest {
 		repoDepenseDeplacementXml.ajouter(DepenseDeplacement1);
 		assertEquals(repoDepenseDeplacementXml.obt(id), DepenseDeplacement1);
 	}
-	
+
 	@Test
 	public void ModifierDepenseDeplacementTest() {
 		repoDepenseDeplacementXml.ajouter(DepenseDeplacement1);
@@ -87,12 +90,26 @@ public class RepoDepenseDeplacementXmlTest {
 		repoDepenseDeplacementXml.modifier(DepenseDeplacement2);
 		assertEquals(DepenseDeplacement2, repoDepenseDeplacementXml.obt(id));
 	}
-	
+
 	@Test
-	public void ObtTest() {
+	public void ObtDepenseDeplacementTest() {
 		String id = DepenseDeplacement1.obtIdentifiant()
 				+ DepenseDeplacement1.obtDate() + DepenseDeplacement1.obtTime();
 		repoDepenseDeplacementXml.ajouter(DepenseDeplacement1);
 		assertEquals(DepenseDeplacement1, repoDepenseDeplacementXml.obt(id));
+	}
+
+	@Test
+	public void PutDepenseDeplacementTest() {
+		String id = DepenseDeplacement1.obtIdentifiant()
+				+ DepenseDeplacement1.obtDate() + DepenseDeplacement1.obtTime();
+		String iddeux = DepenseDeplacement2.obtIdentifiant()
+				+ DepenseDeplacement2.obtDate() + DepenseDeplacement2.obtTime();
+		repoDepenseDeplacementXml.ajouter(DepenseDeplacement1);
+		repoDepenseDeplacementXml.ajouter(DepenseDeplacement2);
+		HashMap<String, DepenseDeplacement> ColDepenseDeplacement = new HashMap<String, DepenseDeplacement>();
+		ColDepenseDeplacement.put(id, DepenseDeplacement1);
+		ColDepenseDeplacement.put(iddeux, DepenseDeplacement2);
+		assertEquals(ColDepenseDeplacement, repoDepenseDeplacementXml.obtMap());
 	}
 }
