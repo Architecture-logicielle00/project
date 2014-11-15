@@ -25,6 +25,11 @@ public class RepoDepenseDiverseXmlTest {
 	private static final float deux = (float) 16.8;
 	private static final float trois = (float) 20.9;
 	private static final Integer quatre = (Integer) 3;
+	private static final float cinq = (float) 20.0;
+	private static final float six = (float) 22.8;
+	private static final float sept = (float) 234.9;
+	private static final Integer huit = (Integer) 4;
+
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 		
@@ -46,13 +51,13 @@ public class RepoDepenseDiverseXmlTest {
 		
 		repoDepenseDiverseXml = new RepoDepenseDiverseXml();
 		DepenseDiverse2 = Mockito.mock(DepenseDiverse.class);
-		Mockito.when(DepenseDiverse2.obtCoucher()).thenReturn(un);
-		Mockito.when(DepenseDiverse2.obtCoutRepas()).thenReturn(deux);
+		Mockito.when(DepenseDiverse2.obtCoucher()).thenReturn(cinq);
+		Mockito.when(DepenseDiverse2.obtCoutRepas()).thenReturn(six);
 		Mockito.when(DepenseDiverse2.obtDate()).thenReturn("2010-11-14");
-		Mockito.when(DepenseDiverse2.obtDescription()).thenReturn("test");
-		Mockito.when(DepenseDiverse2.obtDivers()).thenReturn(trois);
+		Mockito.when(DepenseDiverse2.obtDescription()).thenReturn("oooo");
+		Mockito.when(DepenseDiverse2.obtDivers()).thenReturn(sept);
 		Mockito.when(DepenseDiverse2.obtIdentifiant()).thenReturn("ALSAM");
-		Mockito.when(DepenseDiverse2.obtNbRepas()).thenReturn(quatre);
+		Mockito.when(DepenseDiverse2.obtNbRepas()).thenReturn(huit);
 		Mockito.when(DepenseDiverse2.obtTime()).thenReturn("123");
 	}
 
