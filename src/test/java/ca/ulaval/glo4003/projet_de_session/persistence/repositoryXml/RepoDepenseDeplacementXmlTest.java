@@ -17,7 +17,6 @@ import ca.ulaval.glo4003.projet_de_session.persistence.utils.Xml;
 public class RepoDepenseDeplacementXmlTest {
 
 
-	private static DepenseDeplacement DepenseDeplacement0;
 	private static DepenseDeplacement DepenseDeplacement1;
 	private static DepenseDeplacement DepenseDeplacement2;
 	private static Xml<DepenseDeplacement> xmlDepenseDeplacement;
