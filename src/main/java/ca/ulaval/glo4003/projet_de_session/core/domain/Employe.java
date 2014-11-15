@@ -22,7 +22,7 @@ public class Employe extends Utilisateur {
 	ArrayList<String> taches;
 
 	boolean statutGestionnaire;
-
+	
 	public Employe(String _nomUtilisateur, String _mdp, String _nom,
 			String _prenom, String _entreprise, String _email, String _pays,
 			String _province, String _ville, String _codePostal,
@@ -46,6 +46,8 @@ public class Employe extends Utilisateur {
 	}
 
 	public Employe() {
+		taches = new ArrayList<String>();
+		feuillesDeTemps = new ArrayList<String>();
 	}
 
 	public String obtNom() {
@@ -173,5 +175,29 @@ public class Employe extends Utilisateur {
 	public void ajouterIdFeuilleDeTemps(String id) {
 		if(!feuillesDeTemps.contains(id))
 			feuillesDeTemps.add(id);
+	}
+	
+	@Override
+	public boolean equals(Object autreObj){
+		if (!autreObj.getClass().isInstance(Employe.class))
+			return false;
+
+		return	EmpIdentique((Employe)autreObj);
+	}
+	
+	private boolean EmpIdentique(Employe autreEmp)
+	{
+		return 
+				(nom == autreEmp.nom &&
+			    prenom == autreEmp.prenom &&
+				entreprise == autreEmp.entreprise &&
+				email == autreEmp.email &&
+				pays == autreEmp.pays &&
+				province == autreEmp.province &&
+				ville == autreEmp.ville &&
+				codePostal == autreEmp.codePostal &&
+				dateDeNaissance == autreEmp.dateDeNaissance &&
+				genre == autreEmp.genre &&
+				numTelephone == autreEmp.numTelephone);
 	}
 }

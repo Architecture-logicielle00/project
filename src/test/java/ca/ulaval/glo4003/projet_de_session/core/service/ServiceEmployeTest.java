@@ -3,6 +3,7 @@ package ca.ulaval.glo4003.projet_de_session.core.service;
 import static org.junit.Assert.*;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import org.junit.After;
@@ -39,12 +40,10 @@ public class ServiceEmployeTest {
 		xmlEmploye = new Xml<Employe>(Employe.class);
 		sauvegardeCollection = (ArrayList<Employe>) xmlEmploye.charger("xmlfiles/employes");
 		
-		
 		employe1 = Mockito.mock(Employe.class);
 		Mockito.when(employe1.obtNomUtilisateur()).thenReturn("nomUtilisateur1");
 		Mockito.when(employe1.motDePasseValide("mdp")).thenReturn(true);
 		Mockito.when(employe1.obtEntreprise()).thenReturn("entreprise2");
-
 		
 		employe2 = Mockito.mock(Employe.class);
 		Mockito.when(employe2.obtNomUtilisateur()).thenReturn("nomUtilisateur2");
@@ -52,7 +51,7 @@ public class ServiceEmployeTest {
 
 		employe3 = Mockito.mock(Employe.class);
 		Mockito.when(employe3.obtNomUtilisateur()).thenReturn("nomUtilisateur3");
-		Mockito.when(employe3.obtEntreprise()).thenReturn("entreprise3");		
+		Mockito.when(employe3.obtEntreprise()).thenReturn("entreprise3");
 	}
 
 	@AfterClass
@@ -65,13 +64,8 @@ public class ServiceEmployeTest {
 		xmlEmploye.enregistrer(new ArrayList<Employe>(), "xmlfiles/employes");
 		repoEmployeXml = new RepoEmployeXml();
 		
-		assertEquals(new ArrayList<Employe>(), repoEmployeXml.obtMap());
+		assertEquals(new HashMap<String,Employe>(), repoEmployeXml.obtMap());
 	}
-
-	@After
-	public void tearDown() throws Exception {
-	}
-
 
 	@Test
 	public void testObtEmployesParEntreprise() {
@@ -82,15 +76,17 @@ public class ServiceEmployeTest {
 		List<Employe> entreprise1 = new ArrayList<Employe>();
 		entreprise1.add(employe1);
 		entreprise1.add(employe2);
+		
 		assertEquals(entreprise1, serviceEmploye.obtEmployesParEntreprise("entreprise1"));
 	}
 
 	
 	@Test
 	public void testVerifierMotDePasse() {
-		assertFalse(serviceEmploye.obtEmploye("nomUtilisateur1") == null);
-		assertEquals(serviceEmploye.obtEmploye("nomUtilisateur1").motDePasseValide("mdp"),serviceEmploye.verifierMotDePasse("nomUtilisateur1","mdp"));
-		assertFalse(serviceEmploye.verifierMotDePasse("nomUtilisateur5","mdp"));
+		assert(serviceEmploye.obtEmploye("nomUtilisateur1") != null);
+		assert(serviceEmploye.obtEmploye("nomUtilisateur1").motDePasseValide("mdp"));
+		assert(serviceEmploye.verifierMotDePasse("nomUtilisateur1","mdp"));
+		assert(!serviceEmploye.verifierMotDePasse("nomUtilisateur5","mdp"));
 	}
 
 }

@@ -3,6 +3,7 @@ package ca.ulaval.glo4003.projet_de_session.persistence.repositoryXml;
 import static org.junit.Assert.*;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -60,7 +61,7 @@ public class RepoEmployeXmlTest {
 		xmlEmploye.enregistrer(new ArrayList<Employe>(), "xmlfiles/employes");
 		repoEmployeXml = new RepoEmployeXml();
 		
-		assertEquals(new ArrayList<Employe>(), repoEmployeXml.obtMap());
+		assertEquals(new HashMap<String,Employe>(), repoEmployeXml.obtMap());
 	}
 
 	@Test
@@ -73,8 +74,10 @@ public class RepoEmployeXmlTest {
 	@Test
 	public void testObtenir() {
 		repoEmployeXml.ajouter(employe1);
+
+		Employe empObtenue =  repoEmployeXml.obt("nomUtilisateurTest1");
 		
-		assertEquals(employe1, repoEmployeXml.obt("nomUtilisateurTest1"));
+		assert(empObtenue.equals(empObtenue));
 	}
 
 	@Test
@@ -82,9 +85,9 @@ public class RepoEmployeXmlTest {
 		repoEmployeXml.ajouter(employe1);
 		repoEmployeXml.ajouter(employe2);
 		
-		ArrayList<Employe> employes= new ArrayList<Employe>();
-		employes.add(employe1);
-		employes.add(employe2);
+		HashMap<String,Employe> employes= new HashMap<String,Employe>();
+		employes.put(employe1.obtNomUtilisateur(),employe1);
+		employes.put(employe2.obtNomUtilisateur(),employe2);
 		
 		assertEquals(employes, repoEmployeXml.obtMap());
 	}
@@ -94,16 +97,16 @@ public class RepoEmployeXmlTest {
 		repoEmployeXml.ajouter(employe1);
 		repoEmployeXml.ajouter(employe2);
 		
-		ArrayList<Employe> employes1= new ArrayList<Employe>();
-		employes1.add(employe1);
-		employes1.add(employe2);
+		HashMap<String,Employe> employes1= new HashMap<String,Employe>();
+		employes1.put(employe1.obtNomUtilisateur(),employe1);
+		employes1.put(employe2.obtNomUtilisateur(),employe2);
 		
 		assertEquals(employes1, repoEmployeXml.obtMap());
 		
 		repoEmployeXml.supprimer("nomUtilisateurTest2");
 		
-		ArrayList<Employe> employes2= new ArrayList<Employe>();
-		employes2.add(employe1);
+		HashMap<String,Employe> employes2= new HashMap<String,Employe>();
+		employes2.put(employe1.obtNomUtilisateur(),employe1);
 		
 		assertEquals(employes2, repoEmployeXml.obtMap());
 
