@@ -17,41 +17,41 @@ import ca.ulaval.glo4003.projet_de_session.web.viewmodels.EmployeeViewModel;
 @Service
 public class ServiceEmploye
 {
-	
 	Repository<Employe> repo;
 	FactoryEmploye factory;
 	EmployeeConverter ec;
 	
-	public ServiceEmploye()
-	{
+	public ServiceEmploye(Repository<Employe> _repo){
+		repo = _repo;
+		
+		factory = new FactoryEmploye();
+		ec = new EmployeeConverter();
+	}
+	
+	public ServiceEmploye(){
 		factory = new FactoryEmploye();
 		repo = FactoryRepository.cree(Employe.class);
 		ec = new EmployeeConverter();
 	}
 	
-	public Employe obtEmploye(String nomUtilisateur)
-	{
+	public Employe obtEmploye(String nomUtilisateur){
 		return repo.obt(nomUtilisateur);
 	}
 	
-	public void creerEmploye(EmployeeViewModel evm)
-	{
+	public void creerEmploye(EmployeeViewModel evm){
 		Employe e = ec.convert(evm);
 		repo.ajouter(e);
 	}
 	
-	public void modifierEmploye(Employe employe)
-	{
+	public void modifierEmploye(Employe employe){
 		repo.modifier(employe);
 	}
 	
-	public List<Employe> obtEmployes()
-	{
+	public List<Employe> obtEmployes(){
 		return repo.obtTout();
 	}
 	
-	public List<Employe> obtEmployesParEntreprise(String entreprise)
-	{
+	public List<Employe> obtEmployesParEntreprise(String entreprise){
 		List<Employe> repoList =  obtEmployes();
 		List<Employe> entrepriseList = new ArrayList<Employe>();
 		
@@ -65,25 +65,21 @@ public class ServiceEmploye
 		return entrepriseList;
 	}
 	
-	public boolean verifierMotDePasse(String nomUtilisateur, String motDePasse)
-	{
+	public boolean verifierMotDePasse(String nomUtilisateur, String motDePasse){
 		Employe e = obtEmploye(nomUtilisateur);
 		if(e != null) return e.motDePasseValide(motDePasse);
 		return false;
 	}
 	
-	public EmployeeViewModel obtEmployeViewModel(String nomUtilisateur)
-	{
+	public EmployeeViewModel obtEmployeViewModel(String nomUtilisateur){
 		return ec.convert( obtEmploye(nomUtilisateur) );
 	}
 	
-	public Collection<EmployeeViewModel> obtEmployesViewModel()
-	{
+	public Collection<EmployeeViewModel> obtEmployesViewModel(){
 		return ec.convert( obtEmployes() );
 	}
 	
-	public void modifierEmployeExistant(EmployeeViewModel evm)
-	{
+	public void modifierEmployeExistant(EmployeeViewModel evm){
 		Employe e = obtEmploye(evm.nomUtilisateur);
 		
 		e.defCodePostal(evm.codePostal);
