@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
@@ -17,6 +16,7 @@ import org.mockito.runners.MockitoJUnitRunner;
 
 import ca.ulaval.glo4003.projet_de_session.core.domain.Employe;
 import ca.ulaval.glo4003.projet_de_session.core.services.ServiceEmploye;
+import ca.ulaval.glo4003.projet_de_session.persistence.repository.Repository;
 import ca.ulaval.glo4003.projet_de_session.persistence.repositoryXml.RepoEmployeXml;
 import ca.ulaval.glo4003.projet_de_session.persistence.utils.Xml;
 
@@ -30,7 +30,7 @@ public class ServiceEmployeTest {
 	
 	private static Xml<Employe> xmlEmploye;
 	private static ArrayList<Employe> sauvegardeCollection;
-	private static RepoEmployeXml repoEmployeXml;
+	private static Repository<Employe> repoEmployeXml;
 	
 	
 	@BeforeClass
@@ -44,14 +44,17 @@ public class ServiceEmployeTest {
 		Mockito.when(employe1.obtNomUtilisateur()).thenReturn("nomUtilisateur1");
 		Mockito.when(employe1.motDePasseValide("mdp")).thenReturn(true);
 		Mockito.when(employe1.obtEntreprise()).thenReturn("entreprise2");
+		Mockito.when(employe1.estEmployeDe("entreprise2")).thenReturn(true);
 		
 		employe2 = Mockito.mock(Employe.class);
 		Mockito.when(employe2.obtNomUtilisateur()).thenReturn("nomUtilisateur2");
 		Mockito.when(employe2.obtEntreprise()).thenReturn("entreprise1");
-
+		Mockito.when(employe2.estEmployeDe("entreprise1")).thenReturn(true);
+		
 		employe3 = Mockito.mock(Employe.class);
 		Mockito.when(employe3.obtNomUtilisateur()).thenReturn("nomUtilisateur3");
 		Mockito.when(employe3.obtEntreprise()).thenReturn("entreprise3");
+		Mockito.when(employe3.estEmployeDe("entreprise3")).thenReturn(true);
 	}
 
 	@AfterClass
@@ -74,13 +77,12 @@ public class ServiceEmployeTest {
 		repoEmployeXml.ajouter(employe3);
 		
 		List<Employe> entreprise1 = new ArrayList<Employe>();
-		entreprise1.add(employe1);
 		entreprise1.add(employe2);
+		ServiceEmploye serviceEmployeTest = new ServiceEmploye(repoEmployeXml);
 		
-		assertEquals(entreprise1, serviceEmploye.obtEmployesParEntreprise("entreprise1"));
+		assertEquals(entreprise1, serviceEmployeTest.obtEmployesParEntreprise("entreprise1"));
 	}
 
-	
 	@Test
 	public void testVerifierMotDePasse() {
 		assert(serviceEmploye.obtEmploye("nomUtilisateur1") != null);
