@@ -1,1 +1,12 @@
-<list/>
+<list>
+  <DepenseDiverse>
+    <identifiant>OLDU</identifiant>
+    <date>2014-11-16</date>
+    <time>10:31:03</time>
+    <description></description>
+    <nbRepas>2</nbRepas>
+    <coutRepas>2.0</coutRepas>
+    <divers>2.0</divers>
+    <coucher>2.0</coucher>
+  </DepenseDiverse>
+</list>

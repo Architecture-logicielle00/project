@@ -6,18 +6,12 @@ import ca.ulaval.glo4003.projet_de_session.core.domain.DepenseDiverse;
 import ca.ulaval.glo4003.projet_de_session.web.viewmodels.DepenseDiverseViewModel;
 
 public class FactoryDepenseDiverse {
-
-	public DepenseDiverse creer(DepenseDiverseViewModel v) {
-		DepenseDiverse c = new DepenseDiverse(
-				v.identifiant, 
-				v.date,
-				v.time,
-				v.description,
-				v.nbRepas,
-				v.coutRepas,
-				v.divers,
-				v.coucher);
-		return c;
-		}
+	public DepenseDiverse creer(String identifiant, String date, String time,
+			String description, int nbRepas, float coutRepas, float divers,
+			float coucher){
+		return new DepenseDiverse(identifiant, date, time,
+				description, nbRepas, coutRepas, divers, coucher);
+		
+	}
 
 }

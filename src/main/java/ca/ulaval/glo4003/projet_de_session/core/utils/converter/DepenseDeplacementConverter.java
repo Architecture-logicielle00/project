@@ -5,6 +5,7 @@ import java.util.List;
 
 import ca.ulaval.glo4003.projet_de_session.core.domain.Depense;
 import ca.ulaval.glo4003.projet_de_session.core.domain.DepenseDeplacement;
+import ca.ulaval.glo4003.projet_de_session.core.utils.FactoryDepenseDeplacement;
 import ca.ulaval.glo4003.projet_de_session.web.viewmodels.DepenseDeplacementViewModel;
 
 public class DepenseDeplacementConverter {
@@ -32,15 +33,11 @@ public class DepenseDeplacementConverter {
 	}
 	
 	public DepenseDeplacement convert(DepenseDeplacementViewModel deplacementViewModel) {
-		DepenseDeplacement deplacement = new DepenseDeplacement();
-		deplacement.defCoutKm(deplacementViewModel.coutKm);
-		deplacement.defDistance(deplacementViewModel.distance);
-		deplacement.defIdentifiant(deplacementViewModel.identifiant);
-		deplacement.defDescription(deplacementViewModel.description);
-		deplacement.defDate(deplacementViewModel.date);
-
-		
-		deplacement.defTime(deplacementViewModel.time);
+		DepenseDeplacement deplacement = (new FactoryDepenseDeplacement()).creer(deplacementViewModel.identifiant,
+				deplacementViewModel.date, deplacementViewModel.time,
+				deplacementViewModel.description,
+				deplacementViewModel.distance,
+				deplacementViewModel.coutKm);
 		return deplacement;
 	}
 }

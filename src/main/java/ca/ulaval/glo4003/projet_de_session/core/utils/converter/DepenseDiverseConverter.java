@@ -6,6 +6,7 @@ import java.util.List;
 
 import ca.ulaval.glo4003.projet_de_session.core.domain.Depense;
 import ca.ulaval.glo4003.projet_de_session.core.domain.DepenseDiverse;
+import ca.ulaval.glo4003.projet_de_session.core.utils.FactoryDepenseDiverse;
 import ca.ulaval.glo4003.projet_de_session.web.viewmodels.DepenseDiverseViewModel;
 
 public class DepenseDiverseConverter {
@@ -34,15 +35,9 @@ public class DepenseDiverseConverter {
 	}
 	
 	public DepenseDiverse convert(DepenseDiverseViewModel diverseViewModel) {
-		DepenseDiverse diverse = new DepenseDiverse();
-		diverse.defCoucher(diverseViewModel.coucher);
-		diverse.defCoutRepas(diverseViewModel.coutRepas);
-		diverse.defDate(diverseViewModel.date);
-		diverse.defDescription(diverseViewModel.description);
-		diverse.defIdentifiant(diverseViewModel.identifiant);
-		diverse.defNbRepas(diverseViewModel.nbRepas);
-		diverse.defDivers(diverseViewModel.divers);
-		diverse.defTime(diverseViewModel.time);
-		return diverse;
+		return (new FactoryDepenseDiverse()).creer(diverseViewModel.identifiant,
+				diverseViewModel.date, diverseViewModel.time, diverseViewModel.description,
+				diverseViewModel.nbRepas, diverseViewModel.coutRepas, diverseViewModel.divers,
+				diverseViewModel.coucher);
 	}
 }

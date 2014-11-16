@@ -4,11 +4,14 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Date;
 import java.util.LinkedList;
 import java.util.Map;
 import java.util.Map.Entry;
+
 import ca.ulaval.glo4003.projet_de_session.core.domain.FeuilleDeTemps;
 import ca.ulaval.glo4003.projet_de_session.core.domain.TempsParTache;
+import ca.ulaval.glo4003.projet_de_session.core.utils.FactoryFeuilleDeTemps;
 import ca.ulaval.glo4003.projet_de_session.web.viewmodels.FeuilleDeTempsViewModel;
 import ca.ulaval.glo4003.projet_de_session.web.viewmodels.TempsParTacheViewModel;
 
@@ -43,15 +46,16 @@ public class FeuilleDeTempsConverter {
 		
 		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
 		
-		FeuilleDeTemps feuilleDeTemps = new FeuilleDeTemps();
+		Date debut = new Date();
+		Date fin = new Date();
 		try {
-			feuilleDeTemps.setDebut(formatter.parse(entry.debutPeriode));
-			feuilleDeTemps.setFin(formatter.parse(entry.finPeriode));
+			debut = formatter.parse(entry.debutPeriode);
+			fin = formatter.parse(entry.finPeriode);
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
-
-		feuilleDeTemps.setIdentifiant(entry.employe);
+		
+		FeuilleDeTemps feuilleDeTemps = (new FactoryFeuilleDeTemps()).creerFeuilleDeTemps(entry.employe, debut, fin);
 		feuilleDeTemps.setTaches(convertTempsParTacheViewModel(entry.obtTaches()));
 		feuilleDeTemps.setCommentaires(entry.commentaires);
 		

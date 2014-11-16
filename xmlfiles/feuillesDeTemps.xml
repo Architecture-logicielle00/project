@@ -242,6 +242,48 @@
   <FeuilleDeTemps>
     <taches>
       <ca.ulaval.glo4003.projet__de__session.core.domain.TempsParTache>
+        <tache>Enseigner larchitecture logicielle </tache>
+        <nbHeuresParJours>
+          <float>10.0</float>
+          <float>5.0</float>
+          <float>5.0</float>
+          <float>2.0</float>
+          <float>0.0</float>
+          <float>0.0</float>
+          <float>0.0</float>
+          <float>0.0</float>
+          <float>0.0</float>
+          <float>0.0</float>
+          <float>0.0</float>
+          <float>0.0</float>
+          <float>0.0</float>
+          <float>0.0</float>
+        </nbHeuresParJours>
+      </ca.ulaval.glo4003.projet__de__session.core.domain.TempsParTache>
+    </taches>
+    <commentaires>
+      <string>jhjhjh</string>
+      <string></string>
+      <string></string>
+      <string></string>
+      <string></string>
+      <string></string>
+      <string></string>
+      <string></string>
+      <string></string>
+      <string></string>
+      <string></string>
+      <string></string>
+      <string></string>
+      <string></string>
+    </commentaires>
+    <debut>2014-11-10 05:00:00.0 UTC</debut>
+    <fin>2014-11-23 05:00:00.0 UTC</fin>
+    <identifiant>OLDU</identifiant>
+  </FeuilleDeTemps>
+  <FeuilleDeTemps>
+    <taches>
+      <ca.ulaval.glo4003.projet__de__session.core.domain.TempsParTache>
         <tache>Sacrer</tache>
         <nbHeuresParJours>
           <float>12.0</float>

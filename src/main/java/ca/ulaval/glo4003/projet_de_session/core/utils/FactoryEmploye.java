@@ -7,13 +7,15 @@ import ca.ulaval.glo4003.projet_de_session.web.viewmodels.EmployeeViewModel;
 
 public class FactoryEmploye
 {	
-	public Employe creerEmploye(EmployeeViewModel evm)
+	public Employe creerEmploye(String nomUtilisateur, String nom,
+			String prenom, String email, String pays,
+			String province, String ville, String codePostal,
+			String genre, String numTelephone, boolean statutGestionnaire)
 	{
-		Employe e = new Employe(evm.nomUtilisateur, "12345", evm.nom,
-				evm.prenom, "NERV", evm.email, evm.pays,
-				evm.province, evm.ville, evm.codePostal,
-				new Date(), evm.sexe, evm.telephone);
-		e.defStatutGestionnaire(evm.statutGestionnaire);
-		return e;
+		Employe employe =  new Employe(nomUtilisateur, "12345", nom, prenom, "NERV", email, pays, province, ville, codePostal,
+				new Date(), genre, numTelephone);
+		
+		employe.defStatutGestionnaire(statutGestionnaire);
+		return employe;
 	}
 }

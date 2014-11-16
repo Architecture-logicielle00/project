@@ -36,7 +36,7 @@ public class ServiceEmploye
 	
 	public void creerEmploye(EmployeeViewModel evm)
 	{
-		Employe e = factory.creerEmploye(evm);
+		Employe e = ec.convert(evm);
 		repo.ajouter(e);
 	}
 	

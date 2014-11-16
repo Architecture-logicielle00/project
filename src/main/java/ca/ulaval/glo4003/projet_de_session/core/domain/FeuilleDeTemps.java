@@ -38,6 +38,17 @@ public class FeuilleDeTemps {
 					obtNombreJourPeriode()));
 		}
 	}
+	
+	public FeuilleDeTemps(String _identifiant, Date _debut, Date _fin)
+	{
+		identifiant = _identifiant;
+		debut = _debut;
+		fin = _fin;
+		commentaires = new ArrayList<String>();
+		for (int i = 0; i < obtNombreJourPeriode(); i++) {
+			commentaires.add("");
+		}
+	}
 
 	public ArrayList<TempsParTache> obtTaches() {
 		return taches;

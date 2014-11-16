@@ -6,6 +6,7 @@ import java.util.List;
 
 import ca.ulaval.glo4003.projet_de_session.core.domain.Employe;
 import ca.ulaval.glo4003.projet_de_session.core.domain.Utilisateur;
+import ca.ulaval.glo4003.projet_de_session.core.utils.FactoryEmploye;
 import ca.ulaval.glo4003.projet_de_session.web.viewmodels.EmployeeViewModel;
 
 
@@ -36,5 +37,12 @@ public class EmployeeConverter {
 		viewModel.statutGestionnaire = entry.estGestionnaire();
 
 		return viewModel;
+	}
+	
+	public Employe convert(EmployeeViewModel evm)
+	{
+		return (new FactoryEmploye()).creerEmploye(evm.nomUtilisateur, evm.nom, evm.prenom,
+				evm.email, evm.pays, evm.province, evm.ville, evm.codePostal, evm.sexe,
+				evm.telephone, evm.statutGestionnaire);
 	}
 }
