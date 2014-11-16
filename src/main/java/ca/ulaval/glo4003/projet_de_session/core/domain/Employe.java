@@ -73,6 +73,10 @@ public class Employe extends Utilisateur {
 	public void defEntreprise(String _entreprise) {
 		entreprise = _entreprise;
 	}
+	
+	public boolean estEmployeDe(String _entreprise){
+		return entreprise.equals(_entreprise);
+	}
 
 	public String obtEmail() {
 		return email;

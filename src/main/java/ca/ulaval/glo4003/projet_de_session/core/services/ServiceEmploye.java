@@ -57,7 +57,7 @@ public class ServiceEmploye
 		
 		for (Employe e : repoList)
 		{
-			if ( e.obtEntreprise().equals(entreprise) )
+			if ( e.estEmployeDe(entreprise) )
 			{
 				entrepriseList.add(e);
 			}

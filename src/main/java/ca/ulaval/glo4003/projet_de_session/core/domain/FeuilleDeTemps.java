@@ -83,6 +83,10 @@ public class FeuilleDeTemps {
 	public void setIdentifiant(String id) {
 		identifiant = id;
 	}
+	
+	public boolean appartientA(String _identifiant){
+		return identifiant.equals(_identifiant);
+	}
 
 	public TempsParTache obtTempsParTache(String _tache) {
 		for (TempsParTache blocDeTemps : taches) {

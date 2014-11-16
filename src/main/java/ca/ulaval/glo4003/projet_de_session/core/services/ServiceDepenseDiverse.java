@@ -50,7 +50,7 @@ public class ServiceDepenseDiverse {
 		
 		
 		for (DepenseDiverse depensediverse : collection) {
-			if(depensediverse.obtIdentifiant().equals(utilisateur))
+			if(depensediverse.identifiantEstEgal(utilisateur))
 				collectionFiltre.add(depensediverse);
 		}
 		

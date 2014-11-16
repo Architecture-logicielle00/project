@@ -111,7 +111,7 @@ public class ServiceFeuilleDeTemps {
 		List<FeuilleDeTemps> collection = new ArrayList<FeuilleDeTemps>();
 		
 		for (FeuilleDeTemps feuilleDeTemps : repository.obtTout()) {
-			if(feuilleDeTemps.obtIdentifiant().equals(utilisateur)){
+			if(feuilleDeTemps.appartientA(utilisateur)){
 				collection.add(feuilleDeTemps);
 			}
 		}

@@ -28,6 +28,10 @@ public abstract class Depense {
 	public String obtIdentifiant() {
 		return identifiant;
 	}
+	
+	public Boolean identifiantEstEgal(String _identifiant){
+		return identifiant.equals(_identifiant);
+	}
 
 	public void defIdentifiant(String indentifiant) {
 		this.identifiant = indentifiant;
