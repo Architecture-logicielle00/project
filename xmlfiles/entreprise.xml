@@ -1,0 +1,12 @@
+<list>
+  <Entreprise>
+    <nomUtilisateur>home</nomUtilisateur>
+    <mdp>12345</mdp>
+    <nom>Home Depot</nom>
+  </Entreprise>
+  <Entreprise>
+    <nomUtilisateur>desj</nomUtilisateur>
+    <mdp>12345</mdp>
+    <nom>Desjardins</nom>
+  </Entreprise>
+</list>

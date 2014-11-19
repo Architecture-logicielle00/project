@@ -65,6 +65,7 @@ public class ServiceEmploye
 		return entrepriseList;
 	}
 	
+	//TO REMOVE
 	public boolean verifierMotDePasse(String nomUtilisateur, String motDePasse){
 		Employe e = obtEmploye(nomUtilisateur);
 		if(e != null) return e.motDePasseValide(motDePasse);

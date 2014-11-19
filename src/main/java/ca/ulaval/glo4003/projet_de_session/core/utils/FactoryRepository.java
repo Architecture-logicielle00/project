@@ -3,12 +3,10 @@ package ca.ulaval.glo4003.projet_de_session.core.utils;
 import ca.ulaval.glo4003.projet_de_session.core.domain.DepenseDeplacement;
 import ca.ulaval.glo4003.projet_de_session.core.domain.DepenseDiverse;
 import ca.ulaval.glo4003.projet_de_session.core.domain.Employe;
+import ca.ulaval.glo4003.projet_de_session.core.domain.Entreprise;
 import ca.ulaval.glo4003.projet_de_session.core.domain.FeuilleDeTemps;
 import ca.ulaval.glo4003.projet_de_session.persistence.repository.Repository;
-import ca.ulaval.glo4003.projet_de_session.persistence.repositoryXml.RepoDepenseDeplacementXml;
-import ca.ulaval.glo4003.projet_de_session.persistence.repositoryXml.RepoDepenseDiverseXml;
-import ca.ulaval.glo4003.projet_de_session.persistence.repositoryXml.RepoEmployeXml;
-import ca.ulaval.glo4003.projet_de_session.persistence.repositoryXml.RepoFeuilleDeTempsXml;
+import ca.ulaval.glo4003.projet_de_session.persistence.repositoryXml.*;
 
 public class FactoryRepository {
 	@SuppressWarnings("unchecked")
@@ -23,7 +21,8 @@ public class FactoryRepository {
 		   	return (Repository<T>)new RepoDepenseDiverseXml();
         else if (className == FeuilleDeTemps.class.getName())  
    		    return (Repository<T>)new RepoFeuilleDeTempsXml();
-        
+        else if (className == Entreprise.class.getName())
+        	return (Repository<T>) new RepoEntrepriseXml();
         // TODO throw and exception
         return null;
     }
