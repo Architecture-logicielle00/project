@@ -137,6 +137,14 @@
   </DepenseDeplacement>
   <DepenseDeplacement>
     <identifiant>ALSAM</identifiant>
+    <date>2014-11-16</date>
+    <time>17:56:05</time>
+    <description>Depenses relatives aux déplacements effectuées par l&apos;employé ALSAM</description>
+    <distance>1.0E8</distance>
+    <coutkm>1000000.0</coutkm>
+  </DepenseDeplacement>
+  <DepenseDeplacement>
+    <identifiant>ALSAM</identifiant>
     <date>2014-11-06</date>
     <time>14:34:26</time>
     <description></description>
