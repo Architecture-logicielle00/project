@@ -51,6 +51,11 @@ public class ControllerPrincipal {
 		return chargerPageOuLogin("login", request, model);
 	}
 	
+	@RequestMapping("/gestionTaches")
+	public String obtenirGestionTaches(HttpServletRequest request, Model model) {
+		return chargerPageOuLogin("gestionTaches", request, model);
+	}
+	
 	private String chargerPageOuLogin(String _page, HttpServletRequest request,
 			Model model) {
 		if (manageSession.chargerUtilisateurInformation(request, model))

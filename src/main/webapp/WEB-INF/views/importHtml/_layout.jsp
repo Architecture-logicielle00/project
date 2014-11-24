@@ -36,22 +36,25 @@
 
 		<ul class="nav navbar-nav side-nav">
 			<li><a href="/feuilleDeTemps"><i
-					class="fa fa-fw fa fa-clock-o"></i> Feuille de Temps</a>
+					class="fa fa-fw fa fa-clock-o"></i>Mes Feuille de Temps</a>
 			</li>
 			<li>
-				<a href="/deplacementForm"><i class="fa fa-fw fa-money"></i> Depenses relatives aux deplacements</a>
+				<a href="/deplacementForm"><i class="fa fa-fw fa-money"></i>Mes Depenses relatives aux deplacements</a>
 			</li>
 			<li>
-				<a href="/diverseForm"><i class="fa fa-fw fa-money"></i> Depenses diverses</a>
+				<a href="/diverseForm"><i class="fa fa-fw fa-money"></i>Mes Depenses diverses</a>
 			</li>
-			<c:if test="false">
-				<li>
-					<a href=""><i class="fa fa-fw fa-tasks"></i>Projets et t√¢ches</a>
-				</li>
-			</c:if>
 			<c:if test="${utilisateur.estGestionnaire()}">
 				<li><a href="/gestionEmployee"><i
 						class="fa fa-fw fa fa-users"></i> Gestion des employes</a></li>
+			</c:if>
+			<c:if test="${utilisateur.estGestionnaire()}">
+				<li><a href="/gestionTaches"><i
+						class="fa fa-fw fa fa-tasks"></i> Gestion des t‚ches</a></li>
+			</c:if>
+			<c:if test="${utilisateur.estGestionnaire()}">
+				<li><a href="#"><i
+						class="fa fa-fw fa fa-check-square-o"></i> Gestion des approbations</a></li>
 			</c:if>
 		</ul>
 	</div>
