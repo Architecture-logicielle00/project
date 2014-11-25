@@ -8,6 +8,7 @@ $(document).ready(function(){
     dessinerApprobations(data);
     initializeAccordion();
     initializeEvents();
+    checkApprovalNumber();
 });
 
 function initializeAccordion(){
@@ -24,25 +25,39 @@ function initializeEvents(){
         }
     );
 
-    $("button.btn-primary").on("click", function(){
-    	$(this).parent().parent().fadeOut("slow", function() {
+    $(".buttons-wrapper > button").on("click", function(){
+    	if($(this).hasClass("btn-primary")){
+			disapproval($(this));
+			alert("Approbation accepté");
+		}
+		else if($(this).hasClass("btn-danger")){
+			approval($(this));
+			alert("Approbation refusée : une notification sera envoyé");
+		} 
+    	$(this).parent().parent().fadeOut("slow", function() {    		
     	    $(this).prev().remove();
     	    $(this).remove();
-    	    
-    	    alert("Approbation accepté");
+    	    checkApprovalNumber();
     	  });
+    	
+    	
     });
-    
-    $("button.btn-danger").on("click", function(){
-    	$(this).parent().parent().fadeOut("slow", function() {
-    	    $(this).prev().remove();
-    	    $(this).remove();
-    	    
-    	    alert("Approbation refusée : une notification sera envoyé");
-    	  });
-    });
+
 
     $(".fa-comments-o").on("click", function(){
         alert("Not Yet Implemented");
     });
+}
+
+function checkApprovalNumber(){
+	if(isNoApproval())
+		showNoApprovalMessage();
+}
+
+function isNoApproval(){
+	return $("#approvals-list").children().length == 0;
+}
+
+function showNoApprovalMessage(){
+	$("#approvals-wrapper").append('<div class="alert alert-info" role="alert">Vous n\'avez aucune demande d\'approbation en cours</div>')
 }

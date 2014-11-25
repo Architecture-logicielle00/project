@@ -7,6 +7,20 @@ function getData() {
     return fakeData;
 }
 
+function sendApproval(decision, approval){
+	var data;//TODO : créer l'objet à envoyer
+	
+	//j_post("/approbation",data, undefined, undefined, undefined);
+}
+
+function approval($el){
+	sendApproval(true, {})
+}
+
+function disapproval($el){
+	sendApproval(false, {});
+}
+
 fakeData = [
     {
         name: "David",
@@ -114,35 +128,5 @@ fakeData = [
     }]
 
 ;
-/*
- Taches
- 2014-11-17
- 2014-11-18
- 2014-11-19
- 2014-11-20
- 2014-11-21
- 2014-11-22
- 2014-11-23
- 2014-11-24
- 2014-11-25
- 2014-11-26
- 2014-11-27
- 2014-11-28
- 2014-11-29
- 2014-11-30
 
- Dormir
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0*/
+
