@@ -2,19 +2,18 @@
  * Created by David on 2014-11-24.
  */
 
-
 function getData() {
     return fakeData;
 }
 
 function sendApproval(decision, approval){
-	var data;//TODO : créer l'objet à envoyer
+	var approval.state = decision;
 	
-	//j_post("/approbation",data, undefined, undefined, undefined);
+	//j_post("/departement/approbations",data, undefined, undefined, undefined);
 }
 
 function approval($el){
-	sendApproval(true, {})
+	sendApproval(true, fakeData.[])
 }
 
 function disapproval($el){
@@ -31,6 +30,7 @@ fakeData = [
             coutKm: "5.79",
             description: "lorem ipsum color us fkw ffw e ehh os fhd"
         }
+    s
     },
     {
         name: "Jean-Philippe",

@@ -56,11 +56,6 @@ public class ControllerPrincipal {
 		return chargerPageOuLogin("gestionTaches", request, model);
 	}
 	
-	@RequestMapping("/gestionapprobation")
-	public String obtenirGestionApprobation(HttpServletRequest request, Model model) {
-		return chargerPageOuLogin("gestionApprobation", request, model);
-	}
-	
 	private String chargerPageOuLogin(String _page, HttpServletRequest request,
 			Model model) {
 		if (manageSession.chargerUtilisateurInformation(request, model))

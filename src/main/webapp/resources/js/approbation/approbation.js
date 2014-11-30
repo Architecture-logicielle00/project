@@ -35,8 +35,8 @@ function initializeEvents(){
 			alert("Approbation refusée : une notification sera envoyé");
 		} 
     	$(this).parent().parent().fadeOut("slow", function() {    		
-    	    $(this).prev().remove();
-    	    $(this).remove();
+    	    $(this).prev().hide();
+    	    $(this).hide();
     	    checkApprovalNumber();
     	  });
     	

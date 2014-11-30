@@ -52,12 +52,15 @@ var fakeData = {
     employees :[
         {
             name : "Alexandra",
-            project : [
-                {
-                    tasks : [
-                        "2"
-                    ]
-                }
+            projects : [
+                       {
+                           name : "Project 1",
+                           tasks : [
+                               {
+                                   name : "task 1"
+                               },
+                           ]
+                       },
             ]
         },
         {
