@@ -9,7 +9,7 @@ import org.joda.time.Interval;
 
 import ca.ulaval.glo4003.projet_de_session.exception.TacheIntrouvableException;
 
-public class FeuilleDeTemps {
+public class FeuilleDeTemps implements Approuvable{
 
 	private ArrayList<TempsParTache> taches;
 	private ArrayList<String> commentaires;

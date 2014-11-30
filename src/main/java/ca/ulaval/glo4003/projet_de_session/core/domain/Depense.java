@@ -4,7 +4,7 @@ import java.util.Date;
 
 import org.joda.time.DateTime;
 
-public abstract class Depense {
+public abstract class Depense implements Approuvable {
 	
 	private String identifiant;
 
