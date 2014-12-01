@@ -1,0 +1,33 @@
+#assign-task-wrapper{
+    display: flex;
+    height: 400px;
+}
+
+#assign-task-wrapper > *{
+    overflow-y: scroll;
+}
+
+#assign-task-wrapper > #employees-list{
+    width: 50%;
+}
+
+#assign-task-wrapper > #projects-list{
+    width: 50%;
+}
+
+ul{
+    list-style: none;
+}
+
+.project{
+    margin : 20px;
+}
+
+#save-button{
+    margin : 50px;
+}
+
+.employee-button{
+    margin : 5px;
+    width : 80%;
+}

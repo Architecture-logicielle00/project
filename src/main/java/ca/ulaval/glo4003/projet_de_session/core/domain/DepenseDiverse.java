@@ -40,6 +40,7 @@ public class DepenseDiverse extends Depense {
 	public void defCoutRepas(float coutRepas) {
 		this.coutRepas = coutRepas;
 	}
+	
 
 	public float obtDivers() {
 		return divers;

@@ -3,7 +3,10 @@ package ca.ulaval.glo4003.projet_de_session.core.domain;
 import static org.junit.Assert.*;
 
 import java.util.ArrayList;
+import java.util.Date;
 
+import org.joda.time.DateTime;
+import org.joda.time.DateTimeConstants;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -22,7 +25,13 @@ public class FeuilleDeTempsTest {
 
 	@Before
 	public void setUp() throws Exception {
-		feuilleDeTemps = new FeuilleDeTemps();
+		
+		DateTime aujourdhui = DateTime.now();
+		DateTime debutDelasemaineCourante = aujourdhui.withDayOfWeek(DateTimeConstants.MONDAY);
+		DateTime finDelaSemaineCourante = aujourdhui.withDayOfWeek(DateTimeConstants.SUNDAY);
+		DateTime finDelaPeriodeCourante = finDelaSemaineCourante.plusWeeks(1);
+		
+		feuilleDeTemps = new FeuilleDeTemps("id1", debutDelasemaineCourante.toDate(), finDelaPeriodeCourante.toDate());;
 		tempsParTache = new  ArrayList<TempsParTache>();
 		
 		tempsParTacheString = new ArrayList<String>();
@@ -51,12 +60,23 @@ public class FeuilleDeTempsTest {
 	public void testObtUneTache() {
 		assertEquals(tempsParTache1,feuilleDeTemps.obtTempsParTache("Dormir"));
 	}
-	
+		
 
 	@Test(expected=TacheIntrouvableException.class)
 	public void testObtUneTacheIntrouvable() {
 		feuilleDeTemps.obtTempsParTache("Sortir");
 		
+	}
+	
+	@Test
+	public void testEstCourante() {
+		assertTrue(feuilleDeTemps.estCourante(DateTime.now().toDate()));
+		
+	}
+	
+	@Test
+	public void testApartientA() {
+		assertTrue(feuilleDeTemps.appartientA("id1"));
 	}
 	
 }

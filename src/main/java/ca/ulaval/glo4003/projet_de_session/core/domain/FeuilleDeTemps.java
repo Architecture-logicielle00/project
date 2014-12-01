@@ -9,15 +9,17 @@ import org.joda.time.Interval;
 
 import ca.ulaval.glo4003.projet_de_session.exception.TacheIntrouvableException;
 
-public class FeuilleDeTemps {
+public class FeuilleDeTemps implements Approuvable {
 
 	private ArrayList<TempsParTache> taches;
 	private ArrayList<String> commentaires;
 	private Date debut;
 	private Date fin;
 	private String identifiant;
+	private Approbation approbation;
 
 	public FeuilleDeTemps() {
+		approbation = new Approbation();
 	}
 
 	public FeuilleDeTemps(String _identifiant, Date _debut, Date _fin,
@@ -25,22 +27,21 @@ public class FeuilleDeTemps {
 		identifiant = _identifiant;
 		debut = _debut;
 		fin = _fin;
+		approbation = new Approbation();
 
 		commentaires = new ArrayList<String>();
 		for (int i = 0; i < obtNombreJourPeriode(); i++) {
 			commentaires.add("");
 		}
-		
-		
+
 		taches = new ArrayList<TempsParTache>();
 		for (int i = 0; i < _listeTaches.size(); i++) {
 			taches.add(new TempsParTache(_listeTaches.get(i),
 					obtNombreJourPeriode()));
 		}
 	}
-	
-	public FeuilleDeTemps(String _identifiant, Date _debut, Date _fin)
-	{
+
+	public FeuilleDeTemps(String _identifiant, Date _debut, Date _fin) {
 		identifiant = _identifiant;
 		debut = _debut;
 		fin = _fin;
@@ -58,15 +59,14 @@ public class FeuilleDeTemps {
 		taches = _taches;
 	}
 
-	public ArrayList<String> obtCommentaires(){
+	public ArrayList<String> obtCommentaires() {
 		return commentaires;
 	}
-	
-	public void setCommentaires(ArrayList<String> _commentaires){
+
+	public void setCommentaires(ArrayList<String> _commentaires) {
 		commentaires = _commentaires;
 	}
-	
-	
+
 	public Date obtDebut() {
 		return debut;
 	}
@@ -82,8 +82,8 @@ public class FeuilleDeTemps {
 	public void setFin(Date Fn) {
 		fin = Fn;
 	}
-	
-	public Boolean estCourante(Date date){
+
+	public Boolean estCourante(Date date) {
 		return !(date.before(debut) || date.after(fin));
 	}
 
@@ -94,8 +94,8 @@ public class FeuilleDeTemps {
 	public void setIdentifiant(String id) {
 		identifiant = id;
 	}
-	
-	public boolean appartientA(String _identifiant){
+
+	public boolean appartientA(String _identifiant) {
 		return identifiant.equals(_identifiant);
 	}
 
