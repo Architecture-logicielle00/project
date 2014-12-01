@@ -67,16 +67,16 @@ public class Departement {
 
 	public void enleverEmploye(String NomEmploye) {
 		for (Employe employe : employes) {
-			if (employe.obtNom() == NomEmploye)
+			if (employe.obtNomUtilisateur() == NomEmploye)
 				 employes.remove(employe);
+				break;
 		}
 
-		throw new EmployeIntrouvableException();
 	}
 	
 	public Employe obtEmploye(String NomEmploye) {
 		for (Employe employe : employes) {
-			if (employe.obtNom() == NomEmploye)
+			if (employe.obtNomUtilisateur() == NomEmploye)
 				return employe;
 		}
 
