@@ -13,7 +13,7 @@ import ca.ulaval.glo4003.projet_de_session.web.viewmodels.EmployeeViewModel;
 
 public class EmployeeConverter {
 
-	public Collection<EmployeeViewModel> convert(List<Employe> entries) {
+	public static Collection<EmployeeViewModel> convert(List<Employe> entries) {
 		Collection<EmployeeViewModel> viewModels = new LinkedList<EmployeeViewModel>();
 		for (Utilisateur entry : entries) {
 			EmployeeViewModel viewModel = convert((Employe)entry);
@@ -22,7 +22,7 @@ public class EmployeeConverter {
 		return viewModels;
 	}
 	
-	public EmployeeViewModel convert(Employe entry) {
+	public static EmployeeViewModel convert(Employe entry) {
 		EmployeeViewModel viewModel = new EmployeeViewModel();
 		viewModel.nomUtilisateur = entry.obtNomUtilisateur();
 		viewModel.nom = entry.obtNom();
