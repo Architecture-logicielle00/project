@@ -8,8 +8,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import ca.ulaval.glo4003.projet_de_session.core.services.ServiceEmploye;
-import ca.ulaval.glo4003.projet_de_session.web.services.IServiceSession;
+import ca.ulaval.glo4003.projet_de_session.compte.employe.ServiceEmploye;
+import ca.ulaval.glo4003.projet_de_session.web.session.IServiceSession;
 
 @Controller
 public class ControllerPrincipal {

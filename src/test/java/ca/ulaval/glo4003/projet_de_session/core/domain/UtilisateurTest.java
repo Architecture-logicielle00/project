@@ -5,6 +5,8 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
+import ca.ulaval.glo4003.projet_de_session.compte.Utilisateur;
+
 public class UtilisateurTest {
 
 	private static Utilisateur utilisateur;

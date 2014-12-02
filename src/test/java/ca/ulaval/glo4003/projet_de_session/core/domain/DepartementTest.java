@@ -10,7 +10,9 @@ import org.junit.runner.RunWith;
 import org.mockito.Mockito;
 import org.mockito.runners.MockitoJUnitRunner;
 
-import ca.ulaval.glo4003.projet_de_session.exception.EmployeIntrouvableException;
+import ca.ulaval.glo4003.projet_de_session.compte.employe.Employe;
+import ca.ulaval.glo4003.projet_de_session.compte.employe.EmployeIntrouvableException;
+import ca.ulaval.glo4003.projet_de_session.compte.entreprise.departement.Departement;
 
 @RunWith(MockitoJUnitRunner.class)
 

@@ -2,6 +2,8 @@ package ca.ulaval.glo4003.projet_de_session.web.viewmodels;
 
 import java.util.ArrayList;
 
+import ca.ulaval.glo4003.projet_de_session.compte.employe.EmployeeViewModel;
+
 
 public class DepartementViewModel {
 	private String nomDepartement;

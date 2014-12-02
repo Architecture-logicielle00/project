@@ -14,11 +14,11 @@ import org.junit.runner.RunWith;
 import org.mockito.Mockito;
 import org.mockito.runners.MockitoJUnitRunner;
 
-import ca.ulaval.glo4003.projet_de_session.core.domain.Employe;
-import ca.ulaval.glo4003.projet_de_session.core.services.ServiceEmploye;
-import ca.ulaval.glo4003.projet_de_session.persistence.repository.Repository;
-import ca.ulaval.glo4003.projet_de_session.persistence.repositoryXml.RepoEmployeXml;
-import ca.ulaval.glo4003.projet_de_session.persistence.utils.Xml;
+import ca.ulaval.glo4003.projet_de_session.compte.employe.Employe;
+import ca.ulaval.glo4003.projet_de_session.compte.employe.RepoEmployeXml;
+import ca.ulaval.glo4003.projet_de_session.compte.employe.ServiceEmploye;
+import ca.ulaval.glo4003.projet_de_session.repository.Repository;
+import ca.ulaval.glo4003.projet_de_session.repository.xml.Xml;
 
 @RunWith(MockitoJUnitRunner.class)
 public class ServiceEmployeTest {

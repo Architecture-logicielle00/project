@@ -15,9 +15,9 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import org.mockito.Mockito;
 
-import ca.ulaval.glo4003.projet_de_session.core.domain.FeuilleDeTemps;
-import ca.ulaval.glo4003.projet_de_session.core.domain.TempsParTache;
-import ca.ulaval.glo4003.projet_de_session.core.utils.converter.FeuilleDeTempsConverter;
+import ca.ulaval.glo4003.projet_de_session.feuilleDeTemps.FeuilleDeTemps;
+import ca.ulaval.glo4003.projet_de_session.feuilleDeTemps.FeuilleDeTempsConverter;
+import ca.ulaval.glo4003.projet_de_session.feuilleDeTemps.tempsParTache.TempsParTache;
 import ca.ulaval.glo4003.projet_de_session.web.viewmodels.FeuilleDeTempsViewModel;
 import ca.ulaval.glo4003.projet_de_session.web.viewmodels.TempsParTacheViewModel;
 

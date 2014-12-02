@@ -18,10 +18,11 @@ import org.junit.runner.RunWith;
 import org.mockito.Mockito;
 import org.mockito.runners.MockitoJUnitRunner;
 
-import ca.ulaval.glo4003.projet_de_session.core.domain.FeuilleDeTemps;
-import ca.ulaval.glo4003.projet_de_session.core.domain.TempsParTache;
-import ca.ulaval.glo4003.projet_de_session.exception.FeuilleDeTempsIntrouvableException;
-import ca.ulaval.glo4003.projet_de_session.persistence.utils.Xml;
+import ca.ulaval.glo4003.projet_de_session.feuilleDeTemps.FeuilleDeTemps;
+import ca.ulaval.glo4003.projet_de_session.feuilleDeTemps.FeuilleDeTempsIntrouvableException;
+import ca.ulaval.glo4003.projet_de_session.feuilleDeTemps.RepoFeuilleDeTempsXml;
+import ca.ulaval.glo4003.projet_de_session.feuilleDeTemps.tempsParTache.TempsParTache;
+import ca.ulaval.glo4003.projet_de_session.repository.xml.Xml;
 
 @RunWith(MockitoJUnitRunner.class)
 public class RepoFeuilleDeTempsXmlTest {

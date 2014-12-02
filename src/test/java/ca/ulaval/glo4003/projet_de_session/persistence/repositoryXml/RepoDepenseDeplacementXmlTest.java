@@ -12,8 +12,9 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import org.mockito.Mockito;
 
-import ca.ulaval.glo4003.projet_de_session.core.domain.DepenseDeplacement;
-import ca.ulaval.glo4003.projet_de_session.persistence.utils.Xml;
+import ca.ulaval.glo4003.projet_de_session.depense.deplacement.DepenseDeplacement;
+import ca.ulaval.glo4003.projet_de_session.depense.deplacement.RepoDepenseDeplacementXml;
+import ca.ulaval.glo4003.projet_de_session.repository.xml.Xml;
 
 public class RepoDepenseDeplacementXmlTest {
 

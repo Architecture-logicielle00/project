@@ -12,7 +12,9 @@ import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mockito;
 
-import ca.ulaval.glo4003.projet_de_session.exception.TacheIntrouvableException;
+import ca.ulaval.glo4003.projet_de_session.compte.entreprise.projet.tache.TacheIntrouvableException;
+import ca.ulaval.glo4003.projet_de_session.feuilleDeTemps.FeuilleDeTemps;
+import ca.ulaval.glo4003.projet_de_session.feuilleDeTemps.tempsParTache.TempsParTache;
 
 public class FeuilleDeTempsTest {
 	

@@ -6,7 +6,8 @@ import java.util.ArrayList;
 
 import org.junit.Test;
 
-import ca.ulaval.glo4003.projet_de_session.exception.FeuilleDeTempsIntrouvableException;
+import ca.ulaval.glo4003.projet_de_session.compte.employe.Employe;
+import ca.ulaval.glo4003.projet_de_session.feuilleDeTemps.FeuilleDeTempsIntrouvableException;
 
 public class EmployeTest {	
 	@Test

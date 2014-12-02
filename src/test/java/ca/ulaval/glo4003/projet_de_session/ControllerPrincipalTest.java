@@ -9,9 +9,9 @@ import org.mockito.Mockito;
 import org.springframework.ui.ExtendedModelMap;
 import org.springframework.ui.Model;
 
-import ca.ulaval.glo4003.projet_de_session.core.services.ServiceEmploye;
+import ca.ulaval.glo4003.projet_de_session.compte.employe.ServiceEmploye;
 import ca.ulaval.glo4003.projet_de_session.web.controllers.ControllerPrincipal;
-import ca.ulaval.glo4003.projet_de_session.web.services.ServiceSession;
+import ca.ulaval.glo4003.projet_de_session.web.session.ServiceSession;
 
 public class ControllerPrincipalTest {
 	
