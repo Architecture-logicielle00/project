@@ -1,17 +1,5 @@
 <list>
   <Employe>
-    <nomUtilisateur>testdeux</nomUtilisateur>
-    <mdp>12345</mdp>
-    <nom>sam</nom>
-    <entreprise>NERV</entreprise>
-    <pays>Canada</pays>
-    <province>Québec</province>
-    <dateDeNaissance>2014-11-08 00:59:22.234 UTC</dateDeNaissance>
-    <feuillesDeTemps/>
-    <taches/>
-    <statutGestionnaire>true</statutGestionnaire>
-  </Employe>
-  <Employe>
     <nomUtilisateur></nomUtilisateur>
     <mdp>12345</mdp>
     <nom></nom>
@@ -22,208 +10,6 @@
     <feuillesDeTemps/>
     <taches/>
     <statutGestionnaire>false</statutGestionnaire>
-  </Employe>
-  <Employe>
-    <nomUtilisateur>MOMEC</nomUtilisateur>
-    <mdp>12345</mdp>
-    <nom>Mechqrane</nom>
-    <prenom>Mounir</prenom>
-    <entreprise></entreprise>
-    <email></email>
-    <pays></pays>
-    <province></province>
-    <ville></ville>
-    <codePostal></codePostal>
-    <genre></genre>
-    <numTelephone></numTelephone>
-    <feuillesDeTemps>
-      <string>MOMEC2014-10-132014-10-26</string>
-      <string>MOMEC2014-11-242014-12-07</string>
-    </feuillesDeTemps>
-    <taches>
-      <string>Manger une poutine</string>
-    </taches>
-    <statutGestionnaire>false</statutGestionnaire>
-  </Employe>
-  <Employe>
-    <nomUtilisateur>sasa</nomUtilisateur>
-    <mdp>12345</mdp>
-    <nom>a</nom>
-    <entreprise>NERV</entreprise>
-    <pays>a</pays>
-    <province>a</province>
-    <dateDeNaissance>2014-11-08 00:27:50.323 UTC</dateDeNaissance>
-    <feuillesDeTemps/>
-    <taches/>
-    <statutGestionnaire>true</statutGestionnaire>
-  </Employe>
-  <Employe>
-    <nomUtilisateur>b</nomUtilisateur>
-    <mdp>12345</mdp>
-    <nom>a</nom>
-    <entreprise>NERV</entreprise>
-    <pays></pays>
-    <province></province>
-    <dateDeNaissance>2014-11-08 00:45:18.607 UTC</dateDeNaissance>
-    <feuillesDeTemps/>
-    <taches/>
-    <statutGestionnaire>true</statutGestionnaire>
-  </Employe>
-  <Employe>
-    <nomUtilisateur>ts</nomUtilisateur>
-    <mdp>12345</mdp>
-    <nom>a</nom>
-    <entreprise>NERV</entreprise>
-    <pays>a</pays>
-    <province>a</province>
-    <dateDeNaissance>2014-11-08 01:00:10.819 UTC</dateDeNaissance>
-    <feuillesDeTemps/>
-    <taches/>
-    <statutGestionnaire>false</statutGestionnaire>
-  </Employe>
-  <Employe>
-    <nomUtilisateur>sasas</nomUtilisateur>
-    <mdp>12345</mdp>
-    <nom>asasasa</nom>
-    <prenom>asas</prenom>
-    <entreprise>NERV</entreprise>
-    <email>alexandrasam24@hotmail.com</email>
-    <pays>asas</pays>
-    <province>asas</province>
-    <ville>asas</ville>
-    <codePostal>asas</codePostal>
-    <dateDeNaissance>2014-11-08 01:15:24.653 UTC</dateDeNaissance>
-    <genre>f</genre>
-    <numTelephone>1234444</numTelephone>
-    <feuillesDeTemps/>
-    <taches/>
-    <statutGestionnaire>false</statutGestionnaire>
-  </Employe>
-  <Employe>
-    <nomUtilisateur>test</nomUtilisateur>
-    <mdp>12345</mdp>
-    <nom>a</nom>
-    <entreprise>NERV</entreprise>
-    <pays>Canada</pays>
-    <province>Québec</province>
-    <dateDeNaissance>2014-11-08 00:44:24.406 UTC</dateDeNaissance>
-    <feuillesDeTemps/>
-    <taches/>
-    <statutGestionnaire>true</statutGestionnaire>
-  </Employe>
-  <Employe>
-    <nomUtilisateur>boubou</nomUtilisateur>
-    <mdp>12345</mdp>
-    <nom>a</nom>
-    <entreprise>NERV</entreprise>
-    <pays>a</pays>
-    <province>a</province>
-    <dateDeNaissance>2014-11-08 00:13:00.720 UTC</dateDeNaissance>
-    <feuillesDeTemps/>
-    <taches/>
-    <statutGestionnaire>false</statutGestionnaire>
-  </Employe>
-  <Employe>
-    <nomUtilisateur>a</nomUtilisateur>
-    <mdp>12345</mdp>
-    <nom>a</nom>
-    <prenom>a</prenom>
-    <entreprise>NERV</entreprise>
-    <email>alexandrasam24@hotmail.com</email>
-    <pays>a</pays>
-    <province>a</province>
-    <ville>a</ville>
-    <codePostal>a</codePostal>
-    <dateDeNaissance>2014-11-08 01:14:46.706 UTC</dateDeNaissance>
-    <genre>f</genre>
-    <numTelephone>6</numTelephone>
-    <feuillesDeTemps/>
-    <taches/>
-    <statutGestionnaire>false</statutGestionnaire>
-  </Employe>
-  <Employe>
-    <nomUtilisateur>Correctiondeuxtrois</nomUtilisateur>
-    <mdp>12345</mdp>
-    <nom>a</nom>
-    <prenom>a</prenom>
-    <entreprise>NERV</entreprise>
-    <email>alexandrasam24@hotmail.com</email>
-    <pays>a</pays>
-    <province>a</province>
-    <ville>a</ville>
-    <codePostal>a</codePostal>
-    <dateDeNaissance>2014-11-08 01:23:48.326 UTC</dateDeNaissance>
-    <genre>f</genre>
-    <numTelephone>7</numTelephone>
-    <feuillesDeTemps/>
-    <taches/>
-    <statutGestionnaire>true</statutGestionnaire>
-  </Employe>
-  <Employe>
-    <nomUtilisateur>dfdgtrgfsgfds</nomUtilisateur>
-    <mdp>12345</mdp>
-    <nom></nom>
-    <entreprise>NERV</entreprise>
-    <pays></pays>
-    <province></province>
-    <dateDeNaissance>2014-10-17 08:03:36.948 UTC</dateDeNaissance>
-    <feuillesDeTemps/>
-    <taches/>
-    <statutGestionnaire>false</statutGestionnaire>
-  </Employe>
-  <Employe>
-    <nomUtilisateur>tesssst</nomUtilisateur>
-    <mdp>12345</mdp>
-    <nom>a</nom>
-    <entreprise>NERV</entreprise>
-    <pays>Canada</pays>
-    <province>Québec</province>
-    <dateDeNaissance>2014-11-08 00:46:03.361 UTC</dateDeNaissance>
-    <feuillesDeTemps/>
-    <taches/>
-    <statutGestionnaire>true</statutGestionnaire>
-  </Employe>
-  <Employe>
-    <nomUtilisateur>testtt</nomUtilisateur>
-    <mdp>12345</mdp>
-    <nom>a</nom>
-    <prenom>a</prenom>
-    <entreprise>NERV</entreprise>
-    <email>a@hotmail.com</email>
-    <pays>a</pays>
-    <province>a</province>
-    <ville>a</ville>
-    <codePostal>a</codePostal>
-    <dateDeNaissance>2014-11-08 01:13:44.450 UTC</dateDeNaissance>
-    <genre>f</genre>
-    <numTelephone>5555555555</numTelephone>
-    <feuillesDeTemps/>
-    <taches/>
-    <statutGestionnaire>false</statutGestionnaire>
-  </Employe>
-  <Employe>
-    <nomUtilisateur>bibi</nomUtilisateur>
-    <mdp>12345</mdp>
-    <nom></nom>
-    <entreprise>NERV</entreprise>
-    <pays></pays>
-    <province></province>
-    <dateDeNaissance>2014-11-08 00:24:04.729 UTC</dateDeNaissance>
-    <feuillesDeTemps/>
-    <taches/>
-    <statutGestionnaire>false</statutGestionnaire>
-  </Employe>
-  <Employe>
-    <nomUtilisateur>lala</nomUtilisateur>
-    <mdp>12345</mdp>
-    <nom>Samson</nom>
-    <entreprise>NERV</entreprise>
-    <pays>Canada</pays>
-    <province>Québec</province>
-    <dateDeNaissance>2014-11-08 00:32:22.815 UTC</dateDeNaissance>
-    <feuillesDeTemps/>
-    <taches/>
-    <statutGestionnaire>true</statutGestionnaire>
   </Employe>
   <Employe>
     <nomUtilisateur>ALSAM</nomUtilisateur>
@@ -269,24 +55,6 @@
     <statutGestionnaire>false</statutGestionnaire>
   </Employe>
   <Employe>
-    <nomUtilisateur>TEST</nomUtilisateur>
-    <mdp>12345</mdp>
-    <nom>t</nom>
-    <prenom>t</prenom>
-    <entreprise>NERV</entreprise>
-    <email>alexandrasam24@hotmail.com</email>
-    <pays>t</pays>
-    <province>t</province>
-    <ville>t</ville>
-    <codePostal>t</codePostal>
-    <dateDeNaissance>2014-11-13 16:19:13.35 UTC</dateDeNaissance>
-    <genre>f</genre>
-    <numTelephone>555-555-666</numTelephone>
-    <feuillesDeTemps/>
-    <taches/>
-    <statutGestionnaire>true</statutGestionnaire>
-  </Employe>
-  <Employe>
     <nomUtilisateur>OLDU</nomUtilisateur>
     <mdp>12345</mdp>
     <nom>Dugas</nom>
@@ -310,22 +78,15 @@
     <statutGestionnaire>true</statutGestionnaire>
   </Employe>
   <Employe>
-    <nomUtilisateur>JPDEL</nomUtilisateur>
+    <nomUtilisateur>boubou</nomUtilisateur>
     <mdp>12345</mdp>
-    <nom>Delisle</nom>
-    <prenom>Jean-Phillipe</prenom>
-    <entreprise></entreprise>
-    <email></email>
-    <pays></pays>
-    <province></province>
-    <ville></ville>
-    <codePostal></codePostal>
-    <genre></genre>
-    <numTelephone></numTelephone>
+    <nom>a</nom>
+    <entreprise>NERV</entreprise>
+    <pays>a</pays>
+    <province>a</province>
+    <dateDeNaissance>2014-11-08 00:13:00.720 UTC</dateDeNaissance>
     <feuillesDeTemps/>
-    <taches>
-      <string>Manger une poutine</string>
-    </taches>
+    <taches/>
     <statutGestionnaire>false</statutGestionnaire>
   </Employe>
   <Employe>
@@ -347,19 +108,285 @@
     <statutGestionnaire>true</statutGestionnaire>
   </Employe>
   <Employe>
-    <nomUtilisateur>Correctiondeux</nomUtilisateur>
+    <nomUtilisateur>sasas</nomUtilisateur>
     <mdp>12345</mdp>
-    <nom>correctiondeux</nom>
+    <nom>asasasa</nom>
+    <prenom>asas</prenom>
+    <entreprise>NERV</entreprise>
+    <email>alexandrasam24@hotmail.com</email>
+    <pays>asas</pays>
+    <province>asas</province>
+    <ville>asas</ville>
+    <codePostal>asas</codePostal>
+    <dateDeNaissance>2014-11-08 01:15:24.653 UTC</dateDeNaissance>
+    <genre>f</genre>
+    <numTelephone>1234444</numTelephone>
+    <feuillesDeTemps/>
+    <taches/>
+    <statutGestionnaire>false</statutGestionnaire>
+  </Employe>
+  <Employe>
+    <nomUtilisateur>tesssst</nomUtilisateur>
+    <mdp>12345</mdp>
+    <nom>a</nom>
+    <entreprise>NERV</entreprise>
+    <pays>Canada</pays>
+    <province>Québec</province>
+    <dateDeNaissance>2014-11-08 00:46:03.361 UTC</dateDeNaissance>
+    <feuillesDeTemps/>
+    <taches/>
+    <statutGestionnaire>true</statutGestionnaire>
+  </Employe>
+  <Employe>
+    <nomUtilisateur>lala</nomUtilisateur>
+    <mdp>12345</mdp>
+    <nom>Samson</nom>
+    <entreprise>NERV</entreprise>
+    <pays>Canada</pays>
+    <province>Québec</province>
+    <dateDeNaissance>2014-11-08 00:32:22.815 UTC</dateDeNaissance>
+    <feuillesDeTemps/>
+    <taches/>
+    <statutGestionnaire>true</statutGestionnaire>
+  </Employe>
+  <Employe>
+    <nomUtilisateur>testdeux</nomUtilisateur>
+    <mdp>12345</mdp>
+    <nom>sam</nom>
+    <entreprise>NERV</entreprise>
+    <pays>Canada</pays>
+    <province>Québec</province>
+    <dateDeNaissance>2014-11-08 00:59:22.234 UTC</dateDeNaissance>
+    <feuillesDeTemps/>
+    <taches/>
+    <statutGestionnaire>true</statutGestionnaire>
+  </Employe>
+  <Employe>
+    <nomUtilisateur>Correctiondeuxtrois</nomUtilisateur>
+    <mdp>12345</mdp>
+    <nom>a</nom>
     <prenom>a</prenom>
     <entreprise>NERV</entreprise>
     <email>alexandrasam24@hotmail.com</email>
+    <pays>a</pays>
+    <province>a</province>
+    <ville>a</ville>
+    <codePostal>a</codePostal>
+    <dateDeNaissance>2014-11-08 01:23:48.326 UTC</dateDeNaissance>
+    <genre>f</genre>
+    <numTelephone>7</numTelephone>
+    <feuillesDeTemps/>
+    <taches/>
+    <statutGestionnaire>true</statutGestionnaire>
+  </Employe>
+  <Employe>
+    <nomUtilisateur>JPDEL</nomUtilisateur>
+    <mdp>12345</mdp>
+    <nom>Delisle</nom>
+    <prenom>Jean-Phillipe</prenom>
+    <entreprise></entreprise>
+    <email></email>
+    <pays></pays>
+    <province></province>
+    <ville></ville>
+    <codePostal></codePostal>
+    <genre></genre>
+    <numTelephone></numTelephone>
+    <feuillesDeTemps/>
+    <taches>
+      <string>Manger une poutine</string>
+    </taches>
+    <statutGestionnaire>false</statutGestionnaire>
+  </Employe>
+  <Employe>
+    <nomUtilisateur>LAHOL</nomUtilisateur>
+    <mdp>12345</mdp>
+    <nom>Holy</nom>
+    <prenom>Laurianne</prenom>
+    <entreprise></entreprise>
+    <email></email>
+    <pays></pays>
+    <province></province>
+    <ville></ville>
+    <codePostal></codePostal>
+    <genre></genre>
+    <numTelephone></numTelephone>
+    <feuillesDeTemps>
+      <string>LAHOL2014-10-132014-10-26</string>
+    </feuillesDeTemps>
+    <taches>
+      <string>Decouvrir</string>
+    </taches>
+    <statutGestionnaire>false</statutGestionnaire>
+  </Employe>
+  <Employe>
+    <nomUtilisateur>bibi</nomUtilisateur>
+    <mdp>12345</mdp>
+    <nom></nom>
+    <entreprise>NERV</entreprise>
+    <pays></pays>
+    <province></province>
+    <dateDeNaissance>2014-11-08 00:24:04.729 UTC</dateDeNaissance>
+    <feuillesDeTemps/>
+    <taches/>
+    <statutGestionnaire>false</statutGestionnaire>
+  </Employe>
+  <Employe>
+    <nomUtilisateur>aa</nomUtilisateur>
+    <mdp>12345</mdp>
+    <nom>a</nom>
+    <prenom>a</prenom>
+    <entreprise>NERV</entreprise>
+    <email>a@hotmail.com</email>
     <pays>aa</pays>
-    <province>aa</province>
-    <ville>aa</ville>
-    <codePostal>aa</codePostal>
-    <dateDeNaissance>2014-11-08 01:22:54.247 UTC</dateDeNaissance>
+    <province>a</province>
+    <ville>a</ville>
+    <codePostal>a</codePostal>
+    <dateDeNaissance>2014-11-08 01:14:10.831 UTC</dateDeNaissance>
+    <genre>others</genre>
+    <numTelephone>1234444</numTelephone>
+    <feuillesDeTemps/>
+    <taches/>
+    <statutGestionnaire>true</statutGestionnaire>
+  </Employe>
+  <Employe>
+    <nomUtilisateur>a</nomUtilisateur>
+    <mdp>12345</mdp>
+    <nom>a</nom>
+    <prenom>a</prenom>
+    <entreprise>NERV</entreprise>
+    <email>alexandrasam24@hotmail.com</email>
+    <pays>a</pays>
+    <province>a</province>
+    <ville>a</ville>
+    <codePostal>a</codePostal>
+    <dateDeNaissance>2014-11-08 01:14:46.706 UTC</dateDeNaissance>
     <genre>f</genre>
     <numTelephone>6</numTelephone>
+    <feuillesDeTemps/>
+    <taches/>
+    <statutGestionnaire>false</statutGestionnaire>
+  </Employe>
+  <Employe>
+    <nomUtilisateur>b</nomUtilisateur>
+    <mdp>12345</mdp>
+    <nom>a</nom>
+    <entreprise>NERV</entreprise>
+    <pays></pays>
+    <province></province>
+    <dateDeNaissance>2014-11-08 00:45:18.607 UTC</dateDeNaissance>
+    <feuillesDeTemps/>
+    <taches/>
+    <statutGestionnaire>true</statutGestionnaire>
+  </Employe>
+  <Employe>
+    <nomUtilisateur>test</nomUtilisateur>
+    <mdp>12345</mdp>
+    <nom>a</nom>
+    <entreprise>NERV</entreprise>
+    <pays>Canada</pays>
+    <province>Québec</province>
+    <dateDeNaissance>2014-11-08 00:44:24.406 UTC</dateDeNaissance>
+    <feuillesDeTemps/>
+    <taches/>
+    <statutGestionnaire>true</statutGestionnaire>
+  </Employe>
+  <Employe>
+    <nomUtilisateur>testtt</nomUtilisateur>
+    <mdp>12345</mdp>
+    <nom>a</nom>
+    <prenom>a</prenom>
+    <entreprise>NERV</entreprise>
+    <email>a@hotmail.com</email>
+    <pays>a</pays>
+    <province>a</province>
+    <ville>a</ville>
+    <codePostal>a</codePostal>
+    <dateDeNaissance>2014-11-08 01:13:44.450 UTC</dateDeNaissance>
+    <genre>f</genre>
+    <numTelephone>5555555555</numTelephone>
+    <feuillesDeTemps/>
+    <taches/>
+    <statutGestionnaire>false</statutGestionnaire>
+  </Employe>
+  <Employe>
+    <nomUtilisateur>sasa</nomUtilisateur>
+    <mdp>12345</mdp>
+    <nom>a</nom>
+    <entreprise>NERV</entreprise>
+    <pays>a</pays>
+    <province>a</province>
+    <dateDeNaissance>2014-11-08 00:27:50.323 UTC</dateDeNaissance>
+    <feuillesDeTemps/>
+    <taches/>
+    <statutGestionnaire>true</statutGestionnaire>
+  </Employe>
+  <Employe>
+    <nomUtilisateur>dfdgtrgfsgfds</nomUtilisateur>
+    <mdp>12345</mdp>
+    <nom></nom>
+    <entreprise>NERV</entreprise>
+    <pays></pays>
+    <province></province>
+    <dateDeNaissance>2014-10-17 08:03:36.948 UTC</dateDeNaissance>
+    <feuillesDeTemps/>
+    <taches/>
+    <statutGestionnaire>false</statutGestionnaire>
+  </Employe>
+  <Employe>
+    <nomUtilisateur>MOMEC</nomUtilisateur>
+    <mdp>12345</mdp>
+    <nom>Mechqrane</nom>
+    <prenom>Mounir</prenom>
+    <entreprise></entreprise>
+    <email></email>
+    <pays></pays>
+    <province></province>
+    <ville></ville>
+    <codePostal></codePostal>
+    <genre></genre>
+    <numTelephone></numTelephone>
+    <feuillesDeTemps>
+      <string>MOMEC2014-10-132014-10-26</string>
+      <string>MOMEC2014-11-242014-12-07</string>
+    </feuillesDeTemps>
+    <taches>
+      <string>Manger une poutine</string>
+    </taches>
+    <statutGestionnaire>false</statutGestionnaire>
+  </Employe>
+  <Employe>
+    <nomUtilisateur>fffff</nomUtilisateur>
+    <mdp>12345</mdp>
+    <nom>q</nom>
+    <prenom>q</prenom>
+    <entreprise>NERV</entreprise>
+    <email>alexandrasam24@hotmail.com</email>
+    <pays>q</pays>
+    <province>q</province>
+    <ville>q</ville>
+    <codePostal>q</codePostal>
+    <dateDeNaissance>2014-11-08 03:27:37.631 UTC</dateDeNaissance>
+    <genre>f</genre>
+    <numTelephone>333-333-3333</numTelephone>
+    <feuillesDeTemps/>
+    <taches/>
+    <statutGestionnaire>true</statutGestionnaire>
+  </Employe>
+  <Employe>
+    <nomUtilisateur>TEST</nomUtilisateur>
+    <mdp>12345</mdp>
+    <nom>t</nom>
+    <prenom>t</prenom>
+    <entreprise>NERV</entreprise>
+    <email>alexandrasam24@hotmail.com</email>
+    <pays>t</pays>
+    <province>t</province>
+    <ville>t</ville>
+    <codePostal>t</codePostal>
+    <dateDeNaissance>2014-11-13 16:19:13.35 UTC</dateDeNaissance>
+    <genre>f</genre>
+    <numTelephone>555-555-666</numTelephone>
     <feuillesDeTemps/>
     <taches/>
     <statutGestionnaire>true</statutGestionnaire>
@@ -386,58 +413,31 @@
     <statutGestionnaire>false</statutGestionnaire>
   </Employe>
   <Employe>
-    <nomUtilisateur>LAHOL</nomUtilisateur>
+    <nomUtilisateur>ts</nomUtilisateur>
     <mdp>12345</mdp>
-    <nom>Holy</nom>
-    <prenom>Laurianne</prenom>
-    <entreprise></entreprise>
-    <email></email>
-    <pays></pays>
-    <province></province>
-    <ville></ville>
-    <codePostal></codePostal>
-    <genre></genre>
-    <numTelephone></numTelephone>
-    <feuillesDeTemps>
-      <string>LAHOL2014-10-132014-10-26</string>
-    </feuillesDeTemps>
-    <taches>
-      <string>Decouvrir</string>
-    </taches>
+    <nom>a</nom>
+    <entreprise>NERV</entreprise>
+    <pays>a</pays>
+    <province>a</province>
+    <dateDeNaissance>2014-11-08 01:00:10.819 UTC</dateDeNaissance>
+    <feuillesDeTemps/>
+    <taches/>
     <statutGestionnaire>false</statutGestionnaire>
   </Employe>
   <Employe>
-    <nomUtilisateur>aa</nomUtilisateur>
+    <nomUtilisateur>Correctiondeux</nomUtilisateur>
     <mdp>12345</mdp>
-    <nom>a</nom>
+    <nom>correctiondeux</nom>
     <prenom>a</prenom>
     <entreprise>NERV</entreprise>
-    <email>a@hotmail.com</email>
-    <pays>aa</pays>
-    <province>a</province>
-    <ville>a</ville>
-    <codePostal>a</codePostal>
-    <dateDeNaissance>2014-11-08 01:14:10.831 UTC</dateDeNaissance>
-    <genre>others</genre>
-    <numTelephone>1234444</numTelephone>
-    <feuillesDeTemps/>
-    <taches/>
-    <statutGestionnaire>true</statutGestionnaire>
-  </Employe>
-  <Employe>
-    <nomUtilisateur>fffff</nomUtilisateur>
-    <mdp>12345</mdp>
-    <nom>q</nom>
-    <prenom>q</prenom>
-    <entreprise>NERV</entreprise>
     <email>alexandrasam24@hotmail.com</email>
-    <pays>q</pays>
-    <province>q</province>
-    <ville>q</ville>
-    <codePostal>q</codePostal>
-    <dateDeNaissance>2014-11-08 03:27:37.631 UTC</dateDeNaissance>
+    <pays>aa</pays>
+    <province>aa</province>
+    <ville>aa</ville>
+    <codePostal>aa</codePostal>
+    <dateDeNaissance>2014-11-08 01:22:54.247 UTC</dateDeNaissance>
     <genre>f</genre>
-    <numTelephone>333-333-3333</numTelephone>
+    <numTelephone>6</numTelephone>
     <feuillesDeTemps/>
     <taches/>
     <statutGestionnaire>true</statutGestionnaire>
