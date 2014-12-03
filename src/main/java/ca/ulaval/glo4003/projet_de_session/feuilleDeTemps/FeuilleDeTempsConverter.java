@@ -10,8 +10,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 
 import ca.ulaval.glo4003.projet_de_session.feuilleDeTemps.tempsParTache.TempsParTache;
-import ca.ulaval.glo4003.projet_de_session.web.viewmodels.FeuilleDeTempsViewModel;
-import ca.ulaval.glo4003.projet_de_session.web.viewmodels.TempsParTacheViewModel;
+import ca.ulaval.glo4003.projet_de_session.feuilleDeTemps.tempsParTache.TempsParTacheViewModel;
 
 
 public class FeuilleDeTempsConverter {

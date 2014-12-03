@@ -17,9 +17,9 @@ import org.mockito.Mockito;
 
 import ca.ulaval.glo4003.projet_de_session.feuilleDeTemps.FeuilleDeTemps;
 import ca.ulaval.glo4003.projet_de_session.feuilleDeTemps.FeuilleDeTempsConverter;
+import ca.ulaval.glo4003.projet_de_session.feuilleDeTemps.FeuilleDeTempsViewModel;
 import ca.ulaval.glo4003.projet_de_session.feuilleDeTemps.tempsParTache.TempsParTache;
-import ca.ulaval.glo4003.projet_de_session.web.viewmodels.FeuilleDeTempsViewModel;
-import ca.ulaval.glo4003.projet_de_session.web.viewmodels.TempsParTacheViewModel;
+import ca.ulaval.glo4003.projet_de_session.feuilleDeTemps.tempsParTache.TempsParTacheViewModel;
 
 public class FeuilleDeTempsConverterTest {
 	private static SimpleDateFormat simpleDateFormat;

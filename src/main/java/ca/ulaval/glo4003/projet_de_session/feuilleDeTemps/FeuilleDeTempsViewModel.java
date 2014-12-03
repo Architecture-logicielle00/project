@@ -1,4 +1,4 @@
-package ca.ulaval.glo4003.projet_de_session.web.viewmodels;
+package ca.ulaval.glo4003.projet_de_session.feuilleDeTemps;
 
 import java.util.ArrayList;
 
@@ -8,6 +8,8 @@ import org.joda.time.DurationFieldType;
 import org.joda.time.LocalDate;
 import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
+
+import ca.ulaval.glo4003.projet_de_session.feuilleDeTemps.tempsParTache.TempsParTacheViewModel;
 
 public class FeuilleDeTempsViewModel {
 	

@@ -2,8 +2,6 @@ package ca.ulaval.glo4003.projet_de_session.depense.diverse;
 
 import java.util.Date;
 
-import ca.ulaval.glo4003.projet_de_session.web.viewmodels.DepenseDiverseViewModel;
-
 public class FactoryDepenseDiverse {
 	public DepenseDiverse creer(String identifiant, String date, String time,
 			String description, int nbRepas, float coutRepas, float divers,

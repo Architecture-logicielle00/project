@@ -7,6 +7,8 @@ import java.util.ArrayList;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import ca.ulaval.glo4003.projet_de_session.feuilleDeTemps.FeuilleDeTempsViewModel;
+
 public class FeuilleDeTempsViewModelTest {
 	
 	private static FeuilleDeTempsViewModel feuilleDeTempsViewModel;

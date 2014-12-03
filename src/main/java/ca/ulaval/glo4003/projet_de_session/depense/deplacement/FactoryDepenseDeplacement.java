@@ -1,6 +1,5 @@
 package ca.ulaval.glo4003.projet_de_session.depense.deplacement;
 
-import ca.ulaval.glo4003.projet_de_session.web.viewmodels.DepenseDeplacementViewModel;
 
 public class FactoryDepenseDeplacement {
 	public DepenseDeplacement creer(String _identifiant, String _date, String _time,

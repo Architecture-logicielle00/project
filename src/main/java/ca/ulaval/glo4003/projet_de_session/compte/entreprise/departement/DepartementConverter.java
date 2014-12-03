@@ -9,7 +9,6 @@ import java.util.Map.Entry;
 import ca.ulaval.glo4003.projet_de_session.compte.employe.Employe;
 import ca.ulaval.glo4003.projet_de_session.compte.employe.EmployeeConverter;
 import ca.ulaval.glo4003.projet_de_session.compte.employe.EmployeeViewModel;
-import ca.ulaval.glo4003.projet_de_session.web.viewmodels.DepartementViewModel;
 public class DepartementConverter {
 		
 	public Collection<DepartementViewModel> convertDeps(Map<String, Departement> entries) {

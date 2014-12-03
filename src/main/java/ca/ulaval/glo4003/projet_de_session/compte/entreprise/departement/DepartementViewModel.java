@@ -1,4 +1,4 @@
-package ca.ulaval.glo4003.projet_de_session.web.viewmodels;
+package ca.ulaval.glo4003.projet_de_session.compte.entreprise.departement;
 
 import java.util.ArrayList;
 

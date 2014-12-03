@@ -14,10 +14,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import ca.ulaval.glo4003.projet_de_session.compte.employe.ServiceEmploye;
+import ca.ulaval.glo4003.projet_de_session.depense.diverse.DepenseDiverseViewModel;
 import ca.ulaval.glo4003.projet_de_session.depense.diverse.ServiceDepenseDiverse;
 import ca.ulaval.glo4003.projet_de_session.feuilleDeTemps.ServiceFeuilleDeTemps;
 import ca.ulaval.glo4003.projet_de_session.web.session.IServiceSession;
-import ca.ulaval.glo4003.projet_de_session.web.viewmodels.DepenseDiverseViewModel;
 
 @Controller
 public class ControleurDiverse {

@@ -5,7 +5,6 @@ import java.util.Collection;
 import java.util.List;
 
 import ca.ulaval.glo4003.projet_de_session.depense.Depense;
-import ca.ulaval.glo4003.projet_de_session.web.viewmodels.DepenseDiverseViewModel;
 
 public class DepenseDiverseConverter {
 

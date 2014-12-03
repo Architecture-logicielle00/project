@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 
 import ca.ulaval.glo4003.projet_de_session.repository.FactoryRepository;
 import ca.ulaval.glo4003.projet_de_session.repository.Repository;
-import ca.ulaval.glo4003.projet_de_session.web.viewmodels.DepenseDeplacementViewModel;
 
 @Service
 public class ServiceDepenseDeplacement {
