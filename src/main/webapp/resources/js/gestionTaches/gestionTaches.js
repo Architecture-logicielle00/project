@@ -4,6 +4,10 @@ $(document).ready(function(){
     initializeEvents();
 });
 
+function test(){
+	j_get('/departement/projets', undefined, function(data){console.log(data);}, undefined);
+}
+
 function renderTemplates(){
     var employeesListTplRendered = Mustache.render($("#employees-list-tpl").html(), fakeData);
     $("#employees-list").html(employeesListTplRendered);
