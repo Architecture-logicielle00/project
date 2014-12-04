@@ -25,7 +25,6 @@ public class ServiceEmploye
 	
 	public ServiceEmploye(Repository<Employe> _repo){
 		repo = _repo;
-		
 		factory = new FactoryEmploye();
 		ec = new EmployeeConverter();
 	}
@@ -34,6 +33,8 @@ public class ServiceEmploye
 		factory = new FactoryEmploye();
 		repo = FactoryRepository.cree(Employe.class);
 		ec = new EmployeeConverter();
+		
+		init();
 	}
 	
 	public Employe obtEmploye(String nomUtilisateur){
@@ -105,5 +106,13 @@ public class ServiceEmploye
 		e.defProvince(evm.pays);
 		e.defStatutGestionnaire(evm.statutGestionnaire);
 		e.defVille(evm.ville);
+	}
+	
+	private void init()
+	{
+		Employe e = factory.creerEmploye("OLDU", "Dugas", "Olivier", "aa@aa.com", "Canada", "Quebec", "Quebec", "X0X0X0", "Homme", "(418)843-8888", true);
+		e.departement = "Service personnel";
+		e.entreprise = "desj";
+		repo.ajouter(e);
 	}
 }
