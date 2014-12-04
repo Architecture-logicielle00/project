@@ -5,8 +5,11 @@ import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import ca.ulaval.glo4003.projet_de_session.compte.entreprise.departement.projet.tache.EmployeTachesViewModel;
+import ca.ulaval.glo4003.projet_de_session.feuilleDeTemps.ServiceFeuilleDeTemps;
 import ca.ulaval.glo4003.projet_de_session.repository.FactoryRepository;
 import ca.ulaval.glo4003.projet_de_session.repository.Repository;
 
@@ -16,6 +19,9 @@ public class ServiceEmploye
 	Repository<Employe> repo;
 	FactoryEmploye factory;
 	EmployeeConverter ec;
+	
+	@Autowired
+	ServiceFeuilleDeTemps serviceFeuilleDeTemps;
 	
 	public ServiceEmploye(Repository<Employe> _repo){
 		repo = _repo;
@@ -59,6 +65,15 @@ public class ServiceEmploye
 			}
 		}
 		return entrepriseList;
+	}
+	
+	public void assignerTachesAEmployes(List<EmployeTachesViewModel> employeTachesViewModels)
+	{
+		for (EmployeTachesViewModel employeTVM: employeTachesViewModels)
+		{
+			obtEmploye(employeTVM.nomUtilisateur).defTaches(employeTVM.taches);
+			serviceFeuilleDeTemps.assignerTachesAFeuilleCourrant(employeTVM.nomUtilisateur, employeTVM.taches);
+		}
 	}
 	
 	//TO REMOVE

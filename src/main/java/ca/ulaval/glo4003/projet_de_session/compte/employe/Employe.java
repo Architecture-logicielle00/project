@@ -2,6 +2,7 @@ package ca.ulaval.glo4003.projet_de_session.compte.employe;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import ca.ulaval.glo4003.projet_de_session.compte.Utilisateur;
 import ca.ulaval.glo4003.projet_de_session.feuilleDeTemps.FeuilleDeTempsIntrouvableException;
@@ -10,6 +11,7 @@ public class Employe extends Utilisateur {
 	String nom;
 	String prenom;
 	String entreprise;
+	String departement;
 	String email;
 	String pays;
 	String province;
@@ -153,6 +155,10 @@ public class Employe extends Utilisateur {
 
 	public ArrayList<String> obtTaches() {
 		return taches;
+	}
+	
+	public void defTaches(List<String> taches){
+		this.taches = (ArrayList<String>) taches;
 	}
 
 	public boolean ajouterTache(String tache) {

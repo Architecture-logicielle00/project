@@ -49,7 +49,7 @@ public class ControlleurFeuilleDeTemps {
 		Employe employe = serviceEmploye.obtEmploye(utilisateur);
 
 		try{
-			return serviceFeuilleDeTemps.obtFeuilleDeTempsCourante(utilisateur);
+			return serviceFeuilleDeTemps.obtFeuilleDeTempsCouranteViewModel(utilisateur);
 		}
 		catch(FeuilleDeTempsIntrouvableException e){
 			String idFeuilleDeTempsCourante = serviceFeuilleDeTemps

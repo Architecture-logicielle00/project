@@ -1,36 +1,42 @@
 package ca.ulaval.glo4003.projet_de_session.compte.entreprise.departement;
 
 import java.util.ArrayList;
+import java.util.List;
 
-import ca.ulaval.glo4003.projet_de_session.compte.employe.Employe;
-import ca.ulaval.glo4003.projet_de_session.compte.employe.EmployeIntrouvableException;
+import ca.ulaval.glo4003.projet_de_session.compte.entreprise.departement.projet.Projet;
 
 public class Departement {
-	private String NomDepartement;
+	private String nom;
 	private String Entreprise;
-	private ArrayList<String> projets;
-	private ArrayList<Employe> employes;
+	private List<Projet> projets;
+	private List<String> employes;
 	
 	
 	public Departement() {
 	}
+	
+	public Departement(String nom)
+	{
+		this.nom = nom;
+		this.employes = new ArrayList<String>();
+		this.projets = new ArrayList<Projet>();
+	}
 
 
-	public Departement(String nomDepartement, String entreprise, ArrayList<String> projets) {
-		NomDepartement = nomDepartement;
-		Entreprise = entreprise;
+	public Departement(String nom, List<Projet> projets) {
+		this.nom = nom;
 		this.projets = projets;
-		this.employes = new ArrayList<Employe>();
+		this.employes = new ArrayList<String>();
 	}
 
 
 	public String obtNomDepartement() {
-		return NomDepartement;
+		return nom;
 	}
 
 
-	public void setNomDepartement(String nomDepartement) {
-		NomDepartement = nomDepartement;
+	public void setNomDepartement(String nom) {
+		this.nom = nom;
 	}
 
 	public String obtEntreprise() {
@@ -43,48 +49,44 @@ public class Departement {
 	}
 
 
-	public ArrayList<String> obtProjets() {
+	public List<Projet> obtProjets() {
 		return projets;
+	}
+	
+	public List<String> obtNomProjets()
+	{
+		List<String> projetNoms = new ArrayList<String>();
+		for (Projet projet : obtProjets())
+		{
+			projetNoms.add(projet.obtNom());
+		}
+		return projetNoms;
 	}
 
 
-	public void setProjets(ArrayList<String> projets) {
+	public void setProjets(List<Projet> projets) {
 		this.projets = projets;
 	}
 
 
-	public ArrayList<Employe> obtEmployes() {
+	public List<String> obtEmployes() {
 		return employes;
 	}
 
 
-	public void setEmployes(ArrayList<Employe> employes) {
+	public void setEmployes(List<String> identifiants) {
 		this.employes = employes;
 	}
 	
-	public void ajouterEmploye(Employe employe) {
-		employes.add(employe);
+	public void ajouterEmploye(String identifiant) {
+		employes.add(identifiant);
 	}
 
-	public void enleverEmploye(String NomEmploye) {
-		for (Employe employe : employes) {
-			if (employe.obtNomUtilisateur() == NomEmploye)
-				 employes.remove(employe);
-				break;
-		}
-
+	public void enleverEmploye(String identifiant) {
+		employes.remove(identifiant);
 	}
 	
-	public Employe obtEmploye(String NomEmploye) {
-		for (Employe employe : employes) {
-			if (employe.obtNomUtilisateur() == NomEmploye)
-				return employe;
-		}
-
-		throw new EmployeIntrouvableException();
-	}
-	
-	public void ajouterProjet(String projet) {
+	public void ajouterProjet(Projet projet) {
 		projets.add(projet);
 	}
 
@@ -93,6 +95,9 @@ public class Departement {
 		projets.remove(projet);
 	}
 	
-	
+	public boolean containEmploye(String identifiant)
+	{
+		return employes.contains(identifiant);	
+	}
 	
 }

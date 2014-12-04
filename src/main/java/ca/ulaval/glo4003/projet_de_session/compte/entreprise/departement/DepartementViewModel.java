@@ -1,40 +1,31 @@
 package ca.ulaval.glo4003.projet_de_session.compte.entreprise.departement;
 
 import java.util.ArrayList;
+import java.util.List;
 
-import ca.ulaval.glo4003.projet_de_session.compte.employe.EmployeeViewModel;
+import ca.ulaval.glo4003.projet_de_session.compte.entreprise.departement.projet.ProjetViewModel;
+import ca.ulaval.glo4003.projet_de_session.compte.entreprise.departement.projet.tache.EmployeTachesViewModel;
 
 
 public class DepartementViewModel {
-	private String nomDepartement;
-	private String nomEntreprise;
-	private ArrayList<String> projets;
-	private ArrayList<EmployeeViewModel> employes;
+	public String nomDepartement;
+	public List<ProjetViewModel> projetsViewModel;
+	public List<EmployeTachesViewModel> employesTachesViewModels;
 	
-	
-	public String obtNomDepartement() {
-		return nomDepartement;
+	public DepartementViewModel()
+	{
+		this.nomDepartement = "";
+		this.projetsViewModel = new ArrayList<ProjetViewModel>();
+		this.employesTachesViewModels = new ArrayList<EmployeTachesViewModel>();
 	}
-	public void setNomDepartement(String nomDepartement) {
+	
+	public DepartementViewModel(String nomDepartement, List<ProjetViewModel> projetsViewModel, List<EmployeTachesViewModel> employesTachesViewModels)
+	{
 		this.nomDepartement = nomDepartement;
+		this.projetsViewModel = projetsViewModel;
+		this.employesTachesViewModels = employesTachesViewModels;
 	}
-	public String obtNomEntreprise() {
-		return nomEntreprise;
-	}
-	public void setNomEntreprise(String nomEntreprise) {
-		this.nomEntreprise = nomEntreprise;
-	}
-	public ArrayList<String> obtProjets() {
-		return projets;
-	}
-	public void setProjets(ArrayList<String> projets) {
-		this.projets = projets;
-	}
-	public ArrayList<EmployeeViewModel> obtEmployes() {
-		return employes;
-	}
-	public void setEmployes(ArrayList<EmployeeViewModel> employes) {
-		this.employes = employes;
-	}
+	
+	
 	
 }

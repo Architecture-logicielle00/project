@@ -1,12 +1,45 @@
 <list>
   <Entreprise>
-    <nomUtilisateur>home</nomUtilisateur>
-    <mdp>12345</mdp>
-    <nom>Home Depot</nom>
-  </Entreprise>
-  <Entreprise>
     <nomUtilisateur>desj</nomUtilisateur>
     <mdp>12345</mdp>
     <nom>Desjardins</nom>
+    <factoryDepartement/>
+    <departements>
+      <entry>
+        <string>Service personnel</string>
+        <ca.ulaval.glo4003.projet__de__session.compte.entreprise.departement.Departement>
+          <nom>Service personnel</nom>
+          <projets>
+            <ca.ulaval.glo4003.projet__de__session.compte.entreprise.departement.projet.Projet>
+              <nom>Marketing</nom>
+              <taches>
+                <ca.ulaval.glo4003.projet__de__session.compte.entreprise.departement.projet.tache.Tache>
+                  <nom>Telemarketing</nom>
+                  <description>Appeller les clients pour proposer des services</description>
+                </ca.ulaval.glo4003.projet__de__session.compte.entreprise.departement.projet.tache.Tache>
+                <ca.ulaval.glo4003.projet__de__session.compte.entreprise.departement.projet.tache.Tache>
+                  <nom>Journal</nom>
+                  <description>Faire un publicité pour des journaux</description>
+                </ca.ulaval.glo4003.projet__de__session.compte.entreprise.departement.projet.tache.Tache>
+              </taches>
+            </ca.ulaval.glo4003.projet__de__session.compte.entreprise.departement.projet.Projet>
+            <ca.ulaval.glo4003.projet__de__session.compte.entreprise.departement.projet.Projet>
+              <nom>Service a la clientele</nom>
+              <taches>
+                <ca.ulaval.glo4003.projet__de__session.compte.entreprise.departement.projet.tache.Tache>
+                  <nom>Caisse</nom>
+                  <description>Répondre au client a la caisse</description>
+                </ca.ulaval.glo4003.projet__de__session.compte.entreprise.departement.projet.tache.Tache>
+                <ca.ulaval.glo4003.projet__de__session.compte.entreprise.departement.projet.tache.Tache>
+                  <nom>Pret personnel</nom>
+                  <description>Accorder ou non des prets</description>
+                </ca.ulaval.glo4003.projet__de__session.compte.entreprise.departement.projet.tache.Tache>
+              </taches>
+            </ca.ulaval.glo4003.projet__de__session.compte.entreprise.departement.projet.Projet>
+          </projets>
+          <employes/>
+        </ca.ulaval.glo4003.projet__de__session.compte.entreprise.departement.Departement>
+      </entry>
+    </departements>
   </Entreprise>
 </list>

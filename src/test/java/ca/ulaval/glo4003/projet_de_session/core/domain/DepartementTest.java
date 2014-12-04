@@ -17,6 +17,7 @@ import ca.ulaval.glo4003.projet_de_session.compte.entreprise.departement.Departe
 @RunWith(MockitoJUnitRunner.class)
 
 public class DepartementTest {
+/*
 	public static Departement departement;
 	public static Employe employe1;
 	public static Employe employe2;
@@ -75,5 +76,5 @@ public class DepartementTest {
 	departement.obtEmploye(employeNonTrouve);
 }
 
-
+*/
 }

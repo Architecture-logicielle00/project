@@ -10,8 +10,8 @@ import org.junit.runner.RunWith;
 import org.mockito.Mockito;
 import org.mockito.runners.MockitoJUnitRunner;
 
-import ca.ulaval.glo4003.projet_de_session.compte.entreprise.projet.Projet;
-import ca.ulaval.glo4003.projet_de_session.compte.entreprise.projet.tache.Tache;
+import ca.ulaval.glo4003.projet_de_session.compte.entreprise.departement.projet.Projet;
+import ca.ulaval.glo4003.projet_de_session.compte.entreprise.departement.projet.tache.Tache;
 
 @RunWith(MockitoJUnitRunner.class)
 public class ProjetTest {

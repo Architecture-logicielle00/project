@@ -1,11 +1,18 @@
 package ca.ulaval.glo4003.projet_de_session.compte.entreprise.departement;
 
-import java.util.ArrayList;
+import java.util.List;
+
+import ca.ulaval.glo4003.projet_de_session.compte.entreprise.departement.projet.Projet;
 
 
 public class FactoryDepartement {
-	public Departement creerDepartement(String _nomDepartement, String _nomEntreprise, ArrayList<String> _projets)
+	public Departement creerDepartement(String nom)
 	{
-		return new Departement(_nomDepartement, _nomEntreprise, _projets);
+		return new Departement(nom);
+	}
+	
+	public Departement creerDepartement(String nom, List<Projet> projets)
+	{
+		return new Departement(nom, projets);
 	}
 }

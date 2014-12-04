@@ -2,44 +2,39 @@ package ca.ulaval.glo4003.projet_de_session.feuilleDeTemps;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import org.joda.time.DateTime;
 import org.joda.time.Days;
 import org.joda.time.Interval;
 
-import ca.ulaval.glo4003.projet_de_session.approbation.Approbation;
-import ca.ulaval.glo4003.projet_de_session.compte.entreprise.projet.tache.TacheIntrouvableException;
-import ca.ulaval.glo4003.projet_de_session.depense.Approuvable;
+import ca.ulaval.glo4003.projet_de_session.compte.entreprise.departement.projet.tache.TacheIntrouvableException;
 import ca.ulaval.glo4003.projet_de_session.feuilleDeTemps.tempsParTache.TempsParTache;
 
-public class FeuilleDeTemps implements Approuvable {
+public class FeuilleDeTemps {
 
-	private ArrayList<TempsParTache> taches;
+	private ArrayList<TempsParTache> tempsParTaches;
 	private ArrayList<String> commentaires;
 	private Date debut;
 	private Date fin;
 	private String identifiant;
-	private Approbation approbation;
 
-	public FeuilleDeTemps() {
-		approbation = new Approbation();
-	}
+	public FeuilleDeTemps() {}
 
 	public FeuilleDeTemps(String _identifiant, Date _debut, Date _fin,
 			ArrayList<String> _listeTaches) {
 		identifiant = _identifiant;
 		debut = _debut;
 		fin = _fin;
-		approbation = new Approbation();
 
 		commentaires = new ArrayList<String>();
 		for (int i = 0; i < obtNombreJourPeriode(); i++) {
 			commentaires.add("");
 		}
 
-		taches = new ArrayList<TempsParTache>();
+		tempsParTaches = new ArrayList<TempsParTache>();
 		for (int i = 0; i < _listeTaches.size(); i++) {
-			taches.add(new TempsParTache(_listeTaches.get(i),
+			tempsParTaches.add(new TempsParTache(_listeTaches.get(i),
 					obtNombreJourPeriode()));
 		}
 	}
@@ -53,13 +48,38 @@ public class FeuilleDeTemps implements Approuvable {
 			commentaires.add("");
 		}
 	}
+	
+	private boolean containsTache(String tache)
+	{
+		for (TempsParTache tempsParTache : tempsParTaches)
+		{
+			if(tempsParTache.obtTache().equals(tache)) return true;
+		}
+		return false;
+	}
+	
+	public void addTache(String tache)
+	{
+		if(containsTache(tache) == false)
+		{
+			tempsParTaches.add(new TempsParTache(tache, obtNombreJourPeriode()) );
+		}
+	}
+	
+	public void addTaches(List<String> taches)
+	{
+		for(String tache : taches)
+		{
+			addTache(tache);
+		}
+	}
 
 	public ArrayList<TempsParTache> obtTaches() {
-		return taches;
+		return tempsParTaches;
 	}
 
 	public void setTaches(ArrayList<TempsParTache> _taches) {
-		taches = _taches;
+		tempsParTaches = _taches;
 	}
 
 	public ArrayList<String> obtCommentaires() {
@@ -103,7 +123,7 @@ public class FeuilleDeTemps implements Approuvable {
 	}
 
 	public TempsParTache obtTempsParTache(String _tache) {
-		for (TempsParTache blocDeTemps : taches) {
+		for (TempsParTache blocDeTemps : tempsParTaches) {
 			if (blocDeTemps.obtTache() == _tache)
 				return blocDeTemps;
 		}
@@ -112,7 +132,7 @@ public class FeuilleDeTemps implements Approuvable {
 	}
 
 	public void addTempsParTache(TempsParTache _tache) {
-		taches.add(_tache);
+		tempsParTaches.add(_tache);
 	}
 
 	private int obtNombreJourPeriode() {

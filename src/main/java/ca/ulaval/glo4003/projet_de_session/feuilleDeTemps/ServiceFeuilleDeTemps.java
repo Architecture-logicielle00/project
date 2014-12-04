@@ -49,7 +49,7 @@ public class ServiceFeuilleDeTemps {
 		return createFeuilleDeTemps(_employe, debutDelasemaineCourante.toDate(), finDelaPeriodeCourante.toDate());
 	}
 	
-	public FeuilleDeTempsViewModel obtFeuilleDeTempsCourante(String utilisateur){
+	public FeuilleDeTempsViewModel obtFeuilleDeTempsCouranteViewModel(String utilisateur){
 		List<FeuilleDeTemps> collectionSpecifique = obtFeuillesDeTempsParUtilisateur(utilisateur);
 		
 		Date aujourdhui = new Date();
@@ -60,8 +60,19 @@ public class ServiceFeuilleDeTemps {
 		}
 		
 		throw new FeuilleDeTempsIntrouvableException();
+	}
+	
+	public FeuilleDeTemps obtFeuilleDeTempsCourante(String utilisateur){
+		List<FeuilleDeTemps> collectionSpecifique = obtFeuillesDeTempsParUtilisateur(utilisateur);
 		
+		Date aujourdhui = new Date();
 		
+		for (FeuilleDeTemps feuilleDeTemps : collectionSpecifique) {
+			if(feuilleDeTemps.estCourante(aujourdhui))
+				return feuilleDeTemps;
+		}
+		
+		throw new FeuilleDeTempsIntrouvableException();
 	}
 	
 	public Collection<FeuilleDeTempsViewModel> obtFeuillesDeTempsViewModel() {
@@ -88,6 +99,10 @@ public class ServiceFeuilleDeTemps {
 				simpleDateFormat.format(feuilleDeTemps.obtFin());
 
 		updateFeuilleDeTemps(id, feuilleDeTemps);
+	}
+	
+	public void assignerTachesAFeuilleCourrant(String nomUtilisateur, List<String> taches){
+		obtFeuilleDeTempsCourante(nomUtilisateur).addTaches(taches);
 	}
 
 	

@@ -1,16 +1,23 @@
-package ca.ulaval.glo4003.projet_de_session.compte.entreprise.projet;
+package ca.ulaval.glo4003.projet_de_session.compte.entreprise.departement.projet;
 
 import java.util.ArrayList;
+import java.util.List;
 
-import ca.ulaval.glo4003.projet_de_session.compte.entreprise.projet.tache.Tache;
+import ca.ulaval.glo4003.projet_de_session.compte.entreprise.departement.projet.tache.Tache;
 
 public class Projet {
 
 	private String nom;
 	private String description;
-	private ArrayList<Tache> taches;
+	private List<Tache> taches;
+	
+	public Projet(String nom)
+	{
+		this.nom = nom;
+		taches = new ArrayList<Tache>();
+	}
 
-	public Projet(String _numero, String _nom, String _description) {
+	public Projet(String _nom, String _description) {
 		nom = _nom;
 		description = _description;
 		taches = new ArrayList<Tache>();
@@ -28,7 +35,7 @@ public class Projet {
 		return description;
 	}
 
-	public ArrayList<Tache> obtTache() {
+	public List<Tache> obtTache() {
 		return taches;
 	}
 

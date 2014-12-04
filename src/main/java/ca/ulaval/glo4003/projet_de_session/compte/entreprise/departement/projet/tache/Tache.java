@@ -1,19 +1,13 @@
-package ca.ulaval.glo4003.projet_de_session.compte.entreprise.projet.tache;
+package ca.ulaval.glo4003.projet_de_session.compte.entreprise.departement.projet.tache;
 
 public class Tache {
-
-	private String numero;
+	
 	private String nom;
 	private String description;
 
-	public Tache(String _numero, String _nom, String _description) {
-		numero = _numero;
+	public Tache(String _nom, String _description) {
 		nom = _nom;
 		description = _description;
-	}
-
-	public String obtNumero() {
-		return numero;
 	}
 
 	public String obtNom() {
@@ -22,10 +16,6 @@ public class Tache {
 
 	public String obtDescription() {
 		return description;
-	}
-
-	public void changerNumero(String _numero) {
-		numero = _numero;
 	}
 
 	public void changerNom(String _nom) {
