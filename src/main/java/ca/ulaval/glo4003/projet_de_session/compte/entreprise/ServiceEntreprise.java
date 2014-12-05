@@ -1,15 +1,19 @@
 package ca.ulaval.glo4003.projet_de_session.compte.entreprise;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import ca.ulaval.glo4003.projet_de_session.compte.employe.Employe;
 import ca.ulaval.glo4003.projet_de_session.compte.employe.ServiceEmploye;
 import ca.ulaval.glo4003.projet_de_session.compte.entreprise.departement.Departement;
-import ca.ulaval.glo4003.projet_de_session.compte.entreprise.departement.DepartementConverter;
 import ca.ulaval.glo4003.projet_de_session.compte.entreprise.departement.DepartementViewModel;
 import ca.ulaval.glo4003.projet_de_session.compte.entreprise.departement.projet.FactoryProjet;
 import ca.ulaval.glo4003.projet_de_session.compte.entreprise.departement.projet.Projet;
+import ca.ulaval.glo4003.projet_de_session.compte.entreprise.departement.projet.ProjetViewModel;
+import ca.ulaval.glo4003.projet_de_session.compte.entreprise.departement.projet.tache.EmployeTachesViewModel;
 import ca.ulaval.glo4003.projet_de_session.compte.entreprise.departement.projet.tache.Tache;
 import ca.ulaval.glo4003.projet_de_session.repository.FactoryRepository;
 import ca.ulaval.glo4003.projet_de_session.repository.Repository;
@@ -18,7 +22,6 @@ import ca.ulaval.glo4003.projet_de_session.repository.Repository;
 public class ServiceEntreprise {
 	Repository<Entreprise> repo;
 	FactoryEntreprise factory;
-	DepartementConverter departementConverter;
 	
 	@Autowired
 	ServiceEmploye serviceEmploye;
@@ -27,7 +30,9 @@ public class ServiceEntreprise {
 	{
 		repo = FactoryRepository.cree(Entreprise.class);
 		factory = new FactoryEntreprise();
-		departementConverter = new DepartementConverter();
+		//serviceDepartement = new ServiceDepartement();
+		
+		init();
 	}
 	
 	public Entreprise obtEntreprise(String nomUtilisateur){
@@ -42,7 +47,56 @@ public class ServiceEntreprise {
 		Entreprise entreprise = obtEntreprise(nomEntreprise);
 		Departement departement = entreprise.getDepartementParEmploye(nomGestionnaire);
 		
-		return departementConverter.convertDeparmentementToViewModel(departement);
+		return getDepartementementViewModel(departement);
+	}
+	
+	
+	private DepartementViewModel getDepartementementViewModel(Departement departement)
+	{
+		DepartementViewModel departementViewModel = new DepartementViewModel();
+		
+		List<ProjetViewModel> projetViewModels = getProjetViewModels(departement);
+		List<EmployeTachesViewModel> employeTachesViewModels = getEmployeTachesViewModels(departement);
+		
+		departementViewModel.nomDepartement = departement.obtNomDepartement();
+		departementViewModel.projetsViewModel = projetViewModels;
+		departementViewModel.employesTachesViewModels = employeTachesViewModels;
+		
+		return departementViewModel;
+	}
+	
+	private List<ProjetViewModel> getProjetViewModels(Departement departement)
+	{
+		List<ProjetViewModel> projetViewModels = new ArrayList<ProjetViewModel>();
+		List<Projet> projets =  departement.obtProjets();
+		for(Projet projet: projets)
+		{
+			List<Tache> taches = projet.obtTache();
+			List<String> listeNomTache = new ArrayList<String>();
+			for(Tache tache: taches)
+			{
+				listeNomTache.add(tache.obtNom());
+			}
+			ProjetViewModel pvm = new ProjetViewModel(projet.obtNom(), listeNomTache);
+			projetViewModels.add(pvm);
+		}
+		
+		return projetViewModels;
+	}
+	
+	private List<EmployeTachesViewModel> getEmployeTachesViewModels(Departement departement)
+	{
+		List<EmployeTachesViewModel> employeTachesViewModels = new ArrayList<EmployeTachesViewModel>();
+		List<String> nomUtilisateurEmployes = departement.obtEmployes();
+		for(String nomUtilisateurEmploye : nomUtilisateurEmployes)
+		{
+			Employe employe = serviceEmploye.obtEmploye(nomUtilisateurEmploye);
+			String nom = employe.obtPrenom() + " " + employe.obtNom();
+			List<String> tache = employe.obtTaches();
+			employeTachesViewModels.add(new EmployeTachesViewModel(nomUtilisateurEmploye, nom, tache));
+			
+		}
+		return employeTachesViewModels;
 	}
 	
 	private void init()
@@ -60,6 +114,8 @@ public class ServiceEntreprise {
 		serviceALaClientele.ajouterTache( new Tache("Caisse", "Répondre au client a la caisse") );
 		serviceALaClientele.ajouterTache( new Tache("Pret personnel", "Accorder ou non des prets") );
 		servicePersonnel.ajouterProjet(serviceALaClientele);
+		
+		servicePersonnel.ajouterEmploye("OLDU");
 		 
 		repo.ajouter(e1);
 		

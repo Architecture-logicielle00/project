@@ -37,7 +37,9 @@
               </taches>
             </ca.ulaval.glo4003.projet__de__session.compte.entreprise.departement.projet.Projet>
           </projets>
-          <employes/>
+          <employes>
+            <string>OLDU</string>
+          </employes>
         </ca.ulaval.glo4003.projet__de__session.compte.entreprise.departement.Departement>
       </entry>
     </departements>
