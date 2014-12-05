@@ -29,9 +29,7 @@ public class ServiceEntreprise {
 	public ServiceEntreprise()
 	{
 		repo = FactoryRepository.cree(Entreprise.class);
-		factory = new FactoryEntreprise();
-		//serviceDepartement = new ServiceDepartement();
-		
+		factory = new FactoryEntreprise();		
 		init();
 	}
 	
