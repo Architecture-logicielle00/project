@@ -1,13 +1,10 @@
 package ca.ulaval.glo4003.projet_de_session.web.controllers;
 
-import java.util.List;
-
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,7 +13,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import ca.ulaval.glo4003.projet_de_session.compte.employe.Employe;
 import ca.ulaval.glo4003.projet_de_session.compte.employe.ServiceEmploye;
-import ca.ulaval.glo4003.projet_de_session.depense.deplacement.DepenseDeplacementViewModel;
 import ca.ulaval.glo4003.projet_de_session.feuilleDeTemps.FeuilleDeTempsIntrouvableException;
 import ca.ulaval.glo4003.projet_de_session.feuilleDeTemps.FeuilleDeTempsViewModel;
 import ca.ulaval.glo4003.projet_de_session.feuilleDeTemps.ServiceFeuilleDeTemps;
@@ -36,7 +32,6 @@ public class ControlleurFeuilleDeTemps {
 	public ControlleurFeuilleDeTemps(IServiceSession _manageSession) {
 		manageSession = _manageSession;
 	}
-
 
 	@RequestMapping("/feuilleDeTemps")
 	public String accederPageFeuilleDeTemps(HttpServletRequest request, Model model) {
@@ -59,12 +54,7 @@ public class ControlleurFeuilleDeTemps {
 			
 			return serviceFeuilleDeTemps.obtFeuilleDeTempsViewModel(idFeuilleDeTempsCourante);
 		}
-
-
 	}
-	
-
-	
 
 	@RequestMapping(value = "{utilisateur}/feuilleDeTemps", method = RequestMethod.POST)
 	public @ResponseBody Boolean sauvegarderFeuilleDeTemps(

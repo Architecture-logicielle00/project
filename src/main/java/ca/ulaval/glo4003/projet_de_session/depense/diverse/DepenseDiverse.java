@@ -15,9 +15,7 @@ public class DepenseDiverse extends Depense {
 		coucher = _coucher;
 
 	}
-	public DepenseDiverse() {
-		// TODO Auto-generated constructor stub
-	}
+	public DepenseDiverse() {}
 
 	public int nbRepas;
 

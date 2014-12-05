@@ -1,7 +1,5 @@
 package ca.ulaval.glo4003.projet_de_session.depense;
 
-import java.util.Date;
-
 public class DepenseViewModel {
 
 	public String identifiant;

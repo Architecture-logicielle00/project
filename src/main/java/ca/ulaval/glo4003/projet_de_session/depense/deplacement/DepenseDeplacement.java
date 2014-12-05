@@ -10,7 +10,6 @@ public class DepenseDeplacement extends Depense {
 
 		distance = _distance;
 		coutkm = _coutkm;
-
 	}
 
 	public DepenseDeplacement() {

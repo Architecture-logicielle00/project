@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import ca.ulaval.glo4003.projet_de_session.compte.employe.ServiceEmploye;
 import ca.ulaval.glo4003.projet_de_session.compte.entreprise.ServiceEntreprise;
 import ca.ulaval.glo4003.projet_de_session.compte.entreprise.departement.DepartementViewModel;
-import ca.ulaval.glo4003.projet_de_session.feuilleDeTemps.FeuilleDeTempsViewModel;
 import ca.ulaval.glo4003.projet_de_session.web.session.IServiceSession;
 
 
@@ -37,10 +36,4 @@ public class ControllerAssignation {
 	{
 		return serviceEntreprise.getDepartementViewModelParEmploye("OLDU");
 	}
-	
-	private void assignerTaches(DepartementViewModel departementViewModel)
-	{
-		serviceEmploye.assignerTachesAEmployes(departementViewModel.employesTachesViewModels);
-	}
-	
 }

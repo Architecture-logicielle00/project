@@ -1,17 +1,10 @@
 package ca.ulaval.glo4003.projet_de_session.depense;
 
-import java.util.Date;
-
-import org.joda.time.DateTime;
-
 public abstract class Depense {
 	
 	private String identifiant;
-
 	private String date;
-	
 	private String time;
-
 	private String description;
 
 	public Depense(String _identifiant, String _date, String _time, String _description ) {

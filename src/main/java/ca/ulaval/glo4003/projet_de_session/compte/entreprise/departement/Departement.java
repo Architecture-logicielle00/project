@@ -73,9 +73,8 @@ public class Departement {
 		return employes;
 	}
 
-
 	public void setEmployes(List<String> identifiants) {
-		this.employes = employes;
+		this.employes = identifiants;
 	}
 	
 	public void ajouterEmploye(String identifiant) {
@@ -90,7 +89,7 @@ public class Departement {
 		projets.add(projet);
 	}
 
-	public void enleverProjet(String projet) {
+	public void enleverProjet(Projet projet) {
 		
 		projets.remove(projet);
 	}

@@ -12,16 +12,21 @@ import ca.ulaval.glo4003.projet_de_session.compte.entreprise.departement.projet.
 
 public class Entreprise extends Utilisateur {
 	protected String nom;
-	FactoryDepartement factoryDepartement;
 	
+	private FactoryDepartement factoryDepartement;
 	private Map<String, Departement> departements;
 	
 	public Entreprise(String nomUtilisateur, String mdp, String nom)
 	{
+		this(nomUtilisateur,mdp,nom,new FactoryDepartement());
+	}
+	
+	public Entreprise(String nomUtilisateur, String mdp, String nom, FactoryDepartement factoryDepartement)
+	{
 		super(nomUtilisateur, mdp);
 		this.nom = nom;
 		this.departements = new HashMap<String, Departement>();
-		this.factoryDepartement = new FactoryDepartement();
+		this.factoryDepartement = factoryDepartement;
 	}
 	
 	public Departement createDepartement(String nom)

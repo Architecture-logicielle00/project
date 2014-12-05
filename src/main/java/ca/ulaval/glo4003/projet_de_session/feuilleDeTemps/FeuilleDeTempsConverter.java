@@ -12,7 +12,6 @@ import java.util.Map.Entry;
 import ca.ulaval.glo4003.projet_de_session.feuilleDeTemps.tempsParTache.TempsParTache;
 import ca.ulaval.glo4003.projet_de_session.feuilleDeTemps.tempsParTache.TempsParTacheViewModel;
 
-
 public class FeuilleDeTempsConverter {
 
 	public Collection<FeuilleDeTempsViewModel> convert(Map<String, FeuilleDeTemps> entries) {
@@ -58,7 +57,6 @@ public class FeuilleDeTempsConverter {
 		
 		return feuilleDeTemps;
 	}
-	
 	
 	
 	private ArrayList<TempsParTacheViewModel> convertTempsParTache(ArrayList<TempsParTache> entries){

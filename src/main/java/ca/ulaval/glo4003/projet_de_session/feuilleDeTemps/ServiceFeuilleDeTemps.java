@@ -4,7 +4,6 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -29,9 +28,6 @@ public class ServiceFeuilleDeTemps {
 		repository = FactoryRepository.cree(FeuilleDeTemps.class);
 		converter = new FeuilleDeTempsConverter();
 	}
-
-
-
 
 	public String createFeuilleDeTemps(Employe _employe, Date _debut, Date _fin) {
 		FeuilleDeTemps e = factory.creerFeuilleDeTemps(_employe, _debut, _fin);
@@ -87,7 +83,6 @@ public class ServiceFeuilleDeTemps {
 		repository.supprimer(id);
 	}
 
-
 	public void updateFeuilleDeTemps(FeuilleDeTempsViewModel feuilleDeTempsViewModel) {
 		FeuilleDeTemps feuilleDeTemps = converter
 				.convert(feuilleDeTempsViewModel);
@@ -105,8 +100,6 @@ public class ServiceFeuilleDeTemps {
 		obtFeuilleDeTempsCourante(nomUtilisateur).addTaches(taches);
 	}
 
-	
-	
 //INTERN METHODS
 	
 	private FeuilleDeTemps obtFeuilleDeTemps(String id) {
@@ -127,8 +120,6 @@ public class ServiceFeuilleDeTemps {
 		}
 		
 		return collection;
-		
-		
 	}
 	
 	private void updateFeuilleDeTemps(String id, FeuilleDeTemps feuilleDeTemps) {

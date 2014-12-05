@@ -26,7 +26,7 @@ public class FactoryRepository {
    		    return (Repository<T>)new RepoFeuilleDeTempsXml();
         else if (className == Entreprise.class.getName())
         	return (Repository<T>) new RepoEntrepriseXml();
-        // TODO throw and exception
-        return null;
+        
+        throw new FactoryInnexistanteExeption();
     }
 }

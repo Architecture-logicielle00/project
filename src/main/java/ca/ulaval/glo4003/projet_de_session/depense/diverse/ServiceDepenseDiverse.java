@@ -16,6 +16,14 @@ public class ServiceDepenseDiverse {
 	FactoryDepenseDiverse factory;
 	DepenseDiverseConverter conv;
 
+	public ServiceDepenseDiverse(Repository<DepenseDiverse> repo,
+								FactoryDepenseDiverse factory,
+								DepenseDiverseConverter conv) {
+		this.repo = repo;
+		this.factory = factory;
+		this.conv = conv;
+	}
+	
 	public ServiceDepenseDiverse() {
 		factory = new FactoryDepenseDiverse();
 		repo = FactoryRepository.cree(DepenseDiverse.class);
@@ -44,15 +52,12 @@ public class ServiceDepenseDiverse {
 		
 		List<DepenseDiverse> collectionFiltre = new ArrayList<DepenseDiverse>();
 		
-		
 		for (DepenseDiverse depensediverse : collection) {
 			if(depensediverse.identifiantEstEgal(utilisateur))
 				collectionFiltre.add(depensediverse);
 		}
 		
 		return (List<DepenseDiverseViewModel>) conv.convert(collectionFiltre);
-		
-		
 	}
 	
 	public Collection<DepenseDiverseViewModel> obtDepensediverseViewModel() {

@@ -27,6 +27,7 @@ public class DepenseDiverseConverter {
 		viewModel.identifiant = depense.obtIdentifiant();
 		viewModel.nbRepas = depense.obtNbRepas();
 		viewModel.divers = depense.obtDivers();
+		viewModel.time = depense.obtTime();
 
 		return viewModel;
 	}

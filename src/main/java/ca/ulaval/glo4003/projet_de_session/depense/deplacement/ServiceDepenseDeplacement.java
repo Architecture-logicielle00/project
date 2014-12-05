@@ -16,6 +16,14 @@ public class ServiceDepenseDeplacement {
 	FactoryDepenseDeplacement factory;
 	DepenseDeplacementConverter conv;
 
+	public ServiceDepenseDeplacement(Repository<DepenseDeplacement> repo,
+									 FactoryDepenseDeplacement factory,
+									 DepenseDeplacementConverter conv) {
+		this.repo = repo;
+		this.factory = factory;
+		this.conv = conv;
+	}
+	
 	public ServiceDepenseDeplacement() {
 		factory = new FactoryDepenseDeplacement();
 		repo = FactoryRepository.cree(DepenseDeplacement.class);

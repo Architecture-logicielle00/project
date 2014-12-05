@@ -6,8 +6,6 @@ import java.util.List;
 
 import ca.ulaval.glo4003.projet_de_session.compte.Utilisateur;
 
-
-
 public class EmployeeConverter {
 
 	public static Collection<EmployeeViewModel> convert(List<Employe> entries) {

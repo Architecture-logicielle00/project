@@ -6,7 +6,6 @@ import java.util.List;
 
 import org.joda.time.DateTime;
 import org.joda.time.Days;
-import org.joda.time.Interval;
 
 import ca.ulaval.glo4003.projet_de_session.compte.entreprise.departement.projet.tache.TacheIntrouvableException;
 import ca.ulaval.glo4003.projet_de_session.feuilleDeTemps.tempsParTache.TempsParTache;

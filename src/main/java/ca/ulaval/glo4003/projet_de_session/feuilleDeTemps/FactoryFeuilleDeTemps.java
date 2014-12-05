@@ -1,6 +1,5 @@
 package ca.ulaval.glo4003.projet_de_session.feuilleDeTemps;
 
-import java.util.ArrayList;
 import java.util.Date;
 
 import ca.ulaval.glo4003.projet_de_session.compte.employe.Employe;

@@ -26,10 +26,14 @@ public class ServiceEntreprise {
 	@Autowired
 	ServiceEmploye serviceEmploye;
 	
-	public ServiceEntreprise()
-	{
+	public ServiceEntreprise(Repository<Entreprise> repo,FactoryEntreprise factory){
 		repo = FactoryRepository.cree(Entreprise.class);
 		factory = new FactoryEntreprise();		
+	}
+	
+	public ServiceEntreprise(){
+		repo = FactoryRepository.cree(Entreprise.class);
+		factory = new FactoryEntreprise();	
 		init();
 	}
 	
@@ -116,7 +120,5 @@ public class ServiceEntreprise {
 		servicePersonnel.ajouterEmploye("OLDU");
 		 
 		repo.ajouter(e1);
-		
 	}
-	
 }
