@@ -52,10 +52,6 @@
 				<li><a href="/gestionTaches"><i
 						class="fa fa-fw fa fa-tasks"></i> Gestion des tâches</a></li>
 			</c:if>
-			<c:if test="${utilisateur.estGestionnaire()}">
-				<li><a href="/gestionapprobation"><i
-						class="fa fa-fw fa fa-check-square-o"></i> Gestion des approbations</a></li>
-			</c:if>
 		</ul>
 	</div>
 	<!-- /.navbar-collapse -->

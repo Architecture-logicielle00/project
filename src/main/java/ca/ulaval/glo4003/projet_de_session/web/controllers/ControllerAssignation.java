@@ -5,12 +5,15 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import ca.ulaval.glo4003.projet_de_session.compte.employe.ServiceEmploye;
 import ca.ulaval.glo4003.projet_de_session.compte.entreprise.ServiceEntreprise;
 import ca.ulaval.glo4003.projet_de_session.compte.entreprise.departement.DepartementViewModel;
+import ca.ulaval.glo4003.projet_de_session.depense.diverse.DepenseDiverseViewModel;
 import ca.ulaval.glo4003.projet_de_session.web.session.IServiceSession;
 
 
@@ -30,6 +33,17 @@ public class ControllerAssignation {
 
 		return getViewModel();
 	}
+	
+	@RequestMapping(value = "/departement/projection" , method = RequestMethod.POST)
+	public @ResponseBody boolean setProjetsDepartements(
+			@RequestBody Object departementViewModel,
+			HttpServletRequest request,
+			Model model) {
+
+		return true;
+	}
+	
+	
 	
 	
 	private DepartementViewModel getViewModel()

@@ -36,34 +36,34 @@
 
 	<script id="employees-list-tpl" type="text/html">
     <ul>
-        {{#employees}}
+        {{#employesTachesViewModels}}
         <li>
-            <button class="btn btn-default employee-button">{{name}}</button>
+            <button class="btn btn-default employee-button">{{nomUtilisateur}}</button>
         </li>
-        {{/employees}}
+        {{/employesTachesViewModels}}
     </ul>
 	</script>
 	<script id="projects-tasks-tpl" type="text/html">
     <form>
         <ul>
-            {{#projects}}
+            {{#projetsViewModel}}
             <li class="project">
                 <input class="project-checkbox" type="checkbox"/>
-                <span>{{name}}</span>
+                <span>{{nom}}</span>
                 <div class="task-list">
                     <form>
                         <ul>
-                            {{#tasks}}
+                            {{#taches}}
                             <li class="task">
                                 <input class="task-checkbox" type="checkbox"/>
-                                <span>{{name}}</span>
+                                <span>{{.}}</span>
                             </li>
-                            {{/tasks}}
+                            {{/taches}}
                         </ul>
                     </form>
                 </div>
             </li>
-            {{/projects}}
+            {{/projetsViewModel}}
         </ul>
     </form>
 	</script>

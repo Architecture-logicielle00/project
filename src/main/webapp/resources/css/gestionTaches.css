@@ -13,6 +13,7 @@
 
 #assign-task-wrapper > #projects-list{
     width: 50%;
+    text-align: left;
 }
 
 ul{
