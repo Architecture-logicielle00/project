@@ -9,7 +9,7 @@ public class FactoryEmploye
 			String province, String ville, String codePostal,
 			String genre, String numTelephone, boolean statutGestionnaire)
 	{
-		Employe employe =  new Employe(nomUtilisateur, "12345", nom, prenom, "NERV", email, pays, province, ville, codePostal,
+		Employe employe =  new Employe(nomUtilisateur, "12345", nom, prenom, email, pays, province, ville, codePostal,
 				new Date(), genre, numTelephone);
 		
 		employe.defStatutGestionnaire(statutGestionnaire);

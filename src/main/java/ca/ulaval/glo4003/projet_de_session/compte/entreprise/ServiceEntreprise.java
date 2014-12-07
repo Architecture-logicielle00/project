@@ -101,6 +101,17 @@ public class ServiceEntreprise {
 		return employeTachesViewModels;
 	}
 	
+	public void ajouterEmploye(String nomUtilisateur)
+	{
+		Employe employe = serviceEmploye.obtEmploye(nomUtilisateur);
+		repo.obt( employe.obtEntreprise() ).getDepartement( employe.obtDepartement() ).ajouterEmploye(nomUtilisateur);;	
+	}
+	
+	private Entreprise obtenirEntreprise(String nom)
+	{
+		return repo.obt(nom);
+	}
+	
 	private void init()
 	{
 		FactoryProjet fp = new FactoryProjet();

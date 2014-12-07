@@ -8,6 +8,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import ca.ulaval.glo4003.projet_de_session.compte.entreprise.ServiceEntreprise;
 import ca.ulaval.glo4003.projet_de_session.compte.entreprise.departement.projet.tache.EmployeTachesViewModel;
 import ca.ulaval.glo4003.projet_de_session.feuilleDeTemps.ServiceFeuilleDeTemps;
 import ca.ulaval.glo4003.projet_de_session.repository.FactoryRepository;
@@ -22,6 +23,8 @@ public class ServiceEmploye
 	
 	@Autowired
 	ServiceFeuilleDeTemps serviceFeuilleDeTemps;
+	@Autowired
+	ServiceEntreprise serviceEntreprise;
 	
 	public ServiceEmploye(Repository<Employe> _repo){
 		repo = _repo;
@@ -41,9 +44,16 @@ public class ServiceEmploye
 		return repo.obt(nomUtilisateur);
 	}
 	
-	public void creerEmploye(EmployeeViewModel evm){
-		Employe e = ec.convert(evm);
-		repo.ajouter(e);
+	public void creerEmploye(EmployeeViewModel evm, String nomGestionnaire){
+		Employe gestionnaire = obtEmploye(nomGestionnaire);
+		Employe employe = ec.convert(evm);
+		
+		employe.defEntreprise(gestionnaire.obtEntreprise());
+		employe.defDepartement(gestionnaire.obtDepartement());
+		
+		repo.ajouter(employe);
+		
+		serviceEntreprise.ajouterEmploye(employe.obtNomUtilisateur());
 	}
 	
 	public void modifierEmploye(Employe employe){

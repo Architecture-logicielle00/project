@@ -27,14 +27,13 @@ public class Employe extends Utilisateur {
 	boolean statutGestionnaire;
 	
 	public Employe(String _nomUtilisateur, String _mdp, String _nom,
-			String _prenom, String _entreprise, String _email, String _pays,
+			String _prenom, String _email, String _pays,
 			String _province, String _ville, String _codePostal,
 			Date _dateDeNaissance, String _genre, String _numTelephone) {
 		super(_nomUtilisateur, _mdp);
 
 		nom = _nom;
 		prenom = _prenom;
-		entreprise = _entreprise;
 		email = _email;
 		pays = _pays;
 		province = _province;
@@ -75,6 +74,14 @@ public class Employe extends Utilisateur {
 
 	public void defEntreprise(String _entreprise) {
 		entreprise = _entreprise;
+	}
+	
+	public String obtDepartement() {
+		return departement;
+	}
+
+	public void defDepartement(String departement) {
+		this.departement = departement;
 	}
 	
 	public boolean estEmployeDe(String _entreprise){

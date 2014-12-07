@@ -40,7 +40,7 @@ public class ControlleurEmploye {
 			@RequestBody EmployeeViewModel evm, HttpServletRequest request,
 			Model model) {
 
-		serviceEmploye.creerEmploye(evm);
+		serviceEmploye.creerEmploye(evm, manageSession.ObtenirNomUtilisateur(request));
 		return new Reponse(true, "Creer un employe", "gestionEmployee");
 	}
 
