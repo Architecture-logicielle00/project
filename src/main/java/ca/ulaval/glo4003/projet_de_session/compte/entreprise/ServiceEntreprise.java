@@ -41,6 +41,10 @@ public class ServiceEntreprise {
 		return repo.obt(nomUtilisateur);
 	}
 	
+	public EntrepriseViewModel obtEntrepriseViewModel(String nomUtilisateur){
+		return new EntrepriseViewModel(nomUtilisateur);
+	}
+	
 	public DepartementViewModel getDepartementViewModelParEmploye(String nomGestionnaire)
 	{
 		Employe gestionnaire = serviceEmploye.obtEmploye(nomGestionnaire);

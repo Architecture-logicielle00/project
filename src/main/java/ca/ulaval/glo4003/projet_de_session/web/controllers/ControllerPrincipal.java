@@ -8,13 +8,20 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import ca.ulaval.glo4003.projet_de_session.compte.ServiceUtilisateur;
 import ca.ulaval.glo4003.projet_de_session.compte.employe.ServiceEmploye;
+import ca.ulaval.glo4003.projet_de_session.compte.entreprise.ServiceEntreprise;
 import ca.ulaval.glo4003.projet_de_session.web.session.IServiceSession;
 
 @Controller
 public class ControllerPrincipal {
 	@Autowired
+	ServiceUtilisateur serviceUtilisateur;
+	@Autowired
 	ServiceEmploye serviceEmploye;
+	@Autowired
+	ServiceEntreprise serviceEntreprise;
+	
 	@Autowired
 	private IServiceSession manageSession;
 
@@ -23,7 +30,6 @@ public class ControllerPrincipal {
 
 	public ControllerPrincipal(IServiceSession _manageSession, ServiceEmploye _serviceEmploye) {
 		manageSession = _manageSession;
-		serviceEmploye = _serviceEmploye;
 	}
 
 	@RequestMapping("/")
@@ -36,11 +42,22 @@ public class ControllerPrincipal {
 		String nomUtilisateur = request.getParameter("nomUtilisateur");
 		String mdp = request.getParameter("mdp");
 
-		if (serviceEmploye.verifierMotDePasse(nomUtilisateur, mdp)) {
-			manageSession.definirUtilisateur(request,
-					serviceEmploye.obtEmployeViewModel(nomUtilisateur));
+		if (serviceUtilisateur.verifierMotDePasse(nomUtilisateur, mdp)) {
+			
+			if(serviceUtilisateur.estUneEntreprise(nomUtilisateur)){
+				manageSession.definirUtilisateur(request,serviceEntreprise.obtEntrepriseViewModel(nomUtilisateur));
+				
+				return chargerPageOuLogin("indexEntreprise", request, model);
+			}
+			else if(serviceUtilisateur.estUnEmploye(nomUtilisateur))
+			{
+				manageSession.definirUtilisateur(request,serviceEmploye.obtEmployeViewModel(nomUtilisateur));
 
-			return chargerPageOuLogin("index", request, model);
+				return chargerPageOuLogin("index", request, model);
+			}
+			else{
+				return chargerPageOuLogin("erreurLogin", request, model);
+			}
 		} else
 			return chargerPageOuLogin("erreurLogin", request, model);
 	}
