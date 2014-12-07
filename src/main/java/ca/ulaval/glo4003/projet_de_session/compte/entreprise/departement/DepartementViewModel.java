@@ -9,23 +9,14 @@ import ca.ulaval.glo4003.projet_de_session.compte.entreprise.departement.projet.
 
 public class DepartementViewModel {
 	public String nomDepartement;
-	public List<ProjetViewModel> projetsViewModel;
-	public List<EmployeTachesViewModel> employesTachesViewModels;
+	public ArrayList<ProjetViewModel> projetsViewModel;
+	public ArrayList<EmployeTachesViewModel> employesTachesViewModels;
 	
-	public DepartementViewModel()
-	{
-		this.nomDepartement = "";
-		this.projetsViewModel = new ArrayList<ProjetViewModel>();
-		this.employesTachesViewModels = new ArrayList<EmployeTachesViewModel>();
-	}
-	
-	public DepartementViewModel(String nomDepartement, List<ProjetViewModel> projetsViewModel, List<EmployeTachesViewModel> employesTachesViewModels)
-	{
-		this.nomDepartement = nomDepartement;
-		this.projetsViewModel = projetsViewModel;
-		this.employesTachesViewModels = employesTachesViewModels;
-	}
-	
-	
-	
+	public String getNomDepartement(){return nomDepartement;}
+	public ArrayList<ProjetViewModel> getProjetsViewModel(){return projetsViewModel;}
+	public ArrayList<EmployeTachesViewModel> getEmployeTachesViewModel(){return employesTachesViewModels;}
+
+	public void setNomDepartement(String _nomDepartement){nomDepartement = _nomDepartement;}
+	public void setProjetsViewModel(ArrayList<ProjetViewModel> _projetsViewModel){projetsViewModel = _projetsViewModel;}
+	public void setEmployeTachesViewModel(ArrayList<EmployeTachesViewModel> _employesTachesViewModels){employesTachesViewModels = _employesTachesViewModels;}	
 }

@@ -61,8 +61,8 @@ public class ServiceEntreprise {
 		List<EmployeTachesViewModel> employeTachesViewModels = getEmployeTachesViewModels(departement);
 		
 		departementViewModel.nomDepartement = departement.obtNomDepartement();
-		departementViewModel.projetsViewModel = projetViewModels;
-		departementViewModel.employesTachesViewModels = employeTachesViewModels;
+		departementViewModel.projetsViewModel = (ArrayList<ProjetViewModel>) projetViewModels;
+		departementViewModel.employesTachesViewModels = (ArrayList<EmployeTachesViewModel>) employeTachesViewModels;
 		
 		return departementViewModel;
 	}
@@ -79,7 +79,9 @@ public class ServiceEntreprise {
 			{
 				listeNomTache.add(tache.obtNom());
 			}
-			ProjetViewModel pvm = new ProjetViewModel(projet.obtNom(), listeNomTache);
+			ProjetViewModel pvm = new ProjetViewModel();
+			pvm.nom = projet.obtNom();
+			pvm.taches = (ArrayList<String>) listeNomTache;
 			projetViewModels.add(pvm);
 		}
 		
