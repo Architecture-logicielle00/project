@@ -9,9 +9,11 @@ import java.util.Map;
 
 import org.joda.time.DateTime;
 import org.joda.time.DateTimeConstants;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import ca.ulaval.glo4003.projet_de_session.compte.employe.Employe;
+import ca.ulaval.glo4003.projet_de_session.compte.employe.ServiceEmploye;
 import ca.ulaval.glo4003.projet_de_session.repository.FactoryRepository;
 import ca.ulaval.glo4003.projet_de_session.repository.Repository;
 
@@ -20,6 +22,9 @@ public class ServiceFeuilleDeTemps {
 	private Repository<FeuilleDeTemps> repository;
 	private FactoryFeuilleDeTemps factory;
 	private FeuilleDeTempsConverter converter;
+	
+	@Autowired
+	ServiceEmploye serviceEmploye;
 	
 	private final int dureePeriodeDePaieEnSemaines = 2;
 
@@ -97,7 +102,19 @@ public class ServiceFeuilleDeTemps {
 	}
 	
 	public void assignerTachesAFeuilleCourrant(String nomUtilisateur, List<String> taches){
-		obtFeuilleDeTempsCourante(nomUtilisateur).addTaches(taches);
+		
+		FeuilleDeTemps feuilleDeTemps;
+		
+		try{
+			feuilleDeTemps = obtFeuilleDeTempsCourante(nomUtilisateur);
+		}catch(FeuilleDeTempsIntrouvableException feuilleDeTempsIntrouvableException){
+			createFeuilleDeTempsCourante(serviceEmploye.obtEmploye(nomUtilisateur));
+			feuilleDeTemps = obtFeuilleDeTempsCourante(nomUtilisateur);
+		}
+
+		feuilleDeTemps.setTaches(taches);
+		
+		repository.modifier(feuilleDeTemps);
 	}
 
 //INTERN METHODS

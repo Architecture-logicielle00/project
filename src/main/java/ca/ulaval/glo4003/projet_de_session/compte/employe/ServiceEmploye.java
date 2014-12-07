@@ -82,7 +82,10 @@ public class ServiceEmploye
 	{
 		for (EmployeTachesViewModel employeTVM: employeTachesViewModels)
 		{
-			obtEmploye(employeTVM.nomUtilisateur).defTaches(employeTVM.taches);
+			Employe employe = obtEmploye(employeTVM.nomUtilisateur);
+			employe.defTaches(employeTVM.taches);
+			modifierEmploye(employe);
+			
 			serviceFeuilleDeTemps.assignerTachesAFeuilleCourrant(employeTVM.nomUtilisateur, employeTVM.taches);
 		}
 	}

@@ -17,7 +17,7 @@ function sendData(){
 		alert("Enregistrement reussi");
 	};
 
-
+	delete Data["employeTachesViewModel"];
 	j_post('/departement/projets',JSON.stringify(Data), undefined, successFunction, undefined);
 }
 
@@ -45,11 +45,32 @@ function initializeEvents(){
     $(".employee-button").on("click", function(){
     	$(".employee-button").attr("selected", false);
     	$(this).attr("selected", true);
+    	showEmployeeTasks();
     });
 
     $("#save-button").on("click", function(){
         sendData();
     });
+}
+
+function showEmployeeTasks(){
+	var nomUtilisateurCourant = $(".employee-button[selected=selected]").html();
+	
+	$.each(Data.employesTachesViewModels, function(i, n){
+		if(n.nomUtilisateur == nomUtilisateurCourant){
+			var taches= n.taches;
+			($(".task-checkbox").next()).each(function(i, n){
+				if($.inArray($(this).html(), taches) != -1)
+					$(this).prev().prop("checked", true);
+				else
+					$(this).prev().prop("checked", false);
+			});
+		}
+	});
+	
+	//$(".task-checkbox").change();
+	
+
 }
 
 function updateModel(){

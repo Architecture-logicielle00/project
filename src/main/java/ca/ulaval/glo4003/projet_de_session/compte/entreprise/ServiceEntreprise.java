@@ -112,7 +112,9 @@ public class ServiceEntreprise {
 	public void ajouterEmploye(String nomUtilisateur)
 	{
 		Employe employe = serviceEmploye.obtEmploye(nomUtilisateur);
-		repo.obt( employe.obtEntreprise() ).getDepartement( employe.obtDepartement() ).ajouterEmploye(nomUtilisateur);;	
+		Entreprise entreprise = repo.obt( employe.obtEntreprise() );
+		entreprise.getDepartement( employe.obtDepartement() ).ajouterEmploye(nomUtilisateur);
+		repo.modifier(entreprise);
 	}
 	
 	private Entreprise obtenirEntreprise(String nom)

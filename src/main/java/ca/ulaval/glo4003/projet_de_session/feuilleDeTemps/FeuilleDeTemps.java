@@ -72,6 +72,12 @@ public class FeuilleDeTemps {
 			addTache(tache);
 		}
 	}
+	
+	public void setTaches(List<String> taches)
+	{
+		tempsParTaches = new ArrayList<TempsParTache>();
+		addTaches(taches);
+	}
 
 	public ArrayList<TempsParTache> obtTaches() {
 		return tempsParTaches;
