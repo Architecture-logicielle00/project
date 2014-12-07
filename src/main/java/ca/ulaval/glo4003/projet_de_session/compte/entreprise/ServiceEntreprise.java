@@ -97,7 +97,13 @@ public class ServiceEntreprise {
 			Employe employe = serviceEmploye.obtEmploye(nomUtilisateurEmploye);
 			String nom = employe.obtPrenom() + " " + employe.obtNom();
 			List<String> tache = employe.obtTaches();
-			employeTachesViewModels.add(new EmployeTachesViewModel(nomUtilisateurEmploye, nom, tache));
+			
+			EmployeTachesViewModel employeTachesViewModel = new EmployeTachesViewModel();
+			employeTachesViewModel.nomUtilisateur = nomUtilisateurEmploye;
+			employeTachesViewModel.nom = nom;
+			employeTachesViewModel.taches = (ArrayList<String>) tache;
+			
+			employeTachesViewModels.add(employeTachesViewModel);
 			
 		}
 		return employeTachesViewModels;

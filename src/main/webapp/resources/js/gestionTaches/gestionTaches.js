@@ -18,7 +18,7 @@ function sendData(){
 	};
 
 
-	j_post('/departement/projection',JSON.stringify(Data), undefined, successFunction, undefined);
+	j_post('/departement/projets',JSON.stringify(Data), undefined, successFunction, undefined);
 }
 
 

@@ -34,17 +34,20 @@ public class ControllerAssignation {
 		return getViewModel();
 	}
 	
-	@RequestMapping(value = "/departement/projection" , method = RequestMethod.POST)
+	@RequestMapping(value = "/departement/projets" , method = RequestMethod.POST)
 	public @ResponseBody boolean setProjetsDepartements(
-			@RequestBody Object departementViewModel,
+			@RequestBody DepartementViewModel departementViewModel,
 			HttpServletRequest request,
 			Model model) {
-
+		assignerTaches(departementViewModel);
 		return true;
 	}
 	
 	
-	
+	private void assignerTaches(DepartementViewModel departementViewModel)
+	{
+			serviceEmploye.assignerTachesAEmployes(departementViewModel.employesTachesViewModels);
+	}
 	
 	private DepartementViewModel getViewModel()
 	{
