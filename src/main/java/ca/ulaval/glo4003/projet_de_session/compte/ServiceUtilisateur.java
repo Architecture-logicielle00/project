@@ -44,6 +44,10 @@ public class ServiceUtilisateur {
 	
 	public boolean verifierMotDePasse(String nomUtilisateur, String mdp)
 	{
-		return obtenirUtilisateur(nomUtilisateur).motDePasseValide(mdp);
+		Utilisateur utilisateur = obtenirUtilisateur(nomUtilisateur);
+		if(utilisateur == null)
+			return false;
+		else
+			return utilisateur.motDePasseValide(mdp);
 	}
 }

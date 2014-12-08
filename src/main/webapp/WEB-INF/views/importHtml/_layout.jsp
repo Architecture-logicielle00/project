@@ -18,15 +18,6 @@
 			data-toggle="dropdown"><i class="fa fa-user"></i>${utilisateur.obtNomUtilisateur()}<b class="caret"></b>
 			</a>
 			<ul class="dropdown-menu">
-				<c:if test="false">
-					<li>
-						<a href="#"><i class="fa fa-fw fa-user"></i> Profile</a>
-					</li>
-					<li>
-						<a href="#"><i class="fa fa-fw fa-gear"></i> Param�tres</a>
-					</li>
-				</c:if>
-				<li class="divider"></li>
 				<li><a href="/deconnection"><i
 						class="fa fa-fw fa-power-off"></i> Deconnexion</a></li>
 			</ul></li>

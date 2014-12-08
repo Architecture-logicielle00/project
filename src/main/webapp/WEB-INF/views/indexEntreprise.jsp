@@ -12,6 +12,7 @@
 <body>
 <div id="menu-wrapper">
 	<h1>CONNEXION EN TANT QU'ENTREPRISE</h1>
+	<button><a href="/deconnection"><i class="fa fa-fw fa-power-off"></i> Deconnexion</a></button>
 </div>
 <!-- /#wrapper -->
 
