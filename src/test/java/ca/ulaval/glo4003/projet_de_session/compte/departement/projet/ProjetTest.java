@@ -14,6 +14,7 @@ import ca.ulaval.glo4003.projet_de_session.compte.entreprise.departement.projet.
 public class ProjetTest {
 
 	private Projet projet;
+	private Projet projet2;
 	private static Tache tache1;
 	private static Tache tache2;
 	
@@ -23,6 +24,7 @@ public class ProjetTest {
 	@Before
 	public void setUp() throws Exception {
 		projet = new Projet(nom,description);
+		projet2 = new Projet(nom);
 		tache1 = Mockito.mock(Tache.class);
 		tache2 = Mockito.mock(Tache.class);
 	}

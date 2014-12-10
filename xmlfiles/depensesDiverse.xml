@@ -1,1 +1,12 @@
-<list/>
+<list>
+  <DepenseDiverse>
+    <soumissionnaire>OLDU</soumissionnaire>
+    <date>2014-12-10</date>
+    <time>12:43:59</time>
+    <description></description>
+    <nbRepas>1</nbRepas>
+    <coutRepas>1.0</coutRepas>
+    <divers>1.0</divers>
+    <coucher>1.0</coucher>
+  </DepenseDiverse>
+</list>

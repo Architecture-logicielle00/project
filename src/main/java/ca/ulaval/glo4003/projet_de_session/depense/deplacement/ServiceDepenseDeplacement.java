@@ -54,7 +54,7 @@ public class ServiceDepenseDeplacement {
 		
 		
 		for (DepenseDeplacement depenseDeplacement : collectionComplete) {
-			if(depenseDeplacement.identifiantEstEgal(utilisateur))
+			if(depenseDeplacement.estSoumissionnaire(utilisateur))
 				collectionFiltre.add(depenseDeplacement);
 		}
 		

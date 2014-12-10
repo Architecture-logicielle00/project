@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import ca.ulaval.glo4003.projet_de_session.compte.employe.EmployeViewModel;
 import ca.ulaval.glo4003.projet_de_session.compte.employe.ServiceEmploye;
 import ca.ulaval.glo4003.projet_de_session.web.session.IServiceSession;
-import ca.ulaval.glo4003.projet_de_session.web.utils.Reponse;
 
 @Controller
 public class ControlleurEmploye {
@@ -36,12 +35,12 @@ public class ControlleurEmploye {
 	}
 
 	@RequestMapping(value = "/creationEmployee", method = RequestMethod.POST)
-	public @ResponseBody Reponse creerEmployee(
+	public boolean creerEmployee(
 			@RequestBody EmployeViewModel evm, HttpServletRequest request,
 			Model model) {
 
 		serviceEmploye.creerEmploye(evm, manageSession.ObtenirNomUtilisateur(request));
-		return new Reponse(true, "Creer un employe", "gestionEmployee");
+		return true;
 	}
 
 	@RequestMapping("/gestionEmployee")

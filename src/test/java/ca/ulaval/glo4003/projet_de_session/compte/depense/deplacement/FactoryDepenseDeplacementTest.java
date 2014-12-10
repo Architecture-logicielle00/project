@@ -28,7 +28,7 @@ private static FactoryDepenseDeplacement facto;
 				coutKm == depense.obtCoutKm() &&
 				distance == depense.obtDistance() &&
 				description == depense.obtDescription() &&
-				identifiant == depense.obtIdentifiant() &&
+				identifiant == depense.obtSoumissionnaire() &&
 				date == depense.obtDate() &&
 				time == depense.obtTime();
 	}

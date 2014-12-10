@@ -53,7 +53,7 @@ public class ServiceDepenseDiverse {
 		List<DepenseDiverse> collectionFiltre = new ArrayList<DepenseDiverse>();
 		
 		for (DepenseDiverse depensediverse : collection) {
-			if(depensediverse.identifiantEstEgal(utilisateur))
+			if(depensediverse.estSoumissionnaire(utilisateur))
 				collectionFiltre.add(depensediverse);
 		}
 		

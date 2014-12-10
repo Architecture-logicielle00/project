@@ -47,7 +47,7 @@ public class RepoDepenseDiverseXmlTest {
 		Mockito.when(DepenseDiverse1.obtDate()).thenReturn("2010-11-14");
 		Mockito.when(DepenseDiverse1.obtDescription()).thenReturn("test");
 		Mockito.when(DepenseDiverse1.obtDivers()).thenReturn(trois);
-		Mockito.when(DepenseDiverse1.obtIdentifiant()).thenReturn("ALSAM");
+		Mockito.when(DepenseDiverse1.obtSoumissionnaire()).thenReturn("ALSAM");
 		Mockito.when(DepenseDiverse1.obtNbRepas()).thenReturn(quatre);
 		Mockito.when(DepenseDiverse1.obtTime()).thenReturn("123");
 
@@ -58,7 +58,7 @@ public class RepoDepenseDiverseXmlTest {
 		Mockito.when(DepenseDiverse2.obtDate()).thenReturn("2010-11-14");
 		Mockito.when(DepenseDiverse2.obtDescription()).thenReturn("oooo");
 		Mockito.when(DepenseDiverse2.obtDivers()).thenReturn(sept);
-		Mockito.when(DepenseDiverse2.obtIdentifiant()).thenReturn("ALSAM");
+		Mockito.when(DepenseDiverse2.obtSoumissionnaire()).thenReturn("ALSAM");
 		Mockito.when(DepenseDiverse2.obtNbRepas()).thenReturn(huit);
 		Mockito.when(DepenseDiverse2.obtTime()).thenReturn("123");
 	}
@@ -83,7 +83,7 @@ public class RepoDepenseDiverseXmlTest {
 
 	@Test
 	public void AjouterDepenseDiverseTest() {
-		String id = DepenseDiverse1.obtIdentifiant()
+		String id = DepenseDiverse1.obtSoumissionnaire()
 				+ DepenseDiverse1.obtDate() + DepenseDiverse1.obtTime();
 		repoDepenseDiverseXml.ajouter(DepenseDiverse1);
 		assertEquals(repoDepenseDiverseXml.obt(id), DepenseDiverse1);
@@ -92,7 +92,7 @@ public class RepoDepenseDiverseXmlTest {
 	@Test
 	public void ModifierDepenseDiverseTest() {
 		repoDepenseDiverseXml.ajouter(DepenseDiverse1);
-		String id = DepenseDiverse2.obtIdentifiant()
+		String id = DepenseDiverse2.obtSoumissionnaire()
 				+ DepenseDiverse2.obtDate() + DepenseDiverse2.obtTime();
 		repoDepenseDiverseXml.modifier(DepenseDiverse2);
 		assertEquals(DepenseDiverse2, repoDepenseDiverseXml.obt(id));
@@ -100,7 +100,7 @@ public class RepoDepenseDiverseXmlTest {
 
 	@Test
 	public void ObtDepenseDiverseTest() {
-		String id = DepenseDiverse1.obtIdentifiant()
+		String id = DepenseDiverse1.obtSoumissionnaire()
 				+ DepenseDiverse1.obtDate() + DepenseDiverse1.obtTime();
 		repoDepenseDiverseXml.ajouter(DepenseDiverse1);
 		assertEquals(DepenseDiverse1, repoDepenseDiverseXml.obt(id));
@@ -108,9 +108,9 @@ public class RepoDepenseDiverseXmlTest {
 
 	@Test
 	public void PutDepenseDiverseTest() {
-		String id = DepenseDiverse1.obtIdentifiant()
+		String id = DepenseDiverse1.obtSoumissionnaire()
 				+ DepenseDiverse1.obtDate() + DepenseDiverse1.obtTime();
-		String iddeux = DepenseDiverse2.obtIdentifiant()
+		String iddeux = DepenseDiverse2.obtSoumissionnaire()
 				+ DepenseDiverse2.obtDate() + DepenseDiverse2.obtTime();
 		repoDepenseDiverseXml.ajouter(DepenseDiverse1);
 		repoDepenseDiverseXml.ajouter(DepenseDiverse2);

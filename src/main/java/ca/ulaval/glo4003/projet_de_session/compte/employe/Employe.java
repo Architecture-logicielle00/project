@@ -19,7 +19,8 @@ public class Employe extends Utilisateur {
 
 	boolean statutGestionnaire;
 	
-	public Employe(String _nomUtilisateur, String _mdp, String _nom,
+	public Employe(
+			String _nomUtilisateur, String _mdp, String _nom,
 			String _prenom, String _email, String _pays,
 			String _province, String _ville, String _codePostal,
 			Date _dateDeNaissance, String _genre, String _numTelephone) {

@@ -8,13 +8,7 @@ function envoyer(path, data) {
         contentType: "application/json; charset=utf-8",
         success: function(reponse)
         {
-        	if(reponse.statut){
-        		document.location.href = reponse.url;
-        	}
-        	else{
-        		alert(reponse.message)
-        	}
-        	
+        	document.location.href = "/gestionEmployee";
         },
         error: function ()
         {

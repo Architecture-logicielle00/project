@@ -29,7 +29,7 @@ public class ServiceSession implements IServiceSession
 		if (utilisateur == null)
 			return "";
 		
-		return utilisateur.obtNomUtilisateur();
+		return utilisateur.nomUtilisateur;
 	}
 	
 	public void definirUtilisateur(HttpServletRequest request, UtilisateurViewModel _utilisateurSession)

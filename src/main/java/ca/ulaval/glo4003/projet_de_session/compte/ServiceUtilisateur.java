@@ -44,7 +44,7 @@ public class ServiceUtilisateur {
 	
 	public boolean verifierMotDePasse(String nomUtilisateur, String mdp)
 	{
-		if(!estUneEntreprise(nomUtilisateur) || !estUnEmploye(nomUtilisateur))
+		if(!estUneEntreprise(nomUtilisateur) && !estUnEmploye(nomUtilisateur))
 			return false;
 		else
 		{

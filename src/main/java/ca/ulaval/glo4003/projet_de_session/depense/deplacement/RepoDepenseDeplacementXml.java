@@ -10,20 +10,17 @@ public class RepoDepenseDeplacementXml extends
 	}
 
 	public String ajouter(DepenseDeplacement depense) {
-
-		String id = depense.obtIdentifiant() + depense.obtDate()
-				+ depense.obtTime();
-
+		String id = depense.obtIdentifiant();
+		
 		put(id, depense);
 
 		return id;
 	}
 
 	public void modifier(DepenseDeplacement depense) {
-
-		String id = depense.obtIdentifiant() + depense.obtDate()
-				+ depense.obtTime();
-
+		
+		String id = depense.obtIdentifiant();
+		
 		if (obt(id) != null) {
 			put(id, depense);
 		}

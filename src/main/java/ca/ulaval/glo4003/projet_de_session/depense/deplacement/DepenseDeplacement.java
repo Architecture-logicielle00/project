@@ -13,6 +13,8 @@ public class DepenseDeplacement extends Depense {
 	}
 
 	public DepenseDeplacement() {
+		distance = 0.0f;
+		coutkm = 0.0f;
 	}
 
 	private float distance;

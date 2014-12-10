@@ -24,7 +24,7 @@ public class DepenseDiverseConverter {
 		viewModel.coutRepas = depense.obtCoutRepas();
 		viewModel.date = depense.obtDate().toString();
 		viewModel.description = depense.obtDescription();
-		viewModel.identifiant = depense.obtIdentifiant();
+		viewModel.identifiant = depense.obtSoumissionnaire();
 		viewModel.nbRepas = depense.obtNbRepas();
 		viewModel.divers = depense.obtDivers();
 		viewModel.time = depense.obtTime();

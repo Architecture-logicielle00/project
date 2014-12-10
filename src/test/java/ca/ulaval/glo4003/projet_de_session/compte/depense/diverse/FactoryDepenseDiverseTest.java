@@ -28,7 +28,7 @@ public class FactoryDepenseDiverseTest {
 	public boolean estValide(DepenseDiverse depense){
 		return 
 				description == depense.obtDescription() &&
-				identifiant == depense.obtIdentifiant() &&
+				identifiant == depense.obtSoumissionnaire() &&
 				date == depense.obtDate() &&
 				time == depense.obtTime() &&
 				nbRepas == depense.nbRepas &&

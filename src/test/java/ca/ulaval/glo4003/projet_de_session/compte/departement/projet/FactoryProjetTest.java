@@ -1,7 +1,9 @@
 package ca.ulaval.glo4003.projet_de_session.compte.departement.projet;
 
 import static org.junit.Assert.*;
+
 import org.junit.Before;
+import org.junit.Test;
 
 import ca.ulaval.glo4003.projet_de_session.compte.entreprise.departement.projet.FactoryProjet;
 import ca.ulaval.glo4003.projet_de_session.compte.entreprise.departement.projet.Projet;
@@ -18,17 +20,19 @@ public class FactoryProjetTest {
 		facto = new FactoryProjet();
 	}
 	
+	@Test
 	public void creerProjetSansDescriptionTest(){
 		Projet projet = facto.creerProjet(nom);
 		
-		assertTrue(projet.obtNom() == nom);
+		assertEquals(projet.obtNom(),nom);
 	}
 	
+	@Test
 	public void creerProjetAvecDescriptionTest(){
 		Projet projet = facto.creerProjet(nom,description);
 		
-		assertTrue(projet.obtNom() == nom);
-		assertTrue(projet.obtDescription() == description);
+		assertEquals(projet.obtNom(),nom);
+		assertEquals(projet.obtDescription(),description);
 	}
 	
 }

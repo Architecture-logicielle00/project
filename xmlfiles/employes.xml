@@ -2,18 +2,20 @@
   <Employe>
     <nomUtilisateur>OLDU</nomUtilisateur>
     <mdp>12345</mdp>
-    <nom>Dugas</nom>
-    <prenom>Olivier</prenom>
+    <informationPersonnelle>
+      <nom>Dugas</nom>
+      <prenom>Olivier</prenom>
+      <email>aa@aa.com</email>
+      <pays>Canada</pays>
+      <province>Quebec</province>
+      <ville>Quebec</ville>
+      <codePostal>X0X0X0</codePostal>
+      <dateDeNaissance>2014-12-10 17:21:03.656 UTC</dateDeNaissance>
+      <genre>Homme</genre>
+      <numTelephone>(418)843-8888</numTelephone>
+    </informationPersonnelle>
     <entreprise>desj</entreprise>
     <departement>Service personnel</departement>
-    <email>aa@aa.com</email>
-    <pays>Canada</pays>
-    <province>Quebec</province>
-    <ville>Quebec</ville>
-    <codePostal>X0X0X0</codePostal>
-    <dateDeNaissance>2014-12-05 03:28:06.917 UTC</dateDeNaissance>
-    <genre>Homme</genre>
-    <numTelephone>(418)843-8888</numTelephone>
     <feuillesDeTemps/>
     <taches/>
     <statutGestionnaire>true</statutGestionnaire>

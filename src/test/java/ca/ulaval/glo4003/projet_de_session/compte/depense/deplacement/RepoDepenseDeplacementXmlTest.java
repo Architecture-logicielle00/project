@@ -43,7 +43,7 @@ public class RepoDepenseDeplacementXmlTest {
 		Mockito.when(DepenseDeplacement1.obtDistance()).thenReturn(deux);
 		Mockito.when(DepenseDeplacement1.obtDate()).thenReturn("2010-11-14");
 		Mockito.when(DepenseDeplacement1.obtDescription()).thenReturn("test");
-		Mockito.when(DepenseDeplacement1.obtIdentifiant()).thenReturn("ALSAM");
+		Mockito.when(DepenseDeplacement1.obtSoumissionnaire()).thenReturn("ALSAM");
 		Mockito.when(DepenseDeplacement1.obtTime()).thenReturn("123");
 
 		repoDepenseDeplacementXml = new RepoDepenseDeplacementXml();
@@ -53,7 +53,7 @@ public class RepoDepenseDeplacementXmlTest {
 		Mockito.when(DepenseDeplacement2.obtDate()).thenReturn("2010-11-14");
 		Mockito.when(DepenseDeplacement2.obtDescription()).thenReturn(
 				"descirption");
-		Mockito.when(DepenseDeplacement2.obtIdentifiant()).thenReturn("ALSAM");
+		Mockito.when(DepenseDeplacement2.obtSoumissionnaire()).thenReturn("ALSAM");
 		Mockito.when(DepenseDeplacement2.obtTime()).thenReturn("123");
 	}
 
@@ -77,7 +77,7 @@ public class RepoDepenseDeplacementXmlTest {
 
 	@Test
 	public void AjouterDepenseDeplacementTest() {
-		String id = DepenseDeplacement1.obtIdentifiant()
+		String id = DepenseDeplacement1.obtSoumissionnaire()
 				+ DepenseDeplacement1.obtDate() + DepenseDeplacement1.obtTime();
 		repoDepenseDeplacementXml.ajouter(DepenseDeplacement1);
 		assertEquals(repoDepenseDeplacementXml.obt(id), DepenseDeplacement1);
@@ -86,7 +86,7 @@ public class RepoDepenseDeplacementXmlTest {
 	@Test
 	public void ModifierDepenseDeplacementTest() {
 		repoDepenseDeplacementXml.ajouter(DepenseDeplacement1);
-		String id = DepenseDeplacement2.obtIdentifiant()
+		String id = DepenseDeplacement2.obtSoumissionnaire()
 				+ DepenseDeplacement2.obtDate() + DepenseDeplacement2.obtTime();
 		repoDepenseDeplacementXml.modifier(DepenseDeplacement2);
 		assertEquals(DepenseDeplacement2, repoDepenseDeplacementXml.obt(id));
@@ -94,7 +94,7 @@ public class RepoDepenseDeplacementXmlTest {
 
 	@Test
 	public void ObtDepenseDeplacementTest() {
-		String id = DepenseDeplacement1.obtIdentifiant()
+		String id = DepenseDeplacement1.obtSoumissionnaire()
 				+ DepenseDeplacement1.obtDate() + DepenseDeplacement1.obtTime();
 		repoDepenseDeplacementXml.ajouter(DepenseDeplacement1);
 		assertEquals(DepenseDeplacement1, repoDepenseDeplacementXml.obt(id));
@@ -102,9 +102,9 @@ public class RepoDepenseDeplacementXmlTest {
 
 	@Test
 	public void PutDepenseDeplacementTest() {
-		String id = DepenseDeplacement1.obtIdentifiant()
+		String id = DepenseDeplacement1.obtSoumissionnaire()
 				+ DepenseDeplacement1.obtDate() + DepenseDeplacement1.obtTime();
-		String iddeux = DepenseDeplacement2.obtIdentifiant()
+		String iddeux = DepenseDeplacement2.obtSoumissionnaire()
 				+ DepenseDeplacement2.obtDate() + DepenseDeplacement2.obtTime();
 		repoDepenseDeplacementXml.ajouter(DepenseDeplacement1);
 		repoDepenseDeplacementXml.ajouter(DepenseDeplacement2);
