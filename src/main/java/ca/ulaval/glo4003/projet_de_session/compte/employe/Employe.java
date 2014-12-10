@@ -8,21 +8,14 @@ import ca.ulaval.glo4003.projet_de_session.compte.Utilisateur;
 import ca.ulaval.glo4003.projet_de_session.feuilleDeTemps.FeuilleDeTempsIntrouvableException;
 
 public class Employe extends Utilisateur {
-	String nom;
-	String prenom;
-	String entreprise;
-	String departement;
-	String email;
-	String pays;
-	String province;
-	String ville;
-	String codePostal;
-	Date dateDeNaissance;
-	String genre;
-	String numTelephone;
 
-	ArrayList<String> feuillesDeTemps;
-	ArrayList<String> taches;
+	InformationPersonnelle informationPersonnelle;
+	
+	private String entreprise;
+	private String departement;
+
+	private ArrayList<String> feuillesDeTemps;
+	private ArrayList<String> taches;
 
 	boolean statutGestionnaire;
 	
@@ -31,17 +24,7 @@ public class Employe extends Utilisateur {
 			String _province, String _ville, String _codePostal,
 			Date _dateDeNaissance, String _genre, String _numTelephone) {
 		super(_nomUtilisateur, _mdp);
-
-		nom = _nom;
-		prenom = _prenom;
-		email = _email;
-		pays = _pays;
-		province = _province;
-		ville = _ville;
-		codePostal = _codePostal;
-		dateDeNaissance = _dateDeNaissance;
-		genre = _genre;
-		numTelephone = _numTelephone;
+		informationPersonnelle = new InformationPersonnelle(_nom, _prenom, _email, _pays, _province, _ville, _codePostal, _dateDeNaissance, _genre, _numTelephone);
 		statutGestionnaire = false;
 		taches = new ArrayList<String>();
 		feuillesDeTemps = new ArrayList<String>();
@@ -52,20 +35,12 @@ public class Employe extends Utilisateur {
 		feuillesDeTemps = new ArrayList<String>();
 	}
 
-	public String obtNom() {
-		return nom;
+	public InformationPersonnelle getInformationPersonelle(){
+		return informationPersonnelle;
 	}
 
-	public void defNom(String _nom) {
-		nom = _nom;
-	}
-
-	public String obtPrenom() {
-		return prenom;
-	}
-
-	public void defPrenom(String _prenom) {
-		prenom = _prenom;
+	public void setInformationPersonelle(InformationPersonnelle _informationPersonnelle){
+		this.informationPersonnelle = _informationPersonnelle;
 	}
 
 	public String obtEntreprise() {
@@ -88,70 +63,7 @@ public class Employe extends Utilisateur {
 		return entreprise.equals(_entreprise);
 	}
 
-	public String obtEmail() {
-		return email;
-	}
-
-	public void defEmail(String _email) {
-		email = _email;
-	}
-
-	public String obtPays() {
-		return pays;
-	}
-
-	public void defPays(String _pays) {
-		pays = _pays;
-	}
-
-	public String obtProvince() {
-		return province;
-	}
-
-	public void defProvince(String _province) {
-		province = _province;
-	}
-
-	public String obtVille() {
-		return ville;
-	}
-
-	public void defVille(String _ville) {
-		ville = _ville;
-	}
-
-	public String obtCodePostal() {
-		return codePostal;
-	}
-
-	public void defCodePostal(String _codePostal) {
-		codePostal = _codePostal;
-	}
-
-	public Date obtDateDeNaissance() {
-		return dateDeNaissance;
-	}
-
-	public void defDateDeNaissance(Date _dateDeNaissance) {
-		dateDeNaissance = _dateDeNaissance;
-	}
-
-	public String obtNumTelephone() {
-		return numTelephone;
-	}
-
-	public void defNumTelephone(String _numTelephone) {
-		numTelephone = _numTelephone;
-	}
-
-	public String obtGenre() {
-		return genre;
-	}
-
-	public void defGenre(String _genre) {
-		genre = _genre;
-	}
-
+	
 	public boolean estGestionnaire() {
 		return statutGestionnaire;
 	}
@@ -200,22 +112,15 @@ public class Employe extends Utilisateur {
 		if (!autreObj.getClass().isInstance(Employe.class))
 			return false;
 
-		return	EmpIdentique((Employe)autreObj);
+		return	estEgalA((Employe)autreObj);
 	}
 	
-	private boolean EmpIdentique(Employe autreEmp)
+	private boolean estEgalA(Employe autreEmp)
 	{
 		return 
-				(nom == autreEmp.nom &&
-			    prenom == autreEmp.prenom &&
-				entreprise == autreEmp.entreprise &&
-				email == autreEmp.email &&
-				pays == autreEmp.pays &&
-				province == autreEmp.province &&
-				ville == autreEmp.ville &&
-				codePostal == autreEmp.codePostal &&
-				dateDeNaissance == autreEmp.dateDeNaissance &&
-				genre == autreEmp.genre &&
-				numTelephone == autreEmp.numTelephone);
+				statutGestionnaire == autreEmp.statutGestionnaire &&
+				entreprise.equals(autreEmp.entreprise) &&
+				departement.equals(autreEmp.departement) &&
+				informationPersonnelle.estEgalA(autreEmp.informationPersonnelle);
 	}
 }

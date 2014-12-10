@@ -22,7 +22,7 @@ public class FactoryEntrepriseTest {
 	{
 		return
 				ent.obtNomUtilisateur() == nomUtilisateur &&
-				ent.motDePasseValide(mdp) &&
+				ent.motDePasseEstValide(mdp) &&
 				ent.nom == nom;
 	}
 	

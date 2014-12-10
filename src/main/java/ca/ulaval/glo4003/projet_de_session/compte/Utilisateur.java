@@ -10,13 +10,15 @@ public class Utilisateur {
 	}
 
 	public Utilisateur() {
+		nomUtilisateur = "";
+		mdp = "";
 	}
 
 	public String obtNomUtilisateur() {
 		return nomUtilisateur;
 	}
 
-	public boolean motDePasseValide(String _mdp) {
+	public boolean motDePasseEstValide(String _mdp) {
 		return mdp.equals(_mdp);
 	}
 }

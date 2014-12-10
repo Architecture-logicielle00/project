@@ -27,7 +27,7 @@
 
 		<ul class="nav navbar-nav side-nav">
 			<li><a href="/feuilleDeTemps"><i
-					class="fa fa-fw fa fa-clock-o"></i>Mes Feuille de Temps</a>
+					class="fa fa-fw fa fa-clock-o"></i>Mes Feuilles de Temps</a>
 			</li>
 			<li>
 				<a href="/deplacementForm"><i class="fa fa-fw fa-money"></i>Mes Depenses relatives aux deplacements</a>

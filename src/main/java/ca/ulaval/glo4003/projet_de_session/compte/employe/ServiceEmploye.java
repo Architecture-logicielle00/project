@@ -93,7 +93,7 @@ public class ServiceEmploye
 	//TO REMOVE
 	public boolean verifierMotDePasse(String nomUtilisateur, String motDePasse){
 		Employe e = obtEmploye(nomUtilisateur);
-		if(e != null) return e.motDePasseValide(motDePasse);
+		if(e != null) return e.motDePasseEstValide(motDePasse);
 		return false;
 	}
 	
@@ -105,27 +105,11 @@ public class ServiceEmploye
 		return ec.convert( obtEmployes() );
 	}
 	
-	public void modifierEmployeExistant(EmployeeViewModel evm){
-		Employe e = obtEmploye(evm.nomUtilisateur);
-		
-		e.defCodePostal(evm.codePostal);
-		e.defDateDeNaissance(new Date()); // Date fictive
-		e.defEmail(evm.email);
-		e.defGenre(evm.sexe);
-		e.defNom(evm.nom);
-		e.defNumTelephone(evm.telephone);
-		e.defPays(evm.pays);
-		e.defPrenom(evm.prenom);
-		e.defProvince(evm.pays);
-		e.defStatutGestionnaire(evm.statutGestionnaire);
-		e.defVille(evm.ville);
-	}
-	
 	private void init()
 	{
 		Employe e = factory.creerEmploye("OLDU", "Dugas", "Olivier", "aa@aa.com", "Canada", "Quebec", "Quebec", "X0X0X0", "Homme", "(418)843-8888", true);
-		e.departement = "Service personnel";
-		e.entreprise = "desj";
+		e.defDepartement("Service personnel");
+		e.defEntreprise("desj");
 		repo.ajouter(e);
 	}
 }

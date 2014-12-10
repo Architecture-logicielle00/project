@@ -40,7 +40,7 @@ public class ServiceEmployeTest {
 		
 		employe1 = Mockito.mock(Employe.class);
 		Mockito.when(employe1.obtNomUtilisateur()).thenReturn("nomUtilisateur1");
-		Mockito.when(employe1.motDePasseValide("mdp")).thenReturn(true);
+		Mockito.when(employe1.motDePasseEstValide("mdp")).thenReturn(true);
 		Mockito.when(employe1.obtEntreprise()).thenReturn("entreprise2");
 		Mockito.when(employe1.estEmployeDe("entreprise2")).thenReturn(true);
 		

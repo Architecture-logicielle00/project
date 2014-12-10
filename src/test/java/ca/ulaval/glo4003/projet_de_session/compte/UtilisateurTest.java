@@ -18,12 +18,12 @@ public class UtilisateurTest {
 
 	@Test
 	public void testMotDePasseValide() {
-		assertTrue(utilisateur.motDePasseValide("mdp"));
+		assertTrue(utilisateur.motDePasseEstValide("mdp"));
 	}
 	
 	@Test
 	public void testMotDePasseNonValide() {
-		assertFalse(utilisateur.motDePasseValide("FauxMdp"));
+		assertFalse(utilisateur.motDePasseEstValide("FauxMdp"));
 	}
 
 }

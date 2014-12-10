@@ -30,15 +30,15 @@ public class FactoryEmployeTest {
 	{
 		return
 				emp.obtNomUtilisateur() == nomUtilisateur &&
-				emp.nom == nom &&
-				emp.prenom == prenom &&
-				emp.email == email &&
-				emp.pays == pays &&
-				emp.province == province &&
-				emp.ville == ville &&
-				emp.codePostal == codePostal &&
-				emp.genre == genre &&
-				emp.numTelephone == numTelephone && 
+				emp.getInformationPersonelle().nom == nom &&
+				emp.getInformationPersonelle().prenom == prenom &&
+				emp.getInformationPersonelle().email == email &&
+				emp.getInformationPersonelle().pays == pays &&
+				emp.getInformationPersonelle().province == province &&
+				emp.getInformationPersonelle().ville == ville &&
+				emp.getInformationPersonelle().codePostal == codePostal &&
+				emp.getInformationPersonelle().genre == genre &&
+				emp.getInformationPersonelle().numTelephone == numTelephone && 
 				emp.statutGestionnaire == statutGestionnaire;
 	}
 	

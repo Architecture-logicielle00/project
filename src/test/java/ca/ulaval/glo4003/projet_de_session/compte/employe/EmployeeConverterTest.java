@@ -2,6 +2,8 @@ package ca.ulaval.glo4003.projet_de_session.compte.employe;
 
 import static org.junit.Assert.*;
 
+import java.util.Date;
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -37,15 +39,18 @@ public class EmployeeConverterTest {
 	{
 		Employe emp = new Employe();
 		
-		emp.nom = "nom";
-		emp.prenom = "prenom";
-		emp.email = "email";
-		emp.pays = "pays";
-		emp.province = "province";
-		emp.ville = "ville";
-		emp.codePostal = "codePostal";
-		emp.genre = "sexe";
-		emp.numTelephone = "telephone";
+		emp.setInformationPersonelle(new InformationPersonnelle(
+				"nom",
+				"prenom",
+				"email",
+				"pays",
+				"province",
+				"ville",
+				"codePostal",
+				new Date(), //TODO: gros smell de la mort
+				"sexe",
+				"telephone")
+		);
 		emp.statutGestionnaire = true;
 		
 		return emp;
@@ -54,15 +59,15 @@ public class EmployeeConverterTest {
 	private boolean estIdentique(Employe emp, EmployeeViewModel empView)
 	{
 		return 
-				empView.nom == emp.nom &&
-				empView.prenom == emp.prenom &&
-				empView.email == emp.email &&
-				empView.pays == emp.pays &&
-				empView.province == emp.province &&
-				empView.ville == emp.ville &&
-				empView.codePostal == emp.codePostal &&
-				empView.sexe == emp.genre &&
-				empView.telephone == emp.numTelephone &&
+				empView.nom == emp.getInformationPersonelle().nom &&
+				empView.prenom == emp.getInformationPersonelle().prenom &&
+				empView.email == emp.getInformationPersonelle().email &&
+				empView.pays == emp.getInformationPersonelle().pays &&
+				empView.province == emp.getInformationPersonelle().province &&
+				empView.ville == emp.getInformationPersonelle().ville &&
+				empView.codePostal == emp.getInformationPersonelle().codePostal &&
+				empView.sexe == emp.getInformationPersonelle().genre &&
+				empView.telephone == emp.getInformationPersonelle().numTelephone &&
 				empView.statutGestionnaire == emp.statutGestionnaire;
 	}
 	

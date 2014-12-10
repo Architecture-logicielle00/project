@@ -20,15 +20,16 @@ public class EmployeeConverter {
 	public static EmployeeViewModel convert(Employe entry) {
 		EmployeeViewModel viewModel = new EmployeeViewModel();
 		viewModel.nomUtilisateur = entry.obtNomUtilisateur();
-		viewModel.nom = entry.obtNom();
-		viewModel.prenom = entry.obtPrenom();
-		viewModel.email = entry.obtEmail();
-		viewModel.pays = entry.obtPays();
-		viewModel.province = entry.obtProvince();
-		viewModel.ville = entry.obtVille();
-		viewModel.codePostal = entry.obtCodePostal();
-		viewModel.telephone = entry.obtNumTelephone();
-		viewModel.sexe = entry.obtGenre();
+		
+		viewModel.nom = entry.getInformationPersonelle().nom;
+		viewModel.prenom = entry.getInformationPersonelle().prenom;
+		viewModel.email = entry.getInformationPersonelle().email;
+		viewModel.pays = entry.getInformationPersonelle().pays;
+		viewModel.province = entry.getInformationPersonelle().province;
+		viewModel.ville = entry.getInformationPersonelle().ville;
+		viewModel.codePostal = entry.getInformationPersonelle().codePostal;
+		viewModel.telephone = entry.getInformationPersonelle().numTelephone;
+		viewModel.sexe = entry.getInformationPersonelle().genre;
 		viewModel.statutGestionnaire = entry.estGestionnaire();
 
 		return viewModel;

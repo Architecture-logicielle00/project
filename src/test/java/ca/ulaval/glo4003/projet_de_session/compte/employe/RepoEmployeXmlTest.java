@@ -37,19 +37,19 @@ public class RepoEmployeXmlTest {
 		
 		employe1 = Mockito.mock(Employe.class);
 		Mockito.when(employe1.obtNomUtilisateur()).thenReturn("nomUtilisateurTest1");
-		Mockito.when(employe1.obtCodePostal()).thenReturn("codePostalTest1");
-		Mockito.when(employe1.obtEmail()).thenReturn("emailTest1");
+		Mockito.when(employe1.getInformationPersonelle().codePostal).thenReturn("codePostalTest1");
+		Mockito.when(employe1.getInformationPersonelle().email).thenReturn("emailTest1");
 		Mockito.when(employe1.obtEntreprise()).thenReturn("entrepriseTest1");
-		Mockito.when(employe1.obtGenre()).thenReturn("genreTest1");
-		Mockito.when(employe1.obtNom()).thenReturn("nomTest1");
+		Mockito.when(employe1.getInformationPersonelle().genre).thenReturn("genreTest1");
+		Mockito.when(employe1.getInformationPersonelle().nom).thenReturn("nomTest1");
 		
 		employe2 = Mockito.mock(Employe.class);
 		Mockito.when(employe2.obtNomUtilisateur()).thenReturn("nomUtilisateurTest2");
-		Mockito.when(employe2.obtCodePostal()).thenReturn("codePostalTest2");
-		Mockito.when(employe2.obtEmail()).thenReturn("emailTest2");
+		Mockito.when(employe2.getInformationPersonelle().codePostal).thenReturn("codePostalTest2");
+		Mockito.when(employe2.getInformationPersonelle().email).thenReturn("emailTest2");
 		Mockito.when(employe2.obtEntreprise()).thenReturn("entrepriseTest2");
-		Mockito.when(employe2.obtGenre()).thenReturn("genreTest2");
-		Mockito.when(employe2.obtNom()).thenReturn("nomTest2");
+		Mockito.when(employe2.getInformationPersonelle().genre).thenReturn("genreTest2");
+		Mockito.when(employe2.getInformationPersonelle().nom).thenReturn("nomTest2");
 	}
 
 	@AfterClass
@@ -119,11 +119,11 @@ public class RepoEmployeXmlTest {
 		
 		Employe employe3 = Mockito.mock(Employe.class);
 		Mockito.when(employe3.obtNomUtilisateur()).thenReturn("nomUtilisateurTest1");
-		Mockito.when(employe3.obtEmail()).thenReturn("emailTestModifie");
+		Mockito.when(employe3.getInformationPersonelle().email).thenReturn("emailTestModifie");
 		
 		repoEmployeXml.modifier(employe3);
 		
-		assertEquals("emailTestModifie", repoEmployeXml.obt("nomUtilisateurTest1").obtEmail());		
+		assertEquals("emailTestModifie", repoEmployeXml.obt("nomUtilisateurTest1").getInformationPersonelle().email);		
 	}
 
 }

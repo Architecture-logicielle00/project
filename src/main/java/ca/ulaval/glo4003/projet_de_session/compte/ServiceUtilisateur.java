@@ -13,7 +13,7 @@ public class ServiceUtilisateur {
 	@Autowired
 	private ServiceEntreprise serviceEntreprise;
 	
-	public Utilisateur obtenirUtilisateur(String nomUtilisateur)
+	private Utilisateur obtenirUtilisateur(String nomUtilisateur)
 	{
 		Utilisateur utilisateur = (Utilisateur) serviceEmploye.obtEmploye(nomUtilisateur);
 		if(utilisateur == null)
@@ -44,10 +44,12 @@ public class ServiceUtilisateur {
 	
 	public boolean verifierMotDePasse(String nomUtilisateur, String mdp)
 	{
-		Utilisateur utilisateur = obtenirUtilisateur(nomUtilisateur);
-		if(utilisateur == null)
+		if(!estUneEntreprise(nomUtilisateur) || !estUnEmploye(nomUtilisateur))
 			return false;
 		else
-			return utilisateur.motDePasseValide(mdp);
+		{
+			Utilisateur utilisateur = obtenirUtilisateur(nomUtilisateur);
+			return utilisateur.motDePasseEstValide(mdp);
+		}
 	}
 }

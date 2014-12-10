@@ -99,7 +99,7 @@ public class ServiceEntreprise {
 		for(String nomUtilisateurEmploye : nomUtilisateurEmployes)
 		{
 			Employe employe = serviceEmploye.obtEmploye(nomUtilisateurEmploye);
-			String nom = employe.obtPrenom() + " " + employe.obtNom();
+			String nom = employe.getInformationPersonelle().prenom + " " + employe.getInformationPersonelle().nom;
 			List<String> tache = employe.obtTaches();
 			
 			EmployeTachesViewModel employeTachesViewModel = new EmployeTachesViewModel();
