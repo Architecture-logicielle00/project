@@ -2,7 +2,7 @@ package ca.ulaval.glo4003.projet_de_session.compte.employe;
 
 import ca.ulaval.glo4003.projet_de_session.compte.UtilisateurViewModel;
 
-public class EmployeeViewModel extends UtilisateurViewModel{
+public class EmployeViewModel extends UtilisateurViewModel{
 	public String nom;
 	public String prenom;
 	public String email;

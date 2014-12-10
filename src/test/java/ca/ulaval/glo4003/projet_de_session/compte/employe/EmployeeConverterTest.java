@@ -10,16 +10,16 @@ import org.junit.Test;
 
 public class EmployeeConverterTest {
 
-	private static EmployeeConverter employeeConverter;
+	private static EmployeConverter employeeConverter;
 
 	@Before
 	public void setUp() throws Exception {
-		employeeConverter = new EmployeeConverter();
+		employeeConverter = new EmployeConverter();
 	}
 	
-	private EmployeeViewModel getViewModelTest()
+	private EmployeViewModel getViewModelTest()
 	{
-		EmployeeViewModel empView = new EmployeeViewModel();
+		EmployeViewModel empView = new EmployeViewModel();
 		
 		empView.nom = "nom";
 		empView.prenom = "prenom";
@@ -56,7 +56,7 @@ public class EmployeeConverterTest {
 		return emp;
 	}
 	
-	private boolean estIdentique(Employe emp, EmployeeViewModel empView)
+	private boolean estIdentique(Employe emp, EmployeViewModel empView)
 	{
 		return 
 				empView.nom == emp.getInformationPersonelle().nom &&
@@ -76,7 +76,7 @@ public class EmployeeConverterTest {
 	{
 		Employe emp = getEmploye();
 		
-		EmployeeViewModel empView = EmployeeConverter.convert(emp);
+		EmployeViewModel empView = EmployeConverter.convert(emp);
 		
 		assertTrue(estIdentique(emp,empView));
 	}
@@ -84,7 +84,7 @@ public class EmployeeConverterTest {
 	@Test
 	public void convertViewTest()
 	{
-		EmployeeViewModel empView = getViewModelTest();
+		EmployeViewModel empView = getViewModelTest();
 		
 		Employe emp = employeeConverter.convert(empView);
 		

@@ -6,19 +6,19 @@ import java.util.List;
 
 import ca.ulaval.glo4003.projet_de_session.compte.Utilisateur;
 
-public class EmployeeConverter {
+public class EmployeConverter {
 
-	public static Collection<EmployeeViewModel> convert(List<Employe> entries) {
-		Collection<EmployeeViewModel> viewModels = new LinkedList<EmployeeViewModel>();
+	public static Collection<EmployeViewModel> convert(List<Employe> entries) {
+		Collection<EmployeViewModel> viewModels = new LinkedList<EmployeViewModel>();
 		for (Utilisateur entry : entries) {
-			EmployeeViewModel viewModel = convert((Employe)entry);
+			EmployeViewModel viewModel = convert((Employe)entry);
 			viewModels.add(viewModel);
 		}
 		return viewModels;
 	}
 	
-	public static EmployeeViewModel convert(Employe entry) {
-		EmployeeViewModel viewModel = new EmployeeViewModel();
+	public static EmployeViewModel convert(Employe entry) {
+		EmployeViewModel viewModel = new EmployeViewModel();
 		viewModel.nomUtilisateur = entry.obtNomUtilisateur();
 		
 		viewModel.nom = entry.getInformationPersonelle().nom;
@@ -35,7 +35,7 @@ public class EmployeeConverter {
 		return viewModel;
 	}
 	
-	public Employe convert(EmployeeViewModel evm)
+	public Employe convert(EmployeViewModel evm)
 	{
 		return (new FactoryEmploye()).creerEmploye(evm.nomUtilisateur, evm.nom, evm.prenom,
 				evm.email, evm.pays, evm.province, evm.ville, evm.codePostal, evm.sexe,

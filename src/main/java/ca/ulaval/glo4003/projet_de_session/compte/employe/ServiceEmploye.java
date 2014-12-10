@@ -19,7 +19,7 @@ public class ServiceEmploye
 {
 	Repository<Employe> repo;
 	FactoryEmploye factory;
-	EmployeeConverter ec;
+	EmployeConverter ec;
 	
 	@Autowired
 	ServiceFeuilleDeTemps serviceFeuilleDeTemps;
@@ -29,22 +29,26 @@ public class ServiceEmploye
 	public ServiceEmploye(Repository<Employe> _repo){
 		repo = _repo;
 		factory = new FactoryEmploye();
-		ec = new EmployeeConverter();
+		ec = new EmployeConverter();
 	}
 	
 	public ServiceEmploye(){
 		factory = new FactoryEmploye();
 		repo = FactoryRepository.cree(Employe.class);
-		ec = new EmployeeConverter();
+		ec = new EmployeConverter();
 		
 		init();
 	}
 	
 	public Employe obtEmploye(String nomUtilisateur){
-		return repo.obt(nomUtilisateur);
+		Employe employe = repo.obt(nomUtilisateur);
+		
+		if(employe == null) throw new EmployeIntrouvableException();
+		
+		return employe; 
 	}
 	
-	public void creerEmploye(EmployeeViewModel evm, String nomGestionnaire){
+	public void creerEmploye(EmployeViewModel evm, String nomGestionnaire){
 		Employe gestionnaire = obtEmploye(nomGestionnaire);
 		Employe employe = ec.convert(evm);
 		
@@ -90,18 +94,11 @@ public class ServiceEmploye
 		}
 	}
 	
-	//TO REMOVE
-	public boolean verifierMotDePasse(String nomUtilisateur, String motDePasse){
-		Employe e = obtEmploye(nomUtilisateur);
-		if(e != null) return e.motDePasseEstValide(motDePasse);
-		return false;
-	}
-	
-	public EmployeeViewModel obtEmployeViewModel(String nomUtilisateur){
+	public EmployeViewModel obtEmployeViewModel(String nomUtilisateur){
 		return ec.convert( obtEmploye(nomUtilisateur) );
 	}
 	
-	public Collection<EmployeeViewModel> obtEmployesViewModel(){
+	public Collection<EmployeViewModel> obtEmployesViewModel(){
 		return ec.convert( obtEmployes() );
 	}
 	

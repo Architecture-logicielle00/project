@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import ca.ulaval.glo4003.projet_de_session.compte.employe.EmployeeViewModel;
+import ca.ulaval.glo4003.projet_de_session.compte.employe.EmployeViewModel;
 import ca.ulaval.glo4003.projet_de_session.compte.employe.ServiceEmploye;
 import ca.ulaval.glo4003.projet_de_session.web.session.IServiceSession;
 import ca.ulaval.glo4003.projet_de_session.web.utils.Reponse;
@@ -37,7 +37,7 @@ public class ControlleurEmploye {
 
 	@RequestMapping(value = "/creationEmployee", method = RequestMethod.POST)
 	public @ResponseBody Reponse creerEmployee(
-			@RequestBody EmployeeViewModel evm, HttpServletRequest request,
+			@RequestBody EmployeViewModel evm, HttpServletRequest request,
 			Model model) {
 
 		serviceEmploye.creerEmploye(evm, manageSession.ObtenirNomUtilisateur(request));
