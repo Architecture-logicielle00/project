@@ -45,6 +45,7 @@ public class RepoDepenseDeplacementXmlTest {
 		Mockito.when(DepenseDeplacement1.obtDescription()).thenReturn("test");
 		Mockito.when(DepenseDeplacement1.obtSoumissionnaire()).thenReturn("ALSAM");
 		Mockito.when(DepenseDeplacement1.obtTime()).thenReturn("123");
+		Mockito.when(DepenseDeplacement1.obtIdentifiant()).thenReturn("ALSAM2010-11-14123");
 
 		repoDepenseDeplacementXml = new RepoDepenseDeplacementXml();
 		DepenseDeplacement2 = Mockito.mock(DepenseDeplacement.class);
@@ -55,6 +56,7 @@ public class RepoDepenseDeplacementXmlTest {
 				"descirption");
 		Mockito.when(DepenseDeplacement2.obtSoumissionnaire()).thenReturn("ALSAM");
 		Mockito.when(DepenseDeplacement2.obtTime()).thenReturn("123");
+		Mockito.when(DepenseDeplacement2.obtIdentifiant()).thenReturn("ALSAM2010-11-14123");
 	}
 
 	@AfterClass

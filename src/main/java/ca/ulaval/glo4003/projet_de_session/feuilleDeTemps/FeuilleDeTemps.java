@@ -18,7 +18,13 @@ public class FeuilleDeTemps {
 	private Date fin;
 	private String identifiant;
 
-	public FeuilleDeTemps() {}
+	public FeuilleDeTemps() {
+		tempsParTaches= new ArrayList<TempsParTache>();
+		commentaires = new ArrayList<String>(); 
+		debut = new Date();
+		fin = new Date();
+		identifiant= "";
+	}
 
 	public FeuilleDeTemps(String _identifiant, Date _debut, Date _fin,
 			ArrayList<String> _listeTaches) {

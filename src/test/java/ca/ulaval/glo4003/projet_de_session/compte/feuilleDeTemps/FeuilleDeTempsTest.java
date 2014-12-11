@@ -3,6 +3,7 @@ package ca.ulaval.glo4003.projet_de_session.compte.feuilleDeTemps;
 import static org.junit.Assert.*;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 import org.joda.time.DateTime;
 import org.joda.time.DateTimeConstants;
@@ -56,6 +57,13 @@ public class FeuilleDeTempsTest {
 	public void tearDown() throws Exception {
 	}
 
+	@Test
+	public void testConstructeurVide() {
+		FeuilleDeTemps feuilleDeTempsVide = new FeuilleDeTemps();
+		
+		assertEquals(feuilleDeTempsVide.obtDebut(),new Date());
+		assertEquals(feuilleDeTempsVide.obtDebut(),new Date());
+	}
 
 	@Test
 	public void testObtUneTache() {

@@ -50,6 +50,7 @@ public class RepoDepenseDiverseXmlTest {
 		Mockito.when(DepenseDiverse1.obtSoumissionnaire()).thenReturn("ALSAM");
 		Mockito.when(DepenseDiverse1.obtNbRepas()).thenReturn(quatre);
 		Mockito.when(DepenseDiverse1.obtTime()).thenReturn("123");
+		Mockito.when(DepenseDiverse1.obtIdentifiant()).thenReturn("ALSAM2010-11-14123");
 
 		repoDepenseDiverseXml = new RepoDepenseDiverseXml();
 		DepenseDiverse2 = Mockito.mock(DepenseDiverse.class);
@@ -61,6 +62,7 @@ public class RepoDepenseDiverseXmlTest {
 		Mockito.when(DepenseDiverse2.obtSoumissionnaire()).thenReturn("ALSAM");
 		Mockito.when(DepenseDiverse2.obtNbRepas()).thenReturn(huit);
 		Mockito.when(DepenseDiverse2.obtTime()).thenReturn("123");
+		Mockito.when(DepenseDiverse2.obtIdentifiant()).thenReturn("ALSAM2010-11-14123");
 	}
 
 	@AfterClass
