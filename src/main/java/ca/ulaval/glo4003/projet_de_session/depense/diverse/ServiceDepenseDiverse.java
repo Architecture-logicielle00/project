@@ -6,6 +6,9 @@ import java.util.Collection;
 
 import org.springframework.stereotype.Service;
 
+import ca.ulaval.glo4003.projet_de_session.compte.employe.Employe;
+import ca.ulaval.glo4003.projet_de_session.compte.employe.EmployeConverter;
+import ca.ulaval.glo4003.projet_de_session.compte.employe.FactoryEmploye;
 import ca.ulaval.glo4003.projet_de_session.repository.FactoryRepository;
 import ca.ulaval.glo4003.projet_de_session.repository.Repository;
 
@@ -15,13 +18,11 @@ public class ServiceDepenseDiverse {
 	Repository<DepenseDiverse> repo;
 	FactoryDepenseDiverse factory;
 	DepenseDiverseConverter conv;
-
-	public ServiceDepenseDiverse(Repository<DepenseDiverse> repo,
-								FactoryDepenseDiverse factory,
-								DepenseDiverseConverter conv) {
-		this.repo = repo;
-		this.factory = factory;
-		this.conv = conv;
+	
+	public ServiceDepenseDiverse(Repository<DepenseDiverse> _repo){
+		repo = _repo;
+		factory = new FactoryDepenseDiverse();
+		conv = new DepenseDiverseConverter();
 	}
 	
 	public ServiceDepenseDiverse() {
