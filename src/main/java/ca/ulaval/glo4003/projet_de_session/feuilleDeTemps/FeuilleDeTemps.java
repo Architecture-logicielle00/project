@@ -54,7 +54,7 @@ public class FeuilleDeTemps {
 		}
 	}
 	
-	private boolean containsTache(String tache)
+	public boolean containsTache(String tache)
 	{
 		for (TempsParTache tempsParTache : tempsParTaches)
 		{
