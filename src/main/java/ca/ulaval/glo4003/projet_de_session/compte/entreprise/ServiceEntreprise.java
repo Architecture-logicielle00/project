@@ -71,7 +71,7 @@ public class ServiceEntreprise {
 		return departementViewModel;
 	}
 	
-	private List<ProjetViewModel> getProjetViewModels(Departement departement)
+	public List<ProjetViewModel> getProjetViewModels(Departement departement)
 	{
 		List<ProjetViewModel> projetViewModels = new ArrayList<ProjetViewModel>();
 		List<Projet> projets =  departement.obtProjets();
