@@ -25,7 +25,7 @@ public class DepartementTest {
 	
 	@Test
 	public void obtNomDepartementTest(){
-		assertTrue(departement.obtNomDepartement() == nom);
+		assertEquals(nom,departement.obtNomDepartement());
 	}
 
 	@Test
@@ -34,12 +34,12 @@ public class DepartementTest {
 		
 		departement.setNomDepartement(nouveauNom);
 		
-		assertTrue(departement.obtNomDepartement() == nouveauNom);
+		assertEquals(nouveauNom,departement.obtNomDepartement());
 	}
 	
 	@Test
 	public void obtenirEntrepriseTest(){
-		assertTrue(departement.obtEntreprise() == null);
+		assertEquals(null, departement.obtEntreprise());
 	}
 	
 	@Test
@@ -48,17 +48,17 @@ public class DepartementTest {
 		
 		departement.setEntreprise(ent);
 		
-		assertTrue(departement.obtEntreprise() == ent);
+		assertEquals(ent,departement.obtEntreprise());
 	}
 	
 	@Test
 	public void obtenirProjetVideTest(){
-		assertTrue(departement.obtProjets().size() == 0);
+		assertEquals(0,departement.obtProjets().size());
 	}
 	
 	@Test
 	public void obtenirNomProjetVideTest(){
-		assertTrue(departement.obtNomProjets().size() == 0);
+		assertEquals(0,departement.obtNomProjets().size());
 	}
 	
 	@Test
@@ -73,11 +73,11 @@ public class DepartementTest {
 		
 		departement.setProjets(projets);
 		
-		assertTrue(departement.obtProjets().size() == nbProjet);
+		assertEquals(nbProjet, departement.obtProjets().size());
 	}
 	
 	@Test
-	public void obtenirNomProjetTest(){
+	public void obtNomProjetsTest(){
 		List<Projet> projets = new ArrayList<Projet>();
 		
 		int nbProjet = 5;
@@ -90,7 +90,7 @@ public class DepartementTest {
 		
 		departement.setProjets(projets);
 		
-		assertTrue(departement.obtProjets().size() == nbProjet);
+		assertEquals(nbProjet, departement.obtProjets().size());
 	}
 	
 	@Test
@@ -101,7 +101,7 @@ public class DepartementTest {
 
 		departement.ajouterProjet(projet);
 		
-		assertTrue(departement.obtProjets().size() == nbProjet);
+		assertEquals(nbProjet, departement.obtProjets().size());
 	}
 	
 	@Test
@@ -113,12 +113,12 @@ public class DepartementTest {
 		departement.ajouterProjet(projet);
 		departement.enleverProjet(projet);
 		
-		assertTrue(departement.obtProjets().size() == nbProjet);
+		assertEquals(nbProjet, departement.obtProjets().size());
 	}
 	
 	@Test
 	public void obtenirEmployeVideTest(){
-		assertTrue(departement.obtEmployes().size() == 0);
+		assertEquals(0, departement.obtEmployes().size());
 	}
 	
 	@Test
@@ -133,7 +133,7 @@ public class DepartementTest {
 		
 		departement.setEmployes(employes);
 		
-		assertTrue(departement.obtEmployes().size() == nbEmploye);
+		assertEquals(nbEmploye, departement.obtEmployes().size());
 	}
 	
 	@Test
@@ -142,7 +142,7 @@ public class DepartementTest {
 		
 		departement.ajouterEmploye("employes");
 		
-		assertTrue(departement.obtEmployes().size() == nbEmploye);
+		assertEquals(nbEmploye,departement.obtEmployes().size());
 	}
 	
 	@Test
@@ -152,7 +152,7 @@ public class DepartementTest {
 		departement.ajouterEmploye("employes");
 		departement.enleverEmploye("employes");
 		
-		assertTrue(departement.obtEmployes().size() == nbEmploye);
+		assertEquals(nbEmploye, departement.obtEmployes().size());
 	}
 	
 	@Test
