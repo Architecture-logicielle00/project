@@ -74,13 +74,84 @@ public class FeuilleDeTempsTest {
 	@Test(expected=TacheIntrouvableException.class)
 	public void testObtUneTacheIntrouvable() {
 		feuilleDeTemps.obtTempsParTache("Sortir");
-		
 	}
+	
+	@Test
+	public void testContainsTache() {
+		assertTrue(feuilleDeTemps.containsTache("Dormir"));
+	}
+	
+	@Test
+	public void testAddTache() {
+		feuilleDeTemps.addTache("TacheTest");
+		assertTrue(feuilleDeTemps.containsTache("TacheTest"));
+	}
+	
+	@Test
+	public void testAddTacheDejaExistante() {
+		feuilleDeTemps.addTache("TacheTest");
+		feuilleDeTemps.addTache("TacheTest");
+		assertTrue(feuilleDeTemps.containsTache("TacheTest"));
+	}
+	
+	@Test
+	public void testAddTaches() {
+		ArrayList<String> taches = new ArrayList<String>();
+		taches.add("tacheTest1");
+		taches.add("tacheTest2");
+		taches.add("tacheTest3");
+		taches.add("tacheTest4");
+		taches.add("tacheTest5");
+
+		feuilleDeTemps.addTaches(taches);
+		
+		assertTrue(feuilleDeTemps.containsTache("tacheTest1"));
+		assertTrue(feuilleDeTemps.containsTache("tacheTest2"));
+		assertTrue(feuilleDeTemps.containsTache("tacheTest3"));
+		assertTrue(feuilleDeTemps.containsTache("tacheTest4"));
+		assertTrue(feuilleDeTemps.containsTache("tacheTest5"));
+	}
+	
+	@Test
+	public void testSetTaches() {
+		ArrayList<String> tachesEspere = new ArrayList<String>();
+		tachesEspere.add("tacheTest1");
+		tachesEspere.add("tacheTest2");
+		tachesEspere.add("tacheTest3");
+		tachesEspere.add("tacheTest4");
+		tachesEspere.add("tacheTest5");
+
+		feuilleDeTemps.setTaches(tachesEspere);
+		
+		ArrayList<TempsParTache> tachesReel = feuilleDeTemps.obtTaches();
+		
+		assertEquals(tachesEspere.get(0), tachesReel.get(0).obtTache());
+		assertEquals(tachesEspere.get(1), tachesReel.get(1).obtTache());
+		assertEquals(tachesEspere.get(2), tachesReel.get(2).obtTache());
+		assertEquals(tachesEspere.get(3), tachesReel.get(3).obtTache());
+		assertEquals(tachesEspere.get(4), tachesReel.get(4).obtTache());
+	}
+	
+	@Test
+	public void testAddTempsParTache(){
+		TempsParTache tempsParTache = new TempsParTache("tacheTest", 7);
+		
+		feuilleDeTemps.addTempsParTache(tempsParTache);
+		
+		ArrayList<TempsParTache> tempsParTachesListe = feuilleDeTemps.obtTaches();
+		
+		assertEquals(tempsParTachesListe.get(tempsParTachesListe.size() - 1), tempsParTache);
+	}
+	
 	
 	@Test
 	public void testEstCourante() {
 		assertTrue(feuilleDeTemps.estCourante(DateTime.now().toDate()));
-		
+	}
+	
+	@Test
+	public void testNEstPasCourante() {
+		assertFalse(feuilleDeTemps.estCourante(DateTime.now().withYear(1990).toDate()));
 	}
 	
 	@Test
